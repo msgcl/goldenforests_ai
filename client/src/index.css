@@ -390,3 +390,20 @@
   }
 }
 
+
+@keyframes landing-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}
+
+.landing-scroll-cue {
+  animation: landing-scroll-bounce 1.8s ease-in-out infinite;
+}

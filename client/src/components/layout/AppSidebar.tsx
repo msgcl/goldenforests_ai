@@ -1,18 +1,21 @@
-import { 
-  Home, 
-  Building2, 
-  Sprout, 
-  TreePine, 
-  Handshake, 
-  ShieldCheck, 
-  Cpu, 
-  HeartHandshake, 
+import {
+  Home,
+  Building2,
+  Sprout,
+  TreePine,
+  Handshake,
+  ShieldCheck,
+  Cpu,
+  HeartHandshake,
   Users,
   ImageIcon,
   PhoneCall,
   LeafyGreen,
   Apple,
-  Palmtree
+  Palmtree,
+  CircleHelp,
+  Download,
+  Video,
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import {
@@ -29,28 +32,26 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { OptimizedImage } from "@/components/ui/optimized-media";
-import logoImage from "@assets/logo.png";
 
 const navigationGroups = [
   {
     label: "Overview",
     items: [
-      { title: "Home", url: "/", icon: Home },
+      { title: "Home", url: "/home", icon: Home },
       { title: "About", url: "/about", icon: Building2 },
       { title: "Management", url: "/management", icon: Users },
     ],
   },
   {
-    label: "Operations",
+    label: "Tree Ownership",
     items: [
-      { title: "Nursery Operations", url: "/nursery", icon: Sprout },
+      { title: "How Does Tree Ownership Work", url: "/services", icon: Handshake },
       { title: "Plantation Operations", url: "/plantation", icon: TreePine },
-      { title: "Compliance & Regs", url: "/compliance", icon: ShieldCheck },
-      { title: "AI Technology", url: "/technology", icon: Cpu },
+      { title: "Agroforestry Intelligence", url: "/technology", icon: Cpu },
     ],
   },
   {
-    label: "Programs",
+    label: "Tree Investment",
     items: [
       { title: "Agarwood Programme", url: "/agarwood-life-cycle", icon: LeafyGreen },
       { title: "Mango Programme", url: "/mango-program", icon: Apple },
@@ -62,14 +63,17 @@ const navigationGroups = [
     label: "Client & Media",
     items: [
       { title: "Client Services", url: "/services", icon: Handshake },
-      { title: "Contact Us", url: "/contact", icon: PhoneCall },
+      { title: "FAQ", url: "/faq", icon: CircleHelp },
+      { title: "Downloads", url: "/downloads", icon: Download },
+      { title: "Videos", url: "/videos", icon: Video },
       { title: "Photo Gallery", url: "/photo-gallery", icon: ImageIcon },
+      { title: "Contact Us", url: "/contact", icon: PhoneCall },
     ],
   },
   {
-    label: "Sales & Marketing",
+    label: "Plantation Management",
     items: [
-      { title: "Visit Portal", url: "https://www.goldenforests.ai/", icon: Handshake, external: true },
+      { title: "Visit Portal", url: "https://goldenforests.ph", icon: Handshake, external: true },
     ],
   },
 ];
@@ -78,28 +82,25 @@ export function AppSidebar() {
   const [location] = useLocation();
   const { isMobile, setOpenMobile } = useSidebar();
   const isItemActive = (url: string, external?: boolean) =>
-    external ? false : url === "/" ? location === "/" : location.startsWith(url);
+    external ? false : url === "/home" ? location === "/home" : location.startsWith(url);
 
   return (
     <Sidebar variant="inset" className="bg-transparent">
       <SidebarHeader className="border-b border-white/8 p-4">
         <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070]/18 bg-white/5 px-3 py-5 shadow-inner shadow-black/10">
-          <Link href="/" className="inline-flex flex-col items-center justify-center gap-0.5">
+          <Link href="/home" className="inline-flex flex-col items-center justify-center gap-0">
             <OptimizedImage
-              src={logoImage}
-              alt="Golden Forests Agroforestry Intelligence"
+              src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png"
+              alt="Golden Forests Holding"
               priority
-              sizes="56px"
-              className="h-14 w-auto max-w-full object-contain drop-shadow-sm"
+              sizes="96px"
+              className="h-16 w-auto max-w-full object-contain drop-shadow-sm"
             />
-            <span className="mt-1.5 font-outfit text-[15px] leading-tight font-semibold tracking-[0.12em] text-[#C8A070] [text-wrap:balance]">
+            <span className="mt-2 font-outfit text-[14.5px] leading-tight font-semibold tracking-[0.12em] text-[#C8A070] text-center">
               GOLDEN FORESTS
             </span>
-            <span className="mt-1 text-[10px] leading-tight text-[#FBFCF7]/85 [text-wrap:balance]">
-              Crassna Agroforestry Development Inc.
-            </span>
-            <span className="mt-1 text-[8.5px] leading-tight text-[#FBFCF7]/62 uppercase tracking-[0.12em] [text-wrap:balance]">
-              Plantation Management
+            <span className="mt-1 max-w-[198px] text-[9.6px] leading-[1.3] text-[#FBFCF7]/72 text-center [text-wrap:balance]">
+              Golden Forests Investment in Agricultural Enterprises &amp; Management
             </span>
           </Link>
         </div>
@@ -165,3 +166,9 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
+
+
+
+
+
+

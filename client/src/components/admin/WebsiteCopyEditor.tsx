@@ -68,6 +68,7 @@ const pageCatalog: Array<{
   { key: "plantation", label: "Plantation", eyebrow: "Operations", description: "Field deployment, lifecycle, and milestone messaging." },
   { key: "management", label: "Management", eyebrow: "Leadership", description: "Management page intro, helper text, and category labels." },
   { key: "photoGallery", label: "Photo Gallery", eyebrow: "Media Archive", description: "Gallery hero, browsing labels, and archive microcopy." },
+  { key: "faq", label: "FAQ", eyebrow: "Investor Support", description: "Frequently asked questions, section titles, questions, and answers." },
 ];
 
 function formatTimestamp(value: string) {

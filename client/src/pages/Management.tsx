@@ -128,9 +128,7 @@ export default function Management() {
 
       {renderTeamCategory("Executive Management", copy.categoryTitles[0] ?? "Executive Management")}
       {renderTeamCategory("Board of Directors", copy.categoryTitles[1] ?? "Board of Directors")}
-      {renderTeamCategory("Senior Management", copy.categoryTitles[2] ?? "Senior Management")}
-      
-    </AnimatedPage>
+          </AnimatedPage>
   );
 }
 

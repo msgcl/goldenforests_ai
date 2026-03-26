@@ -9,6 +9,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { RealtimeContentSync } from "@/components/RealtimeContentSync";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { AppSidebar } from "@/components/layout/AppSidebar";
+import LandingPortal from "@/pages/LandingPortal";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Nursery from "@/pages/Nursery";
@@ -20,12 +21,14 @@ import Impact from "@/pages/Impact";
 import Management from "@/pages/Management";
 import PhotoGallery from "@/pages/PhotoGallery";
 import Contact from "@/pages/Contact";
+import FAQ from "@/pages/FAQ";
+import Downloads from "@/pages/Downloads";
+import Videos from "@/pages/Videos";
 import AgarwoodLifeCycle from "@/pages/AgarwoodLifeCycle";
 import MangoProgram from "@/pages/MangoProgram";
 import PlantationVisit from "@/pages/PlantationVisit";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
-import logoImage from "@assets/logo.png";
 import { OptimizedImage } from "@/components/ui/optimized-media";
 
 function Router() {
@@ -33,7 +36,8 @@ function Router() {
     <Switch>
       <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin" component={AdminDashboard} />
-      <Route path="/" component={Home} />
+      <Route path="/" component={LandingPortal} />
+      <Route path="/home" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/nursery" component={Nursery} />
       <Route path="/plantation" component={Plantation} />
@@ -48,6 +52,9 @@ function Router() {
       <Route path="/plantation-visit" component={PlantationVisit} />
       <Route path="/ecotourism" component={PlantationVisit} />
       <Route path="/contact" component={Contact} />
+      <Route path="/faq" component={FAQ} />
+      <Route path="/downloads" component={Downloads} />
+      <Route path="/videos" component={Videos} />
       <Route path="/photo-gallery" component={PhotoGallery} />
       <Route component={NotFound} />
     </Switch>
@@ -57,6 +64,7 @@ function Router() {
 function App() {
   const [location] = useLocation();
   const isAdminRoute = location.startsWith("/admin");
+  const isPortalLanding = location === "/";
   const sidebarStyle = {
     "--sidebar-width": "18rem",
     "--sidebar-width-icon": "4rem",
@@ -66,7 +74,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <RealtimeContentSync />
       <TooltipProvider>
-        {isAdminRoute ? (
+        {isAdminRoute || isPortalLanding ? (
           <main className="min-h-dvh bg-background">
             <Router />
           </main>
@@ -85,11 +93,11 @@ function App() {
                       />
                       <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                         <div className="flex h-10 w-10 items-center justify-center">
-                          <OptimizedImage src={logoImage} alt="Golden Forests logo" priority sizes="26px" className="h-6.5 w-6.5 object-contain" />
+                          <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6.5 w-6.5 object-contain" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-accent [text-wrap:balance] sm:text-[0.68rem]">Plantation Management Portal</p>
-                          <p className="text-xs font-medium text-[#17392E] dark:text-foreground [text-wrap:balance] sm:text-sm">Crassna Agroforestry Development Inc.</p>
+                          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-accent [text-wrap:balance] sm:text-[0.68rem]">Tree Investment Site</p>
+                          <p className="text-xs font-medium text-[#17392E] dark:text-foreground [text-wrap:balance] sm:text-sm">Golden Forests Investment in Agricultural Enterprises & Management</p>
                         </div>
                       </div>
                     </div>
@@ -116,3 +124,4 @@ function App() {
 }
 
 export default App;
+

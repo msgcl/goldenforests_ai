@@ -42,7 +42,7 @@ export default function OperationalUpdatesLog() {
     <AnimatedPage>
       {/* Header */}
       <div className="mb-8">
-        <Link href="/">
+        <Link href="/home">
           <Button variant="ghost" size="sm" className="mb-4 gap-2">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
@@ -215,3 +215,4 @@ export default function OperationalUpdatesLog() {
     </AnimatedPage>
   );
 }
+

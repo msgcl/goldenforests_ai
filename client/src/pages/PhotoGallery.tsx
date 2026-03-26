@@ -167,7 +167,7 @@ export default function PhotoGallery() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(200,160,112,0.30),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(73,153,114,0.18),transparent_26%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C8A070] to-transparent opacity-70" />
         <div className="relative z-10">
-          <Link href="/">
+          <Link href="/home">
               <Button variant="ghost" size="sm" className={font("backButtonLabel", "mb-6 rounded-full border border-[#C8A070]/25 bg-white/5 px-4 text-[#C8A070] hover:bg-white/10 hover:text-[#C8A070] sm:mb-8")}>
               ← {copy.backButtonLabel}
             </Button>
@@ -488,3 +488,4 @@ export default function PhotoGallery() {
     </AnimatedPage>
   );
 }
+

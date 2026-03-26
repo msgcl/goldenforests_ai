@@ -503,18 +503,6 @@ async function seedDatabase() {
     });
 
     await storage.createTeamMember({
-      name: "Angie Brion",
-      title: "Financial Controller",
-      category: "Executive Management",
-      experience:
-        "Experienced accountant and financial controller with over 20 years of measurable performance across financial management, tax preparation, audit, and financial modeling, supported by a Bachelor of Science in Accounting.",
-      expertise:
-        "Regulatory and compliance leadership spanning Board of Investments tax incentives, SEC requirements, Bureau of Customs import protocols, and DENR/BPI permitting and reporting for agarwood propagation, planting, and trade.",
-      imageUrl: null,
-      orderIndex: 4,
-    });
-
-    await storage.createTeamMember({
       name: "Marciano Gecolea",
       title: "Agroforestry Director",
       category: "Board of Directors",
@@ -588,11 +576,20 @@ async function seedDatabase() {
   }
 
   const latestMembers = await storage.getTeamMembers();
-  const hasAdeleFrances = latestMembers.some(
+  const angieBrion = latestMembers.find(
+    (member) => member.name.trim().toLowerCase() === "angie brion"
+  );
+
+  if (angieBrion) {
+    await storage.deleteTeamMember(angieBrion.id);
+  }
+
+  const refreshedMembers = angieBrion ? await storage.getTeamMembers() : latestMembers;
+  const hasAdeleFrances = refreshedMembers.some(
     (member) => member.name.trim().toLowerCase() === "adele frances"
   );
 
-  const kylaBrion = latestMembers.find(
+  const kylaBrion = refreshedMembers.find(
     (member) => member.name.trim().toLowerCase() === "kyla brion"
   );
 
