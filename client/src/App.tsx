@@ -9,7 +9,6 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { RealtimeContentSync } from "@/components/RealtimeContentSync";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { AppSidebar } from "@/components/layout/AppSidebar";
-import LandingPortal from "@/pages/LandingPortal";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Nursery from "@/pages/Nursery";
@@ -36,7 +35,7 @@ function Router() {
     <Switch>
       <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin" component={AdminDashboard} />
-      <Route path="/" component={LandingPortal} />
+      <Route path="/" component={Home} />
       <Route path="/home" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/nursery" component={Nursery} />
@@ -64,7 +63,6 @@ function Router() {
 function App() {
   const [location] = useLocation();
   const isAdminRoute = location.startsWith("/admin");
-  const isPortalLanding = location === "/";
   const sidebarStyle = {
     "--sidebar-width": "18rem",
     "--sidebar-width-icon": "4rem",
@@ -74,7 +72,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <RealtimeContentSync />
       <TooltipProvider>
-        {isAdminRoute || isPortalLanding ? (
+        {isAdminRoute ? (
           <main className="min-h-dvh bg-background">
             <Router />
           </main>

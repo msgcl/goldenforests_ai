@@ -72,17 +72,17 @@ export default function About() {
         </Card>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-          <Card className="border-border/60 bg-[linear-gradient(180deg,rgba(13,62,49,0.08),rgba(13,62,49,0))] shadow-sm">
+          <Card className="border-[#d7b38a]/45 bg-[linear-gradient(180deg,rgba(245,227,205,0.92),rgba(232,196,150,0.52))] shadow-sm">
             <CardContent className="p-6">
-              <p className={font("visionTitle", "mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary")}>{copy.visionTitle}</p>
-              <p className={font("visionDescription", "text-sm leading-7 text-muted-foreground")}>{copy.visionDescription}</p>
+              <p className={font("visionTitle", "mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9b6330]")}>{copy.visionTitle}</p>
+              <p className={font("visionDescription", "text-sm leading-7 text-[#5f4330]")}>{copy.visionDescription}</p>
             </CardContent>
           </Card>
 
-          <Card className="border-border/60 bg-[linear-gradient(180deg,rgba(200,160,112,0.12),rgba(200,160,112,0))] shadow-sm">
+          <Card className="border-[#d7b38a]/45 bg-[linear-gradient(180deg,rgba(250,235,214,0.95),rgba(224,178,122,0.58))] shadow-sm">
             <CardContent className="p-6">
-              <p className={font("missionTitle", "mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6744]")}>{copy.missionTitle}</p>
-              <p className={font("missionDescription", "text-sm leading-7 text-muted-foreground")}>{copy.missionDescription}</p>
+              <p className={font("missionTitle", "mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9b6330]")}>{copy.missionTitle}</p>
+              <p className={font("missionDescription", "text-sm leading-7 text-[#5f4330]")}>{copy.missionDescription}</p>
             </CardContent>
           </Card>
         </div>

@@ -74,6 +74,14 @@ export default function Technology() {
               className="block h-[18.9rem] w-full object-cover xl:h-[19.4rem]"
             />
           </div>
+          <div className="overflow-hidden rounded-[1.7rem] shadow-sm">
+            <OptimizedImage
+              src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774604554/golden-forests/agroforestry-intelligence-ai.png"
+              alt="Golden Forests AI dashboard and agroforestry intelligence illustration"
+              sizes="(min-width: 1280px) 40vw, 100vw"
+              className="block h-[18.9rem] w-full object-cover xl:h-[19.4rem]"
+            />
+          </div>
         </div>
       </section>
 

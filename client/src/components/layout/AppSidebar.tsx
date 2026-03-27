@@ -118,35 +118,39 @@ export function AppSidebar() {
                     <SidebarMenuButton
                       asChild
                       isActive={isItemActive(item.url, "external" in item ? item.external : false)}
-                      className="my-0 rounded-xl transition-all data-[active=true]:bg-white/10 data-[active=true]:shadow-sm"
+                      className="my-0 h-auto overflow-visible rounded-xl transition-all data-[active=true]:bg-white/10 data-[active=true]:shadow-sm [&>span:last-child]:whitespace-normal [&>span:last-child]:break-words [&>span:last-child]:text-wrap"
                     >
                       {"external" in item && item.external ? (
                         <a
                           href={item.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center gap-2.5 rounded-xl px-3 py-2.5"
+                          className="flex items-start gap-2.5 rounded-xl px-3 py-2.5"
                           onClick={() => {
                             if (isMobile) {
                               setOpenMobile(false);
                             }
                           }}
                         >
-                          <item.icon className="h-3.5 w-3.5 text-[#C8A070]" />
-                          <span className="text-[13px] font-medium text-[#FBFCF7]/92">{item.title}</span>
+                          <item.icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C8A070]" />
+                          <span className="whitespace-normal break-words text-[13px] leading-5 font-medium text-[#FBFCF7]/92">
+                            {item.title}
+                          </span>
                         </a>
                       ) : (
                         <Link
                           href={item.url}
-                          className="flex items-center gap-2.5 rounded-xl px-3 py-2.5"
+                          className="flex items-start gap-2.5 rounded-xl px-3 py-2.5"
                           onClick={() => {
                             if (isMobile) {
                               setOpenMobile(false);
                             }
                           }}
                         >
-                          <item.icon className="h-3.5 w-3.5 text-[#C8A070]" />
-                          <span className="text-[13px] font-medium text-[#FBFCF7]/92">{item.title}</span>
+                          <item.icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C8A070]" />
+                          <span className="whitespace-normal break-words text-[13px] leading-5 font-medium text-[#FBFCF7]/92">
+                            {item.title}
+                          </span>
                         </Link>
                       )}
                     </SidebarMenuButton>
