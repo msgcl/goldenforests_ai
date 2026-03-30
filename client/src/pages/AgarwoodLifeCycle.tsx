@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
 import { createPageTypography } from "@/lib/siteTypography";
+import { OptimizedImage } from "@/components/ui/optimized-media";
 
 export default function AgarwoodLifeCycle() {
   const { data: siteCopy } = useSiteCopy();
@@ -20,6 +21,16 @@ export default function AgarwoodLifeCycle() {
         pageKey="agarwoodLifeCycle"
         siteCopy={resolvedSiteCopy}
       />
+
+      <section className="mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 shadow-[0_24px_54px_rgba(9,39,34,0.14)]">
+        <OptimizedImage
+          src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774842933/golden-forests/freepik__15-kilos-of-agarwood-chips-neatly-arranged-in-a-ru__84702.jpg"
+          alt="Agarwood chips arranged in a premium product display"
+          priority
+          sizes="100vw"
+          className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[560px]"
+        />
+      </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-8">
         <Card className="border-border/60 hover-elevate">

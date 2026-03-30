@@ -4,7 +4,6 @@ import {
   Sprout,
   TreePine,
   Handshake,
-  ShieldCheck,
   Cpu,
   HeartHandshake,
   Users,
@@ -45,7 +44,7 @@ const navigationGroups = [
   {
     label: "Tree Ownership",
     items: [
-      { title: "How Does Tree Ownership Work", url: "/services", icon: Handshake },
+      { title: "Investment Overview", url: "/investment", icon: Sprout },
       { title: "Plantation Operations", url: "/plantation", icon: TreePine },
       { title: "Agroforestry Intelligence", url: "/technology", icon: Cpu },
     ],
@@ -62,7 +61,6 @@ const navigationGroups = [
   {
     label: "Client & Media",
     items: [
-      { title: "Client Services", url: "/services", icon: Handshake },
       { title: "FAQ", url: "/faq", icon: CircleHelp },
       { title: "Downloads", url: "/downloads", icon: Download },
       { title: "Videos", url: "/videos", icon: Video },
@@ -86,8 +84,8 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="inset" className="bg-transparent">
-      <SidebarHeader className="border-b border-white/8 p-4">
-        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070]/18 bg-white/5 px-3 py-5 shadow-inner shadow-black/10">
+      <SidebarHeader className="border-b border-[#C8A070]/40 p-4">
+        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#3A6420] px-3 py-5 shadow-inner shadow-black/10">
           <Link href="/home" className="inline-flex flex-col items-center justify-center gap-0">
             <OptimizedImage
               src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png"
@@ -99,7 +97,7 @@ export function AppSidebar() {
             <span className="mt-2 font-outfit text-[14.5px] leading-tight font-semibold tracking-[0.12em] text-[#C8A070] text-center">
               GOLDEN FORESTS
             </span>
-            <span className="mt-1 max-w-[198px] text-[9.6px] leading-[1.3] text-[#FBFCF7]/72 text-center [text-wrap:balance]">
+            <span className="mt-1 max-w-[198px] text-[9.6px] leading-[1.3] text-[#FBFCF7]/80 text-center [text-wrap:balance]">
               Golden Forests Investment in Agricultural Enterprises &amp; Management
             </span>
           </Link>
@@ -118,7 +116,7 @@ export function AppSidebar() {
                     <SidebarMenuButton
                       asChild
                       isActive={isItemActive(item.url, "external" in item ? item.external : false)}
-                      className="my-0 h-auto overflow-visible rounded-xl transition-all data-[active=true]:bg-white/10 data-[active=true]:shadow-sm [&>span:last-child]:whitespace-normal [&>span:last-child]:break-words [&>span:last-child]:text-wrap"
+                      className="my-0 h-auto overflow-visible rounded-xl transition-all hover:bg-[#3A6420] data-[active=true]:bg-[#3A6420] data-[active=true]:shadow-sm [&>span:last-child]:whitespace-normal [&>span:last-child]:break-words [&>span:last-child]:text-wrap"
                     >
                       {"external" in item && item.external ? (
                         <a
@@ -133,7 +131,7 @@ export function AppSidebar() {
                           }}
                         >
                           <item.icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C8A070]" />
-                          <span className="whitespace-normal break-words text-[13px] leading-5 font-medium text-[#FBFCF7]/92">
+                          <span className="whitespace-normal break-words text-[13px] leading-5 font-medium text-[#FBFCF7]">
                             {item.title}
                           </span>
                         </a>
@@ -148,7 +146,7 @@ export function AppSidebar() {
                           }}
                         >
                           <item.icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C8A070]" />
-                          <span className="whitespace-normal break-words text-[13px] leading-5 font-medium text-[#FBFCF7]/92">
+                          <span className="whitespace-normal break-words text-[13px] leading-5 font-medium text-[#FBFCF7]">
                             {item.title}
                           </span>
                         </Link>
@@ -161,10 +159,10 @@ export function AppSidebar() {
           </SidebarGroup>
         ))}
       </SidebarContent>
-      <SidebarFooter className="border-t border-white/8 p-3">
-        <div className="rounded-[1.2rem] border border-[#C8A070]/22 bg-[#C8A070]/12 p-3">
+      <SidebarFooter className="border-t border-[#C8A070]/40 p-3">
+        <div className="rounded-[1.2rem] border border-[#C8A070] bg-[#3A6420] p-3">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-[#C8A070]">Status</p>
-          <p className="mt-1 text-xs font-medium text-[#FBFCF7]/92">Regulatory and operational reporting active</p>
+          <p className="mt-1 text-xs font-medium text-[#FBFCF7]">Regulatory and operational reporting active</p>
         </div>
       </SidebarFooter>
     </Sidebar>

@@ -106,6 +106,24 @@ async function fileToOptimizedImageDataUrl(
   });
 }
 
+async function uploadAdminMediaFile(
+  file: File,
+  options: { optimizeImages?: boolean } = {},
+): Promise<string> {
+  const { optimizeImages = true } = options;
+  const dataUrl =
+    optimizeImages && file.type.startsWith("image/")
+      ? await fileToOptimizedImageDataUrl(file)
+      : await fileToDataUrl(file);
+
+  const uploadRes = await apiRequest("POST", "/api/admin/uploads", {
+    fileName: file.name,
+    dataUrl,
+  });
+  const uploadPayload = await uploadRes.json();
+  return String(uploadPayload.url ?? "").trim();
+}
+
 const panelAnim = {
   hidden: { opacity: 0, y: 14 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.24 } },
@@ -194,6 +212,8 @@ export default function AdminDashboard() {
   const [selectedTeamUpload, setSelectedTeamUpload] = useState<File | null>(null);
   const [selectedUpdateUpload, setSelectedUpdateUpload] = useState<File | null>(null);
   const [selectedUpload, setSelectedUpload] = useState<File | null>(null);
+  const teamFileInputRef = useRef<HTMLInputElement | null>(null);
+  const updateFileInputRef = useRef<HTMLInputElement | null>(null);
   const mediaFileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -221,13 +241,7 @@ export default function AdminDashboard() {
     mutationFn: async () => {
       let imageUrl = teamForm.imageUrl;
       if (selectedTeamUpload) {
-        const dataUrl = await fileToOptimizedImageDataUrl(selectedTeamUpload);
-        const uploadRes = await apiRequest("POST", "/api/admin/uploads", {
-          fileName: selectedTeamUpload.name,
-          dataUrl,
-        });
-        const uploadPayload = await uploadRes.json();
-        imageUrl = uploadPayload.url;
+        imageUrl = await uploadAdminMediaFile(selectedTeamUpload, { optimizeImages: true });
       }
       const payload = {
         name: String(teamForm.name ?? "").trim(),
@@ -258,6 +272,7 @@ export default function AdminDashboard() {
         orderIndex: 0,
       });
       setSelectedTeamUpload(null);
+      if (teamFileInputRef.current) teamFileInputRef.current.value = "";
       await queryClient.invalidateQueries({ queryKey: ["/api/team-members"] });
       toast({ title: "Saved", description: "Team member has been updated." });
     },
@@ -271,13 +286,9 @@ export default function AdminDashboard() {
     mutationFn: async () => {
       let imageUrl = updateForm.imageUrl;
       if (selectedUpdateUpload) {
-        const dataUrl = await fileToDataUrl(selectedUpdateUpload);
-        const uploadRes = await apiRequest("POST", "/api/admin/uploads", {
-          fileName: selectedUpdateUpload.name,
-          dataUrl,
+        imageUrl = await uploadAdminMediaFile(selectedUpdateUpload, {
+          optimizeImages: selectedUpdateUpload.type.startsWith("image/"),
         });
-        const uploadPayload = await uploadRes.json();
-        imageUrl = uploadPayload.url;
       }
       const payload = {
         title: updateForm.title,
@@ -299,6 +310,7 @@ export default function AdminDashboard() {
         imageUrl: "",
       });
       setSelectedUpdateUpload(null);
+      if (updateFileInputRef.current) updateFileInputRef.current.value = "";
       await queryClient.invalidateQueries({ queryKey: ["/api/operational-updates"] });
       toast({ title: "Saved", description: "Operational update saved." });
     },
@@ -330,15 +342,9 @@ export default function AdminDashboard() {
       const file = selectedUpload ?? mediaFileInputRef.current?.files?.[0] ?? null;
       let mediaUrl = String(mediaForm.mediaUrl ?? "").trim();
       if (file) {
-        const dataUrl = file.type.startsWith("image/")
-          ? await fileToOptimizedImageDataUrl(file)
-          : await fileToDataUrl(file);
-        const uploadRes = await apiRequest("POST", "/api/admin/uploads", {
-          fileName: file.name,
-          dataUrl,
+        mediaUrl = await uploadAdminMediaFile(file, {
+          optimizeImages: file.type.startsWith("image/"),
         });
-        const uploadPayload = await uploadRes.json();
-        mediaUrl = uploadPayload.url;
       }
 
       const title = String(mediaForm.title ?? "").trim();
@@ -694,7 +700,8 @@ export default function AdminDashboard() {
                     </div>
                     <div className="space-y-1">
                       <Label htmlFor="update-file-upload">Upload Image or Video</Label>
-                      <Input id="update-file-upload" type="file" accept="image/*,video/*" onChange={(e: ChangeEvent<HTMLInputElement>) => setSelectedUpdateUpload(e.target.files?.[0] ?? null)} />
+                      <Input ref={updateFileInputRef} id="update-file-upload" type="file" accept="image/*,video/*" onChange={(e: ChangeEvent<HTMLInputElement>) => setSelectedUpdateUpload(e.target.files?.[0] ?? null)} />
+                      <p className="text-xs text-muted-foreground">Uploaded files are stored in Cloudinary. Pasted URLs are used as provided.</p>
                     </div>
                     <div className="space-y-1">
                       <Label htmlFor="update-description">Description</Label>
@@ -702,7 +709,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="flex gap-2">
                       <Button type="submit" disabled={updateMutation.isPending}>{updateForm.id ? "Update" : "Create"}</Button>
-                      {updateForm.id ? <Button type="button" variant="outline" onClick={() => { setUpdateForm({ id: 0, title: "", description: "", category: "Nursery", date: "", imageUrl: "" }); setSelectedUpdateUpload(null); }}>Cancel</Button> : null}
+                      {updateForm.id ? <Button type="button" variant="outline" onClick={() => { setUpdateForm({ id: 0, title: "", description: "", category: "Nursery", date: "", imageUrl: "" }); setSelectedUpdateUpload(null); if (updateFileInputRef.current) updateFileInputRef.current.value = ""; }}>Cancel</Button> : null}
                     </div>
                   </form>
                 </CardContent>
@@ -771,7 +778,8 @@ export default function AdminDashboard() {
                     </div>
                     <div className="space-y-1">
                       <Label htmlFor="team-image-upload">Upload Image</Label>
-                      <Input id="team-image-upload" type="file" accept="image/*" onChange={(e: ChangeEvent<HTMLInputElement>) => setSelectedTeamUpload(e.target.files?.[0] ?? null)} />
+                      <Input ref={teamFileInputRef} id="team-image-upload" type="file" accept="image/*" onChange={(e: ChangeEvent<HTMLInputElement>) => setSelectedTeamUpload(e.target.files?.[0] ?? null)} />
+                      <p className="text-xs text-muted-foreground">Uploaded files are stored in Cloudinary. Pasted URLs are used as provided.</p>
                     </div>
                     <div className="space-y-1">
                       <Label htmlFor="team-experience">Experience</Label>
@@ -783,7 +791,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="flex gap-2">
                       <Button type="submit" disabled={teamMutation.isPending}>{teamForm.id ? "Update" : "Create"}</Button>
-                      {teamForm.id ? <Button type="button" variant="outline" onClick={() => { setTeamForm({ id: 0, name: "", title: "", category: "Executive Management", experience: "", expertise: "", imageUrl: "", orderIndex: 0 }); setSelectedTeamUpload(null); }}>Cancel</Button> : null}
+                      {teamForm.id ? <Button type="button" variant="outline" onClick={() => { setTeamForm({ id: 0, name: "", title: "", category: "Executive Management", experience: "", expertise: "", imageUrl: "", orderIndex: 0 }); setSelectedTeamUpload(null); if (teamFileInputRef.current) teamFileInputRef.current.value = ""; }}>Cancel</Button> : null}
                     </div>
                   </form>
                 </CardContent>
@@ -798,6 +806,9 @@ export default function AdminDashboard() {
                           <p className="font-semibold text-sm">{item.name}</p>
                           <p className="text-xs text-muted-foreground">{item.title}</p>
                           <Badge className="mt-2" variant="outline">{item.category}</Badge>
+                          <p className="mt-2 text-xs text-muted-foreground">
+                            {item.imageUrl ? "Photo saved" : "No photo saved yet"}
+                          </p>
                         </div>
                         <div className="flex gap-1">
                           <Button

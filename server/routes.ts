@@ -12,6 +12,7 @@ import {
 import { readSiteCopy, writeSiteCopy } from "./siteCopy";
 import { normalizeSiteCopy, siteCopySchema } from "@shared/siteCopy";
 import { env } from "./env";
+import { buildHomeOverviewPdf } from "./homeOverviewPdf";
 
 type RealtimeEventPayload = {
   queryKeys: string[];
@@ -154,6 +155,18 @@ export async function registerRoutes(
   app.get(api.siteCopy.get.path, async (_req, res) => {
     const siteCopy = await readSiteCopy();
     res.json(siteCopy);
+  });
+
+  app.get(api.siteCopy.homeOverviewPdf.path, async (_req, res) => {
+    const siteCopy = await readSiteCopy();
+    const pdfBytes = await buildHomeOverviewPdf(siteCopy);
+
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="golden-forests-home-overview.pdf"',
+    );
+    res.send(Buffer.from(pdfBytes));
   });
 
   app.get(api.admin.me.path, (req, res) => {

@@ -30,6 +30,16 @@ export default function MangoProgram() {
         siteCopy={resolvedSiteCopy}
       />
 
+      <section className="mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 shadow-[0_24px_54px_rgba(9,39,34,0.14)]">
+        <OptimizedImage
+          src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561095/golden-forests/mango-program-2.jpg"
+          alt="Golden Forests Sweet Elena Carabao mango plantation landscape"
+          priority
+          sizes="100vw"
+          className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[560px]"
+        />
+      </section>
+
       <section className="mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#17392E_0%,#1E4A3E_100%)] text-[#FBFCF7] shadow-[0_24px_54px_rgba(9,39,34,0.14)]">
         <div className="p-6 sm:p-8 md:p-10">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#C8A070]">{copy.overviewTitle}</p>
@@ -39,16 +49,6 @@ export default function MangoProgram() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 shadow-[0_24px_54px_rgba(9,39,34,0.14)]">
-        <OptimizedImage
-          src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561095/golden-forests/mango-program-2.jpg"
-          alt="Golden Forests Sweet Elena Carabao mango plantation landscape"
-          priority
-          sizes="100vw"
-          className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[560px]"
-        />
       </section>
 
       <section className="mb-8 grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">

@@ -62,6 +62,7 @@ const pageCatalog: Array<{
   { key: "clientServices", label: "Client Services", eyebrow: "Client Care", description: "Ownership, reporting, and visitation services copy." },
   { key: "mangoProgram", label: "Mango Program", eyebrow: "Program Detail", description: "Mango program overview, benefits, and return snapshot." },
   { key: "agarwoodLifeCycle", label: "Agarwood Life Cycle", eyebrow: "Program Detail", description: "Agarwood lifecycle, insurance, and commercial model copy." },
+  { key: "investment", label: "Investment", eyebrow: "Investor Summary", description: "Investment overview hero, programme summaries, portfolio benefits, and FAQ teaser copy." },
   { key: "ecotourism", label: "Ecotourism", eyebrow: "Travel", description: "Travel program details, routes, and destination copy." },
   { key: "contact", label: "Contact", eyebrow: "Contact Page", description: "Contact labels, office details, and support microcopy." },
   { key: "nursery", label: "Nursery", eyebrow: "Operations", description: "Nursery metrics, propagation text, and technology notes." },
@@ -252,6 +253,18 @@ export function WebsiteCopyEditor({
     });
   };
 
+  const updateArrayItemValue = (path: string, index: number, nextValue: string) => {
+    const pathParts = path.split(".");
+    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentItems = Array.isArray(currentValue) ? [...currentValue] : [];
+    currentItems[index] = nextValue;
+
+    onChange({
+      ...value,
+      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, currentItems),
+    });
+  };
+
   const showEditor = viewMode === "edit" || viewMode === "split";
   const showPreview = viewMode === "preview" || viewMode === "split";
 
@@ -374,7 +387,22 @@ export function WebsiteCopyEditor({
                             {field.label}
                           </Label>
                           <div className="mt-3">
-                            {field.multiline || field.isArray ? (
+                            {field.isArray ? (
+                              <div className="space-y-3">
+                                {(field.value as string[]).map((item, index) => (
+                                  <div key={`${field.path}-${index}`} className="space-y-1">
+                                    <Label className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                                      Item {index + 1}
+                                    </Label>
+                                    <Textarea
+                                      className={cn(editorInputClassName, "min-h-[88px]")}
+                                      value={item}
+                                      onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            ) : field.multiline ? (
                               <Textarea
                                 className={cn(editorInputClassName, "min-h-[120px]")}
                                 value={fieldText}
@@ -438,13 +466,15 @@ export function WebsiteCopyEditor({
 
                 <div className="space-y-3">
                   {fields.map((field) => {
-                    const previewValue = Array.isArray(field.value) ? field.value.join(" • ") : field.value;
+                    const previewValue = Array.isArray(field.value) ? field.value : [field.value];
                     return (
                       <div key={field.path} className="rounded-[1.1rem] border border-[#17392E]/10 bg-white/70 p-4">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8d6d3d]">{field.label}</p>
-                        <p className={previewFont(field.path, "mt-2 text-sm leading-relaxed text-[#17392E]")}>
-                          {previewValue}
-                        </p>
+                        <div className={previewFont(field.path, "mt-2 space-y-2 text-sm leading-relaxed text-[#17392E]")}>
+                          {previewValue.map((item, index) => (
+                            <p key={`${field.path}-preview-${index}`}>{item}</p>
+                          ))}
+                        </div>
                       </div>
                     );
                   })}

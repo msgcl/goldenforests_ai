@@ -10,6 +10,7 @@ import { RealtimeContentSync } from "@/components/RealtimeContentSync";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 import Home from "@/pages/Home";
+import Investment from "@/pages/Investment";
 import About from "@/pages/About";
 import Nursery from "@/pages/Nursery";
 import Plantation from "@/pages/Plantation";
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/admin" component={AdminDashboard} />
       <Route path="/" component={Home} />
       <Route path="/home" component={Home} />
+      <Route path="/investment" component={Investment} />
       <Route path="/about" component={About} />
       <Route path="/nursery" component={Nursery} />
       <Route path="/plantation" component={Plantation} />

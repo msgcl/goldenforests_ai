@@ -61,6 +61,13 @@ export const api = {
         200: siteCopySchema,
       },
     },
+    homeOverviewPdf: {
+      method: 'GET' as const,
+      path: '/api/site-copy/home-overview.pdf' as const,
+      responses: {
+        200: z.any(),
+      },
+    },
   },
   contactMessages: {
     create: {
