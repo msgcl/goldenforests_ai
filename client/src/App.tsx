@@ -12,20 +12,8 @@ import { AppSidebar } from "@/components/layout/AppSidebar";
 import Home from "@/pages/Home";
 import Investment from "@/pages/Investment";
 import About from "@/pages/About";
-import Nursery from "@/pages/Nursery";
 import Plantation from "@/pages/Plantation";
-import ClientServices from "@/pages/ClientServices";
-import Compliance from "@/pages/Compliance";
-import Technology from "@/pages/Technology";
-import Impact from "@/pages/Impact";
-import Management from "@/pages/Management";
-import PhotoGallery from "@/pages/PhotoGallery";
 import Contact from "@/pages/Contact";
-import FAQ from "@/pages/FAQ";
-import Downloads from "@/pages/Downloads";
-import Videos from "@/pages/Videos";
-import AgarwoodLifeCycle from "@/pages/AgarwoodLifeCycle";
-import MangoProgram from "@/pages/MangoProgram";
 import PlantationVisit from "@/pages/PlantationVisit";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
@@ -40,23 +28,9 @@ function Router() {
       <Route path="/home" component={Home} />
       <Route path="/investment" component={Investment} />
       <Route path="/about" component={About} />
-      <Route path="/nursery" component={Nursery} />
       <Route path="/plantation" component={Plantation} />
-      <Route path="/services" component={ClientServices} />
-      <Route path="/location" component={PlantationVisit} />
-      <Route path="/compliance" component={Compliance} />
-      <Route path="/technology" component={Technology} />
-      <Route path="/impact" component={Impact} />
-      <Route path="/management" component={Management} />
-      <Route path="/agarwood-life-cycle" component={AgarwoodLifeCycle} />
-      <Route path="/mango-program" component={MangoProgram} />
       <Route path="/plantation-visit" component={PlantationVisit} />
-      <Route path="/ecotourism" component={PlantationVisit} />
       <Route path="/contact" component={Contact} />
-      <Route path="/faq" component={FAQ} />
-      <Route path="/downloads" component={Downloads} />
-      <Route path="/videos" component={Videos} />
-      <Route path="/photo-gallery" component={PhotoGallery} />
       <Route component={NotFound} />
     </Switch>
   );

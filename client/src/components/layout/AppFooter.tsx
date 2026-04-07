@@ -17,11 +17,11 @@ export function AppFooter() {
           <Link href="/about" className="hover:text-[#17392E] hover:underline dark:hover:text-foreground">
             About
           </Link>
+          <Link href="/investment" className="hover:text-[#17392E] hover:underline dark:hover:text-foreground">
+            Investment
+          </Link>
           <Link href="/contact" className="hover:text-[#17392E] hover:underline dark:hover:text-foreground">
             Contact
-          </Link>
-          <Link href="/photo-gallery" className="hover:text-[#17392E] hover:underline dark:hover:text-foreground">
-            Gallery
           </Link>
           <span className="text-[#1B1B1B]/52 dark:text-muted-foreground/80">© {year} CADI</span>
         </div>

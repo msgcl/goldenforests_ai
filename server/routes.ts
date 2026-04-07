@@ -522,7 +522,7 @@ async function seedDatabase() {
       experience:
         "Licensed forester with over three decades of agroforestry and plantation leadership, including regional responsibility across Southeast Asia for large-scale agarwood projects from land acquisition to processing and value-added production.",
       expertise:
-        "Sustainable agroforestry systems, land suitability and GIS-guided plantation planning, permitting and environmental compliance, and community-based livelihood integration; holds a Master’s in Resource Management from Lincoln University and a BS Forestry from UP Los Banos.",
+        "Sustainable agroforestry systems, land suitability and GIS-guided plantation planning, permitting and environmental compliance, and community-based livelihood integration; holds a Master’s in Resource Management from Lincoln University and a BS Forestry from UP Los Baños.",
       imageUrl: null,
       orderIndex: 5,
     });

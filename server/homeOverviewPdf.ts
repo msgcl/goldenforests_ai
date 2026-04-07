@@ -1,5 +1,3 @@
-import fs from "fs/promises";
-import path from "path";
 import {
   PDFDocument,
   StandardFonts,
@@ -284,9 +282,11 @@ function drawFooter(page: PDFPage, regularFont: PDFFont, pageNumber: number, pag
   });
 }
 
-async function readOptionalAsset(filePath: string) {
+async function readOptionalAsset(assetUrl: string) {
   try {
-    return await fs.readFile(filePath);
+    const response = await fetch(assetUrl);
+    if (!response.ok) return undefined;
+    return new Uint8Array(await response.arrayBuffer());
   } catch {
     return undefined;
   }
@@ -298,9 +298,12 @@ export async function buildHomeOverviewPdf(siteCopy: SiteCopy) {
   const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
   const serifFont = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
 
-  const root = process.cwd();
-  const logoImage = await readOptionalAsset(path.resolve(root, "gallery", "ASSETS", "logo_white.png"));
-  const heroImage = await readOptionalAsset(path.resolve(root, "gallery", "ASSETS", "plantation image.jpeg"));
+  const logoImage = await readOptionalAsset(
+    "https://res.cloudinary.com/dezfh7wug/image/upload/v1775463650/golden-forests/sidebar-logo-20260406.png",
+  );
+  const heroImage = await readOptionalAsset(
+    "https://res.cloudinary.com/dezfh7wug/image/upload/v1774850962/golden-forests/plantation-image-home-20260330.jpg",
+  );
 
   let page = pdfDoc.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
   page.drawRectangle({

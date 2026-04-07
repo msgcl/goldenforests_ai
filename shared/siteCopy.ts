@@ -41,6 +41,8 @@ const siteCopyMetaSchema = z.object({
 
 export const contactPageCopySchema = z.object({
   badge: nonEmptyString,
+  heroTitle: nonEmptyString,
+  heroDescription: nonEmptyString,
   intro: nonEmptyString,
   formTitle: nonEmptyString,
   formDescription: nonEmptyString,
@@ -76,16 +78,36 @@ export const contactPageCopySchema = z.object({
   salesOfficeCompany: nonEmptyString,
   salesOfficeAddress: nonEmptyStringArray,
   managementOfficeAddress: nonEmptyStringArray,
+  resourcesTitle: nonEmptyString,
+  resourceLabels: nonEmptyStringArray,
+  resourceHrefs: nonEmptyStringArray,
 });
 
 export const aboutPageCopySchema = z.object({
   header: pageHeaderSchema,
+  heroTitle: nonEmptyString,
+  heroDescription: nonEmptyString,
   overviewEyebrow: nonEmptyString,
   overviewParagraphs: nonEmptyStringArray,
+  uspSectionTitle: nonEmptyString,
+  uspCardTitles: nonEmptyStringArray,
+  uspCardDescriptions: nonEmptyStringArray,
+  commitmentSectionTitle: nonEmptyString,
+  commitmentColumnTitles: nonEmptyStringArray,
+  commitmentItemTitles: z.array(nonEmptyStringArray).min(1),
+  commitmentItemDescriptions: z.array(nonEmptyStringArray).min(1),
   visionTitle: nonEmptyString,
   visionDescription: nonEmptyString,
   missionTitle: nonEmptyString,
   missionDescription: nonEmptyString,
+  leadershipSectionTitle: nonEmptyString,
+  leadershipNames: nonEmptyStringArray,
+  leadershipTitles: nonEmptyStringArray,
+  leadershipDescriptions: nonEmptyStringArray,
+  boardSectionTitle: nonEmptyString,
+  boardNames: nonEmptyStringArray,
+  boardTitles: nonEmptyStringArray,
+  boardDescriptions: nonEmptyStringArray,
   highlightTitles: nonEmptyStringArray,
   highlightDescriptions: nonEmptyStringArray,
   differentiatorsEyebrow: nonEmptyString,
@@ -236,6 +258,7 @@ export const investmentPageCopySchema = z.object({
 export const ecotourismPageCopySchema = z.object({
   header: pageHeaderSchema,
   introParagraphs: nonEmptyStringArray,
+  ctaLabel: nonEmptyString,
   featuredVideoEyebrow: nonEmptyString,
   featuredVideoTitle: nonEmptyString,
   featuredVideoDescription: nonEmptyString,
@@ -317,13 +340,43 @@ export const nurseryPageCopySchema = z.object({
 
 export const plantationPageCopySchema = z.object({
   header: pageHeaderSchema,
+  heroTitle: nonEmptyString,
+  heroDescription: nonEmptyString,
   overviewEyebrow: nonEmptyString,
   overviewTitle: nonEmptyString,
   overviewDescription: nonEmptyString,
+  overviewParagraphs: nonEmptyStringArray,
   overviewPortalCtaLabel: nonEmptyString,
   overviewPortalCtaHref: nonEmptyString,
   overviewCardTitles: nonEmptyStringArray,
   overviewCardDescriptions: nonEmptyStringArray,
+  intelligenceSectionTitle: nonEmptyString,
+  intelligenceSectionDescription: nonEmptyString,
+  intelligenceTitles: nonEmptyStringArray,
+  intelligenceTaglines: nonEmptyStringArray,
+  intelligenceDescriptions: nonEmptyStringArray,
+  universitySectionTitle: nonEmptyString,
+  universitySectionIntro: nonEmptyString,
+  universitySectionDescription: nonEmptyString,
+  universityPartnerNames: nonEmptyStringArray,
+  universityPartnerDescriptions: nonEmptyStringArray,
+  riskSectionTitle: nonEmptyString,
+  riskSectionDescription: nonEmptyString,
+  riskTitles: nonEmptyStringArray,
+  riskTaglines: nonEmptyStringArray,
+  riskDescriptions: nonEmptyStringArray,
+  environmentalSectionTitle: nonEmptyString,
+  environmentalSectionSubtitle: nonEmptyString,
+  environmentalSectionDescription: nonEmptyString,
+  environmentalSectionTagline: nonEmptyString,
+  environmentalItems: nonEmptyStringArray,
+  transparencySectionTitle: nonEmptyString,
+  transparencySectionDescription: nonEmptyString,
+  transparencyItems: nonEmptyStringArray,
+  transparencyPrimaryCtaLabel: nonEmptyString,
+  transparencyPrimaryCtaHref: nonEmptyString,
+  transparencySecondaryCtaLabel: nonEmptyString,
+  transparencySecondaryCtaHref: nonEmptyString,
   coverageEyebrow: nonEmptyString,
   coverageTitle: nonEmptyString,
   coverageDescription: nonEmptyString,
@@ -467,20 +520,23 @@ export const defaultSiteCopy: SiteCopy = {
     faq: {},
   },
   contact: {
-    badge: "Direct Contact",
-    intro: "Get in touch with Golden Forests for partnership, operations, and client�support.",
-    formTitle: "Contact us",
+    badge: "Get In Touch",
+    heroTitle: "Connect With Our Team",
+    heroDescription: "Discuss direct tree ownership and how we can support your investment objectives.",
+    intro:
+      "Whether you're exploring agroforestry investment for the first time or ready to discuss your portfolio, our team is here to answer your questions and guide you through the investment process.",
+    formTitle: "Enquiry Form",
     formDescription:
-      "Complete the registration request form below and our team will review your details and respond through the appropriate Pipedrive workflow.",
+      "Complete the enquiry form below and our team will respond directly regarding your investment objectives.",
     firstNameLabel: "First name",
     lastNameLabel: "Last name",
     emailLabel: "Email *",
     messageLabel: "Message *",
     submitLabel: "Submit",
     submittingLabel: "Submitting...",
-    detailsTitle: "Contact Details",
-    detailsDescription: "Reach our offices directly through the contact points below.",
-    mobileLabel: "Mobile",
+    detailsTitle: "Golden Forests Agroforestry Intelligence",
+    detailsDescription: "Investment in Agricultural Enterprises & Management FZCO",
+    mobileLabel: "Phone",
     emailInfoLabel: "Email",
     websiteLabel: "Website",
     salesOfficeLabel: "Sales & Marketing Head Office",
@@ -493,24 +549,41 @@ export const defaultSiteCopy: SiteCopy = {
     successDescription: "Your message has been received.",
     errorTitle: "Submission failed",
     errorDescription: "Please try again in a moment.",
-    phoneNumbers: ["+971 (0) 50 974 5232", "+971 (0) 50 944 0661"],
-    emailValue: "office@goldenforests.ai",
-    emailHref: "mailto:office@goldenforests.ai",
+    phoneNumbers: ["+971 50 974 5232"],
+    emailValue: "office@goldenforest.ai",
+    emailHref: "mailto:office@goldenforest.ai",
     websiteValue: "www.goldenforests.ai",
     websiteHref: "https://www.goldenforests.ai/",
-    holdingCompanyLabel: "Golden Forests ADGM Holding Company",
+    holdingCompanyLabel: "Office Address",
     holdingCompanyAddress: [
-      "Golden Forests ADGM Holding SPV LTD",
-      "ADGM, Office 3702, Floor 37, Addax Port Office Tower, Tamouh, Abu Dhabi, Al Reem Island, United Arab Emirates",
+      "IDZA Business Park, DDP 75773-001",
+      "A1-3641379065, Dubai Digital Park",
+      "Dubai Silicon Oasis, Dubai, UAE",
     ],
     salesOfficeTitle: "Sales & Marketing",
-    salesOfficeCompany: "Golden Forests Investment in Agricultural Enterprises & Management",
+    salesOfficeCompany: "Golden Forests Agroforestry Intelligence",
     salesOfficeAddress: [
-      "IDZA Business Park, DDP 75773-001, A1-3641379065, Dubai Digital Park, Dubai Silicon Oasis, Dubai, UAE",
+      "Investment in Agricultural Enterprises & Management FZCO",
+      "IDZA Business Park, DDP 75773-001",
+      "A1-3641379065, Dubai Digital Park",
+      "Dubai Silicon Oasis, Dubai, UAE",
     ],
     managementOfficeAddress: [
       "Crassna Agroforestry Development Inc. (CADI)",
       "Level 24, Philippines Stock Exchange Tower, One Bonafacio Street, 5th Ave Cor. 28th Street, BGC, Taguig City, Philippines",
+    ],
+    resourcesTitle: "Investor Resources",
+    resourceLabels: [
+      "Download Investment Overview",
+      "Download Agarwood Exposé",
+      "Download Mango Exposé",
+      "View Full FAQ Document",
+    ],
+    resourceHrefs: [
+      "/downloads/home-overview.pdf",
+      "/investment",
+      "/investment",
+      "/investment",
     ],
   },
   about: {
@@ -520,18 +593,80 @@ export const defaultSiteCopy: SiteCopy = {
       description:
         "Golden Forests is an alternative investment company offering private and professional investors access to sustainably managed, high-value agroforestry plantations in the Philippines.",
     },
+    heroTitle: "For investors. For the land. For the people.",
+    heroDescription: "Building sustainable value through responsible agroforestry investment.",
     overviewEyebrow: "Growing Wealth. Preserving Nature.",
     overviewParagraphs: [
-      "We specialise in two of the world's most valuable natural commodities: agarwood, cultivated from Aquilaria crassna, and our proprietary Sweet Elena Carabao mango, a university-developed hybrid variety exclusive to Golden Forests.",
-      "Our plantations in Zambales province are supported by an AI-enabled agroforestry intelligence platform that brings together GPS-verified tree locations, drone surveillance, satellite geotagging, and independent annual auditing for institutional-grade transparency.",
-      "Golden Forests combines advanced cultivation science, structured plantation management, and measurable environmental stewardship to create long-term value for investors, communities, and the land.",
+      "Golden Forests is a Philippine agroforestry investment platform specialising in professionally managed agarwood and mango plantations. We combine direct tree ownership with institutional-grade transparency, advanced agricultural science and measurable environmental impact.",
+      "Operating in Zambales province, Philippines, we provide private and professional investors access to premium biological assets through verified ownership structures, AI-enabled plantation management and strategic partnerships with leading agricultural research institutions.",
+      "Our approach integrates financial performance with environmental restoration and community development, creating enduring value for investors whilst supporting ecosystem health and local economic resilience.",
+    ],
+    uspSectionTitle: "Built on science, regulation, and measurable stewardship.",
+    uspCardTitles: [
+      "80+ Years Combined Management Experience",
+      "Exclusive Cultivation Technology",
+      "First-Mover Regulatory Position",
+      "Scientific Partnerships",
+      "AI-Enabled Plantation Intelligence",
+      "1:1 Reforestation Programme",
+    ],
+    uspCardDescriptions: [
+      "Proven leadership across agroforestry, governance, and emerging-market operations.",
+      "Licensed agarwood inoculation formulas and DNA-verified Thai genetics support premium resin quality and commercial readiness.",
+      "Golden Forests holds the first Wildlife Permit issued by the DENR for Aquilaria crassna cultivation in the Philippines.",
+      "Research support from PRMSU, VSU, and UPLB strengthens cultivation protocols, elite variety development, and continuous innovation.",
+      "Proprietary monitoring combines drone surveillance, geotagging, and predictive analytics to optimise biological asset performance.",
+      "For every commercial tree purchased, Golden Forests plants one native Philippine species to extend impact beyond the plantation itself.",
+    ],
+    commitmentSectionTitle: "Our Commitment",
+    commitmentColumnTitles: ["For Investors", "For the Land", "For the People"],
+    commitmentItemTitles: [
+      ["Direct ownership with complete transparency", "Attractive projected returns", "Professional agronomic management", "Protected ownership rights"],
+      ["One-to-one native tree reforestation", "PEFC certification pathways", "Measurable environmental impact", "Sustainable cultivation practices"],
+      ["Local employment and skills development", "Community partnerships", "Knowledge transfer and capacity building", "Safe and ethical working conditions"],
+    ],
+    commitmentItemDescriptions: [
+      [
+        "Your investment represents verified ownership of specific trees on professionally managed plantations. GPS-verified ownership certificates, real-time operational monitoring and quarterly reporting provide institutional-grade transparency throughout cultivation cycles.",
+        "Agarwood offers 18.5% projected annualised returns over 10 years. Mango offers 14-23% projected annualised returns over 25 years. Performance-based fee structures align our interests directly with yours.",
+        "Eighty-plus years combined management experience across plantation agriculture, forestry science and sustainable investment. AI-enabled monitoring, university research partnerships and structured risk management protocols protect your investment.",
+        "Tree ownership remains legally protected even if company operations cease. Ownership can be transferred, included in estates or held as long-term assets with flexible exit options.",
+      ],
+      [
+        "For every commercial tree purchased, we plant one Philippine endemic species in designated restoration areas. Native reforestation supports biodiversity enhancement, habitat restoration and ecosystem resilience across Zambales province.",
+        "We are progressing towards Programme for the Endorsement of Forest Certification, demonstrating commitment to internationally recognised sustainability standards and responsible forest management.",
+        "Biodiversity monitoring, carbon sequestration tracking and habitat restoration metrics provide verifiable evidence of environmental contribution. Your investment actively restores degraded forestland whilst generating financial returns.",
+        "Solar-powered irrigation infrastructure, integrated pest management protocols and precision agriculture techniques minimise environmental footprint whilst optimising biological asset performance.",
+      ],
+      [
+        "Our plantations provide stable employment for local communities in Zambales province. We invest in continuous training, fair wages aligned with UN Global Compact principles, and career progression opportunities for all employees.",
+        "We work collaboratively with local communities, supporting economic development whilst respecting traditional land relationships and cultural practices. Our operations create lasting local benefit beyond direct employment.",
+        "Through partnerships with President Ramon Magsaysay State University, Visayas State University and University of the Philippines Los Baños, we contribute to Philippine agricultural research excellence and knowledge transfer supporting broader industry advancement.",
+        "All staff are employed under Philippine labour laws with comprehensive safety protocols, benefits and ethical treatment standards. We operate with transparency, fairness and respect for all people involved in our operations.",
+      ],
     ],
     visionTitle: "Vision",
     visionDescription:
-      "To lead the future of sustainable agroforestry in Asia through Agroforestry Intelligence, setting the benchmark for premium, high-value crops by uniting artificial intelligence, advanced science, and best-in-class genetics.",
+      "Lead sustainable agroforestry in Asia through Agroforestry Intelligence, combining artificial intelligence, advanced science and elite genetics to create long-term value, resilient ecosystems and thriving communities.",
     missionTitle: "Mission",
     missionDescription:
-      "To position sustainable agroforestry as a compelling alternative investment opportunity, delivering outstanding long-term returns whilst creating meaningful local impact and environmental sustainability.",
+      "Position sustainable agroforestry as a compelling alternative investment, delivering outstanding long-term returns whilst creating local impact and environmental sustainability. Transform Asian tree plantations into internationally recognised, high-value assets through sustainable practices, world-class production and community partnership.",
+    leadershipSectionTitle: "Leadership Team",
+    leadershipNames: ["Charles McKenzie", "Mark LM Quinn", "Cord Kabus-Duprée"],
+    leadershipTitles: ["Chairman of the Board", "President & Chief Executive Officer", "Chief Marketing and Sales Officer"],
+    leadershipDescriptions: [
+      "Executive with over 30 years of leadership in asset management and fixed-income investments across London, Frankfurt and Sydney, including senior roles at Deutsche Morgan Grenfell, Aberdeen Asset Management, JP Morgan Asset Management and Fidelity International. Charlie brings institutional fixed-income strategy, portfolio leadership and corporate governance expertise to Golden Forests. He holds a BSc (Hons) in Economics from the University of Southampton and an MBA (Finance) from Bayes Business School, City, University of London.",
+      "Seasoned international entrepreneur and executive with 25+ years of experience structuring, financing and scaling commercially viable projects across renewable energy, carbon markets, agroforestry and sustainable infrastructure in emerging markets. Mark founded and leads Crassna Agroforestry Development Inc. (Philippines), developing large-scale privately managed agarwood and high-density mango plantations through international IP licensing, long-term financial structuring, capital raising and regulatory approvals. He serves as Member and Advisor to the Philippines British Business Council and brings deep expertise across carbon finance, emissions trading, renewable energy, international trade and technology commercialisation, with project execution experience across Asia, Africa, Europe and the Middle East.",
+      "More than 20 years in financial advisory, family-office engagement and international investor relations, with prior senior roles in European wealth and institutional capital networks and 12 years with Horbach Wirtschaftsberatung GmbH (Swiss Life Group Germany). Cord leads strategic marketing and sales, investor development and international client relations for Golden Forests. He holds a Master's in Business Administration and CFP certification.",
+    ],
+    boardSectionTitle: "Board of Directors",
+    boardNames: ["Marciano Gecolea", "R.A.G Ferdinand Domingo", "Adele Frances"],
+    boardTitles: ["Agroforestry Director", "Agri-Science Director", "Commercial Director"],
+    boardDescriptions: [
+      "Licensed forester with over three decades of agroforestry and plantation leadership, including regional responsibility across Southeast Asia for large-scale agarwood projects from land acquisition to processing and value-added production. Marciano brings sustainable agroforestry systems expertise, land suitability and GIS-guided plantation planning, permitting, environmental compliance and community-based livelihood integration. He holds a Master's in Resource Management from Lincoln University and a BS Forestry from UP Los Baños.",
+      "Associate Professor and Director of PRMSU Mango Research and Development Centre with more than 40 years of experience in mango cultivation, SMART mango production and commercialisation of pre- and post-production mango technologies. Ferdinand leads research and deployment of dwarf mango technology, integrated pest and disease management, with copyrighted studies on mango cecid fly, mango twig borer bio-ecology and productivity enhancement for carabao mango. He holds a Master's in Agricultural Technology Education from Central Luzon State University.",
+      "Executive with expertise in commercial strategy, brand positioning, market development and investor relations across financial services, sustainable investment and alternative assets. Specialising in market entry, go-to-market execution and commercial growth. With over 20 years of leadership across financial services, sustainable and alternative investment and real estate, Adele has built commercial infrastructures for international scale-ups, designed go-to-market frameworks across 10 markets and repositioned brands for growth. Her prior roles include RTP Global, Druce, MFS Investment Management, RBC Wealth Management, Invesco and Brewin Dolphin.",
+    ],
     highlightTitles: [
       "Flagship Crops",
       "Transparency",
@@ -831,42 +966,44 @@ export const defaultSiteCopy: SiteCopy = {
       title: "Premium Agroforestry Investment",
       description: "Direct ownership. Professional management. Attractive returns.",
     },
-    agarwoodEyebrow: "Agarwood Section",
-    agarwoodTitle: "Agarwood: Aquilaria crassna",
+    agarwoodEyebrow: "",
+    agarwoodTitle: "AGARWOOD: Aquilaria crassna",
     agarwoodIntroParagraphs: [
-      "Aquilaria crassna is a tropical tree species that produces agarwood, one of the world's most valuable natural products. When inoculated with specific fungi, the tree creates dense, resinous heartwood prized for its complex fragrance profile.",
-      "Golden Forests cultivates Aquilaria crassna using licensed inoculation technology designed to support superior resin quality and more consistent commercial outcomes.",
+      "One of the world's most valuable natural products. Cultivated exclusively by Golden Forests.",
+      "Aquilaria crassna is a tropical tree species that produces agarwood, prized for its complex fragrance. When inoculated with specific fungi, the tree creates dense, resinous heartwood known as oud, commanding premium prices across global luxury markets for perfumery, incense and traditional medicine.",
+      "Golden Forests cultivates Aquilaria crassna using exclusive licensed inoculation technology, producing superior resin quality and consistent yields.",
     ],
-    agarwoodMarketTitle: "Market Opportunity",
+    agarwoodMarketTitle: "A USD 89 billion market driven by scarcity.",
     agarwoodMarketDescription:
-      "The global agarwood market is positioned for strong long-term demand across Middle Eastern, Asian, and luxury Western markets, while sustainable cultivated supply benefits from regulatory scarcity and premium market positioning.",
-    agarwoodReturnsTitle: "Investment Returns",
+      "Rising demand across Middle Eastern, Asian and luxury Western markets, combined with supply constraints from CITES regulations and depleted wild populations, creates sustained price pressure. Cultivated agarwood from verified sustainable sources commands premium positioning.",
+    agarwoodReturnsTitle: "18.5% projected annualised returns over 10 years.",
     agarwoodReturnsDescription:
-      "Projected 18.5% annualised returns over a 10-year cultivation cycle, with harvest expected in years 9-10 and revenue structured 80% to tree owners and 20% operational management fee.",
+      "Harvest occurs in years 9-10, with revenue split 80% to tree owners and 20% operational management fee. Our performance-based fee structure ensures complete alignment of interests.",
     agarwoodStrengthsTitle: "Competitive Strengths",
     agarwoodStrengths: [
-      "First commercially approved Aquilaria crassna plantation in the Philippines with regulatory advantage",
+      "First company issued a Wildlife Permit by the Philippine Department of Environment and Natural Resources (DENR) to cultivate Aquilaria crassna, delivering a significant first-mover regulatory advantage",
       "Licensed inoculation protocols producing superior resin quality",
       "CITES regulations limit wild harvesting, increasing cultivated oud value",
       "Established demand from luxury fragrance houses, traditional medicine markets and high-net-worth collectors",
     ],
     agarwoodLearnMoreLabel: "Learn More",
-    agarwoodLearnMoreHref: "/agarwood-life-cycle",
-    agarwoodDownloadLabel: "Download Resource",
-    agarwoodDownloadHref: "/downloads",
+    agarwoodLearnMoreHref: "/contact",
+    agarwoodDownloadLabel: "Download Agarwood Exposé",
+    agarwoodDownloadHref: "/contact",
     agarwoodContactLabel: "Contact Our Team",
-    mangoEyebrow: "Mango Section",
-    mangoTitle: "Mango: Sweet Elena Carabao",
+    mangoEyebrow: "",
+    mangoTitle: "MANGO: Sweet Elena Carabao Mango",
     mangoIntroParagraphs: [
-      "Sweet Elena is an exclusive Carabao mango cultivar developed through proprietary dwarfing techniques and selective breeding in collaboration with President Ramon Magsaysay State University.",
-      "Golden Forests holds exclusive cultivation rights to Sweet Elena, a premium export-grade fruit designed for sweetness, shelf life, and year-round production capability.",
+      "A proprietary variety. Exclusive to Golden Forests.",
+      "Sweet Elena is an exclusive Carabao mango cultivar developed through proprietary dwarfing techniques and selective breeding in collaboration with President Ramon Magsaysay State University. This variety produces premium export-grade fruit with exceptional sweetness, extended shelf life and year-round fruiting capability, a significant advantage over standard mango varieties limited to seasonal production.",
+      "Golden Forests holds exclusive cultivation rights to Sweet Elena.",
     ],
-    mangoMarketTitle: "Market Opportunity",
+    mangoMarketTitle: "A USD 50 billion global market. Year-round supply advantage.",
     mangoMarketDescription:
-      "The global mango market exceeds USD 50 billion annually, and year-round production capability positions Sweet Elena to serve premium off-season windows where export pricing is typically stronger.",
-    mangoReturnsTitle: "Investment Returns",
+      "Premium varieties command significant price premiums in international export markets. Year-round production capability positions Sweet Elena to supply high-value markets during off-season periods when competing supply is limited.",
+    mangoReturnsTitle: "14-23% projected annualised returns over 25 years.",
     mangoReturnsDescription:
-      "Projected 14% annualised returns in years 1-15, increasing to 23% annualised in years 16-25 as trees mature. Revenue distributions begin in year 5, with 80% to tree owners and 20% operational management fee.",
+      "Returns of 14% annualised in years 1-15, increasing to 23% annualised in years 16-25 as trees reach full maturity. Revenue distributions begin year 5, with 80% to tree owners and 20% operational management fee. Our performance-based fee structure ensures complete alignment of interests.",
     mangoStrengthsTitle: "Competitive Strengths",
     mangoStrengths: [
       "Proprietary Sweet Elena variety unavailable to competing growers",
@@ -876,14 +1013,14 @@ export const defaultSiteCopy: SiteCopy = {
       "Extended 25-year productive period with increasing yields over time",
     ],
     mangoLearnMoreLabel: "Learn More",
-    mangoLearnMoreHref: "/mango-program",
-    mangoDownloadLabel: "Download Resource",
-    mangoDownloadHref: "/downloads",
+    mangoLearnMoreHref: "/contact",
+    mangoDownloadLabel: "Download Mango Exposé",
+    mangoDownloadHref: "/contact",
     mangoContactLabel: "Contact Our Team",
-    portfolioEyebrow: "Combined Portfolio Benefits",
+    portfolioEyebrow: "",
     portfolioTitle: "Diversification Through Complementary Assets",
     portfolioDescription:
-      "Combining agarwood and mango investments creates timeline diversification, market risk mitigation, and a more balanced return profile across different biological and commercial cycles.",
+      "Two crops. Two timelines. One balanced portfolio. Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns.",
     portfolioBenefits: [
       "Timeline diversification: 10-year agarwood cycle complements 25-year mango lifecycle",
       "Market diversification: luxury goods and agricultural commodities respond to different economic drivers",
@@ -891,39 +1028,41 @@ export const defaultSiteCopy: SiteCopy = {
       "Risk mitigation: dual-crop exposure reduces single-commodity concentration risk",
     ],
     portfolioDownloadLabel: "Download Two-pager",
-    portfolioDownloadHref: "/downloads",
+    portfolioDownloadHref: "/contact",
     portfolioContactLabel: "Speak to Our Team",
     faqTitle: "Frequently Asked Questions",
     faqDescription:
-      "Have more questions? Access the full FAQ document covering ownership, operations, sustainability, regulatory compliance, and investor protections in more depth.",
+      "Have more questions?",
     faqQuestions: [
       "What is the minimum investment?",
       "Who owns the trees I purchase?",
       "What returns can I expect from my investment?",
       "What fees does Golden Forests charge?",
-      "What protects investors from loss events?",
+      "What happens if trees are destroyed or damaged?",
     ],
     faqAnswers: [
-      "The minimum combined portfolio investment is USD 5,887.50 for 15 trees: 10 Aquilaria crassna agarwood trees and 5 Sweet Elena Carabao mango trees. Volume discounts are available.",
-      "Investors retain ownership of the trees they purchase, while Golden Forests manages cultivation, oversight, and harvest execution on their behalf throughout the lifecycle.",
-      "Agarwood is positioned around projected 18.5% annualised returns over 10 years, while mango is structured around projected 14% annualised returns in years 1-15 and 23% annualised returns in years 16-25, subject to harvest, market conditions, and execution.",
-      "The model uses performance-linked harvest management fees: 10% of agarwood harvest proceeds and 20% of mango harvest proceeds, aligning operational incentives with investor outcomes.",
-      "Golden Forests describes harvest guarantee protection, replacement-tree buffer stock, diversified cultivation sites, and AI-enabled monitoring as key mitigation measures across biological and operational risks.",
+      "The minimum combined portfolio investment is USD 5,887.50 for 15 trees: 10 Aquilaria crassna agarwood trees and 5 Sweet Elena Carabao mango trees. Volume discounts available.",
+      "You do. Investors retain ownership of trees purchased, with Golden Forests managing them on your behalf throughout the tree's lifecycle. Ownership remains fully protected even if the company ceases operations. You can transfer ownership or include trees as part of your estate.",
+      "Agarwood offers projected 18.5% annualised returns over 10 years. Mango offers projected 14% annualised returns years 1-15, increasing to 23% annualised years 16-25. Returns depend on harvest yields, market conditions and operational execution.",
+      "We charge harvest management fees only: 10% of agarwood harvest proceeds, 20% of mango harvest proceeds. We earn only when your trees produce. No hidden fees or annual management charges. This ensures our interests are fully aligned with yours.",
+      "All trees are covered under our Harvest Guarantee Insurance, providing a 100% replacement guarantee for losses caused by typhoons, fire, floods, pests, disease or wild animal damage. Each plantation includes a 20% buffer stock of replacement trees, grown to the same age and size as client-owned trees.",
     ],
-    faqDocumentLabel: "View Full FAQ Document",
-    faqDocumentHref: "/downloads",
+    faqDocumentLabel: "Access our complete FAQ document covering ownership, operations, sustainability, regulatory compliance and more.",
+    faqDocumentHref: "/contact",
   },
   ecotourism: {
     header: {
-      badge: "Experience Program",
-      title: "Ecotourism: Experience Your Investment",
+      badge: "Plantation Visit Programme",
+      title: "See your investment first hand",
       description:
-        "Premium client travel experiences linked to plantation oversight in Zambales province and onward island destinations via Clark International Airport.",
+        "A structured two-day plantation visit programme in Zambales province, Philippines",
     },
     introParagraphs: [
-      "Through our exclusive ecotourism program, clients are welcomed to visit their plantation sites and see their assets performing on the ground. Each visit includes a two-night stay at a premium hotel and transportation, supported by dedicated staff to ensure a smooth, well-coordinated experience across the Philippines.",
-      "The program is designed to pair financial oversight with personal travel value. Clients can combine field visibility in Zambales province with convenient onward routes to Cebu, Coron, Boracay, Bohol, El Nido, and Surigao through Clark.",
+      "Golden Forests offers a structured client plantation visit programme, enabling investors to visit operational sites in Southern Zambales, Philippines.",
+      "The Company hosts a two-day site programme including guided plantation tours, operational briefings and discussions with management and technical teams. This initiative supports transparency, operational oversight and informed participation in plantation investments.",
+      "Travel and accommodation arrangements remain the responsibility of the client.",
     ],
+    ctaLabel: "Register Your Interest",
     featuredVideoEyebrow: "Plantation Visit Video",
     featuredVideoTitle: "Experience the Visit Before You Arrive",
     featuredVideoDescription:
@@ -958,42 +1097,24 @@ export const defaultSiteCopy: SiteCopy = {
       "Clark International Airport functions as the practical connector for island circuits.",
       "Clients can structure visits as: Zambales coast + resort + island destination.",
     ],
-    galleryTitle: "Destination Gallery",
+    galleryTitle: "Plantation Visit Gallery",
     featuredDestinationNames: [
       "San Antonio Beaches, Zambales",
       "Sundowners Resort, Botolan",
-      "Clark International Airport (CRK)",
-      "Cebu",
-      "Oslob, Cebu",
-      "Coron",
-      "Boracay",
-      "Bohol",
-      "El Nido",
-      "Surigao / Siargao Gateway",
+      "Plantation Drone & Surveillance View",
+      "Clark International Airport",
     ],
     featuredDestinationDetails: [
-      "Pundaquit, Anawangin, Nagsasa, and Capones",
-      "Signature luxury stop in the Zambales route",
-      "Primary flight gateway to island destinations",
-      "Historical landmarks and beach destinations",
-      "Whale shark watching + snorkelling",
-      "Lagoons, limestone cliffs, and diving routes",
-      "White Beach, clear waters, and sunset shoreline",
-      "Chocolate Hills, Panglao, and eco-attractions",
-      "Palawan gateway for island-hopping lagoons",
-      "Cloud 9 surf routes and Sohoton access",
+      "The local area surrounding the plantation sites in Southern Zambales.",
+      "The nearest quality accommodation option for investors planning an overnight stay.",
+      "A live operational perspective from the plantation environment and monitoring footprint.",
+      "A practical gateway for international investors travelling into the region.",
     ],
     featuredDestinationImages: [
       "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352600/golden-forests/ecotourism-san-antonio-beaches.jpg",
       "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352600/golden-forests/ecotourism-sundowners-resort.jpg",
+      "https://res.cloudinary.com/dezfh7wug/image/upload/v1775462091/golden-forests/plantation-visit-drone-gallery-20260406.png",
       "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352676/golden-forests/ecotourism-clark-airport.jpg",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352804/golden-forests/ecotourism-cebu.jpg",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774413175/golden-forests/ecotourism-oslob-cebu-whale-shark-snorkelling.jpg",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352601/golden-forests/ecotourism-coron.jpg",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352805/golden-forests/ecotourism-boracay.png",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352808/golden-forests/ecotourism-bohol.jpg",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352980/golden-forests/ecotourism-el-nido.jpg",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352602/golden-forests/ecotourism-cloud9-siargao.webp",
     ],
   },
   home: {
@@ -1007,7 +1128,7 @@ export const defaultSiteCopy: SiteCopy = {
     narrativeEyebrow: "Why Golden Forests",
     narrativeParagraphs: [
       "What sets Golden Forests apart is the science and technology behind every plantation. We are the first company to be issued a Wildlife Permit by the Philippine Department of Environment and Natural Resources to cultivate exotic Aquilaria crassna, using exclusively licensed inoculation formulas from Thailand designed specifically for this DNA strain. Our mango programme employs university-developed dwarfing techniques enabling high-density cultivation at more than four times the industry standard, maximising both yield and land efficiency. Every investment is backed by a proprietary AI-enabled agroforestry intelligence platform, delivering institutional-grade transparency through GPS-verified tree locations, drone surveillance, satellite geotagging and independent annual auditing.",
-      "For every tree purchased, we plant one native endemic Philippine species, working closely with local communities to ensure that the prosperity generated by our plantations is shared by investors, people and the land. Golden Forests maintains collaborative research relationships with President Ramon Magsaysay State University, Visayas State University and the University of the Philippines Los Banos, supporting continuous innovation in sustainable agroforestry.",
+      "For every tree purchased, we plant one native endemic Philippine species, working closely with local communities to ensure that the prosperity generated by our plantations is shared by investors, people and the land. Golden Forests maintains collaborative research relationships with President Ramon Magsaysay State University, Visayas State University and the University of the Philippines Los Baños, supporting continuous innovation in sustainable agroforestry.",
       "Our mission is to deliver exceptional returns through sustainable plantation investment, creating lasting value for investors, communities, and the environment.",
     ],
     pillarTitles: [
@@ -1035,22 +1156,22 @@ export const defaultSiteCopy: SiteCopy = {
       "PRMSU, VSU, and UPLB support continuous refinement of cultivation, productivity, and sustainable agroforestry innovation.",
     ],
     investmentSectionEyebrow: "Dual Investment Opportunities",
-    investmentSectionTitle: "Two distinct agroforestry investment pathways, structured for different return horizons.",
+    investmentSectionTitle: "Two distinct investment pathways, structured for different return horizons.",
     investmentOpportunityTitles: ["Agarwood", "Mango"],
     investmentOpportunityDescriptions: [
       "Premium Aquilaria crassna cultivated with exclusive licensed inoculation technology. Projected 18.5% annualised returns over 10 years, delivering resinous heartwood for the global oud market.",
       "Sweet Elena Carabao mango with proprietary dwarfing techniques enabling year-round fruiting. Projected 14-23% annualised returns over 25 years, supplying premium export-grade fruit to international markets.",
     ],
     investmentOpportunityLearnMoreLabels: ["Learn More", "Learn More"],
-    investmentOpportunityLearnMoreHrefs: ["/agarwood-life-cycle", "/mango-program"],
-    investmentOpportunityDownloadLabels: ["Download Agarwood Expose", "Download Mango Expose"],
-    investmentOpportunityDownloadHrefs: ["/downloads", "/downloads"],
+    investmentOpportunityLearnMoreHrefs: ["/investment", "/investment"],
+    investmentOpportunityDownloadLabels: ["Download Agarwood Exposé", "Download Mango Exposé"],
+    investmentOpportunityDownloadHrefs: ["/investment", "/investment"],
     credibilityEyebrow: "Credibility Markers",
     credibilityTitle: "Strategic research partnerships with leading Philippine agricultural universities.",
     credibilityPartnerNames: [
       "President Ramon Magsaysay State University",
       "Visayas State University",
-      "University of the Philippines Los Banos",
+      "University of the Philippines Los Baños",
     ],
     credibilityPartnerDescriptions: [
       "Mango research and dwarf variety development",
@@ -1065,7 +1186,7 @@ export const defaultSiteCopy: SiteCopy = {
     credibilityPartnerLogoAlts: [
       "President Ramon Magsaysay State University logo",
       "Visayas State University logo",
-      "University of the Philippines Los Banos logo",
+      "University of the Philippines Los Baños logo",
     ],
     missionEyebrow: "Closing CTA",
     missionStatement: "Your trees. Your returns. Your environmental legacy.",
@@ -1132,17 +1253,80 @@ export const defaultSiteCopy: SiteCopy = {
   },
   plantation: {
     header: {
-      badge: "Field Execution",
-      title: "Plantation Operations – Zambales",
+      badge: "Operations",
+      title: "Professionally Managed Philippine Plantations",
       description:
-        "Operational rollout for Aquilaria crassna agarwood and Sweet Elena Carabao mango in Zambales province, including July 2026 deployment and 2026 scale targets of 35,000 agarwood trees and 15,000 mango trees.",
+        "AI-enabled intelligence. Scientific partnerships. Transparent operations.",
     },
-    overviewEyebrow: "Plantation Operations Overview",
-    overviewTitle: "A concise view of how Golden Forests structures field execution and plantation management.",
+    heroTitle: "Professionally Managed Philippine Plantations",
+    heroDescription: "AI-enabled intelligence. Scientific partnerships. Transparent operations.",
+    overviewEyebrow: "Zambales Operations",
+    overviewTitle: "Zambales Operations",
     overviewDescription:
-      "This page now serves as a light operational overview. For the full plantation portal, live operational access, and additional field context, continue to the main Golden Forests site.",
-    overviewPortalCtaLabel: "Go To goldenforests.ph",
+      "Professionally managed plantations in one of the Philippines' most agriculturally productive provinces.",
+    overviewParagraphs: [
+      "Professionally managed plantations in one of the Philippines' most agriculturally productive provinces.",
+      "Golden Forests operates agarwood and mango plantations in Zambales province, combining advanced agricultural science with AI-enabled monitoring systems to optimise tree health, growth conditions and harvest outcomes.",
+      "Every plantation is secured with 24-hour on-site security, solar-powered irrigation infrastructure and structured maintenance protocols ensuring consistent care throughout cultivation cycles.",
+    ],
+    overviewPortalCtaLabel: "Explore Our Plantation Operations",
     overviewPortalCtaHref: "https://goldenforests.ph",
+    intelligenceSectionTitle: "Agroforestry Intelligence",
+    intelligenceSectionDescription: "Golden Forests applies Agroforestry Intelligence as an operating discipline, not just a technology layer.",
+    intelligenceTitles: ["Real-time Monitoring", "Predictive Analytics", "Precision Agriculture"],
+    intelligenceTaglines: ["Every tree, every condition, every day.", "Data that drives decisions.", "Science applied at plantation level."],
+    intelligenceDescriptions: [
+      "Soil moisture, nutrients and pH levels tracked continuously alongside climate analysis and early pest detection through aerial canopy surveillance.",
+      "Growth tracking, yield forecasting and harvest timing optimisation ensure resources are deployed at exactly the right moment.",
+      "Smart irrigation, drone-supported health mapping and targeted fertilisation protocols maximise biological asset performance across every site.",
+    ],
+    universitySectionTitle: "University Partnerships",
+    universitySectionIntro: "Science at the root of everything we do.",
+    universitySectionDescription:
+      "Golden Forests maintains collaborative research relationships with leading Philippine agricultural institutions, supporting advanced cultivation research, elite variety development and sustainable agroforestry innovation.",
+    universityPartnerNames: [
+      "President Ramon Magsaysay State University (PRMSU)",
+      "Visayas State University (VSU)",
+      "University of the Philippines Los Baños (UPLB)",
+    ],
+    universityPartnerDescriptions: [
+      "Sweet Elena Carabao mango cultivar development, dwarfing techniques and induced flowering protocols",
+      "Soil science research, integrated pest management and environmental sustainability",
+      "Elite variety propagation, post-harvest technologies and certification pathways",
+    ],
+    riskSectionTitle: "Risk Management",
+    riskSectionDescription: "Your investment is protected at every stage of the cultivation cycle.",
+    riskTitles: ["Harvest Guarantee Insurance", "Replacement Tree Buffer", "Diversified Cultivation Sites", "Professional Agronomic Management"],
+    riskTaglines: ["Complete peace of mind.", "Always prepared.", "Strength in spread.", "Rigorous by design."],
+    riskDescriptions: [
+      "Comprehensive coverage against typhoons, fire, flooding, pest outbreaks, disease and wild animal damage, with a 100% replacement guarantee on every tree.",
+      "A 20% buffer stock of company-owned trees maintained at equivalent age and size ensures immediate replacement if required, with no interruption to your investment cycle.",
+      "Multiple plantation locations across Zambales reduce concentration risk from localised weather events or operational challenges.",
+      "Quarterly plantation inspections, structured maintenance protocols and continuous monitoring throughout every cultivation cycle.",
+    ],
+    environmentalSectionTitle: "Environmental Commitment",
+    environmentalSectionSubtitle: "One-to-One Native Reforestation",
+    environmentalSectionDescription:
+      "For every commercial tree purchased, Golden Forests plants one Philippine endemic species in designated restoration areas. Native species include Narra, Agoho, Mangono, Molave, Talisay and Belite, supporting ecosystem restoration and biodiversity enhancement in Zambales province.",
+    environmentalSectionTagline: "Sustainability Pathways: measurable commitments, not aspirations.",
+    environmentalItems: [
+      "PEFC certification progress",
+      "Biodiversity monitoring and habitat restoration",
+      "Carbon sequestration tracking and verification",
+      "Sustainable resource management aligned with UN Global Compact principles",
+    ],
+    transparencySectionTitle: "Client Transparency",
+    transparencySectionDescription: "Complete visibility throughout your investment lifecycle.",
+    transparencyItems: [
+      "GPS-verified tree location coordinates",
+      "Access to client operations portal with real-time monitoring",
+      "Quarterly operational updates and plantation reports",
+      "Structured client plantation visit programme (two-day hosted site visits in Zambales)",
+    ],
+    transparencyPrimaryCtaLabel: "Explore Our Plantation Operations",
+    transparencyPrimaryCtaHref: "https://goldenforests.ph",
+    transparencySecondaryCtaLabel: "Contact Our Team",
+    transparencySecondaryCtaHref: "/contact",
     overviewCardTitles: ["Site Preparation", "Crop Programs", "Managed Oversight"],
     overviewCardDescriptions: [
       "Plantation operations are structured around staged land preparation, irrigation readiness, planting density control, and field execution planning across Zambales province.",
@@ -1356,28 +1540,6 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
 
   const normalizedContact = { ...defaultSiteCopy.contact, ...(data.contact ?? {}) };
 
-  if (!normalizedContact.holdingCompanyAddress.some((line) => line.includes("Golden Forests ADGM Holding SPV LTD"))) {
-    normalizedContact.holdingCompanyAddress = [
-      "Golden Forests ADGM Holding SPV LTD",
-      ...normalizedContact.holdingCompanyAddress,
-    ];
-  }
-
-  if (
-    normalizedContact.salesOfficeCompany !==
-    "Golden Forests Investment in Agricultural Enterprises & Management"
-  ) {
-    normalizedContact.salesOfficeCompany =
-      "Golden Forests Investment in Agricultural Enterprises & Management";
-  }
-
-  if (!normalizedContact.managementOfficeAddress.some((line) => line.includes("Crassna Agroforestry Development Inc. (CADI)"))) {
-    normalizedContact.managementOfficeAddress = [
-      "Crassna Agroforestry Development Inc. (CADI)",
-      ...normalizedContact.managementOfficeAddress,
-    ];
-  }
-
   const normalizedAbout = {
     ...defaultSiteCopy.about,
     ...(data.about ?? {}),
@@ -1410,18 +1572,26 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     (image, index) => ecotourismImageMap.get(image) ?? image ?? defaultSiteCopy.ecotourism.featuredDestinationImages[index],
   );
 
-  const oslobName = "Oslob, Cebu";
-  const oslobDetail = "Whale shark watching + snorkelling";
-  const oslobImage = "https://res.cloudinary.com/dz49fckfu/image/upload/v1774413175/golden-forests/ecotourism-oslob-cebu-whale-shark-snorkelling.jpg";
-  if (!normalizedEcotourism.featuredDestinationNames.includes(oslobName)) {
-    const insertAt = Math.min(Math.max(normalizedEcotourism.featuredDestinationNames.indexOf("Cebu") + 1, 0), normalizedEcotourism.featuredDestinationNames.length);
-    normalizedEcotourism.featuredDestinationNames = [...normalizedEcotourism.featuredDestinationNames];
-    normalizedEcotourism.featuredDestinationDetails = [...normalizedEcotourism.featuredDestinationDetails];
-    normalizedEcotourism.featuredDestinationImages = [...normalizedEcotourism.featuredDestinationImages];
-    normalizedEcotourism.featuredDestinationNames.splice(insertAt, 0, oslobName);
-    normalizedEcotourism.featuredDestinationDetails.splice(insertAt, 0, oslobDetail);
-    normalizedEcotourism.featuredDestinationImages.splice(insertAt, 0, oslobImage);
+  const canonicalPlantationVisitNames = defaultSiteCopy.ecotourism.featuredDestinationNames;
+  const usesLegacyPlantationVisitGallery =
+    normalizedEcotourism.featuredDestinationNames.includes("Oslob, Cebu") ||
+    normalizedEcotourism.featuredDestinationNames.length !== canonicalPlantationVisitNames.length ||
+    canonicalPlantationVisitNames.some((name, index) => normalizedEcotourism.featuredDestinationNames[index] !== name);
+
+  if (usesLegacyPlantationVisitGallery) {
+    normalizedEcotourism.featuredDestinationNames = [...defaultSiteCopy.ecotourism.featuredDestinationNames];
+    normalizedEcotourism.featuredDestinationDetails = [...defaultSiteCopy.ecotourism.featuredDestinationDetails];
+    normalizedEcotourism.featuredDestinationImages = [...defaultSiteCopy.ecotourism.featuredDestinationImages];
   }
+
+  const normalizedInvestment = {
+    ...defaultSiteCopy.investment,
+    ...(data.investment ?? {}),
+    header: { ...defaultSiteCopy.investment.header, ...(data.investment?.header ?? {}) },
+  };
+
+  normalizedInvestment.agarwoodDownloadLabel = "Download Agarwood Exposé";
+  normalizedInvestment.mangoDownloadLabel = "Download Mango Exposé";
 
   return siteCopySchema.parse({
     ...defaultSiteCopy,
@@ -1468,11 +1638,7 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
         ...(data.agarwoodLifeCycle?.header ?? {}),
       },
     },
-    investment: {
-      ...defaultSiteCopy.investment,
-      ...(data.investment ?? {}),
-      header: { ...defaultSiteCopy.investment.header, ...(data.investment?.header ?? {}) },
-    },
+    investment: normalizedInvestment,
     ecotourism: {
       ...defaultSiteCopy.ecotourism,
       ...normalizedEcotourism,
