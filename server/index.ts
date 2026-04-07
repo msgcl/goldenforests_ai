@@ -42,25 +42,22 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-app.use(
-  session({
-    store: new PgSession({
-      pool,
-      createTableIfMissing: true,
-    }),
-    secret: env.sessionSecret,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: env.isProduction,
-      maxAge: 1000 * 60 * 60 * 12,
-    },
-  }),
-);
-
 app.use("/uploads", express.static(uploadsDir));
+
+async function ensureSessionTable() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS "session" (
+      "sid" varchar NOT NULL PRIMARY KEY,
+      "sess" json NOT NULL,
+      "expire" timestamp(6) NOT NULL
+    )
+  `);
+
+  await pool.query(`
+    CREATE INDEX IF NOT EXISTS "IDX_session_expire"
+    ON "session" ("expire")
+  `);
+}
 
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
@@ -100,6 +97,25 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  await ensureSessionTable();
+
+  app.use(
+    session({
+      store: new PgSession({
+        pool,
+      }),
+      secret: env.sessionSecret,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: env.isProduction,
+        maxAge: 1000 * 60 * 60 * 12,
+      },
+    }),
+  );
+
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
