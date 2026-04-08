@@ -66,12 +66,13 @@ function App() {
                         className="h-10 w-10 rounded-full border border-accent/25 bg-card text-[#17392E] shadow-sm dark:text-foreground"
                       />
                       <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center">
+                      <div className="flex h-10 w-10 items-center justify-center">
                           <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6.5 w-6.5 object-contain" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-accent [text-wrap:balance] sm:text-[0.68rem]">Tree Investment Site</p>
-                          <p className="text-xs font-medium text-[#17392E] dark:text-foreground [text-wrap:balance] sm:text-sm">Golden Forests Investment in Agricultural Enterprises & Management</p>
+                          <p className="font-serif text-[0.9rem] leading-tight text-accent sm:text-[1rem]">
+                            Golden Forests Agroforestry Intelligence
+                          </p>
                         </div>
                       </div>
                     </div>
