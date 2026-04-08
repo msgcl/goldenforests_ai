@@ -129,13 +129,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-10 space-y-4">
+      <section className="mt-10 grid gap-4 xl:grid-cols-3">
         {valuePillars.map(({ title, intro }, index) => {
           const Icon = pillarIcons[index] ?? Leaf;
           return (
-          <Card key={title} className="border-border/70 shadow-sm">
-            <CardContent className="p-6 md:p-7">
-              <div className="flex flex-col gap-5 md:flex-row md:items-start">
+          <Card key={title} className="h-full border-border/70 shadow-sm">
+            <CardContent className="flex h-full p-6 md:p-7">
+              <div className="flex flex-col gap-5">
                 <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>
