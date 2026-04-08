@@ -131,7 +131,9 @@ export default function Plantation() {
           <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.universitySectionTitle}
           </h2>
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.universitySectionIntro}</p>
+          <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+            {copy.universitySectionIntro}
+          </p>
           <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.universitySectionDescription}</p>
         </div>
 
