@@ -169,9 +169,11 @@ export default function Home() {
                       className="h-full w-full object-contain"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-[1rem] font-semibold leading-snug text-[#2D5016]">{name}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#2D5016]/84">{description}</p>
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <div className="flex min-h-14 items-center">
+                      <h3 className="text-[1rem] font-semibold leading-snug text-[#2D5016]">{name}</h3>
+                    </div>
+                    <p className="mt-4 text-sm leading-7 text-[#2D5016]/84">{description}</p>
                   </div>
                 </div>
               </CardContent>
