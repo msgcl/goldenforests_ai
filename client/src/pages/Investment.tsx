@@ -74,17 +74,17 @@ function InvestmentProgrammeCard({
         </div>
 
         <div className="mt-6 grid gap-4 xl:grid-cols-2">
-          <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/72 p-5">
+          <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{marketTitle}</p>
             <p className="mt-3 text-sm leading-7 text-foreground/80">{market}</p>
           </div>
-          <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/72 p-5">
+          <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{returnsTitle}</p>
             <p className="mt-3 text-sm leading-7 text-foreground/80">{returns}</p>
           </div>
         </div>
 
-        <div className="mt-6 rounded-[1.5rem] border border-[#C8A070]/30 bg-[#F4E4C1] p-5">
+        <div className="mt-6 rounded-[1.5rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
           <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <ShieldCheck className="h-5 w-5" />
           </div>
