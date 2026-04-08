@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Download, Leaf, PieChart, ShieldCheck, Sprout, Trees } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-media";
@@ -128,6 +129,18 @@ export default function Investment() {
     answer: copy.faqAnswers[index] ?? "",
   }));
 
+  useEffect(() => {
+    if (!window.location.hash) return;
+
+    const targetId = window.location.hash.slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    window.requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, []);
+
   return (
     <AnimatedPage>
       <PageHeader
@@ -147,7 +160,7 @@ export default function Investment() {
         />
       </section>
 
-      <section className="mb-8">
+      <section id="agarwood" className="mb-8 scroll-mt-24">
         <InvestmentProgrammeCard
           title={copy.agarwoodTitle}
           intro={copy.agarwoodIntroParagraphs}
@@ -166,7 +179,7 @@ export default function Investment() {
         />
       </section>
 
-      <section className="mb-8">
+      <section id="mango" className="mb-8 scroll-mt-24">
         <InvestmentProgrammeCard
           title={copy.mangoTitle}
           intro={copy.mangoIntroParagraphs}

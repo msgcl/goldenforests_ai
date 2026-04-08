@@ -1163,7 +1163,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Sweet Elena Carabao mango with proprietary dwarfing techniques enabling year-round fruiting. Projected 14-23% annualised returns over 25 years, supplying premium export-grade fruit to international markets.",
     ],
     investmentOpportunityLearnMoreLabels: ["Learn More", "Learn More"],
-    investmentOpportunityLearnMoreHrefs: ["/investment", "/investment"],
+    investmentOpportunityLearnMoreHrefs: ["/investment#agarwood", "/investment#mango"],
     investmentOpportunityDownloadLabels: ["Download Agarwood Exposé", "Download Mango Exposé"],
     investmentOpportunityDownloadHrefs: ["/investment", "/investment"],
     credibilityEyebrow: "Credibility Markers",
@@ -1593,6 +1593,24 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   normalizedInvestment.agarwoodDownloadLabel = "Download Agarwood Exposé";
   normalizedInvestment.mangoDownloadLabel = "Download Mango Exposé";
 
+  const legacyHomeInvestmentHrefMap = new Map<string, string>([
+    ["/agarwood-life-cycle", "/investment#agarwood"],
+    ["/mango-program", "/investment#mango"],
+    ["/investment", "/investment"],
+  ]);
+
+  const normalizedHome = {
+    ...defaultSiteCopy.home,
+    ...(data.home ?? {}),
+  };
+
+  normalizedHome.investmentOpportunityLearnMoreHrefs = (
+    normalizedHome.investmentOpportunityLearnMoreHrefs ?? defaultSiteCopy.home.investmentOpportunityLearnMoreHrefs
+  ).map((href, index) => {
+    const fallbackHref = index === 0 ? "/investment#agarwood" : index === 1 ? "/investment#mango" : "/investment";
+    return legacyHomeInvestmentHrefMap.get(href) ?? href ?? fallbackHref;
+  });
+
   return siteCopySchema.parse({
     ...defaultSiteCopy,
     ...data,
@@ -1644,7 +1662,7 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
       ...normalizedEcotourism,
       header: { ...defaultSiteCopy.ecotourism.header, ...(data.ecotourism?.header ?? {}) },
     },
-    home: { ...defaultSiteCopy.home, ...(data.home ?? {}) },
+    home: normalizedHome,
     nursery: {
       ...defaultSiteCopy.nursery,
       ...(data.nursery ?? {}),

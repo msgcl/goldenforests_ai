@@ -88,26 +88,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-10 space-y-4">
-        {valuePillars.map(({ title, intro }, index) => {
-          const Icon = pillarIcons[index] ?? Leaf;
-          return (
-          <Card key={title} className="border-border/70 shadow-sm">
-            <CardContent className="p-6 md:p-7">
-              <div className="flex flex-col gap-5 md:flex-row md:items-start">
-                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h2 className={font("pillarTitles", "text-xl font-semibold text-foreground sm:text-[1.35rem]")}>{title}</h2>
-                  <p className={font("pillarDescriptions", "mt-4 text-[0.98rem] leading-8 text-muted-foreground")}>{intro}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )})}
-      </section>
-
       <section id="investment-pathways" className="mt-10 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
         <div className="mb-6 max-w-3xl">
           <h2 className="font-serif text-[1.65rem] leading-tight text-[#2D5016] sm:text-[2rem]">
@@ -131,10 +111,10 @@ export default function Home() {
                 </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Button asChild className="rounded-xl bg-[#2D5016] px-5 text-[#FBFCF7] hover:bg-[#3b6820]">
-                    <Link href={learnMoreHref} className="inline-flex items-center gap-2">
+                    <a href={learnMoreHref} className="inline-flex items-center gap-2">
                       {learnMoreLabel}
                       <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    </a>
                   </Button>
                   <Button asChild variant="outline" className="rounded-xl border-[#2D5016]/30 bg-transparent px-5 text-[#2D5016] hover:bg-[#FBFCF7]">
                     <a href={downloadHref} download className="inline-flex items-center gap-2">
@@ -147,6 +127,26 @@ export default function Home() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <section className="mt-10 space-y-4">
+        {valuePillars.map(({ title, intro }, index) => {
+          const Icon = pillarIcons[index] ?? Leaf;
+          return (
+          <Card key={title} className="border-border/70 shadow-sm">
+            <CardContent className="p-6 md:p-7">
+              <div className="flex flex-col gap-5 md:flex-row md:items-start">
+                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h2 className={font("pillarTitles", "text-xl font-semibold text-foreground sm:text-[1.35rem]")}>{title}</h2>
+                  <p className={font("pillarDescriptions", "mt-4 text-[0.98rem] leading-8 text-muted-foreground")}>{intro}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )})}
       </section>
 
       <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F4E4C1] p-6 shadow-sm sm:p-8">
