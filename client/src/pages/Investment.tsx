@@ -100,17 +100,17 @@ function InvestmentProgrammeCard({
         </div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
-            <Link href={learnMoreHref} className="inline-flex items-center gap-2">
-              {contactLabel}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
           <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-transparent px-5 text-primary hover:bg-background">
             <a href={downloadHref} download className="inline-flex items-center gap-2">
               <Download className="h-4 w-4" />
               {downloadLabel}
             </a>
+          </Button>
+          <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
+            <Link href={learnMoreHref} className="inline-flex items-center gap-2">
+              {contactLabel}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </CardContent>
