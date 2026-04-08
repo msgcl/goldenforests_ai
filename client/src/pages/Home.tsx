@@ -74,17 +74,14 @@ export default function Home() {
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button
-                type="button"
+                asChild
                 size="lg"
                 className="rounded-xl bg-[#2D5016] px-7 text-[#FBFCF7] hover:bg-[#3b6820]"
-                onClick={() => {
-                  document.getElementById("investment-pathways")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}
               >
-                <span className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
+                <Link href="/investment" className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
                   {copy.primaryCtaLabel}
                   <ArrowRight className="h-4 w-4" />
-                </span>
+                </Link>
               </Button>
             </div>
           </div>
