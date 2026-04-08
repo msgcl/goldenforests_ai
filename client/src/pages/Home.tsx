@@ -64,10 +64,7 @@ export default function Home() {
         />
         <div className="px-6 py-10 sm:px-8 md:px-10 lg:px-12 lg:py-12">
           <div className="max-w-5xl">
-            <span className={font("heroBadge", "inline-flex rounded-full border border-[#6B8E23]/28 bg-[#FBFCF7]/45 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]")}>
-              {copy.heroBadge}
-            </span>
-            <h1 className={font("heroTitle", "mt-5 max-w-none whitespace-nowrap font-serif text-[clamp(1.2rem,2.25vw,2.55rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016]")}>
+            <h1 className={font("heroTitle", "max-w-none whitespace-nowrap font-serif text-[clamp(1.2rem,2.25vw,2.55rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016]")}>
               {copy.heroTitle}
             </h1>
             <div className={font("heroParagraphs", "mt-6 max-w-4xl space-y-4 text-[0.98rem] leading-8 text-[#2D5016]/86 sm:text-[1rem]")}>
