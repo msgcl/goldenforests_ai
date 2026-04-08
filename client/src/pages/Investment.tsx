@@ -172,13 +172,6 @@ export default function Investment() {
 
   return (
     <AnimatedPage>
-      <PageHeader
-        title={copy.header.title}
-        description={copy.header.description}
-        pageKey="investment"
-        siteCopy={resolvedSiteCopy}
-      />
-
       <section className="mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
         <OptimizedImage
           src={investmentHeroImage}
@@ -187,6 +180,30 @@ export default function Investment() {
           sizes="100vw"
           className="h-[300px] w-full object-cover sm:h-[400px] lg:h-[520px]"
         />
+        <div className="bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.18),transparent_30%),linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_65%,#EBD4A5_100%)] px-6 py-10 text-[#2D5016] sm:px-8 md:px-10 lg:px-12 lg:py-12">
+          <div className="max-w-5xl">
+            <h1 className={font("header.title", "font-serif text-[clamp(2rem,4.2vw,3.7rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016]")}>
+              {copy.header.title}
+            </h1>
+            <p className={font("header.description", "mt-5 max-w-3xl text-[1rem] leading-8 text-[#2D5016]/84 sm:text-[1.08rem]")}>
+              {copy.header.description}
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+                <a href="#agarwood" className="inline-flex items-center gap-2">
+                  Agarwood
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="rounded-xl border-[#2D5016]/35 bg-[#FBFCF7]/45 px-6 text-[#2D5016] hover:bg-[#FBFCF7] hover:text-[#2D5016]">
+                <a href="#mango" className="inline-flex items-center gap-2">
+                  Mango
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="agarwood" className="mb-8 scroll-mt-24">
