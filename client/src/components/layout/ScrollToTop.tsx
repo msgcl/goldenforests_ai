@@ -9,6 +9,11 @@ export function ScrollToTop() {
       window.history.scrollRestoration = "manual";
     }
 
+    // Let hash-based in-page navigation control the final scroll position.
+    if (window.location.hash) {
+      return;
+    }
+
     // Ensure route transitions always start from top.
     const scrollTarget = document.getElementById("app-scroll-container");
     if (scrollTarget) {
