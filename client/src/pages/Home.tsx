@@ -88,9 +88,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="investment-pathways" className="mt-10 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+      <section id="investment-pathways" className="mt-10 rounded-[1.9rem] border border-[#C8A070]/28 bg-[linear-gradient(135deg,#3A6420_0%,#426F24_58%,#4A7A27_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.16)] sm:p-8">
         <div className="mb-6 max-w-3xl">
-          <h2 className="font-serif text-[1.65rem] leading-tight text-[#2D5016] sm:text-[2rem]">
+          <h2 className="font-serif text-[1.65rem] leading-tight text-[#FBFCF7] sm:text-[2rem]">
             {copy.investmentSectionTitle}
           </h2>
         </div>
