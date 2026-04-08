@@ -197,12 +197,6 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" className="rounded-xl border-[#2D5016]/35 bg-[#FBFCF7]/45 px-6 text-[#2D5016] hover:bg-[#FBFCF7] hover:text-[#2D5016]">
-              <a href={combinedTwoPagerPdf} download className={font("missionSecondaryCtaLabel", "inline-flex items-center gap-2")}>
-                {copy.missionSecondaryCtaLabel}
-                <Download className="h-4 w-4" />
-              </a>
-            </Button>
           </div>
         </div>
       </section>
