@@ -445,7 +445,20 @@ export async function registerRoutes(
   });
 
   app.post(api.admin.siteCopy.update.path, requireAdmin, async (req, res) => {
-    const parsed = siteCopySchema.safeParse(normalizeSiteCopy(req.body));
+    let parsed:
+      | ReturnType<typeof siteCopySchema.safeParse>
+      | { success: false; error: z.ZodError };
+
+    try {
+      parsed = siteCopySchema.safeParse(normalizeSiteCopy(req.body));
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        parsed = { success: false, error };
+      } else {
+        throw error;
+      }
+    }
+
     if (!parsed.success) {
       const issues = parsed.error.issues.map((issue) => ({
         path: formatZodIssuePath(issue.path),

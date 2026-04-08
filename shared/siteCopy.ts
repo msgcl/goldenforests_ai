@@ -966,7 +966,7 @@ export const defaultSiteCopy: SiteCopy = {
       title: "Premium Agroforestry Investment",
       description: "Direct ownership. Professional management. Attractive returns.",
     },
-    agarwoodEyebrow: "",
+    agarwoodEyebrow: "Agarwood Programme",
     agarwoodTitle: "AGARWOOD: Aquilaria crassna",
     agarwoodIntroParagraphs: [
       "One of the world's most valuable natural products. Cultivated exclusively by Golden Forests.",
@@ -991,7 +991,7 @@ export const defaultSiteCopy: SiteCopy = {
     agarwoodDownloadLabel: "Download Agarwood Exposé",
     agarwoodDownloadHref: "/contact",
     agarwoodContactLabel: "Contact Our Team",
-    mangoEyebrow: "",
+    mangoEyebrow: "Mango Programme",
     mangoTitle: "MANGO: Sweet Elena Carabao Mango",
     mangoIntroParagraphs: [
       "A proprietary variety. Exclusive to Golden Forests.",
@@ -1017,7 +1017,7 @@ export const defaultSiteCopy: SiteCopy = {
     mangoDownloadLabel: "Download Mango Exposé",
     mangoDownloadHref: "/contact",
     mangoContactLabel: "Contact Our Team",
-    portfolioEyebrow: "",
+    portfolioEyebrow: "Portfolio Strategy",
     portfolioTitle: "Diversification Through Complementary Assets",
     portfolioDescription:
       "Two crops. Two timelines. One balanced portfolio. Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns.",
