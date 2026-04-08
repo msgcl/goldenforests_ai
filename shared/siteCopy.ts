@@ -1596,7 +1596,6 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const legacyHomeInvestmentHrefMap = new Map<string, string>([
     ["/agarwood-life-cycle", "/investment#agarwood"],
     ["/mango-program", "/investment#mango"],
-    ["/investment", "/investment"],
   ]);
 
   const normalizedHome = {
@@ -1608,6 +1607,10 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     normalizedHome.investmentOpportunityLearnMoreHrefs ?? defaultSiteCopy.home.investmentOpportunityLearnMoreHrefs
   ).map((href, index) => {
     const fallbackHref = index === 0 ? "/investment#agarwood" : index === 1 ? "/investment#mango" : "/investment";
+    if (href === "/investment") {
+      return fallbackHref;
+    }
+
     return legacyHomeInvestmentHrefMap.get(href) ?? href ?? fallbackHref;
   });
 
