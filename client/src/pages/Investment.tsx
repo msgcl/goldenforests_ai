@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ArrowRight, Download, Leaf, PieChart, ShieldCheck, Sprout, Trees } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-media";
 import { useSiteCopy } from "@/hooks/use-site-copy";
@@ -119,6 +119,7 @@ function InvestmentProgrammeCard({
 }
 
 export default function Investment() {
+  const [location] = useLocation();
   const { data: siteCopy } = useSiteCopy();
   const resolvedSiteCopy = siteCopy ?? defaultSiteCopy;
   const copy = resolvedSiteCopy.investment;
@@ -130,16 +131,44 @@ export default function Investment() {
   }));
 
   useEffect(() => {
-    if (!window.location.hash) return;
+    const hash = window.location.hash;
+    if (!hash) return;
 
-    const targetId = window.location.hash.slice(1);
-    const target = document.getElementById(targetId);
-    if (!target) return;
+    const targetId = hash.slice(1);
 
-    window.requestAnimationFrame(() => {
+    const scrollToHashTarget = () => {
+      const target = document.getElementById(targetId);
+      const scrollContainer = document.getElementById("app-scroll-container");
+
+      if (!target) return false;
+
+      if (scrollContainer) {
+        const containerRect = scrollContainer.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+        const top =
+          targetRect.top - containerRect.top + scrollContainer.scrollTop - 24;
+
+        scrollContainer.scrollTo({
+          top: Math.max(top, 0),
+          behavior: "smooth",
+        });
+        return true;
+      }
+
       target.scrollIntoView({ behavior: "smooth", block: "start" });
+      return true;
+    };
+
+    const frameId = window.requestAnimationFrame(() => {
+      if (scrollToHashTarget()) return;
+
+      window.setTimeout(scrollToHashTarget, 150);
     });
-  }, []);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [location, siteCopy]);
 
   return (
     <AnimatedPage>
