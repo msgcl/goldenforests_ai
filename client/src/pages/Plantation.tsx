@@ -22,6 +22,14 @@ const intelligenceIcons = [Waypoints, BrainCircuit, Leaf] as const;
 export default function Plantation() {
   const { data: siteCopy } = useSiteCopy();
   const copy = (siteCopy ?? defaultSiteCopy).plantation;
+  const overviewParagraphs = copy.overviewParagraphs.filter((paragraph) => {
+    const normalizedParagraph = paragraph.trim();
+
+    if (!normalizedParagraph) return false;
+    if (normalizedParagraph === copy.overviewDescription.trim()) return false;
+
+    return true;
+  });
 
   const universityPartners = copy.universityPartnerNames.map((name, index) => ({
     name,
@@ -56,7 +64,7 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-white p-6 shadow-sm sm:p-8">
+      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E8D2_100%)] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <MapPinned className="h-5 w-5" />
@@ -64,7 +72,10 @@ export default function Plantation() {
           <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.overviewTitle}
           </h2>
-          {copy.overviewParagraphs.map((paragraph) => (
+          <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+            {copy.overviewDescription}
+          </p>
+          {overviewParagraphs.map((paragraph) => (
             <p key={paragraph} className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">
               {paragraph}
             </p>
