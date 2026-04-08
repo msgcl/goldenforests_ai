@@ -198,7 +198,7 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-white p-6 shadow-sm sm:p-8">
+      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Trees className="h-5 w-5" />
