@@ -178,14 +178,14 @@ export default function Investment() {
           alt="Golden Forests plantation landscape in Zambales"
           priority
           sizes="100vw"
-          className="h-[300px] w-full object-cover sm:h-[400px] lg:h-[520px]"
+          className="h-[280px] w-full object-cover sm:h-[360px] lg:h-[460px]"
         />
         <div className="bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.18),transparent_30%),linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_65%,#EBD4A5_100%)] px-6 py-10 text-[#2D5016] sm:px-8 md:px-10 lg:px-12 lg:py-12">
           <div className="max-w-5xl">
-            <h1 className={font("header.title", "font-serif text-[clamp(2rem,4.2vw,3.7rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016]")}>
+            <h1 className={font("header.title", "font-serif text-[clamp(2rem,3.4vw,3.05rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016]")}>
               {copy.header.title}
             </h1>
-            <p className={font("header.description", "mt-5 max-w-3xl text-[1rem] leading-8 text-[#2D5016]/84 sm:text-[1.08rem]")}>
+            <p className={font("header.description", "mt-5 max-w-4xl text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23] sm:text-[0.9rem]")}>
               {copy.header.description}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -250,8 +250,11 @@ export default function Investment() {
             <h2 className="font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
               {copy.portfolioTitle}
             </h2>
+            <p className="mt-4 text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23] sm:text-[0.9rem]">
+              Two crops. Two timelines. One balanced portfolio.
+            </p>
             <p className="mt-4 text-[0.98rem] leading-8 text-foreground/80">
-              {copy.portfolioDescription}
+              Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
