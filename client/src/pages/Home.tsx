@@ -105,10 +105,7 @@ export default function Home() {
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>
-                <p className="mt-4 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]">
-                  Investment Program
-                </p>
-                <h3 className="mt-2 font-serif text-[1.6rem] text-[#2D5016]">{title}</h3>
+                <h3 className="mt-4 font-serif text-[1.6rem] text-[#2D5016]">{title}</h3>
                 <p className="mt-4 text-[0.97rem] leading-8 text-[#2D5016]">
                   {description}
                 </p>
