@@ -251,7 +251,9 @@ export default function Investment() {
               {copy.portfolioTitle}
             </h2>
             <p className="mt-4 text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23] sm:text-[0.9rem]">
-              Two crops. Two timelines. One balanced portfolio.
+              Two crops. Two timelines.
+              <br />
+              One balanced portfolio.
             </p>
             <p className="mt-4 text-[0.98rem] leading-8 text-foreground/80">
               Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns.
