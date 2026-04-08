@@ -23,54 +23,25 @@ const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combin
 const pillarIcons = [Trees, MapPin, Leaf] as const;
 const investmentOpportunityIcons = [Leaf, Trees] as const;
 
-const valuePillars = [
-  {
-    title: "Direct Ownership",
-    tagline: "Tangible assets. Verified ownership. Complete transparency.",
-    intro:
-      "Your investment represents direct ownership of specific agarwood or mango trees on professionally managed plantations in Zambales province, Philippines.",
-    bullets: [
-      "GPS-verified ownership certificates.",
-      "Real-time operational transparency.",
-      "Every tree tracked, monitored and documented throughout its lifecycle.",
-    ],
-  },
-  {
-    title: "Professional Management",
-    tagline: "Expert cultivation. Advanced technology. Research-backed results.",
-    intro:
-      "Eighty-plus years combined management experience across plantation agriculture, forestry science and sustainable investment.",
-    bullets: [
-      "AI-enabled drone surveillance monitors growth conditions.",
-      "Environmental sensors track soil health and climate patterns.",
-      "Strategic partnerships with leading Philippine agricultural universities ensure cultivation excellence.",
-    ],
-  },
-  {
-    title: "Environmental Impact",
-    tagline: "One-to-one native tree reforestation.",
-    intro:
-      "For every commercial tree purchased, one Philippine endemic tree is planted in designated restoration areas.",
-    bullets: [
-      "Measurable sustainability through PEFC certification pathways.",
-      "Biodiversity monitoring.",
-      "Verifiable carbon sequestration.",
-    ],
-  },
-] as const;
-
 export default function Home() {
   const { data: siteCopy } = useSiteCopy();
   const resolvedSiteCopy = siteCopy ?? defaultSiteCopy;
   const copy = resolvedSiteCopy.home;
   const font = createPageTypography(resolvedSiteCopy, "home");
+  const valuePillars = copy.pillarTitles.map((title, index) => ({
+    title,
+    intro: copy.pillarDescriptions[index] ?? "",
+  }));
 
   const investmentOpportunities = copy.investmentOpportunityTitles.map((title, index) => ({
     title,
     description: copy.investmentOpportunityDescriptions[index] ?? "",
     learnMoreLabel: copy.investmentOpportunityLearnMoreLabels[index] ?? "Learn More",
+    learnMoreHref: copy.investmentOpportunityLearnMoreHrefs[index] ?? "/contact",
     downloadLabel: copy.investmentOpportunityDownloadLabels[index] ?? "Download",
-    downloadHref: index === 0 ? agarwoodExposePdf : index === 1 ? mangoExposePdf : copy.investmentOpportunityDownloadHrefs[index] ?? "/downloads",
+    downloadHref:
+      copy.investmentOpportunityDownloadHrefs[index] ??
+      (index === 0 ? agarwoodExposePdf : index === 1 ? mangoExposePdf : "/downloads"),
     icon: investmentOpportunityIcons[index] ?? Leaf,
   }));
 
@@ -124,7 +95,7 @@ export default function Home() {
       </section>
 
       <section className="mt-10 space-y-4">
-        {valuePillars.map(({ title, tagline, intro, bullets }, index) => {
+        {valuePillars.map(({ title, intro }, index) => {
           const Icon = pillarIcons[index] ?? Leaf;
           return (
           <Card key={title} className="border-border/70 shadow-sm">
@@ -135,18 +106,7 @@ export default function Home() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <h2 className={font("pillarTitles", "text-xl font-semibold text-foreground sm:text-[1.35rem]")}>{title}</h2>
-                  <p className="mt-2 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]">
-                    {tagline}
-                  </p>
                   <p className={font("pillarDescriptions", "mt-4 text-[0.98rem] leading-8 text-muted-foreground")}>{intro}</p>
-                  <ul className="mt-4 space-y-3 text-[0.97rem] leading-7 text-foreground/84">
-                    {bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-3">
-                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C8A070]" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             </CardContent>
@@ -162,7 +122,7 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          {investmentOpportunities.map(({ title, description, learnMoreLabel, downloadHref, downloadLabel, icon: Icon }) => (
+          {investmentOpportunities.map(({ title, description, learnMoreLabel, learnMoreHref, downloadHref, downloadLabel, icon: Icon }) => (
             <Card key={title} className="border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
               <CardContent className="p-6">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -176,15 +136,11 @@ export default function Home() {
                   {description}
                 </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Button
-                    type="button"
-                    disabled
-                    className="rounded-xl bg-[#2D5016] px-5 text-[#FBFCF7] opacity-100 disabled:pointer-events-none disabled:cursor-default disabled:opacity-100"
-                  >
-                    <span className="inline-flex items-center gap-2">
+                  <Button asChild className="rounded-xl bg-[#2D5016] px-5 text-[#FBFCF7] hover:bg-[#3b6820]">
+                    <Link href={learnMoreHref} className="inline-flex items-center gap-2">
                       {learnMoreLabel}
                       <ArrowRight className="h-4 w-4" />
-                    </span>
+                    </Link>
                   </Button>
                   <Button asChild variant="outline" className="rounded-xl border-[#2D5016]/30 bg-transparent px-5 text-[#2D5016] hover:bg-[#FBFCF7]">
                     <a href={downloadHref} download className="inline-flex items-center gap-2">

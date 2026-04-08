@@ -24,7 +24,7 @@ export default function Contact() {
   const font = createPageTypography(resolvedSiteCopy, "contact");
   const formContainerRef = useRef<HTMLDivElement | null>(null);
   const [isFormLoading, setIsFormLoading] = useState(true);
-  const resourceHrefs = [
+  const fallbackResourceHrefs = [
     combinedTwoPagerPdf,
     agarwoodExposePdf,
     mangoExposePdf,
@@ -203,7 +203,7 @@ export default function Contact() {
               <h3 className={font("resourcesTitle", "text-2xl font-semibold text-[#6F4E2C]")}>{copy.resourcesTitle}</h3>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {copy.resourceLabels.map((label, index) => {
-                  const href = resourceHrefs[index] ?? copy.resourceHrefs[index] ?? "/investment";
+                  const href = copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
                   const isPdf = href.endsWith(".pdf");
 
                   return (
