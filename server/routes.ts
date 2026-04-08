@@ -153,6 +153,9 @@ export async function registerRoutes(
   });
 
   app.get(api.siteCopy.get.path, async (_req, res) => {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
     const siteCopy = await readSiteCopy();
     res.json(siteCopy);
   });
@@ -426,6 +429,9 @@ export async function registerRoutes(
   });
 
   app.get(api.admin.siteCopy.get.path, requireAdmin, async (_req, res) => {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
     const siteCopy = await readSiteCopy();
     res.json(siteCopy);
   });
@@ -437,6 +443,9 @@ export async function registerRoutes(
     }
 
     const savedSiteCopy = await writeSiteCopy(parsed.data);
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
     sendRealtimeEvent({
       queryKeys: [api.siteCopy.get.path],
       entity: "site-copy",
