@@ -26,7 +26,7 @@ const goldenForestsLogo =
 const navigationItems = [
   { title: "Home", url: "/home", icon: Home },
   { title: "Investment", url: "/investment", icon: Sprout },
-  { title: "Operations", url: "/plantation", icon: TreePine },
+  { title: "Operations", url: "/operations", icon: TreePine },
   { title: "Plantation Visit", url: "/plantation-visit", icon: Palmtree },
   { title: "About", url: "/about", icon: Building2 },
   { title: "Contact", url: "/contact", icon: PhoneCall },
