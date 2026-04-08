@@ -52,7 +52,33 @@ export default function AdminDashboard() {
       toast({ title: "Saved", description: "Website copy updated." });
     },
     onError: (error: unknown) => {
-      const message = error instanceof Error ? error.message : "Failed to save website copy";
+      let message = error instanceof Error ? error.message : "Failed to save website copy";
+
+      if (error instanceof Error) {
+        const separatorIndex = error.message.indexOf(": ");
+        const rawPayload = separatorIndex >= 0 ? error.message.slice(separatorIndex + 2) : "";
+
+        if (rawPayload) {
+          try {
+            const parsed = JSON.parse(rawPayload) as {
+              message?: string;
+              issues?: Array<{ path?: string; message?: string }>;
+            };
+
+            if (parsed.issues?.length) {
+              const formattedIssues = parsed.issues
+                .map((issue) => `${issue.path ?? "unknown"}: ${issue.message ?? "Invalid value"}`)
+                .join(" | ");
+              message = formattedIssues;
+            } else if (parsed.message) {
+              message = parsed.message;
+            }
+          } catch {
+            // Fall back to the original error message if the response body is not JSON.
+          }
+        }
+      }
+
       toast({ title: "Save failed", description: message, variant: "destructive" });
     },
   });

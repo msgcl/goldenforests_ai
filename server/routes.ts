@@ -20,6 +20,14 @@ type RealtimeEventPayload = {
   action: "create" | "update" | "delete";
 };
 
+function formatZodIssuePath(path: Array<string | number>) {
+  if (path.length === 0) return "root";
+  return path
+    .map((segment) => (typeof segment === "number" ? `[${segment}]` : segment))
+    .join(".")
+    .replace(".[", "[");
+}
+
 declare module "express-session" {
   interface SessionData {
     adminUsername?: string;
@@ -439,7 +447,15 @@ export async function registerRoutes(
   app.post(api.admin.siteCopy.update.path, requireAdmin, async (req, res) => {
     const parsed = siteCopySchema.safeParse(normalizeSiteCopy(req.body));
     if (!parsed.success) {
-      return res.status(400).json({ message: "Invalid site copy payload" });
+      const issues = parsed.error.issues.map((issue) => ({
+        path: formatZodIssuePath(issue.path),
+        message: issue.message,
+      }));
+
+      return res.status(400).json({
+        message: "Invalid site copy payload",
+        issues,
+      });
     }
 
     const savedSiteCopy = await writeSiteCopy(parsed.data);
