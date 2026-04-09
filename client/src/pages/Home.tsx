@@ -186,7 +186,7 @@ export default function Home() {
                       <h3 className="text-[1rem] font-semibold leading-snug text-[#2D5016]">{name}</h3>
                     </div>
                     <p className="mt-4 text-sm leading-7 text-[#2D5016]/84">
-                      <span className="mb-1 block text-[0.9rem] font-semibold uppercase tracking-[0.08em] text-[#2D5016]">
+                      <span className="mb-3 block text-[0.98rem] font-semibold uppercase tracking-[0.1em] text-[#2D5016]">
                         {leadLine}
                       </span>
                       {bodyLine}
