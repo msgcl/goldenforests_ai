@@ -1618,9 +1618,12 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     ...(data.investment ?? {}),
     header: { ...defaultSiteCopy.investment.header, ...(data.investment?.header ?? {}) },
   };
-
-  normalizedInvestment.agarwoodDownloadLabel = "Agarwood exposé";
-  normalizedInvestment.mangoDownloadLabel = "Mango exposé";
+  if (normalizedInvestment.agarwoodDownloadLabel === "Download Agarwood Exposé") {
+    normalizedInvestment.agarwoodDownloadLabel = "Agarwood exposé";
+  }
+  if (normalizedInvestment.mangoDownloadLabel === "Download Mango Exposé") {
+    normalizedInvestment.mangoDownloadLabel = "Mango exposé";
+  }
 
   const legacyHomeInvestmentHrefMap = new Map<string, string>([
     ["/agarwood-life-cycle", "/investment#agarwood"],
