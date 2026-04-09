@@ -16,6 +16,15 @@ const aboutHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v17754
 const uspIcons = [LineChart, BrainCircuit, ShieldCheck, Globe2, Trees, Leaf] as const;
 const standoutOverviewLine = "We invite you to be part of it.";
 
+function getInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? "")
+    .join("");
+}
+
 function renderOverviewParagraph(paragraph: string) {
   if (!paragraph.includes(standoutOverviewLine)) {
     return paragraph;
@@ -46,12 +55,14 @@ export default function About() {
 
   const leadershipTeam = copy.leadershipNames.map((name, index) => ({
     name,
+    imageUrl: copy.leadershipImageUrls[index] ?? "",
     title: copy.leadershipTitles[index] ?? "",
     description: copy.leadershipDescriptions[index] ?? "",
   }));
 
   const boardDirectors = copy.boardNames.map((name, index) => ({
     name,
+    imageUrl: copy.boardImageUrls[index] ?? "",
     title: copy.boardTitles[index] ?? "",
     description: copy.boardDescriptions[index] ?? "",
   }));
@@ -149,8 +160,32 @@ export default function About() {
         </div>
         <div className="grid gap-4 xl:grid-cols-3">
           {leadershipTeam.map((person) => (
-            <Card key={person.name} className="border-border/60 shadow-sm">
+            <Card key={person.name} className="overflow-hidden border-border/60 shadow-sm">
               <CardContent className="p-6">
+                <div className="mb-5 overflow-hidden rounded-[1.4rem] border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)]">
+                  <div className="aspect-[4/4.4] w-full">
+                    {person.imageUrl ? (
+                      <OptimizedImage
+                        src={person.imageUrl}
+                        alt={`${person.name} profile portrait`}
+                        className="h-full w-full object-cover"
+                        sizes="(min-width: 1280px) 320px, (min-width: 768px) 45vw, 90vw"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,#FCF8F0_0%,#EFE1C6_58%,#E4D2B1_100%)] px-6 text-center">
+                        <div>
+                          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#17392E]/12 bg-white/55 font-serif text-2xl text-[#17392E] shadow-sm">
+                            {getInitials(person.name)}
+                          </div>
+                          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6B8E23]">
+                            Profile Photo
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
                 <h3 className="text-xl font-semibold text-foreground">{person.name}</h3>
                 <p className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary">{person.title}</p>
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">{person.description}</p>
@@ -166,8 +201,32 @@ export default function About() {
         </div>
         <div className="grid gap-4 xl:grid-cols-3">
           {boardDirectors.map((person) => (
-            <Card key={person.name} className="border-border/60 shadow-sm">
+            <Card key={person.name} className="overflow-hidden border-border/60 shadow-sm">
               <CardContent className="p-6">
+                <div className="mb-5 overflow-hidden rounded-[1.4rem] border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)]">
+                  <div className="aspect-[4/4.4] w-full">
+                    {person.imageUrl ? (
+                      <OptimizedImage
+                        src={person.imageUrl}
+                        alt={`${person.name} profile portrait`}
+                        className="h-full w-full object-cover"
+                        sizes="(min-width: 1280px) 320px, (min-width: 768px) 45vw, 90vw"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,#FCF8F0_0%,#EFE1C6_58%,#E4D2B1_100%)] px-6 text-center">
+                        <div>
+                          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#17392E]/12 bg-white/55 font-serif text-2xl text-[#17392E] shadow-sm">
+                            {getInitials(person.name)}
+                          </div>
+                          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6B8E23]">
+                            Profile Photo
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
                 <h3 className="text-xl font-semibold text-foreground">{person.name}</h3>
                 <p className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary">{person.title}</p>
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">{person.description}</p>

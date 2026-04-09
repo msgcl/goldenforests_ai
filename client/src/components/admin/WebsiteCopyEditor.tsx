@@ -10,6 +10,8 @@ import {
   ShieldCheck,
   Sparkles,
   SplitSquareVertical,
+  Trash2,
+  Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,6 +20,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { defaultSiteCopy, type SiteCopy } from "@shared/siteCopy";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 import {
   BRAND_FONT_OPTIONS,
   createPageTypography,
@@ -101,10 +104,12 @@ const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
     "commitmentItemDescriptions",
     "leadershipSectionTitle",
     "leadershipNames",
+    "leadershipImageUrls",
     "leadershipTitles",
     "leadershipDescriptions",
     "boardSectionTitle",
     "boardNames",
+    "boardImageUrls",
     "boardTitles",
     "boardDescriptions",
   ],
@@ -288,6 +293,24 @@ function collectTextFields(source: Record<string, unknown>, prefix = ""): FieldD
   });
 }
 
+async function readFileAsDataUrl(file: File): Promise<string> {
+  return await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      if (typeof reader.result !== "string") {
+        reject(new Error("Unable to read the selected file."));
+        return;
+      }
+
+      resolve(reader.result);
+    };
+
+    reader.onerror = () => reject(new Error("Unable to read the selected file."));
+    reader.readAsDataURL(file);
+  });
+}
+
 function EditorMetric({
   icon: Icon,
   label,
@@ -346,9 +369,11 @@ export function WebsiteCopyEditor({
   onSubmit,
   onChange,
 }: WebsiteCopyEditorProps) {
+  const { toast } = useToast();
   const [selectedPage, setSelectedPage] = useState<SiteCopyPageKey>("home");
   const [viewMode, setViewMode] = useState<ViewMode>("split");
   const [showFloatingSave, setShowFloatingSave] = useState(false);
+  const [uploadingFieldItem, setUploadingFieldItem] = useState<Record<string, boolean>>({});
 
   const selectedPageMeta = pageCatalog.find((page) => page.key === selectedPage) ?? pageCatalog[0];
   const selectedPageValue = value[selectedPage] as Record<string, unknown>;
@@ -404,6 +429,50 @@ export function WebsiteCopyEditor({
       ...value,
       [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, currentItems),
     });
+  };
+
+  const removeArrayItemValue = (path: string, index: number) => {
+    updateArrayItemValue(path, index, "");
+  };
+
+  const uploadImageForArrayItem = async (path: string, index: number, file: File) => {
+    const uploadKey = `${path}-${index}`;
+
+    try {
+      setUploadingFieldItem((current) => ({ ...current, [uploadKey]: true }));
+      const dataUrl = await readFileAsDataUrl(file);
+      const response = await fetch("/api/admin/uploads", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fileName: file.name,
+          dataUrl,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => ({}))) as { message?: string; url?: string };
+
+      if (!response.ok || !payload.url) {
+        throw new Error(payload.message ?? "Image upload failed.");
+      }
+
+      updateArrayItemValue(path, index, payload.url);
+      toast({
+        title: "Profile image uploaded",
+        description: "The file is now in Cloudinary. Save Website Copy to publish it on the live site.",
+      });
+    } catch (error) {
+      toast({
+        title: "Upload failed",
+        description: error instanceof Error ? error.message : "Unable to upload image.",
+        variant: "destructive",
+      });
+    } finally {
+      setUploadingFieldItem((current) => ({ ...current, [uploadKey]: false }));
+    }
   };
 
   const showEditor = viewMode === "edit" || viewMode === "split";
@@ -532,6 +601,9 @@ export function WebsiteCopyEditor({
                 {fields.map((field) => {
                   const currentFont = selectedPageTypography[field.path];
                   const fieldText = Array.isArray(field.value) ? field.value.join("\n") : field.value;
+                  const isLeadershipImageField = selectedPage === "about" && field.path === "leadershipImageUrls";
+                  const isBoardImageField = selectedPage === "about" && field.path === "boardImageUrls";
+                  const isProfileImageField = isLeadershipImageField || isBoardImageField;
 
                   return (
                     <div key={field.path} className="rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,#123831_0%,#102f2a_100%)] p-4 shadow-sm">
@@ -541,7 +613,100 @@ export function WebsiteCopyEditor({
                             {field.label}
                           </Label>
                           <div className="mt-3">
-                            {field.isArray ? (
+                            {isProfileImageField ? (
+                              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-1">
+                                {(field.value as string[]).map((item, index) => {
+                                  const memberName = isLeadershipImageField
+                                    ? value.about.leadershipNames[index] ?? `Member ${index + 1}`
+                                    : value.about.boardNames[index] ?? `Member ${index + 1}`;
+                                  const uploadKey = `${field.path}-${index}`;
+                                  const isUploading = uploadingFieldItem[uploadKey] ?? false;
+                                  const initials = memberName
+                                    .split(/\s+/)
+                                    .filter(Boolean)
+                                    .slice(0, 2)
+                                    .map((part) => part[0]?.toUpperCase() ?? "")
+                                    .join("");
+
+                                  return (
+                                    <div key={`${field.path}-${index}`} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                      <div className="flex items-start justify-between gap-3">
+                                        <div>
+                                          <p className="text-sm font-semibold text-white">{memberName}</p>
+                                          <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/50">
+                                            {isLeadershipImageField ? "Leadership portrait" : "Board portrait"}
+                                          </p>
+                                        </div>
+                                        {item ? (
+                                          <Button
+                                            type="button"
+                                            variant="outline"
+                                            className="h-9 rounded-xl border-white/15 bg-transparent px-3 text-white hover:bg-white/10"
+                                            onClick={() => removeArrayItemValue(field.path, index)}
+                                          >
+                                            <Trash2 className="mr-2 h-4 w-4" />
+                                            Remove
+                                          </Button>
+                                        ) : null}
+                                      </div>
+
+                                      <div className="mt-4 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)]">
+                                        <div className="aspect-[4/4.4] w-full">
+                                          {item ? (
+                                            <img
+                                              src={item}
+                                              alt={`${memberName} preview`}
+                                              className="h-full w-full object-cover"
+                                            />
+                                          ) : (
+                                            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,#FCF8F0_0%,#EFE1C6_58%,#E4D2B1_100%)] px-6 text-center">
+                                              <div>
+                                                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#17392E]/12 bg-white/55 font-serif text-2xl text-[#17392E] shadow-sm">
+                                                  {initials}
+                                                </div>
+                                                <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6B8E23]">
+                                                  Photo placeholder
+                                                </p>
+                                              </div>
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
+
+                                      <div className="mt-4 flex flex-col gap-3">
+                                        <Label
+                                          className={cn(
+                                            "inline-flex h-11 cursor-pointer items-center justify-center rounded-xl border border-white/15 px-4 text-sm font-semibold text-white transition hover:bg-white/10",
+                                            isUploading && "pointer-events-none opacity-60",
+                                          )}
+                                        >
+                                          <Upload className="mr-2 h-4 w-4" />
+                                          {isUploading ? "Uploading..." : item ? "Replace photo" : "Upload photo"}
+                                          <input
+                                            type="file"
+                                            accept="image/*"
+                                            className="sr-only"
+                                            disabled={isUploading}
+                                            onChange={async (event) => {
+                                              const file = event.target.files?.[0];
+                                              event.currentTarget.value = "";
+                                              if (!file) return;
+                                              await uploadImageForArrayItem(field.path, index, file);
+                                            }}
+                                          />
+                                        </Label>
+                                        <Input
+                                          className={editorInputClassName}
+                                          value={item}
+                                          placeholder="Cloudinary image URL"
+                                          onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
+                                        />
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            ) : field.isArray ? (
                               <div className="space-y-3">
                                 {(field.value as string[]).map((item, index) => (
                                   <div key={`${field.path}-${index}`} className="space-y-1">
@@ -573,23 +738,36 @@ export function WebsiteCopyEditor({
                         </div>
 
                         <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                          <Label className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#d7c39d]/85">
-                            Font Style
-                          </Label>
-                          <select
-                            className={cn(editorSelectClassName, "mt-3")}
-                            value={currentFont ?? "default"}
-                            onChange={(event) => updateFieldFont(field.path, event.target.value as "default" | BrandFontOption)}
-                          >
-                            {BRAND_FONT_OPTIONS.map((option) => (
-                              <option key={option.value} value={option.value}>
-                                {option.label}
-                              </option>
-                            ))}
-                          </select>
-                          <p className="mt-3 text-xs leading-relaxed text-white/60">
-                            This selection applies to the matching live text block on the public page after save.
-                          </p>
+                          {isLeadershipImageField ? (
+                            <>
+                              <Label className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#d7c39d]/85">
+                                Upload Flow
+                              </Label>
+                              <p className="mt-3 text-xs leading-relaxed text-white/60">
+                                Portrait uploads go straight to Cloudinary first. After uploading, click Save Website Copy to publish the selected image URLs on the live About page.
+                              </p>
+                            </>
+                          ) : (
+                            <>
+                              <Label className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#d7c39d]/85">
+                                Font Style
+                              </Label>
+                              <select
+                                className={cn(editorSelectClassName, "mt-3")}
+                                value={currentFont ?? "default"}
+                                onChange={(event) => updateFieldFont(field.path, event.target.value as "default" | BrandFontOption)}
+                              >
+                                {BRAND_FONT_OPTIONS.map((option) => (
+                                  <option key={option.value} value={option.value}>
+                                    {option.label}
+                                  </option>
+                                ))}
+                              </select>
+                              <p className="mt-3 text-xs leading-relaxed text-white/60">
+                                This selection applies to the matching live text block on the public page after save.
+                              </p>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -621,14 +799,46 @@ export function WebsiteCopyEditor({
                 <div className="space-y-3">
                   {fields.map((field) => {
                     const previewValue = Array.isArray(field.value) ? field.value : [field.value];
+                    const isLeadershipImageField = selectedPage === "about" && field.path === "leadershipImageUrls";
+                    const isBoardImageField = selectedPage === "about" && field.path === "boardImageUrls";
+                    const isProfileImageField = isLeadershipImageField || isBoardImageField;
                     return (
                       <div key={field.path} className="rounded-[1.1rem] border border-[#17392E]/10 bg-white/70 p-4">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8d6d3d]">{field.label}</p>
-                        <div className={previewFont(field.path, "mt-2 space-y-2 text-sm leading-relaxed text-[#17392E]")}>
-                          {previewValue.map((item, index) => (
-                            <p key={`${field.path}-preview-${index}`}>{item}</p>
-                          ))}
-                        </div>
+                        {isProfileImageField ? (
+                          <div className="mt-3 grid gap-3 md:grid-cols-2">
+                            {previewValue.map((item, index) => (
+                              <div key={`${field.path}-preview-${index}`} className="overflow-hidden rounded-2xl border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)]">
+                                <div className="aspect-[4/4.4] w-full">
+                                  {item ? (
+                                    <img
+                                      src={item}
+                                      alt={`${
+                                        isLeadershipImageField
+                                          ? value.about.leadershipNames[index] ?? `Member ${index + 1}`
+                                          : value.about.boardNames[index] ?? `Member ${index + 1}`
+                                      } preview`}
+                                      className="h-full w-full object-cover"
+                                    />
+                                  ) : (
+                                    <div className="flex h-full items-center justify-center px-6 text-center text-sm text-[#6C6C5E]">
+                                      Placeholder for{" "}
+                                      {isLeadershipImageField
+                                        ? value.about.leadershipNames[index] ?? `Member ${index + 1}`
+                                        : value.about.boardNames[index] ?? `Member ${index + 1}`}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className={previewFont(field.path, "mt-2 space-y-2 text-sm leading-relaxed text-[#17392E]")}>
+                            {previewValue.map((item, index) => (
+                              <p key={`${field.path}-preview-${index}`}>{item}</p>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     );
                   })}

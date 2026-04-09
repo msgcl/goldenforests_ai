@@ -103,10 +103,12 @@ export const aboutPageCopySchema = z.object({
   missionDescription: nonEmptyString,
   leadershipSectionTitle: nonEmptyString,
   leadershipNames: nonEmptyStringArray,
+  leadershipImageUrls: z.array(z.string()).min(1),
   leadershipTitles: nonEmptyStringArray,
   leadershipDescriptions: nonEmptyStringArray,
   boardSectionTitle: nonEmptyString,
   boardNames: nonEmptyStringArray,
+  boardImageUrls: z.array(z.string()).min(1),
   boardTitles: nonEmptyStringArray,
   boardDescriptions: nonEmptyStringArray,
   highlightTitles: nonEmptyStringArray,
@@ -655,6 +657,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Position sustainable agroforestry as a compelling alternative investment, delivering outstanding long-term returns whilst creating local impact and environmental sustainability. Transform Asian tree plantations into internationally recognised, high-value assets through sustainable practices, world-class production and community partnership.",
     leadershipSectionTitle: "Leadership Team",
     leadershipNames: ["Charles McKenzie", "Mark LM Quinn", "Cord Kabus-Duprée"],
+    leadershipImageUrls: ["", "", ""],
     leadershipTitles: ["Chairman of the Board", "President & Chief Executive Officer", "Chief Marketing and Sales Officer"],
     leadershipDescriptions: [
       "Executive with over 30 years of leadership in asset management and fixed-income investments across London, Frankfurt and Sydney, including senior roles at Deutsche Morgan Grenfell, Aberdeen Asset Management, JP Morgan Asset Management and Fidelity International. Charlie brings institutional fixed-income strategy, portfolio leadership and corporate governance expertise to Golden Forests. He holds a BSc (Hons) in Economics from the University of Southampton and an MBA (Finance) from Bayes Business School, City, University of London.",
@@ -663,6 +666,7 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     boardSectionTitle: "Board of Directors",
     boardNames: ["Marciano Gecolea", "R.A.G Ferdinand Domingo", "Adele Frances"],
+    boardImageUrls: ["", "", ""],
     boardTitles: ["Agroforestry Director", "Agri-Science Director", "Commercial Director"],
     boardDescriptions: [
       "Licensed forester with over three decades of agroforestry and plantation leadership, including regional responsibility across Southeast Asia for large-scale agarwood projects from land acquisition to processing and value-added production. Marciano brings sustainable agroforestry systems expertise, land suitability and GIS-guided plantation planning, permitting, environmental compliance and community-based livelihood integration. He holds a Master's in Resource Management from Lincoln University and a BS Forestry from UP Los Baños.",
@@ -1628,6 +1632,13 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     normalizedAbout.commitmentItemTitles = defaultSiteCopy.about.commitmentItemTitles.map((items) => [...items]);
     normalizedAbout.commitmentItemDescriptions = defaultSiteCopy.about.commitmentItemDescriptions.map((items) => [...items]);
   }
+
+  normalizedAbout.leadershipImageUrls = normalizedAbout.leadershipNames.map(
+    (_name, index) => normalizedAbout.leadershipImageUrls?.[index] ?? "",
+  );
+  normalizedAbout.boardImageUrls = normalizedAbout.boardNames.map(
+    (_name, index) => normalizedAbout.boardImageUrls?.[index] ?? "",
+  );
 
   const normalizedEcotourism = { ...defaultSiteCopy.ecotourism, ...(data.ecotourism ?? {}) };
   const ecotourismImageMap = new Map<string, string>([
