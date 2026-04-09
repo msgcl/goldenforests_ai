@@ -97,7 +97,7 @@ export default function Contact() {
         <Card className="border-[#D8C9B1] bg-[linear-gradient(180deg,#F6EFE2_0%,#EFE4CF_100%)] shadow-[0_24px_54px_rgba(88,65,32,0.12)]">
           <CardContent className="p-5 md:p-7">
             <h2 className={font("formTitle", "mb-2 text-3xl text-[#6F4E2C] md:text-4xl")}>{copy.formTitle}</h2>
-            <p className={font("formDescription", "mb-6 text-sm leading-relaxed text-[#6A5A44] lg:whitespace-nowrap")}>
+            <p className={font("formDescription", "mb-6 max-w-full text-sm leading-relaxed text-[#6A5A44] break-words")}>
               {copy.formDescription}
             </p>
             <div className="contact-pipedrive-frame">
