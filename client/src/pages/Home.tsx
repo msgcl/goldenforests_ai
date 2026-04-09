@@ -168,7 +168,11 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {credibilityPartners.map(({ logo, logoAlt, name, description }) => (
+          {credibilityPartners.map(({ logo, logoAlt, name, description }) => {
+            const [subtitle = "", ...restParts] = description.split(". ");
+            const detail = restParts.join(". ").trim();
+
+            return (
             <Card key={name} className="border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
               <CardContent className="p-5">
                 <div className="flex items-start gap-4">
@@ -184,12 +188,17 @@ export default function Home() {
                     <div className="flex min-h-14 items-center">
                       <h3 className="text-[1rem] font-semibold leading-snug text-[#2D5016]">{name}</h3>
                     </div>
-                    <p className="mt-4 text-sm leading-7 text-[#2D5016]/84">{description}</p>
+                    <p className="mt-4 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#2D5016]">
+                      {subtitle}
+                    </p>
+                    {detail ? (
+                      <p className="mt-3 text-sm leading-7 text-[#2D5016]/84">{detail}</p>
+                    ) : null}
                   </div>
                 </div>
               </CardContent>
             </Card>
-          ))}
+          )})}
         </div>
       </section>
 
