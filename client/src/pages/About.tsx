@@ -126,14 +126,14 @@ export default function About() {
         </div>
         <div className="grid gap-4 xl:grid-cols-3">
           {commitmentColumns.map((column) => (
-            <Card key={column.title} className="border-border/60 shadow-sm">
+            <Card key={column.title} className="border-[#6B8E23]/18 bg-[#7F9E62] shadow-[0_18px_40px_rgba(23,57,46,0.1)]">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground">{column.title}</h3>
+                <h3 className="text-xl font-semibold text-[#F6F0DE]">{column.title}</h3>
                 <div className="mt-5 space-y-5">
                   {column.items.map((item) => (
                     <div key={item.title}>
-                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">{item.title}</p>
-                      <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#F6F0DE]">{item.title}</p>
+                      <p className="mt-2 text-sm leading-7 text-[#F6F0DE]/90">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -141,22 +141,6 @@ export default function About() {
             </Card>
           ))}
         </div>
-      </section>
-
-      <section className="mb-8 grid gap-4 lg:grid-cols-2">
-        <Card className="border-[#d7b38a]/45 bg-[linear-gradient(180deg,rgba(245,227,205,0.92),rgba(232,196,150,0.52))] shadow-sm">
-          <CardContent className="p-6">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9b6330]">{copy.visionTitle}</p>
-            <p className="text-sm leading-7 text-[#5f4330]">{copy.visionDescription}</p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-[#d7b38a]/45 bg-[linear-gradient(180deg,rgba(250,235,214,0.95),rgba(224,178,122,0.58))] shadow-sm">
-          <CardContent className="p-6">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9b6330]">{copy.missionTitle}</p>
-            <p className="text-sm leading-7 text-[#5f4330]">{copy.missionDescription}</p>
-          </CardContent>
-        </Card>
       </section>
 
       <section className="mb-8">

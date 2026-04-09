@@ -93,20 +93,11 @@ export default function Contact() {
         </div>
       </section>
 
-      <div className="mb-10 max-w-4xl">
-        <span className={font("badge", "inline-block rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary")}>
-          {copy.badge}
-        </span>
-        <p className={font("intro", "text-lg md:text-xl text-muted-foreground max-w-4xl leading-relaxed")}>
-          {copy.intro}
-        </p>
-      </div>
-
       <div className="max-w-6xl space-y-6">
         <Card className="border-[#D8C9B1] bg-[linear-gradient(180deg,#F6EFE2_0%,#EFE4CF_100%)] shadow-[0_24px_54px_rgba(88,65,32,0.12)]">
           <CardContent className="p-5 md:p-7">
             <h2 className={font("formTitle", "mb-2 text-3xl text-[#6F4E2C] md:text-4xl")}>{copy.formTitle}</h2>
-            <p className={font("formDescription", "mb-6 max-w-2xl text-sm leading-relaxed text-[#6A5A44]")}>
+            <p className={font("formDescription", "mb-6 text-sm leading-relaxed text-[#6A5A44] lg:whitespace-nowrap")}>
               {copy.formDescription}
             </p>
             <div className="contact-pipedrive-frame">
