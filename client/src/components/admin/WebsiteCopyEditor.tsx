@@ -77,6 +77,7 @@ const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
     "investmentOpportunityLearnMoreHrefs",
     "investmentOpportunityDownloadLabels",
     "investmentOpportunityDownloadHrefs",
+    "credibilityEyebrow",
     "credibilityTitle",
     "credibilityPartnerNames",
     "credibilityPartnerLeadLines",

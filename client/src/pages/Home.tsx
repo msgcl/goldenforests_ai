@@ -166,6 +166,9 @@ export default function Home() {
           <h2 className="font-serif text-[1.6rem] leading-tight text-[#2D5016] sm:text-[2rem]">
             {copy.credibilityTitle}
           </h2>
+          <p className="mt-4 text-[0.98rem] leading-8 text-[#2D5016]/84 sm:text-[1rem]">
+            {copy.credibilityEyebrow}
+          </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">

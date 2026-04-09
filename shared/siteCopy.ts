@@ -1188,7 +1188,8 @@ export const defaultSiteCopy: SiteCopy = {
     investmentOpportunityLearnMoreHrefs: ["/investment#agarwood", "/investment#mango"],
     investmentOpportunityDownloadLabels: ["Download Agarwood Exposé", "Download Mango Exposé"],
     investmentOpportunityDownloadHrefs: ["/investment", "/investment"],
-    credibilityEyebrow: "Credibility Markers",
+    credibilityEyebrow:
+      "Every cultivation decision Golden Forests makes is informed by active research partnerships with three of the Philippines’ leading agricultural universities.",
     credibilityTitle: "Strategic research partnerships with leading Philippine agricultural universities.",
     credibilityPartnerNames: [
       "President Ramon Magsaysay State University",
@@ -1312,9 +1313,9 @@ export const defaultSiteCopy: SiteCopy = {
       "Smart irrigation, drone-supported health mapping and targeted fertilisation protocols maximise biological asset performance across every site.",
     ],
     universitySectionTitle: "University Partnerships",
-    universitySectionIntro: " ",
+    universitySectionIntro: "Science is at the root of everything we do",
     universitySectionDescription:
-      "Golden Forests maintains collaborative research relationships with leading Philippine agricultural institutions, supporting advanced cultivation research, elite variety development and sustainable agroforestry innovation.",
+      "Every cultivation decision Golden Forests makes is informed by active research partnerships with three of the Philippines’ leading agricultural universities.",
     universityPartnerNames: [
       "President Ramon Magsaysay State University (PRMSU)",
       "Visayas State University (VSU)",
@@ -1706,6 +1707,8 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const legacyPlantationOverviewDescription =
     "Professionally managed plantations in one of the Philippines' most agriculturally productive provinces.";
   const legacyUniversitySectionIntro = "Science at the root of everything we do.";
+  const legacyUniversitySectionDescription =
+    "Golden Forests maintains collaborative research relationships with leading Philippine agricultural institutions, supporting advanced cultivation research, elite variety development and sustainable agroforestry innovation.";
   const legacyEnvironmentalSectionSubtitle = "One-to-One Native Reforestation";
 
   const normalizedPlantation = {
@@ -1724,6 +1727,15 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
 
   if (normalizedPlantation.universitySectionIntro?.trim() === legacyUniversitySectionIntro) {
     normalizedPlantation.universitySectionIntro = defaultSiteCopy.plantation.universitySectionIntro;
+  }
+
+  const usesLegacyUniversitySectionCopy =
+    !normalizedPlantation.universitySectionIntro?.trim() &&
+    normalizedPlantation.universitySectionDescription?.trim() === legacyUniversitySectionDescription;
+
+  if (usesLegacyUniversitySectionCopy) {
+    normalizedPlantation.universitySectionIntro = defaultSiteCopy.plantation.universitySectionIntro;
+    normalizedPlantation.universitySectionDescription = defaultSiteCopy.plantation.universitySectionDescription;
   }
 
   if (normalizedPlantation.environmentalSectionSubtitle?.trim() === legacyEnvironmentalSectionSubtitle) {
