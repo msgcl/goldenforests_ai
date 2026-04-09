@@ -73,7 +73,8 @@ export default function Plantation() {
 
   const universityPartners = copy.universityPartnerNames.map((name, index) => ({
     name,
-    description: copy.universityPartnerDescriptions[index] ?? "",
+    leadLine: copy.universityPartnerLeadLines[index] ?? "",
+    bodyLine: copy.universityPartnerBodyLines[index] ?? "",
   }));
 
   const riskManagementItems = copy.riskTitles.map((title, index) => ({
@@ -184,11 +185,16 @@ export default function Plantation() {
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {universityPartners.map(({ name, description }) => (
+          {universityPartners.map(({ name, leadLine, bodyLine }) => (
             <Card key={name} className="border-[#C8A070]/24 bg-white/70 shadow-sm">
               <CardContent className="p-5">
                 <h3 className="text-[1rem] font-semibold leading-snug text-[#17392E]">{name}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#17392E]/84">{description}</p>
+                <p className="mt-4 text-sm leading-7 text-[#17392E]/84">
+                  <span className="mb-1 block text-[0.9rem] font-semibold uppercase tracking-[0.08em] text-[#17392E]">
+                    {leadLine}
+                  </span>
+                  {bodyLine}
+                </p>
               </CardContent>
             </Card>
           ))}

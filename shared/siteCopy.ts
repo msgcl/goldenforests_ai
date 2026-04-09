@@ -363,6 +363,8 @@ export const plantationPageCopySchema = z.object({
   universitySectionIntro: nonEmptyString,
   universitySectionDescription: nonEmptyString,
   universityPartnerNames: nonEmptyStringArray,
+  universityPartnerLeadLines: nonEmptyStringArray,
+  universityPartnerBodyLines: nonEmptyStringArray,
   universityPartnerDescriptions: nonEmptyStringArray,
   riskSectionTitle: nonEmptyString,
   riskSectionDescription: nonEmptyString,
@@ -1318,10 +1320,20 @@ export const defaultSiteCopy: SiteCopy = {
       "Visayas State University (VSU)",
       "University of the Philippines Los Baños (UPLB)",
     ],
+    universityPartnerLeadLines: [
+      "Sweet Elena Carabao mango cultivar development.",
+      "Soil science research.",
+      "Elite variety propagation.",
+    ],
+    universityPartnerBodyLines: [
+      "Dwarfing techniques and induced flowering protocols.",
+      "Integrated pest management and environmental sustainability.",
+      "Post-harvest technologies and certification pathways.",
+    ],
     universityPartnerDescriptions: [
-      "Sweet Elena Carabao mango cultivar development, dwarfing techniques and induced flowering protocols",
-      "Soil science research, integrated pest management and environmental sustainability",
-      "Elite variety propagation, post-harvest technologies and certification pathways",
+      "Sweet Elena Carabao mango cultivar development. Dwarfing techniques and induced flowering protocols.",
+      "Soil science research. Integrated pest management and environmental sustainability.",
+      "Elite variety propagation. Post-harvest technologies and certification pathways.",
     ],
     riskSectionTitle: "Risk Management",
     riskSectionDescription: "Your investment is protected at every stage of the cultivation cycle.",
@@ -1695,6 +1707,29 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   if (normalizedPlantation.environmentalSectionSubtitle?.trim() === legacyEnvironmentalSectionSubtitle) {
     normalizedPlantation.environmentalSectionSubtitle = defaultSiteCopy.plantation.environmentalSectionSubtitle;
   }
+
+  const plantationPartnerDescriptions =
+    normalizedPlantation.universityPartnerDescriptions ?? defaultSiteCopy.plantation.universityPartnerDescriptions;
+  const plantationPartnerLeadLines = normalizedPlantation.universityPartnerLeadLines ?? [];
+  const plantationPartnerBodyLines = normalizedPlantation.universityPartnerBodyLines ?? [];
+
+  normalizedPlantation.universityPartnerLeadLines = plantationPartnerDescriptions.map((description, index) => {
+    if (plantationPartnerLeadLines[index]) {
+      return plantationPartnerLeadLines[index];
+    }
+
+    const [lead = ""] = description.split(". ");
+    return lead.endsWith(".") ? lead : `${lead}.`;
+  });
+
+  normalizedPlantation.universityPartnerBodyLines = plantationPartnerDescriptions.map((description, index) => {
+    if (plantationPartnerBodyLines[index]) {
+      return plantationPartnerBodyLines[index];
+    }
+
+    const [, ...restParts] = description.split(". ");
+    return restParts.join(". ").trim();
+  });
 
   return siteCopySchema.parse({
     ...defaultSiteCopy,
