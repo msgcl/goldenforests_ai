@@ -22,6 +22,8 @@ const intelligenceIcons = [Waypoints, BrainCircuit, Leaf] as const;
 export default function Plantation() {
   const { data: siteCopy } = useSiteCopy();
   const copy = (siteCopy ?? defaultSiteCopy).plantation;
+  const universitySectionIntro = copy.universitySectionIntro.trim();
+  const environmentalSectionSubtitle = copy.environmentalSectionSubtitle.trim();
   const overviewParagraphs = copy.overviewParagraphs.filter((paragraph) => {
     const normalizedParagraph = paragraph.trim();
 
@@ -131,9 +133,11 @@ export default function Plantation() {
           <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.universitySectionTitle}
           </h2>
-          <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
-            {copy.universitySectionIntro}
-          </p>
+          {universitySectionIntro ? (
+            <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+              {universitySectionIntro}
+            </p>
+          ) : null}
           <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.universitySectionDescription}</p>
         </div>
 
@@ -180,9 +184,11 @@ export default function Plantation() {
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.environmentalSectionTitle}
           </h2>
-          <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
-            {copy.environmentalSectionSubtitle}
-          </p>
+          {environmentalSectionSubtitle ? (
+            <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+              {environmentalSectionSubtitle}
+            </p>
+          ) : null}
           <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.environmentalSectionDescription}</p>
           <p className="mt-6 text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#8A6744]">
             {copy.environmentalSectionTagline}

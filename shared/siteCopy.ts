@@ -1293,9 +1293,8 @@ export const defaultSiteCopy: SiteCopy = {
     overviewEyebrow: "Zambales Operations",
     overviewTitle: "Zambales Operations",
     overviewDescription:
-      "Professionally managed plantations in one of the Philippines' most agriculturally productive provinces.",
+      "Golden Forests operates agarwood and mango plantations in Zambales province, combining advanced agricultural science with AI-enabled monitoring systems to optimise tree health, growth conditions and harvest outcomes.",
     overviewParagraphs: [
-      "Professionally managed plantations in one of the Philippines' most agriculturally productive provinces.",
       "Golden Forests operates agarwood and mango plantations in Zambales province, combining advanced agricultural science with AI-enabled monitoring systems to optimise tree health, growth conditions and harvest outcomes.",
       "Every plantation is secured with 24-hour on-site security, solar-powered irrigation infrastructure and structured maintenance protocols ensuring consistent care throughout cultivation cycles.",
     ],
@@ -1311,7 +1310,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Smart irrigation, drone-supported health mapping and targeted fertilisation protocols maximise biological asset performance across every site.",
     ],
     universitySectionTitle: "University Partnerships",
-    universitySectionIntro: "Science at the root of everything we do.",
+    universitySectionIntro: " ",
     universitySectionDescription:
       "Golden Forests maintains collaborative research relationships with leading Philippine agricultural institutions, supporting advanced cultivation research, elite variety development and sustainable agroforestry innovation.",
     universityPartnerNames: [
@@ -1335,7 +1334,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Quarterly plantation inspections, structured maintenance protocols and continuous monitoring throughout every cultivation cycle.",
     ],
     environmentalSectionTitle: "Environmental Commitment",
-    environmentalSectionSubtitle: "One-to-One Native Reforestation",
+    environmentalSectionSubtitle: " ",
     environmentalSectionDescription:
       "For every commercial tree purchased, Golden Forests plants one Philippine endemic species in designated restoration areas. Native species include Narra, Agoho, Mangono, Molave, Talisay and Belite, supporting ecosystem restoration and biodiversity enhancement in Zambales province.",
     environmentalSectionTagline: "Sustainability Pathways: measurable commitments, not aspirations.",
