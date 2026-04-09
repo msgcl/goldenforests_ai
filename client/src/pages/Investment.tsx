@@ -11,7 +11,7 @@ import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
 import { createPageTypography } from "@/lib/siteTypography";
 
-const investmentHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767718/golden-forests/investment-hero-20260410.png";
+const investmentHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775768101/golden-forests/investment-hero-20260410-v2.png";
 const agarwoodChipsImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461736/golden-forests/agarwood-chips-20260406.jpg";
 const mangoImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461737/golden-forests/mango-support-1-20260406.jpg";
 const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
