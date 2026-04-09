@@ -143,7 +143,7 @@ export default function Home() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <h2 className={font("pillarTitles", "font-serif text-[1.65rem] font-semibold leading-tight text-[#2D5016]")}>{title}</h2>
-                  <p className={font("pillarDescriptions", "mt-4 text-[1.12rem] font-medium leading-8 text-[#2D5016]")}>
+                  <p className={font("pillarDescriptions", "mt-4 whitespace-pre-line text-[0.98rem] font-medium uppercase tracking-[0.28em] text-[#6B8E23] sm:text-[1rem]")}>
                     {tagline}
                   </p>
                   <ul className="mt-4 space-y-3 text-[0.98rem] leading-7 text-[#2D5016]/84">

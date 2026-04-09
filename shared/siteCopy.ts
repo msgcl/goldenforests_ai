@@ -1143,9 +1143,9 @@ export const defaultSiteCopy: SiteCopy = {
       "Environmental Impact",
     ],
     pillarTaglines: [
-      "Tangible assets. Verified ownership. Complete transparency.",
-      "Expert cultivation. Advanced technology. Research-backed results.",
-      "One-to-one native tree reforestation.",
+      "TANGIBLE ASSETS.\nVERIFIED OWNERSHIP.\nCOMPLETE TRANSPARENCY.",
+      "EXPERT CULTIVATION.\nADVANCED TECHNOLOGY.\nRESEARCH-BACKED RESULTS.",
+      "ONE-TO-ONE NATIVE TREE REFORESTATION.",
     ],
     pillarDescriptions: [
       "Verified ownership. Complete transparency.",
@@ -1646,6 +1646,28 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     ...defaultSiteCopy.home,
     ...(data.home ?? {}),
   };
+
+  const legacyHomePillarTaglines = new Map<string, string>([
+    [
+      "Tangible assets. Verified ownership. Complete transparency.",
+      "TANGIBLE ASSETS.\nVERIFIED OWNERSHIP.\nCOMPLETE TRANSPARENCY.",
+    ],
+    [
+      "Expert cultivation. Advanced technology. Research-backed results.",
+      "EXPERT CULTIVATION.\nADVANCED TECHNOLOGY.\nRESEARCH-BACKED RESULTS.",
+    ],
+    [
+      "One-to-one native tree reforestation.",
+      "ONE-TO-ONE NATIVE TREE REFORESTATION.",
+    ],
+  ]);
+
+  normalizedHome.pillarTaglines = (
+    normalizedHome.pillarTaglines ?? defaultSiteCopy.home.pillarTaglines
+  ).map((tagline, index) => {
+    const normalizedTagline = legacyHomePillarTaglines.get(tagline.trim()) ?? tagline;
+    return normalizedTagline ?? defaultSiteCopy.home.pillarTaglines[index];
+  });
 
   const normalizedCredibilityDescriptions =
     normalizedHome.credibilityPartnerDescriptions ?? defaultSiteCopy.home.credibilityPartnerDescriptions;
