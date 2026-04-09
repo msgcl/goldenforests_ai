@@ -629,28 +629,22 @@ export const defaultSiteCopy: SiteCopy = {
     commitmentSectionTitle: "Our Commitment",
     commitmentColumnTitles: ["For Investors", "For the Land", "For the People"],
     commitmentItemTitles: [
-      ["Direct ownership with complete transparency", "Attractive projected returns", "Professional agronomic management", "Protected ownership rights"],
-      ["One-to-one native tree reforestation", "PEFC certification pathways", "Measurable environmental impact", "Sustainable cultivation practices"],
-      ["Local employment and skills development", "Community partnerships", "Knowledge transfer and capacity building", "Safe and ethical working conditions"],
+      ["DIRECT OWNERSHIP. TRANSPARENT BY DESIGN.", "PERFORMANCE-BASED RETURNS."],
+      ["ONE TREE PURCHASED. ONE NATIVE TREE PLANTED.", "PEFC CERTIFIED."],
+      ["EMPLOYMENT ROOTED IN THE COMMUNITY.", "COMMUNITY. PARTNERSHIP. PURPOSE."],
     ],
     commitmentItemDescriptions: [
       [
-        "Your investment represents verified ownership of specific trees on professionally managed plantations. GPS-verified ownership certificates, real-time operational monitoring and quarterly reporting provide institutional-grade transparency throughout cultivation cycles.",
-        "Agarwood offers 18.5% projected annualised returns over 10 years. Mango offers 14-23% projected annualised returns over 25 years. Performance-based fee structures align our interests directly with yours.",
-        "Eighty-plus years combined management experience across plantation agriculture, forestry science and sustainable investment. AI-enabled monitoring, university research partnerships and structured risk management protocols protect your investment.",
-        "Tree ownership remains legally protected even if company operations cease. Ownership can be transferred, included in estates or held as long-term assets with flexible exit options.",
+        "Your investment represents verified ownership of specific trees on professionally managed plantations. GPS-verified ownership certificates, real-time operational monitoring and quarterly reporting give you full visibility throughout every cultivation cycle. Tree ownership remains legally protected even if company operations cease and can be transferred, included in estates or held as a long-term asset.",
+        "Agarwood offers 18.5% projected annualised returns over 10 years. Mango offers 14-23% projected annualised returns over 25 years. We earn only when your trees produce, ensuring our interests are fully aligned with yours.",
       ],
       [
-        "For every commercial tree purchased, we plant one Philippine endemic species in designated restoration areas. Native reforestation supports biodiversity enhancement, habitat restoration and ecosystem resilience across Zambales province.",
-        "We are progressing towards Programme for the Endorsement of Forest Certification, demonstrating commitment to internationally recognised sustainability standards and responsible forest management.",
-        "Biodiversity monitoring, carbon sequestration tracking and habitat restoration metrics provide verifiable evidence of environmental contribution. Your investment actively restores degraded forestland whilst generating financial returns.",
-        "Solar-powered irrigation infrastructure, integrated pest management protocols and precision agriculture techniques minimise environmental footprint whilst optimising biological asset performance.",
+        "For every commercial tree purchased, we plant one Philippine endemic species in designated restoration areas across Zambales province. Native species include Narra, Agoho, Mangono, Molave, Talisay and Belite, each chosen for their contribution to ecosystem restoration. This one-to-one commitment ensures that every plantation we develop actively regenerates the land around it.",
+        "We are progressing towards Programme for the Endorsement of Forest Certification, demonstrating our commitment to internationally recognised sustainability standards. Biodiversity monitoring, carbon sequestration tracking and habitat restoration metrics provide verifiable evidence of our environmental contribution. Responsible forest management is not an aspiration at Golden Forests. It is a measurable obligation.",
       ],
       [
-        "Our plantations provide stable employment for local communities in Zambales province. We invest in continuous training, fair wages aligned with UN Global Compact principles, and career progression opportunities for all employees.",
-        "We work collaboratively with local communities, supporting economic development whilst respecting traditional land relationships and cultural practices. Our operations create lasting local benefit beyond direct employment.",
-        "Through partnerships with President Ramon Magsaysay State University, Visayas State University and University of the Philippines Los Baños, we contribute to Philippine agricultural research excellence and knowledge transfer supporting broader industry advancement.",
-        "All staff are employed under Philippine labour laws with comprehensive safety protocols, benefits and ethical treatment standards. We operate with transparency, fairness and respect for all people involved in our operations.",
+        "Our plantations provide stable employment for local communities in Zambales province, with continuous training and career progression opportunities for all employees. Fair wages are aligned with UN Global Compact principles, ensuring that the people who care for our plantations share in their success. We invest in our people with the same long-term commitment we bring to our trees.",
+        "We work collaboratively with local communities, supporting economic development whilst respecting traditional land relationships and cultural practices that have shaped the region for generations. Our operations are designed to create lasting local benefit that extends well beyond direct employment. The prosperity of our plantations belongs to the land and the people that make it possible.",
       ],
     ],
     visionTitle: "Vision",
@@ -1597,6 +1591,42 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
 
   if (usesLegacyAboutHeader) {
     normalizedAbout.header = { ...defaultSiteCopy.about.header };
+  }
+
+  const legacyAboutCommitmentItemTitles = [
+    ["Direct ownership with complete transparency", "Attractive projected returns", "Professional agronomic management", "Protected ownership rights"],
+    ["One-to-one native tree reforestation", "PEFC certification pathways", "Measurable environmental impact", "Sustainable cultivation practices"],
+    ["Local employment and skills development", "Community partnerships", "Knowledge transfer and capacity building", "Safe and ethical working conditions"],
+  ];
+
+  const legacyAboutCommitmentItemDescriptions = [
+    [
+      "Your investment represents verified ownership of specific trees on professionally managed plantations. GPS-verified ownership certificates, real-time operational monitoring and quarterly reporting provide institutional-grade transparency throughout cultivation cycles.",
+      "Agarwood offers 18.5% projected annualised returns over 10 years. Mango offers 14-23% projected annualised returns over 25 years. Performance-based fee structures align our interests directly with yours.",
+      "Eighty-plus years combined management experience across plantation agriculture, forestry science and sustainable investment. AI-enabled monitoring, university research partnerships and structured risk management protocols protect your investment.",
+      "Tree ownership remains legally protected even if company operations cease. Ownership can be transferred, included in estates or held as long-term assets with flexible exit options.",
+    ],
+    [
+      "For every commercial tree purchased, we plant one Philippine endemic species in designated restoration areas. Native reforestation supports biodiversity enhancement, habitat restoration and ecosystem resilience across Zambales province.",
+      "We are progressing towards Programme for the Endorsement of Forest Certification, demonstrating commitment to internationally recognised sustainability standards and responsible forest management.",
+      "Biodiversity monitoring, carbon sequestration tracking and habitat restoration metrics provide verifiable evidence of environmental contribution. Your investment actively restores degraded forestland whilst generating financial returns.",
+      "Solar-powered irrigation infrastructure, integrated pest management protocols and precision agriculture techniques minimise environmental footprint whilst optimising biological asset performance.",
+    ],
+    [
+      "Our plantations provide stable employment for local communities in Zambales province. We invest in continuous training, fair wages aligned with UN Global Compact principles, and career progression opportunities for all employees.",
+      "We work collaboratively with local communities, supporting economic development whilst respecting traditional land relationships and cultural practices. Our operations create lasting local benefit beyond direct employment.",
+      "Through partnerships with President Ramon Magsaysay State University, Visayas State University and University of the Philippines Los Baños, we contribute to Philippine agricultural research excellence and knowledge transfer supporting broader industry advancement.",
+      "All staff are employed under Philippine labour laws with comprehensive safety protocols, benefits and ethical treatment standards. We operate with transparency, fairness and respect for all people involved in our operations.",
+    ],
+  ];
+
+  const aboutUsesLegacyCommitmentCopy =
+    JSON.stringify(normalizedAbout.commitmentItemTitles) === JSON.stringify(legacyAboutCommitmentItemTitles) &&
+    JSON.stringify(normalizedAbout.commitmentItemDescriptions) === JSON.stringify(legacyAboutCommitmentItemDescriptions);
+
+  if (aboutUsesLegacyCommitmentCopy) {
+    normalizedAbout.commitmentItemTitles = defaultSiteCopy.about.commitmentItemTitles.map((items) => [...items]);
+    normalizedAbout.commitmentItemDescriptions = defaultSiteCopy.about.commitmentItemDescriptions.map((items) => [...items]);
   }
 
   const normalizedEcotourism = { ...defaultSiteCopy.ecotourism, ...(data.ecotourism ?? {}) };
