@@ -136,8 +136,8 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10">
-        <div className="max-w-4xl">
+      <section className="mt-10 rounded-[1.8rem] border border-[#6B8E23]/18 bg-[#7F9E62] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+        <div className="max-w-4xl rounded-[1.45rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-5 shadow-sm sm:p-6">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.intelligenceSectionTitle}
           </h2>
@@ -151,7 +151,7 @@ export default function Plantation() {
             const Icon = intelligenceIcons[index] ?? Leaf;
 
             return (
-              <Card key={title} className="border-border/70 shadow-sm">
+              <Card key={title} className="border-[#C8A070]/24 bg-[#F4E8D2] shadow-sm">
                 <CardContent className="p-6">
                   <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <Icon className="h-5 w-5" />
@@ -203,8 +203,8 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10">
-        <div className="max-w-4xl">
+      <section className="mt-10 rounded-[1.8rem] border border-[#6B8E23]/18 bg-[#7F9E62] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+        <div className="max-w-4xl rounded-[1.45rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-5 shadow-sm sm:p-6">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.riskSectionTitle}
           </h2>
@@ -213,7 +213,7 @@ export default function Plantation() {
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {riskManagementItems.map(({ title, tagline, description }) => (
-            <Card key={title} className="border-border/70 shadow-sm">
+            <Card key={title} className="border-[#C8A070]/24 bg-[#F4E8D2] shadow-sm">
               <CardContent className="p-6">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <ShieldCheck className="h-5 w-5" />
@@ -229,7 +229,7 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] p-6 shadow-sm sm:p-8">
+      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.environmentalSectionTitle}
@@ -254,7 +254,7 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] p-6 shadow-sm sm:p-8">
+      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Trees className="h-5 w-5" />
