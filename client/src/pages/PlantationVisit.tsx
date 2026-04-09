@@ -8,7 +8,7 @@ import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
 
 const plantationVisitHeroImage =
-  "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767719/golden-forests/plantation-visit-hero-20260410.png";
+  "https://res.cloudinary.com/dezfh7wug/image/upload/v1775768341/golden-forests/plantation-visit-hero-20260410-v3.png";
 
 export default function PlantationVisit() {
   const { data: siteCopy } = useSiteCopy();
