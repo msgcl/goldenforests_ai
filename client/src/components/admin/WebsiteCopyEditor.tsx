@@ -62,6 +62,157 @@ const pageCatalog: Array<{
   { key: "plantation", label: "Operations", eyebrow: "Operations", description: "Hero, intelligence, partnerships, risk, environmental, and transparency copy." },
 ];
 
+const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
+  home: [
+    "heroTitle",
+    "heroParagraphs",
+    "primaryCtaLabel",
+    "pillarTitles",
+    "pillarTaglines",
+    "pillarBullets",
+    "investmentSectionTitle",
+    "investmentOpportunityTitles",
+    "investmentOpportunityDescriptions",
+    "investmentOpportunityLearnMoreLabels",
+    "investmentOpportunityLearnMoreHrefs",
+    "investmentOpportunityDownloadLabels",
+    "investmentOpportunityDownloadHrefs",
+    "credibilityTitle",
+    "credibilityPartnerNames",
+    "credibilityPartnerLeadLines",
+    "credibilityPartnerBodyLines",
+    "credibilityPartnerLogoUrls",
+    "credibilityPartnerLogoAlts",
+    "missionStatement",
+    "missionCtaLabel",
+  ],
+  about: [
+    "heroTitle",
+    "heroDescription",
+    "overviewParagraphs",
+    "uspSectionTitle",
+    "uspCardTitles",
+    "uspCardDescriptions",
+    "commitmentSectionTitle",
+    "commitmentColumnTitles",
+    "commitmentItemTitles",
+    "commitmentItemDescriptions",
+    "visionTitle",
+    "visionDescription",
+    "missionTitle",
+    "missionDescription",
+    "leadershipSectionTitle",
+    "leadershipNames",
+    "leadershipTitles",
+    "leadershipDescriptions",
+    "boardSectionTitle",
+    "boardNames",
+    "boardTitles",
+    "boardDescriptions",
+  ],
+  investment: [
+    "header.title",
+    "header.description",
+    "agarwoodTitle",
+    "agarwoodIntroParagraphs",
+    "agarwoodMarketTitle",
+    "agarwoodMarketDescription",
+    "agarwoodReturnsTitle",
+    "agarwoodReturnsDescription",
+    "agarwoodStrengthsTitle",
+    "agarwoodStrengths",
+    "agarwoodLearnMoreHref",
+    "agarwoodDownloadLabel",
+    "agarwoodContactLabel",
+    "mangoTitle",
+    "mangoIntroParagraphs",
+    "mangoMarketTitle",
+    "mangoMarketDescription",
+    "mangoReturnsTitle",
+    "mangoReturnsDescription",
+    "mangoStrengthsTitle",
+    "mangoStrengths",
+    "mangoLearnMoreHref",
+    "mangoDownloadLabel",
+    "mangoContactLabel",
+    "portfolioTitle",
+    "portfolioBenefits",
+    "portfolioDownloadLabel",
+    "portfolioContactLabel",
+    "faqTitle",
+    "faqDescription",
+    "faqQuestions",
+    "faqAnswers",
+    "faqDocumentLabel",
+  ],
+  ecotourism: [
+    "header.title",
+    "header.description",
+    "introParagraphs",
+    "ctaLabel",
+    "featuredDestinationNames",
+    "featuredDestinationDetails",
+    "featuredDestinationImages",
+  ],
+  contact: [
+    "badge",
+    "heroTitle",
+    "heroDescription",
+    "intro",
+    "formTitle",
+    "formDescription",
+    "detailsTitle",
+    "detailsDescription",
+    "mobileLabel",
+    "phoneNumbers",
+    "emailInfoLabel",
+    "emailValue",
+    "emailHref",
+    "holdingCompanyLabel",
+    "holdingCompanyAddress",
+    "resourcesTitle",
+    "resourceLabels",
+    "resourceHrefs",
+  ],
+  plantation: [
+    "heroTitle",
+    "heroDescription",
+    "overviewTitle",
+    "overviewDescription",
+    "overviewParagraphs",
+    "overviewPortalCtaLabel",
+    "overviewPortalCtaHref",
+    "intelligenceSectionTitle",
+    "intelligenceSectionDescription",
+    "intelligenceTitles",
+    "intelligenceTaglines",
+    "intelligenceDescriptions",
+    "universitySectionTitle",
+    "universitySectionIntro",
+    "universitySectionDescription",
+    "universityPartnerNames",
+    "universityPartnerLeadLines",
+    "universityPartnerBodyLines",
+    "riskSectionTitle",
+    "riskSectionDescription",
+    "riskTitles",
+    "riskTaglines",
+    "riskDescriptions",
+    "environmentalSectionTitle",
+    "environmentalSectionSubtitle",
+    "environmentalSectionDescription",
+    "environmentalSectionTagline",
+    "environmentalItems",
+    "transparencySectionTitle",
+    "transparencySectionDescription",
+    "transparencyItems",
+    "transparencyPrimaryCtaLabel",
+    "transparencyPrimaryCtaHref",
+    "transparencySecondaryCtaLabel",
+    "transparencySecondaryCtaHref",
+  ],
+};
+
 function formatTimestamp(value: string) {
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return "Not published yet";
@@ -203,7 +354,10 @@ export function WebsiteCopyEditor({
 
   const selectedPageMeta = pageCatalog.find((page) => page.key === selectedPage) ?? pageCatalog[0];
   const selectedPageValue = value[selectedPage] as Record<string, unknown>;
-  const fields = useMemo(() => collectTextFields(selectedPageValue), [selectedPageValue]);
+  const fields = useMemo(() => {
+    const editablePaths = new Set(editableFieldPathsByPage[selectedPage] ?? []);
+    return collectTextFields(selectedPageValue).filter((field) => editablePaths.has(field.path));
+  }, [selectedPage, selectedPageValue]);
   const selectedPageTypography = value.typography[selectedPage];
   const previewFont = createPageTypography(value, selectedPage);
 
@@ -272,7 +426,7 @@ export function WebsiteCopyEditor({
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#f5d5a1]">Editorial Workspace</p>
               <h2 className="mt-3 text-3xl font-outfit font-semibold tracking-tight md:text-4xl">Website Copy Studio</h2>
               <p className="mt-3 text-sm leading-relaxed text-white/75 md:text-base">
-                Choose a page, edit every available text field, preview the selected page’s copy layout, and assign approved brand fonts per text block before publishing.
+                Choose a page, edit the text fields that are actually rendered on the public site, preview the selected page copy, and assign approved brand fonts per text block before publishing.
               </p>
             </div>
 
@@ -322,7 +476,7 @@ export function WebsiteCopyEditor({
 
       <SurfaceCard
         title={`${selectedPageMeta.label} Studio`}
-        description={`All text content currently available for ${selectedPageMeta.label.toLowerCase()} is editable below. Each field can inherit the default page typography or switch to an approved brand font.`}
+        description={`Only the text content currently used on the ${selectedPageMeta.label.toLowerCase()} page is editable below. Each field can inherit the default page typography or switch to an approved brand font.`}
         actions={
           <div className="flex flex-wrap gap-2">
             {[
@@ -494,7 +648,7 @@ export function WebsiteCopyEditor({
               </div>
               <div>
                 <p className="text-sm font-semibold text-white">Full field coverage</p>
-                <p className="text-xs leading-relaxed text-white/65">Every text field exposed in the selected page data model is available here automatically.</p>
+                <p className="text-xs leading-relaxed text-white/65">Only text blocks currently rendered on the selected public page are exposed here.</p>
               </div>
             </div>
           </div>
