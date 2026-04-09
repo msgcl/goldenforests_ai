@@ -18,6 +18,12 @@ import { defaultSiteCopy } from "@shared/siteCopy";
 
 const operationsHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461734/golden-forests/operations-hero-ai-3-20260406.jpg";
 const intelligenceIcons = [Waypoints, BrainCircuit, Leaf] as const;
+const transparencyLeadPhrases = [
+  "YOUR TREES. YOUR COORDINATES.",
+  "REAL-TIME. ALWAYS ON.",
+  "INFORMED AT EVERY STAGE.",
+  "SEE IT FOR YOURSELF.",
+] as const;
 
 function toSentenceCaseFromAllCaps(value: string) {
   const normalized = value.trim();
@@ -29,6 +35,26 @@ function toSentenceCaseFromAllCaps(value: string) {
   return normalized
     .toLowerCase()
     .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function parseTransparencyItem(item: string) {
+  const matchedLead = transparencyLeadPhrases.find((phrase) => item.includes(phrase));
+
+  if (!matchedLead) {
+    return {
+      before: "",
+      lead: "",
+      after: item,
+    };
+  }
+
+  const [before, remainder] = item.split(matchedLead, 2);
+
+  return {
+    before: before.trim(),
+    lead: toSentenceCaseFromAllCaps(matchedLead),
+    after: remainder.trim(),
+  };
 }
 
 export default function Plantation() {
@@ -55,16 +81,10 @@ export default function Plantation() {
     tagline: copy.riskTaglines[index] ?? "",
     description: copy.riskDescriptions[index] ?? "",
   }));
-  const transparencyItems = copy.transparencyItems.map((item) => {
-    const [lead = "", ...restParts] = item.split(". ");
-    const hasBody = restParts.length > 0;
-
-    return {
-      original: item,
-      lead: hasBody ? toSentenceCaseFromAllCaps(lead.endsWith(".") ? lead : `${lead}.`) : "",
-      body: hasBody ? restParts.join(". ").trim() : item,
-    };
-  });
+  const transparencyItems = copy.transparencyItems.map((item) => ({
+    original: item,
+    ...parseTransparencyItem(item),
+  }));
 
   return (
     <AnimatedPage className="pt-6 md:pt-8">
@@ -236,16 +256,18 @@ export default function Plantation() {
           </h2>
           <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.transparencySectionDescription}</p>
           <ul className="mt-6 space-y-4 text-sm leading-7 text-[#17392E]/84">
-            {transparencyItems.map(({ original, lead, body }) => (
+            {transparencyItems.map(({ original, before, lead, after }) => (
               <li key={original} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C8A070]" />
                 <span>
+                  {before ? <span>{before} </span> : null}
                   {lead ? (
-                    <span className="mb-1 block text-[0.92rem] font-semibold tracking-[0.02em] text-[#8A6744]">
+                    <span className="font-semibold text-[#8A6744]">
                       {lead}
                     </span>
                   ) : null}
-                  <span>{body}</span>
+                  {lead && after ? <span> </span> : null}
+                  <span>{after}</span>
                 </span>
               </li>
             ))}
