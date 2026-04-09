@@ -992,7 +992,7 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     agarwoodLearnMoreLabel: "Learn More",
     agarwoodLearnMoreHref: "/contact",
-    agarwoodDownloadLabel: "Download Agarwood Exposé",
+    agarwoodDownloadLabel: "Agarwood exposé",
     agarwoodDownloadHref: "/contact",
     agarwoodContactLabel: "Contact Our Team",
     mangoEyebrow: "Mango Programme",
@@ -1018,7 +1018,7 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     mangoLearnMoreLabel: "Learn More",
     mangoLearnMoreHref: "/contact",
-    mangoDownloadLabel: "Download Mango Exposé",
+    mangoDownloadLabel: "Mango exposé",
     mangoDownloadHref: "/contact",
     mangoContactLabel: "Contact Our Team",
     portfolioEyebrow: "Portfolio Strategy",
@@ -1620,8 +1620,8 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     header: { ...defaultSiteCopy.investment.header, ...(data.investment?.header ?? {}) },
   };
 
-  normalizedInvestment.agarwoodDownloadLabel = "Download Agarwood Exposé";
-  normalizedInvestment.mangoDownloadLabel = "Download Mango Exposé";
+  normalizedInvestment.agarwoodDownloadLabel = "Agarwood exposé";
+  normalizedInvestment.mangoDownloadLabel = "Mango exposé";
 
   const legacyHomeInvestmentHrefMap = new Map<string, string>([
     ["/agarwood-life-cycle", "/investment#agarwood"],
