@@ -92,8 +92,8 @@ export default function Home() {
         id="investment-pathways"
         className="mt-10 rounded-[1.9rem] border border-[#6B8E23]/18 bg-[#7F9E62] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8"
       >
-        <div className="mb-6 max-w-3xl">
-          <h2 className="font-serif text-[1.65rem] leading-tight text-[#F6F0DE] sm:text-[2rem]">
+        <div className="mb-6 max-w-none">
+          <h2 className="font-serif text-[1.5rem] leading-tight text-[#F6F0DE] sm:text-[1.75rem] lg:whitespace-nowrap lg:text-[2rem]">
             {copy.investmentSectionTitle}
           </h2>
         </div>
