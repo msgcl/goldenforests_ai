@@ -1648,6 +1648,12 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     ...(data.home ?? {}),
   };
 
+  const legacyHomeCredibilityEyebrow = "Credibility Markers";
+
+  if (normalizedHome.credibilityEyebrow?.trim() === legacyHomeCredibilityEyebrow) {
+    normalizedHome.credibilityEyebrow = defaultSiteCopy.home.credibilityEyebrow;
+  }
+
   const legacyHomePillarTaglines = new Map<string, string>([
     [
       "Tangible assets. Verified ownership. Complete transparency.",
