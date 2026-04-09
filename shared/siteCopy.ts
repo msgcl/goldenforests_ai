@@ -88,6 +88,7 @@ export const aboutPageCopySchema = z.object({
   heroTitle: nonEmptyString,
   heroDescription: nonEmptyString,
   overviewEyebrow: nonEmptyString,
+  overviewTitle: nonEmptyString,
   overviewParagraphs: nonEmptyStringArray,
   uspSectionTitle: nonEmptyString,
   uspCardTitles: nonEmptyStringArray,
@@ -602,6 +603,7 @@ export const defaultSiteCopy: SiteCopy = {
     heroTitle: "For investors. For the land. For the people.",
     heroDescription: "Building sustainable value through responsible agroforestry investment.",
     overviewEyebrow: "Growing Wealth. Preserving Nature.",
+    overviewTitle: "About us",
     overviewParagraphs: [
       "Golden Forests is a Philippine agroforestry investment platform specialising in professionally managed agarwood and mango plantations. We combine direct tree ownership with institutional-grade transparency, advanced agricultural science and measurable environmental impact.",
       "Operating in Zambales province, Philippines, we provide private and professional investors access to premium biological assets through verified ownership structures, AI-enabled plantation management and strategic partnerships with leading agricultural research institutions.",

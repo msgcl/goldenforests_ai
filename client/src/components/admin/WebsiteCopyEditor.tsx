@@ -90,6 +90,7 @@ const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
   about: [
     "heroTitle",
     "heroDescription",
+    "overviewTitle",
     "overviewParagraphs",
     "uspSectionTitle",
     "uspCardTitles",

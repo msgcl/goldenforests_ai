@@ -14,6 +14,23 @@ import {
 
 const aboutHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461733/golden-forests/about-hero-20260406.png";
 const uspIcons = [LineChart, BrainCircuit, ShieldCheck, Globe2, Trees, Leaf] as const;
+const standoutOverviewLine = "We invite you to be part of it.";
+
+function renderOverviewParagraph(paragraph: string) {
+  if (!paragraph.includes(standoutOverviewLine)) {
+    return paragraph;
+  }
+
+  const [before] = paragraph.split(standoutOverviewLine, 2);
+  const trimmedBefore = before.trimEnd();
+
+  return (
+    <>
+      {trimmedBefore ? `${trimmedBefore} ` : null}
+      <span className="mt-2 block text-[#17392E]">{standoutOverviewLine}</span>
+    </>
+  );
+}
 
 export default function About() {
   const { data: siteCopy } = useSiteCopy();
@@ -64,9 +81,12 @@ export default function About() {
       <section className="mb-8">
         <Card className="border-border/60 shadow-sm">
           <CardContent className="p-6 md:p-8">
-            <div className="space-y-4 text-sm leading-8 text-muted-foreground md:text-base">
+            <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
+              {copy.overviewTitle}
+            </h2>
+            <div className="mt-5 space-y-4 text-sm leading-8 text-muted-foreground md:text-base">
               {copy.overviewParagraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph}>{renderOverviewParagraph(paragraph)}</p>
               ))}
             </div>
           </CardContent>
