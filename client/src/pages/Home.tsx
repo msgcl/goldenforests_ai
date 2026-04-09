@@ -207,9 +207,6 @@ export default function Home() {
           <p className={font("missionStatement", "font-serif text-[1.9rem] leading-tight text-[#2D5016] sm:text-[2.4rem] lg:text-[2.9rem]")}>
             {copy.missionStatement}
           </p>
-          <p className={font("missionPanelText", "mt-4 text-[1rem] leading-8 text-[#2D5016]/82 sm:text-[1.08rem]")}>
-            {copy.missionPanelText}
-          </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
               <Link href="/contact" className={font("missionCtaLabel", "inline-flex items-center gap-2")}>

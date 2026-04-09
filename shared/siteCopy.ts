@@ -1192,9 +1192,9 @@ export const defaultSiteCopy: SiteCopy = {
       "University of the Philippines Los Baños",
     ],
     credibilityPartnerDescriptions: [
-      "Mango research and dwarf variety development",
-      "Soil science and integrated pest management",
-      "Elite variety development and propagation protocols",
+      "Mango research and cultivar development. Research partner in Sweet Elena's development, supporting the dwarfing and induced flowering protocols.",
+      "Soil science and integrated pest management. Soil health and pest management research applied directly to plantation cultivation across Zambales province.",
+      "Elite variety propagation. Cultivation protocols and propagation expertise supporting consistent, premium production standards across both programmes.",
     ],
     credibilityPartnerLogoUrls: [
       "https://res.cloudinary.com/dezfh7wug/image/upload/v1774841394/golden-forests/President_Ramon_Magsaysay_State_University.png",
@@ -1208,7 +1208,7 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     missionEyebrow: "Closing CTA",
     missionStatement: "Your trees. Your returns. Your environmental legacy.",
-    missionPanelText: "Connect with our team to explore direct plantation ownership.",
+    missionPanelText: " ",
     missionCtaLabel: "Get Started",
     missionSecondaryCtaLabel: "Download Overview",
     closingTitles: [
