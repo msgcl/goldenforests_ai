@@ -1638,6 +1638,13 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     normalizedInvestment.mangoDownloadLabel = "Mango exposé";
   }
   if (
+    normalizedInvestment.portfolioTitle ===
+    "Two exceptional crops. One powerful portfolio strategy."
+  ) {
+    normalizedInvestment.portfolioTitle =
+      "Two exceptional crops.\nOne powerful portfolio strategy.";
+  }
+  if (
     normalizedInvestment.portfolioDescription ===
     "Two crops. Two timelines. One balanced portfolio. Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns."
   ) {

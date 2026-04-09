@@ -247,7 +247,7 @@ export default function Investment() {
       <section className="mb-8 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-8">
         <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <h2 className="font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
+            <h2 className="whitespace-pre-line font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
               {copy.portfolioTitle}
             </h2>
             <p className="mt-4 text-[0.98rem] leading-8 text-foreground/80">
