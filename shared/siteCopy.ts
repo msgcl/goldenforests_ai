@@ -1666,6 +1666,33 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     return legacyHomeInvestmentHrefMap.get(href) ?? href ?? fallbackHref;
   });
 
+  const legacyPlantationOverviewDescription =
+    "Professionally managed plantations in one of the Philippines' most agriculturally productive provinces.";
+  const legacyUniversitySectionIntro = "Science at the root of everything we do.";
+  const legacyEnvironmentalSectionSubtitle = "One-to-One Native Reforestation";
+
+  const normalizedPlantation = {
+    ...defaultSiteCopy.plantation,
+    ...(data.plantation ?? {}),
+    header: { ...defaultSiteCopy.plantation.header, ...(data.plantation?.header ?? {}) },
+  };
+
+  if (normalizedPlantation.overviewDescription?.trim() === legacyPlantationOverviewDescription) {
+    normalizedPlantation.overviewDescription = defaultSiteCopy.plantation.overviewDescription;
+  }
+
+  normalizedPlantation.overviewParagraphs = (
+    normalizedPlantation.overviewParagraphs ?? defaultSiteCopy.plantation.overviewParagraphs
+  ).filter((paragraph) => paragraph.trim() !== legacyPlantationOverviewDescription);
+
+  if (normalizedPlantation.universitySectionIntro?.trim() === legacyUniversitySectionIntro) {
+    normalizedPlantation.universitySectionIntro = defaultSiteCopy.plantation.universitySectionIntro;
+  }
+
+  if (normalizedPlantation.environmentalSectionSubtitle?.trim() === legacyEnvironmentalSectionSubtitle) {
+    normalizedPlantation.environmentalSectionSubtitle = defaultSiteCopy.plantation.environmentalSectionSubtitle;
+  }
+
   return siteCopySchema.parse({
     ...defaultSiteCopy,
     ...data,
@@ -1723,11 +1750,7 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
       ...(data.nursery ?? {}),
       header: { ...defaultSiteCopy.nursery.header, ...(data.nursery?.header ?? {}) },
     },
-    plantation: {
-      ...defaultSiteCopy.plantation,
-      ...(data.plantation ?? {}),
-      header: { ...defaultSiteCopy.plantation.header, ...(data.plantation?.header ?? {}) },
-    },
+    plantation: normalizedPlantation,
     management: {
       ...defaultSiteCopy.management,
       ...(data.management ?? {}),
