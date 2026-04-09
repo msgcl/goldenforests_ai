@@ -48,7 +48,8 @@ export default function Home() {
 
   const credibilityPartners = copy.credibilityPartnerNames.map((name, index) => ({
     name,
-    description: copy.credibilityPartnerDescriptions[index] ?? "",
+    leadLine: copy.credibilityPartnerLeadLines[index] ?? "",
+    bodyLine: copy.credibilityPartnerBodyLines[index] ?? "",
     logo: copy.credibilityPartnerLogoUrls[index] ?? "",
     logoAlt: copy.credibilityPartnerLogoAlts[index] ?? `${name} logo`,
   }));
@@ -168,11 +169,7 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {credibilityPartners.map(({ logo, logoAlt, name, description }) => {
-            const [subtitle = "", ...restParts] = description.split(". ");
-            const detail = restParts.join(". ").trim();
-
-            return (
+          {credibilityPartners.map(({ logo, logoAlt, name, leadLine, bodyLine }) => (
             <Card key={name} className="border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
               <CardContent className="p-5">
                 <div className="flex items-start gap-4">
@@ -190,15 +187,15 @@ export default function Home() {
                     </div>
                     <p className="mt-4 text-sm leading-7 text-[#2D5016]/84">
                       <span className="mb-1 block text-[0.9rem] font-semibold uppercase tracking-[0.08em] text-[#2D5016]">
-                        {subtitle}
+                        {leadLine}
                       </span>
-                      {detail}
+                      {bodyLine}
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          )})}
+          ))}
         </div>
       </section>
 

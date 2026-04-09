@@ -303,6 +303,8 @@ export const homePageCopySchema = z.object({
   credibilityEyebrow: nonEmptyString,
   credibilityTitle: nonEmptyString,
   credibilityPartnerNames: nonEmptyStringArray,
+  credibilityPartnerLeadLines: nonEmptyStringArray,
+  credibilityPartnerBodyLines: nonEmptyStringArray,
   credibilityPartnerDescriptions: nonEmptyStringArray,
   credibilityPartnerLogoUrls: nonEmptyStringArray,
   credibilityPartnerLogoAlts: nonEmptyStringArray,
@@ -1191,6 +1193,16 @@ export const defaultSiteCopy: SiteCopy = {
       "Visayas State University",
       "University of the Philippines Los Baños",
     ],
+    credibilityPartnerLeadLines: [
+      "Mango research and cultivar development.",
+      "Soil science and integrated pest management.",
+      "Elite variety propagation.",
+    ],
+    credibilityPartnerBodyLines: [
+      "Research partner in Sweet Elena's development, supporting the dwarfing and induced flowering protocols.",
+      "Soil health and pest management research applied directly to plantation cultivation across Zambales province.",
+      "Cultivation protocols and propagation expertise supporting consistent, premium production standards across both programmes.",
+    ],
     credibilityPartnerDescriptions: [
       "Mango research and cultivar development. Research partner in Sweet Elena's development, supporting the dwarfing and induced flowering protocols.",
       "Soil science and integrated pest management. Soil health and pest management research applied directly to plantation cultivation across Zambales province.",
@@ -1620,6 +1632,29 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     ...defaultSiteCopy.home,
     ...(data.home ?? {}),
   };
+
+  const normalizedCredibilityDescriptions =
+    normalizedHome.credibilityPartnerDescriptions ?? defaultSiteCopy.home.credibilityPartnerDescriptions;
+  const leadLines = normalizedHome.credibilityPartnerLeadLines ?? [];
+  const bodyLines = normalizedHome.credibilityPartnerBodyLines ?? [];
+
+  normalizedHome.credibilityPartnerLeadLines = normalizedCredibilityDescriptions.map((description, index) => {
+    if (leadLines[index]) {
+      return leadLines[index];
+    }
+
+    const [lead = ""] = description.split(". ");
+    return lead.endsWith(".") ? lead : `${lead}.`;
+  });
+
+  normalizedHome.credibilityPartnerBodyLines = normalizedCredibilityDescriptions.map((description, index) => {
+    if (bodyLines[index]) {
+      return bodyLines[index];
+    }
+
+    const [, ...restParts] = description.split(". ");
+    return restParts.join(". ").trim();
+  });
 
   normalizedHome.investmentOpportunityLearnMoreHrefs = (
     normalizedHome.investmentOpportunityLearnMoreHrefs ?? defaultSiteCopy.home.investmentOpportunityLearnMoreHrefs
