@@ -7,6 +7,7 @@ import path from "path";
 import { nanoid } from "nanoid";
 
 const viteLogger = createLogger();
+const projectRoot = process.cwd();
 
 export async function setupVite(server: Server, app: Express) {
   const serverOptions = {
@@ -36,8 +37,7 @@ export async function setupVite(server: Server, app: Express) {
 
     try {
       const clientTemplate = path.resolve(
-        import.meta.dirname,
-        "..",
+        projectRoot,
         "client",
         "index.html",
       );
