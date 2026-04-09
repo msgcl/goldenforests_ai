@@ -18,6 +18,13 @@ const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood
 const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
 const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
 
+function splitTitleIntoLines(value: string) {
+  return value
+    .split(/\r?\n|(?<=\.)\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
 function InvestmentProgrammeCard({
   title,
   intro,
@@ -125,6 +132,7 @@ export default function Investment() {
   const copy = resolvedSiteCopy.investment;
   const font = createPageTypography(resolvedSiteCopy, "investment");
   const portfolioBenefits = copy.portfolioBenefits;
+  const portfolioTitleLines = splitTitleIntoLines(copy.portfolioTitle);
   const faqItems = copy.faqQuestions.slice(0, 5).map((question, index) => ({
     question,
     answer: copy.faqAnswers[index] ?? "",
@@ -247,8 +255,12 @@ export default function Investment() {
       <section className="mb-8 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-8">
         <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <h2 className="whitespace-pre-line font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
-              {copy.portfolioTitle}
+            <h2 className="font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
+              {portfolioTitleLines.map((line, index) => (
+                <span key={`${line}-${index}`} className="block">
+                  {line}
+                </span>
+              ))}
             </h2>
             <p className="mt-4 text-[0.98rem] leading-8 text-foreground/80">
               {copy.portfolioDescription}
