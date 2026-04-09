@@ -12,7 +12,7 @@ import {
   Trees,
 } from "lucide-react";
 
-const aboutHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461733/golden-forests/about-hero-20260406.png";
+const aboutHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767720/golden-forests/about-hero-20260410.png";
 const uspIcons = [LineChart, BrainCircuit, ShieldCheck, Globe2, Trees, Leaf] as const;
 const standoutOverviewLine = "We invite you to be part of it.";
 

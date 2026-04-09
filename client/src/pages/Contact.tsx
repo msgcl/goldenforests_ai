@@ -12,7 +12,7 @@ const PIPEDRIVE_FORM_URL =
   "https://webforms.pipedrive.com/f/ccFXKfVy5hM7bSUc7TncVRQZb2ZjziEa2mp80r9GPdeGh6WdNUurWsIIM6eEqUZGH9";
 const PIPEDRIVE_LOADER_URL = "https://webforms.pipedrive.com/f/loader";
 const contactHeroImage =
-  "https://res.cloudinary.com/dezfh7wug/image/upload/v1775465640/golden-forests/contact-hero-20260406-v2.png";
+  "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767722/golden-forests/contact-hero-20260410.jpg";
 const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
 const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
 const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
