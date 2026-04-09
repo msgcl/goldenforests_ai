@@ -19,6 +19,18 @@ import { defaultSiteCopy } from "@shared/siteCopy";
 const operationsHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461734/golden-forests/operations-hero-ai-3-20260406.jpg";
 const intelligenceIcons = [Waypoints, BrainCircuit, Leaf] as const;
 
+function toSentenceCaseFromAllCaps(value: string) {
+  const normalized = value.trim();
+  if (!normalized) return normalized;
+
+  const isMostlyAllCaps = normalized === normalized.toUpperCase();
+  if (!isMostlyAllCaps) return normalized;
+
+  return normalized
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 export default function Plantation() {
   const { data: siteCopy } = useSiteCopy();
   const copy = (siteCopy ?? defaultSiteCopy).plantation;
@@ -43,6 +55,16 @@ export default function Plantation() {
     tagline: copy.riskTaglines[index] ?? "",
     description: copy.riskDescriptions[index] ?? "",
   }));
+  const transparencyItems = copy.transparencyItems.map((item) => {
+    const [lead = "", ...restParts] = item.split(". ");
+    const hasBody = restParts.length > 0;
+
+    return {
+      original: item,
+      lead: hasBody ? toSentenceCaseFromAllCaps(lead.endsWith(".") ? lead : `${lead}.`) : "",
+      body: hasBody ? restParts.join(". ").trim() : item,
+    };
+  });
 
   return (
     <AnimatedPage className="pt-6 md:pt-8">
@@ -213,11 +235,18 @@ export default function Plantation() {
             {copy.transparencySectionTitle}
           </h2>
           <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.transparencySectionDescription}</p>
-          <ul className="mt-6 space-y-3 text-sm leading-7 text-[#17392E]/84">
-            {copy.transparencyItems.map((item) => (
-              <li key={item} className="flex gap-3">
+          <ul className="mt-6 space-y-4 text-sm leading-7 text-[#17392E]/84">
+            {transparencyItems.map(({ original, lead, body }) => (
+              <li key={original} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C8A070]" />
-                <span>{item}</span>
+                <span>
+                  {lead ? (
+                    <span className="mb-1 block text-[0.92rem] font-semibold tracking-[0.02em] text-[#8A6744]">
+                      {lead}
+                    </span>
+                  ) : null}
+                  <span>{body}</span>
+                </span>
               </li>
             ))}
           </ul>
