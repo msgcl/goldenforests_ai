@@ -104,12 +104,7 @@ export function AppSidebar() {
           ))}
         </SidebarMenu>
       </SidebarContent>
-      <SidebarFooter className="border-t border-[#C8A070]/40 p-3">
-        <div className="rounded-[1.2rem] border border-[#C8A070] bg-[#3A6420] p-3">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.13em] text-[#C8A070]">Status</p>
-          <p className="mt-1 text-xs font-medium text-[#FBFCF7]">Regulatory and operational reporting active</p>
-        </div>
-      </SidebarFooter>
+      <SidebarFooter className="border-t border-[#C8A070]/40 p-3" />
     </Sidebar>
   );
 }
