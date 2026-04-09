@@ -30,7 +30,8 @@ export default function Home() {
   const font = createPageTypography(resolvedSiteCopy, "home");
   const valuePillars = copy.pillarTitles.map((title, index) => ({
     title,
-    intro: copy.pillarDescriptions[index] ?? "",
+    tagline: copy.pillarTaglines[index] ?? "",
+    bullets: (copy.pillarBullets ?? []).slice(index * 3, index * 3 + 3),
   }));
 
   const investmentOpportunities = copy.investmentOpportunityTitles.map((title, index) => ({
@@ -130,18 +131,28 @@ export default function Home() {
       </section>
 
       <section className="mt-10 grid gap-4 xl:grid-cols-3">
-        {valuePillars.map(({ title, intro }, index) => {
+        {valuePillars.map(({ title, tagline, bullets }, index) => {
           const Icon = pillarIcons[index] ?? Leaf;
           return (
-          <Card key={title} className="h-full border-border/70 shadow-sm">
+          <Card key={title} className="h-full border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
             <CardContent className="flex h-full p-6 md:p-7">
               <div className="flex flex-col gap-5">
                 <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h2 className={font("pillarTitles", "text-xl font-semibold text-foreground sm:text-[1.35rem]")}>{title}</h2>
-                  <p className={font("pillarDescriptions", "mt-4 text-[0.98rem] leading-8 text-muted-foreground")}>{intro}</p>
+                  <h2 className={font("pillarTitles", "font-serif text-[1.65rem] font-semibold leading-tight text-[#2D5016]")}>{title}</h2>
+                  <p className={font("pillarDescriptions", "mt-4 text-[1.12rem] font-medium leading-8 text-[#2D5016]")}>
+                    {tagline}
+                  </p>
+                  <ul className="mt-4 space-y-3 text-[0.98rem] leading-7 text-[#2D5016]/84">
+                    {bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-3">
+                        <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#6B8E23]" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </CardContent>
