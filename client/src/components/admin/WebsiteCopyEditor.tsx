@@ -666,7 +666,7 @@ export function WebsiteCopyEditor({
         </CardContent>
       </Card>
 
-      <div className="fixed bottom-4 right-4 z-40">
+      <div className="fixed right-4 top-1/2 z-40 -translate-y-1/2">
         <Button
           type="submit"
           disabled={isSaving}
