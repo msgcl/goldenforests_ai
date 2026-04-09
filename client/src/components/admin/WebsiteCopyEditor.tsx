@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import {
   Compass,
   Eye,
@@ -351,6 +351,7 @@ export function WebsiteCopyEditor({
 }: WebsiteCopyEditorProps) {
   const [selectedPage, setSelectedPage] = useState<SiteCopyPageKey>("home");
   const [viewMode, setViewMode] = useState<ViewMode>("split");
+  const [showFloatingSave, setShowFloatingSave] = useState(false);
 
   const selectedPageMeta = pageCatalog.find((page) => page.key === selectedPage) ?? pageCatalog[0];
   const selectedPageValue = value[selectedPage] as Record<string, unknown>;
@@ -410,6 +411,19 @@ export function WebsiteCopyEditor({
 
   const showEditor = viewMode === "edit" || viewMode === "split";
   const showPreview = viewMode === "preview" || viewMode === "split";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowFloatingSave(window.scrollY > 240);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <form
@@ -666,7 +680,12 @@ export function WebsiteCopyEditor({
         </CardContent>
       </Card>
 
-      <div className="fixed right-4 top-1/2 z-40 -translate-y-1/2">
+      <div
+        className={cn(
+          "fixed right-4 top-1/2 z-40 -translate-y-1/2 transition-all duration-200",
+          showFloatingSave ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+        )}
+      >
         <Button
           type="submit"
           disabled={isSaving}
