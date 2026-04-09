@@ -54,7 +54,7 @@ const pageCatalog: Array<{
   eyebrow: string;
   description: string;
 }> = [
-  { key: "home", label: "Home", eyebrow: "Landing Page", description: "Hero messaging, investment pathways, credibility markers, and closing CTA copy." },
+  { key: "home", label: "Home", eyebrow: "Landing Page", description: "Hero messaging, investment pathways, university partnership copy, and closing CTA copy." },
   { key: "about", label: "About", eyebrow: "Overview", description: "Hero, overview, USP cards, commitment columns, and leadership copy." },
   { key: "investment", label: "Investment", eyebrow: "Investor Summary", description: "Investment hero, programme summaries, portfolio benefits, and FAQ copy." },
   { key: "ecotourism", label: "Plantation Visit", eyebrow: "Visit Programme", description: "Hero, visit programme copy, CTA, and the four-image gallery." },

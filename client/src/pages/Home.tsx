@@ -204,7 +204,7 @@ export default function Home() {
 
       <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
         <div className="mx-auto max-w-4xl text-center">
-          <p className={font("missionStatement", "font-serif text-[1.9rem] leading-tight text-[#2D5016] sm:text-[2.4rem] lg:text-[2.9rem]")}>
+          <p className={font("missionStatement", "font-serif text-[1.3rem] leading-tight text-[#2D5016] sm:text-[1.65rem] lg:text-[1.95rem]")}>
             {copy.missionStatement}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
