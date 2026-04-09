@@ -1026,7 +1026,7 @@ export const defaultSiteCopy: SiteCopy = {
     portfolioEyebrow: "Portfolio Strategy",
     portfolioTitle: "Diversification Through Complementary Assets",
     portfolioDescription:
-      "Two crops. Two timelines. One balanced portfolio. Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns.",
+      "Agarwood and mango occupy different markets and operate on different timelines. Combined, they create a portfolio with built-in diversification, early cash flow and long-term capital growth.",
     portfolioBenefits: [
       "Timeline diversification: 10-year agarwood cycle complements 25-year mango lifecycle",
       "Market diversification: luxury goods and agricultural commodities respond to different economic drivers",
@@ -1636,6 +1636,12 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   }
   if (normalizedInvestment.mangoDownloadLabel === "Download Mango Exposé") {
     normalizedInvestment.mangoDownloadLabel = "Mango exposé";
+  }
+  if (
+    normalizedInvestment.portfolioDescription ===
+    "Two crops. Two timelines. One balanced portfolio. Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns."
+  ) {
+    normalizedInvestment.portfolioDescription = defaultSiteCopy.investment.portfolioDescription;
   }
 
   const legacyHomeInvestmentHrefMap = new Map<string, string>([

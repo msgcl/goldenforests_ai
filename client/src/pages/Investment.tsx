@@ -100,17 +100,17 @@ function InvestmentProgrammeCard({
         </div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-transparent px-5 text-primary hover:bg-background">
-            <a href={downloadHref} download className="inline-flex items-center gap-2">
-              <Download className="h-4 w-4" />
-              {downloadLabel}
-            </a>
-          </Button>
           <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
             <Link href={learnMoreHref} className="inline-flex items-center gap-2">
               {contactLabel}
               <ArrowRight className="h-4 w-4" />
             </Link>
+          </Button>
+          <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-transparent px-5 text-primary hover:bg-background">
+            <a href={downloadHref} download className="inline-flex items-center gap-2">
+              <Download className="h-4 w-4" />
+              {downloadLabel}
+            </a>
           </Button>
         </div>
       </CardContent>
@@ -195,7 +195,7 @@ export default function Investment() {
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
-              <Button asChild variant="outline" className="rounded-xl border-[#2D5016]/35 bg-[#FBFCF7]/45 px-6 text-[#2D5016] hover:bg-[#FBFCF7] hover:text-[#2D5016]">
+              <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
                 <a href="#mango" className="inline-flex items-center gap-2">
                   Mango
                   <ArrowRight className="h-4 w-4" />
@@ -250,13 +250,8 @@ export default function Investment() {
             <h2 className="font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
               {copy.portfolioTitle}
             </h2>
-            <p className="mt-4 text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23] sm:text-[0.9rem]">
-              Two crops. Two timelines.
-              <br />
-              One balanced portfolio.
-            </p>
             <p className="mt-4 text-[0.98rem] leading-8 text-foreground/80">
-              Combining agarwood and mango investments creates timeline diversification, market risk mitigation and enhanced portfolio returns.
+              {copy.portfolioDescription}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">

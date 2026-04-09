@@ -137,6 +137,7 @@ const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
     "mangoDownloadLabel",
     "mangoContactLabel",
     "portfolioTitle",
+    "portfolioDescription",
     "portfolioBenefits",
     "portfolioDownloadLabel",
     "portfolioContactLabel",
