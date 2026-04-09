@@ -413,7 +413,7 @@ export function WebsiteCopyEditor({
 
   return (
     <form
-      className="space-y-6 [&_input]:border-white/10 [&_input]:bg-[#0f312b] [&_input]:text-[#f7f3ea] [&_input]:placeholder:text-[#f7f3ea]/35 [&_textarea]:border-white/10 [&_textarea]:bg-[#0f312b] [&_textarea]:text-[#f7f3ea] [&_textarea]:placeholder:text-[#f7f3ea]/35"
+      className="space-y-6 pb-24 [&_input]:border-white/10 [&_input]:bg-[#0f312b] [&_input]:text-[#f7f3ea] [&_input]:placeholder:text-[#f7f3ea]/35 [&_textarea]:border-white/10 [&_textarea]:bg-[#0f312b] [&_textarea]:text-[#f7f3ea] [&_textarea]:placeholder:text-[#f7f3ea]/35"
       onSubmit={(event) => {
         event.preventDefault();
         onSubmit();
@@ -666,11 +666,11 @@ export function WebsiteCopyEditor({
         </CardContent>
       </Card>
 
-      <div className="sticky bottom-4 z-10 flex justify-end">
+      <div className="fixed bottom-4 right-4 z-40">
         <Button
           type="submit"
           disabled={isSaving}
-          className="h-12 rounded-2xl px-5 text-base font-semibold shadow-lg"
+          className="h-12 rounded-2xl bg-[#f5d5a1] px-5 text-base font-semibold text-[#0f2f29] shadow-[0_18px_36px_rgba(0,0,0,0.28)] hover:bg-[#f0ca8f]"
         >
           <Save className="mr-2 h-4 w-4" />
           {isSaving ? "Saving..." : "Save Website Copy"}
