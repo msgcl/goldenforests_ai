@@ -336,6 +336,22 @@ export default function Investment() {
           </CardContent>
         </Card>
       </section>
+
+      <section className="mb-8 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="font-serif text-[1.3rem] leading-tight text-[#2D5016] sm:text-[1.65rem] lg:text-[1.95rem]">
+            Your trees are in expert hands.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+              <Link href="/plantation" className="inline-flex items-center gap-2">
+                Explore our plantation operations
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </AnimatedPage>
   );
 }
