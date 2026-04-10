@@ -57,6 +57,10 @@ function parseTransparencyItem(item: string) {
   };
 }
 
+function isPlantationVisitTransparencyLink(lead: string) {
+  return lead.trim().toLowerCase() === "see it for yourself.";
+}
+
 export default function Plantation() {
   const { data: siteCopy } = useSiteCopy();
   const copy = (siteCopy ?? defaultSiteCopy).plantation;
@@ -270,9 +274,15 @@ export default function Plantation() {
                 <span>
                   {before ? <span>{before} </span> : null}
                   {lead ? (
-                    <span className="font-semibold text-[#8A6744]">
-                      {lead}
-                    </span>
+                    isPlantationVisitTransparencyLink(lead) ? (
+                      <Link href="/plantation-visit" className="font-semibold text-[#8A6744] underline decoration-[#C8A070] underline-offset-4 transition-colors hover:text-[#17392E]">
+                        {lead}
+                      </Link>
+                    ) : (
+                      <span className="font-semibold text-[#8A6744]">
+                        {lead}
+                      </span>
+                    )
                   ) : null}
                   {lead && after ? <span> </span> : null}
                   <span>{after}</span>
