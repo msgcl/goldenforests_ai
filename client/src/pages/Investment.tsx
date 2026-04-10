@@ -209,6 +209,12 @@ export default function Investment() {
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
+              <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+                <a href="#diversification" className="inline-flex items-center gap-2">
+                  Combined Programme
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -252,7 +258,10 @@ export default function Investment() {
         />
       </section>
 
-      <section className="mb-8 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-8">
+      <section
+        id="diversification"
+        className="mb-8 scroll-mt-24 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-8"
+      >
         <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
           <div>
             <h2 className="font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
@@ -316,18 +325,13 @@ export default function Investment() {
               ))}
             </Accordion>
 
-            <div className="mt-6 rounded-[1.3rem] border border-[#C8A070]/28 bg-[#F4E4C1] p-5">
-              <p className={font("faqDescription", "text-sm leading-7 text-foreground/80")}>
-                {copy.faqDescription}
-              </p>
-              <div className="mt-4">
-                <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
-                  <Link href="/contact" className="inline-flex items-center gap-2">
-                    {copy.faqDocumentLabel}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+            <div className="mt-6">
+              <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
+                <Link href="/contact" className="inline-flex items-center gap-2">
+                  {copy.faqDocumentLabel}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </CardContent>
         </Card>

@@ -638,7 +638,7 @@ export const defaultSiteCopy: SiteCopy = {
     commitmentItemDescriptions: [
       [
         "Your investment represents verified ownership of specific trees on professionally managed plantations. GPS-verified ownership certificates, real-time operational monitoring and quarterly reporting give you full visibility throughout every cultivation cycle. Tree ownership remains legally protected even if company operations cease and can be transferred, included in estates or held as a long-term asset.",
-        "Agarwood offers 18.5% projected annualised returns over 10 years. Mango offers 14-23% projected annualised returns over 25 years. We earn only when your trees produce, ensuring our interests are fully aligned with yours.",
+        "Agarwood offers 18.5% projected annualised returns over 10 years. Mango offers 14-23% projected annualised returns over 25 years. Both programmes are built on a simple principle: Golden Forests earns only when your trees produce, ensuring our interests are fully aligned with yours.",
       ],
       [
         "For every commercial tree purchased, we plant one Philippine endemic species in designated restoration areas across Zambales province. Native species include Narra, Agoho, Mangono, Molave, Talisay and Belite, each chosen for their contribution to ecosystem restoration. This one-to-one commitment ensures that every plantation we develop actively regenerates the land around it.",
