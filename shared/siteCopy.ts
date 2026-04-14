@@ -1002,7 +1002,6 @@ export const defaultSiteCopy: SiteCopy = {
     mangoIntroParagraphs: [
       "A proprietary variety. Exclusive to Golden Forests.",
       "Sweet Elena is an exclusive Carabao mango cultivar developed through proprietary dwarfing techniques and selective breeding in collaboration with President Ramon Magsaysay State University. This variety produces premium export-grade fruit with exceptional sweetness, extended shelf life and year-round fruiting capability, a significant advantage over standard mango varieties limited to seasonal production.",
-      "Golden Forests holds exclusive cultivation rights to Sweet Elena.",
     ],
     mangoMarketTitle: "A USD 50 billion global market. Year-round supply advantage.",
     mangoMarketDescription:
