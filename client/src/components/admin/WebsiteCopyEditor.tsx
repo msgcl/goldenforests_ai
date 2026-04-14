@@ -45,8 +45,9 @@ type WebsiteCopyEditorProps = {
 type FieldDescriptor = {
   path: string;
   label: string;
-  value: string | string[];
+  value: string | string[] | string[][];
   isArray: boolean;
+  isNestedArray: boolean;
   multiline: boolean;
 };
 
@@ -262,29 +263,44 @@ function collectTextFields(source: Record<string, unknown>, prefix = ""): FieldD
   return Object.entries(source).flatMap(([key, value]) => {
     const path = prefix ? `${prefix}.${key}` : key;
 
-    if (typeof value === "string") {
-      return [
-        {
-          path,
-          label: buildFieldLabel(path),
-          value,
-          isArray: false,
-          multiline: value.length > 90 || /description|intro|paragraph|details|helper|footnote/i.test(path),
-        },
-      ];
-    }
+      if (typeof value === "string") {
+        return [
+          {
+            path,
+            label: buildFieldLabel(path),
+            value,
+            isArray: false,
+            isNestedArray: false,
+            multiline: value.length > 90 || /description|intro|paragraph|details|helper|footnote/i.test(path),
+          },
+        ];
+      }
 
     if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
       return [
-        {
-          path,
-          label: buildFieldLabel(path),
-          value: value as string[],
-          isArray: true,
-          multiline: true,
-        },
-      ];
-    }
+          {
+            path,
+            label: buildFieldLabel(path),
+            value: value as string[],
+            isArray: true,
+            isNestedArray: false,
+            multiline: true,
+          },
+        ];
+      }
+
+      if (Array.isArray(value) && value.every((item) => Array.isArray(item) && item.every((nested) => typeof nested === "string"))) {
+        return [
+          {
+            path,
+            label: buildFieldLabel(path),
+            value: value as string[][],
+            isArray: false,
+            isNestedArray: true,
+            multiline: true,
+          },
+        ];
+      }
 
     if (value && typeof value === "object") {
       return collectTextFields(value as Record<string, unknown>, path);
@@ -440,6 +456,23 @@ export function WebsiteCopyEditor({
     onChange({
       ...value,
       [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, [...currentItems, ""]),
+    });
+  };
+
+  const updateNestedArrayItemValue = (path: string, groupIndex: number, itemIndex: number, nextValue: string) => {
+    const pathParts = path.split(".");
+    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentGroups = Array.isArray(currentValue) ? (currentValue as string[][]).map((group) => [...group]) : [];
+
+    if (!currentGroups[groupIndex]) {
+      currentGroups[groupIndex] = [];
+    }
+
+    currentGroups[groupIndex][itemIndex] = nextValue;
+
+    onChange({
+      ...value,
+      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, currentGroups),
     });
   };
 
@@ -625,7 +658,12 @@ export function WebsiteCopyEditor({
               <div className="grid gap-4">
                 {fields.map((field) => {
                   const currentFont = selectedPageTypography[field.path];
-                  const fieldText = Array.isArray(field.value) ? field.value.join("\n") : field.value;
+                  const fieldText =
+                    Array.isArray(field.value) && field.value.every((item) => typeof item === "string")
+                      ? (field.value as string[]).join("\n")
+                      : typeof field.value === "string"
+                        ? field.value
+                        : "";
                   const isLeadershipImageField = selectedPage === "about" && field.path === "leadershipImageUrls";
                   const isBoardImageField = selectedPage === "about" && field.path === "boardImageUrls";
                   const isProfileImageField = isLeadershipImageField || isBoardImageField;
@@ -730,6 +768,30 @@ export function WebsiteCopyEditor({
                                     </div>
                                   );
                                 })}
+                              </div>
+                            ) : field.isNestedArray ? (
+                              <div className="space-y-4">
+                                {(field.value as string[][]).map((group, groupIndex) => (
+                                  <div key={`${field.path}-group-${groupIndex}`} className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                                    <Label className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                                      {field.label} {groupIndex + 1}
+                                    </Label>
+                                    <div className="mt-3 space-y-3">
+                                      {group.map((item, itemIndex) => (
+                                        <div key={`${field.path}-${groupIndex}-${itemIndex}`} className="space-y-1">
+                                          <Label className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                                            Item {itemIndex + 1}
+                                          </Label>
+                                          <Textarea
+                                            className={cn(editorInputClassName, "min-h-[88px]")}
+                                            value={item}
+                                            onChange={(event) => updateNestedArrayItemValue(field.path, groupIndex, itemIndex, event.target.value)}
+                                          />
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
                               </div>
                             ) : field.isArray ? (
                               <div className="space-y-3">
@@ -852,7 +914,7 @@ export function WebsiteCopyEditor({
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8d6d3d]">{field.label}</p>
                         {isProfileImageField ? (
                           <div className="mt-3 grid gap-3 md:grid-cols-2">
-                            {previewValue.map((item, index) => (
+                            {(previewValue as string[]).map((item, index) => (
                               <div key={`${field.path}-preview-${index}`} className="overflow-hidden rounded-2xl border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)]">
                                 <div className="aspect-[4/4.4] w-full">
                                   {item ? (
@@ -873,6 +935,21 @@ export function WebsiteCopyEditor({
                                         : value.about.boardNames[index] ?? `Member ${index + 1}`}
                                     </div>
                                   )}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : field.isNestedArray ? (
+                          <div className="mt-3 space-y-4">
+                            {(previewValue as string[][]).map((group, groupIndex) => (
+                              <div key={`${field.path}-preview-group-${groupIndex}`} className="rounded-xl border border-[#17392E]/10 bg-white/65 p-3">
+                                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8d6d3d]">
+                                  {field.label} {groupIndex + 1}
+                                </p>
+                                <div className={previewFont(field.path, "mt-2 space-y-2 text-sm leading-relaxed text-[#17392E]")}>
+                                  {group.map((item, index) => (
+                                    <p key={`${field.path}-preview-${groupIndex}-${index}`}>{item}</p>
+                                  ))}
                                 </div>
                               </div>
                             ))}
