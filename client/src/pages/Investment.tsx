@@ -14,6 +14,7 @@ import { createPageTypography } from "@/lib/siteTypography";
 const investmentHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775768101/golden-forests/investment-hero-20260410-v2.png";
 const agarwoodChipsImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461736/golden-forests/agarwood-chips-20260406.jpg";
 const mangoImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461737/golden-forests/mango-support-1-20260406.jpg";
+const investmentCalculatorEmbedUrl = "https://tray-harp-15742696.figma.site/";
 const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
 const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
 const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
@@ -303,6 +304,37 @@ export default function Investment() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section className="mb-8 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F7EBD0_0%,#F4E4C1_100%)] p-5 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-6 lg:p-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]">
+              Interactive Calculator
+            </p>
+            <h2 className="mt-3 font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
+              Investment Planning Calculator
+            </h2>
+          </div>
+
+          <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
+            <a href={investmentCalculatorEmbedUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+              Open calculator in new tab
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+
+        <div className="mt-6 overflow-hidden rounded-[1.6rem] border border-[#C8A070]/28 bg-[#FBFCF7] shadow-[0_14px_34px_rgba(23,57,46,0.08)]">
+          <iframe
+            src={investmentCalculatorEmbedUrl}
+            title="Golden Forests Investment Calculator"
+            loading="lazy"
+            className="h-[920px] w-full border-0"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
         </div>
       </section>
 
