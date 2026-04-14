@@ -667,6 +667,9 @@ export function WebsiteCopyEditor({
                   const isLeadershipImageField = selectedPage === "about" && field.path === "leadershipImageUrls";
                   const isBoardImageField = selectedPage === "about" && field.path === "boardImageUrls";
                   const isProfileImageField = isLeadershipImageField || isBoardImageField;
+                  const isCompactArrayField =
+                    selectedPage === "about" &&
+                    ["leadershipTitles", "boardTitles"].includes(field.path);
 
                   return (
                     <div key={field.path} className="rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,#123831_0%,#102f2a_100%)] p-4 shadow-sm">
@@ -811,11 +814,19 @@ export function WebsiteCopyEditor({
                                         {items.length > 1 ? "Remove" : "Clear"}
                                       </Button>
                                     </div>
-                                    <Textarea
-                                      className={cn(editorInputClassName, "min-h-[88px]")}
-                                      value={item}
-                                      onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
-                                    />
+                                    {isCompactArrayField ? (
+                                      <Input
+                                        className={editorInputClassName}
+                                        value={item}
+                                        onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
+                                      />
+                                    ) : (
+                                      <Textarea
+                                        className={cn(editorInputClassName, "min-h-[88px]")}
+                                        value={item}
+                                        onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
+                                      />
+                                    )}
                                   </div>
                                 ))}
                                 <Button
