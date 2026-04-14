@@ -30,7 +30,7 @@ const navigationItems = [
   { title: "Plantation Visit", url: "/plantation-visit", icon: Palmtree },
   { title: "About", url: "/about", icon: Building2 },
   { title: "Contact", url: "/contact", icon: PhoneCall },
-  { title: "Plantation Management Portal", url: "https://goldenforests.ph", icon: Handshake, external: true },
+  { title: "Operations Management Portal", url: "https://goldenforests.ph", icon: Handshake, external: true },
 ];
 
 export function AppSidebar() {

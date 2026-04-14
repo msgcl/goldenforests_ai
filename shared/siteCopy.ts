@@ -508,6 +508,10 @@ export type SiteCopy = z.infer<typeof siteCopySchema>;
 
 const defaultSiteCopyUpdatedAt = "2026-03-22T00:00:00.000Z";
 const removedSweetElenaCultivationRightsLine = "Golden Forests holds exclusive cultivation rights to Sweet Elena.";
+const aboutOverviewLeadParagraph =
+  "Golden Forests is an alternative investment Group offering private and professional clients the opportunity to invest in high-value, sustainably managed agroforestry plantation programmes.";
+const aboutOverviewOperatingModelParagraph =
+  "Golden Forests operates through an international model: an ADGM holding company in Abu Dhabi, a Dubai FZCO sales and marketing arm and CADI as the Philippine operating platform.";
 
 export const defaultSiteCopy: SiteCopy = {
   typography: {
@@ -1632,6 +1636,35 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     normalizedAbout.commitmentItemTitles = defaultSiteCopy.about.commitmentItemTitles.map((items) => [...items]);
     normalizedAbout.commitmentItemDescriptions = defaultSiteCopy.about.commitmentItemDescriptions.map((items) => [...items]);
   }
+
+  const normalizedAboutOverviewParagraphs = (
+    normalizedAbout.overviewParagraphs ?? defaultSiteCopy.about.overviewParagraphs
+  ).flatMap((paragraph) => {
+    if (!paragraph.includes(aboutOverviewOperatingModelParagraph)) {
+      return [paragraph];
+    }
+
+    const trimmedParagraph = paragraph
+      .replace(aboutOverviewOperatingModelParagraph, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+
+    return [trimmedParagraph, aboutOverviewOperatingModelParagraph].filter(Boolean);
+  });
+
+  const aboutLeadIndex = normalizedAboutOverviewParagraphs.indexOf(aboutOverviewLeadParagraph);
+  const aboutOperatingModelIndex = normalizedAboutOverviewParagraphs.indexOf(aboutOverviewOperatingModelParagraph);
+
+  if (aboutLeadIndex >= 0 && aboutOperatingModelIndex >= 0 && aboutOperatingModelIndex !== aboutLeadIndex + 1) {
+    normalizedAboutOverviewParagraphs.splice(aboutOperatingModelIndex, 1);
+    normalizedAboutOverviewParagraphs.splice(aboutLeadIndex + 1, 0, aboutOverviewOperatingModelParagraph);
+  }
+
+  if (aboutLeadIndex >= 0 && aboutOperatingModelIndex === -1) {
+    normalizedAboutOverviewParagraphs.splice(aboutLeadIndex + 1, 0, aboutOverviewOperatingModelParagraph);
+  }
+
+  normalizedAbout.overviewParagraphs = normalizedAboutOverviewParagraphs;
 
   normalizedAbout.leadershipImageUrls = normalizedAbout.leadershipNames.map(
     (_name, index) => normalizedAbout.leadershipImageUrls?.[index] ?? "",
