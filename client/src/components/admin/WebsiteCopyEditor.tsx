@@ -5,6 +5,7 @@ import {
   FileText,
   Globe2,
   LayoutTemplate,
+  Plus,
   PencilLine,
   Save,
   ShieldCheck,
@@ -431,8 +432,32 @@ export function WebsiteCopyEditor({
     });
   };
 
+  const addArrayItemValue = (path: string) => {
+    const pathParts = path.split(".");
+    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentItems = Array.isArray(currentValue) ? [...currentValue] : [];
+
+    onChange({
+      ...value,
+      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, [...currentItems, ""]),
+    });
+  };
+
   const removeArrayItemValue = (path: string, index: number) => {
-    updateArrayItemValue(path, index, "");
+    const pathParts = path.split(".");
+    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentItems = Array.isArray(currentValue) ? [...currentValue] : [];
+
+    if (currentItems.length <= 1) {
+      currentItems[0] = "";
+    } else {
+      currentItems.splice(index, 1);
+    }
+
+    onChange({
+      ...value,
+      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, currentItems),
+    });
   };
 
   const uploadImageForArrayItem = async (path: string, index: number, file: File) => {
@@ -708,11 +733,22 @@ export function WebsiteCopyEditor({
                               </div>
                             ) : field.isArray ? (
                               <div className="space-y-3">
-                                {(field.value as string[]).map((item, index) => (
-                                  <div key={`${field.path}-${index}`} className="space-y-1">
-                                    <Label className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
-                                      Item {index + 1}
-                                    </Label>
+                                {(field.value as string[]).map((item, index, items) => (
+                                  <div key={`${field.path}-${index}`} className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                                    <div className="mb-2 flex items-center justify-between gap-3">
+                                      <Label className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                                        {field.label} {index + 1}
+                                      </Label>
+                                      <Button
+                                        type="button"
+                                        variant="outline"
+                                        className="h-8 rounded-lg border-white/15 bg-transparent px-3 text-white hover:bg-white/10"
+                                        onClick={() => removeArrayItemValue(field.path, index)}
+                                      >
+                                        <Trash2 className="mr-2 h-3.5 w-3.5" />
+                                        {items.length > 1 ? "Remove" : "Clear"}
+                                      </Button>
+                                    </div>
                                     <Textarea
                                       className={cn(editorInputClassName, "min-h-[88px]")}
                                       value={item}
@@ -720,6 +756,15 @@ export function WebsiteCopyEditor({
                                     />
                                   </div>
                                 ))}
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  className="rounded-xl border-dashed border-white/20 bg-transparent text-white hover:bg-white/10"
+                                  onClick={() => addArrayItemValue(field.path)}
+                                >
+                                  <Plus className="mr-2 h-4 w-4" />
+                                  Add item
+                                </Button>
                               </div>
                             ) : field.multiline ? (
                               <Textarea

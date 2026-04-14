@@ -507,6 +507,7 @@ export const siteCopySchema = z.object({
 export type SiteCopy = z.infer<typeof siteCopySchema>;
 
 const defaultSiteCopyUpdatedAt = "2026-03-22T00:00:00.000Z";
+const removedSweetElenaCultivationRightsLine = "Golden Forests holds exclusive cultivation rights to Sweet Elena.";
 
 export const defaultSiteCopy: SiteCopy = {
   typography: {
@@ -1692,6 +1693,9 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   ) {
     normalizedInvestment.portfolioDescription = defaultSiteCopy.investment.portfolioDescription;
   }
+  normalizedInvestment.mangoIntroParagraphs = (
+    normalizedInvestment.mangoIntroParagraphs ?? defaultSiteCopy.investment.mangoIntroParagraphs
+  ).filter((paragraph) => paragraph.trim() !== removedSweetElenaCultivationRightsLine);
 
   const legacyHomeInvestmentHrefMap = new Map<string, string>([
     ["/agarwood-life-cycle", "/investment#agarwood"],
