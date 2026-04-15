@@ -113,33 +113,6 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E8D2_100%)] p-6 shadow-sm sm:p-8">
-        <div className="max-w-4xl">
-          <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-            <MapPinned className="h-5 w-5" />
-          </div>
-          <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
-            {copy.overviewTitle}
-          </h2>
-          <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
-            {copy.overviewDescription}
-          </p>
-          {overviewParagraphs.map((paragraph) => (
-            <p key={paragraph} className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">
-              {paragraph}
-            </p>
-          ))}
-          <div className="mt-6">
-            <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#21483a]">
-              <a href={copy.overviewPortalCtaHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                {copy.overviewPortalCtaLabel}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       <section className="mt-10 rounded-[1.8rem] border border-[#6B8E23]/18 bg-[#7F9E62] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
         <div className="max-w-4xl rounded-[1.45rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-5 shadow-sm sm:p-6">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
@@ -275,7 +248,7 @@ export default function Plantation() {
                   {before ? <span>{before} </span> : null}
                   {lead ? (
                     isPlantationVisitTransparencyLink(lead) ? (
-                      <Link href="/plantation-visit" className="font-semibold text-[#8A6744] underline decoration-[#C8A070] underline-offset-4 transition-colors hover:text-[#17392E]">
+                      <Link href="/asset-management" className="font-semibold text-[#8A6744] underline decoration-[#C8A070] underline-offset-4 transition-colors hover:text-[#17392E]">
                         {lead}
                       </Link>
                     ) : (
@@ -302,6 +275,33 @@ export default function Plantation() {
                 {copy.transparencySecondaryCtaLabel}
                 <ArrowRight className="h-4 w-4" />
               </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E8D2_100%)] p-6 shadow-sm sm:p-8">
+        <div className="max-w-4xl">
+          <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+            <MapPinned className="h-5 w-5" />
+          </div>
+          <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
+            {copy.overviewTitle}
+          </h2>
+          <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+            {copy.overviewDescription}
+          </p>
+          {overviewParagraphs.map((paragraph) => (
+            <p key={paragraph} className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">
+              {paragraph}
+            </p>
+          ))}
+          <div className="mt-6">
+            <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#21483a]">
+              <a href={copy.overviewPortalCtaHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                {copy.overviewPortalCtaLabel}
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </Button>
           </div>
         </div>

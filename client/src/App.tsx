@@ -28,9 +28,9 @@ function Router() {
       <Route path="/home" component={Home} />
       <Route path="/investment" component={Investment} />
       <Route path="/about" component={About} />
-      <Route path="/operations" component={Plantation} />
+      <Route path="/ai-management" component={Plantation} />
       <Route path="/plantation" component={Plantation} />
-      <Route path="/plantation-visit" component={PlantationVisit} />
+      <Route path="/asset-management" component={PlantationVisit} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
