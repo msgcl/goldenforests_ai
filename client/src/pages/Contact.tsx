@@ -73,6 +73,30 @@ export default function Contact() {
     faqRequestFormUrl,
   ];
 
+  const handleInvestmentOverviewDownload = async () => {
+    try {
+      const response = await fetch(combinedTwoPagerPdf, {
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch investment overview.");
+      }
+
+      const blob = await response.blob();
+      const objectUrl = window.URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = objectUrl;
+      anchor.download = "GF_combined_two_pager_FINAL.pdf";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.URL.revokeObjectURL(objectUrl);
+    } catch {
+      window.open(combinedTwoPagerPdf, "_blank", "noopener,noreferrer");
+    }
+  };
+
   useEffect(() => {
     const container = formContainerRef.current;
     if (!container) return;
@@ -245,18 +269,38 @@ export default function Contact() {
                         : resolvedLabel === "Request FAQ Document"
                           ? faqRequestFormUrl
                           : copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
+                  const isInvestmentOverviewDownload = index === 0;
 
                   return (
-                    <Button key={label} asChild variant="outline" className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white">
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2"
-                      >
-                        <Download className="h-4 w-4" />
-                        {resolvedLabel}
-                      </a>
+                    <Button
+                      key={label}
+                      variant="outline"
+                      className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white"
+                      asChild={!isInvestmentOverviewDownload}
+                      onClick={
+                        isInvestmentOverviewDownload
+                          ? () => {
+                              void handleInvestmentOverviewDownload();
+                            }
+                          : undefined
+                      }
+                    >
+                      {isInvestmentOverviewDownload ? (
+                        <span className="inline-flex items-center gap-2">
+                          <Download className="h-4 w-4" />
+                          {resolvedLabel}
+                        </span>
+                      ) : (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2"
+                        >
+                          <Download className="h-4 w-4" />
+                          {resolvedLabel}
+                        </a>
+                      )}
                     </Button>
                   );
                 })}
