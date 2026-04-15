@@ -589,7 +589,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Request FAQ Document",
     ],
       resourceHrefs: [
-        "https://res.cloudinary.com/dezfh7wug/raw/upload/v1776245088/golden-forests/documents/GF_combined_two_pager_FINAL_20260415.pdf",
+        "/GF_combined_two_pager_FINAL.pdf",
         "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
         "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
         "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
@@ -1033,7 +1033,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Risk mitigation: dual-crop exposure reduces single-commodity concentration risk",
     ],
     portfolioDownloadLabel: "Download Two-pager",
-    portfolioDownloadHref: "https://res.cloudinary.com/dezfh7wug/raw/upload/v1776245088/golden-forests/documents/GF_combined_two_pager_FINAL_20260415.pdf",
+    portfolioDownloadHref: "/GF_combined_two_pager_FINAL.pdf",
     portfolioContactLabel: "Speak to Our Team",
     faqTitle: "Frequently Asked Questions",
     faqDescription:

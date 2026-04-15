@@ -21,8 +21,7 @@ const mangoRequestFormUrl =
   "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
 const faqRequestFormUrl =
   "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
-const combinedTwoPagerPdf =
-  "https://res.cloudinary.com/dezfh7wug/raw/upload/v1776245088/golden-forests/documents/GF_combined_two_pager_FINAL_20260415.pdf";
+const combinedTwoPagerPdf = "/GF_combined_two_pager_FINAL.pdf";
 
 function splitTitleIntoLines(value: string) {
   return value
