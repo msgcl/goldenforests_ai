@@ -162,14 +162,14 @@ export default function About() {
           {leadershipTeam.map((person) => (
             <Card key={person.name} className="overflow-hidden border-border/60 shadow-sm">
               <CardContent className="p-6">
-                <div className="mb-5 overflow-hidden rounded-[1.4rem] border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)]">
-                  <div className="aspect-[4/4.4] w-full">
+                <div className="mb-5 flex justify-center">
+                  <div className="flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)] shadow-sm">
                     {person.imageUrl ? (
                       <OptimizedImage
                         src={person.imageUrl}
                         alt={`${person.name} profile portrait`}
                         className="h-full w-full object-cover"
-                        sizes="(min-width: 1280px) 320px, (min-width: 768px) 45vw, 90vw"
+                        sizes="160px"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,#FCF8F0_0%,#EFE1C6_58%,#E4D2B1_100%)] px-6 text-center">
@@ -203,14 +203,14 @@ export default function About() {
           {boardDirectors.map((person) => (
             <Card key={person.name} className="overflow-hidden border-border/60 shadow-sm">
               <CardContent className="p-6">
-                <div className="mb-5 overflow-hidden rounded-[1.4rem] border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)]">
-                  <div className="aspect-[4/4.4] w-full">
+                <div className="mb-5 flex justify-center">
+                  <div className="flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-[#17392E]/10 bg-[linear-gradient(135deg,#F6EFE0_0%,#EFE4CF_100%)] shadow-sm">
                     {person.imageUrl ? (
                       <OptimizedImage
                         src={person.imageUrl}
                         alt={`${person.name} profile portrait`}
                         className="h-full w-full object-cover"
-                        sizes="(min-width: 1280px) 320px, (min-width: 768px) 45vw, 90vw"
+                        sizes="160px"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,#FCF8F0_0%,#EFE1C6_58%,#E4D2B1_100%)] px-6 text-center">

@@ -108,6 +108,31 @@ function parseIdParam(req: Request): number | null {
   return parsed;
 }
 
+function isCloudinaryAssetUrl(value: string) {
+  return /^https:\/\/res\.cloudinary\.com\/[^/]+\/(?:image|video)\/upload\//i.test(value.trim());
+}
+
+function validateAboutProfileImageUrls(siteCopy: z.infer<typeof siteCopySchema>) {
+  const invalidLeadershipEntries = siteCopy.about.leadershipImageUrls
+    .map((url, index) => ({ url: url.trim(), index }))
+    .filter(({ url }) => url !== "" && !isCloudinaryAssetUrl(url));
+
+  const invalidBoardEntries = siteCopy.about.boardImageUrls
+    .map((url, index) => ({ url: url.trim(), index }))
+    .filter(({ url }) => url !== "" && !isCloudinaryAssetUrl(url));
+
+  return [
+    ...invalidLeadershipEntries.map(({ index }) => ({
+      path: `about.leadershipImageUrls[${index}]`,
+      message: "Profile photos must use a Cloudinary URL. Upload the image in Admin Control first.",
+    })),
+    ...invalidBoardEntries.map(({ index }) => ({
+      path: `about.boardImageUrls[${index}]`,
+      message: "Profile photos must use a Cloudinary URL. Upload the image in Admin Control first.",
+    })),
+  ];
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
@@ -468,6 +493,14 @@ export async function registerRoutes(
       return res.status(400).json({
         message: "Invalid site copy payload",
         issues,
+      });
+    }
+
+    const profileImageIssues = validateAboutProfileImageUrls(parsed.data);
+    if (profileImageIssues.length > 0) {
+      return res.status(400).json({
+        message: "Invalid site copy payload",
+        issues: profileImageIssues,
       });
     }
 

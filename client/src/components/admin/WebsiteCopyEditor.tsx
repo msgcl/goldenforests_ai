@@ -856,13 +856,13 @@ export function WebsiteCopyEditor({
                         </div>
 
                         <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                          {isLeadershipImageField ? (
+                          {isProfileImageField ? (
                             <>
                               <Label className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#d7c39d]/85">
                                 Upload Flow
                               </Label>
                               <p className="mt-3 text-xs leading-relaxed text-white/60">
-                                Portrait uploads go straight to Cloudinary first. After uploading, click Save Website Copy to publish the selected image URLs on the live About page.
+                                Leadership and board profile photos upload straight to Cloudinary first. After uploading, click Save Website Copy to publish the selected image URLs on the live About page.
                               </p>
                             </>
                           ) : (
