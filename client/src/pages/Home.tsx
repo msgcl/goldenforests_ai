@@ -71,14 +71,14 @@ export default function Home() {
           alt="Golden Forests plantation landscape in Zambales province"
           priority
           sizes="100vw"
-          className="h-[280px] w-full object-cover sm:h-[360px] lg:h-[460px]"
+          className="h-[240px] w-full object-cover sm:h-[360px] lg:h-[460px]"
         />
-        <div className="px-6 py-10 sm:px-8 md:px-10 lg:px-12 lg:py-12">
+        <div className="px-5 py-8 sm:px-8 md:px-10 lg:px-12 lg:py-12">
           <div className="max-w-5xl">
-            <h1 className={font("heroTitle", "max-w-none whitespace-nowrap font-serif text-[clamp(1.2rem,2.25vw,2.55rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016]")}>
+            <h1 className={font("heroTitle", "max-w-[14ch] break-words font-serif text-[clamp(1.85rem,6.4vw,2.55rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016] sm:max-w-none")}>
               {copy.heroTitle}
             </h1>
-            <div className={font("heroParagraphs", "mt-6 max-w-4xl space-y-4 text-[0.98rem] leading-8 text-[#2D5016]/86 sm:text-[1rem]")}>
+            <div className={font("heroParagraphs", "mt-5 max-w-4xl space-y-4 text-[0.95rem] leading-8 text-[#2D5016]/86 sm:mt-6 sm:text-[1rem]")}>
               {copy.heroParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -87,7 +87,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-xl bg-[#2D5016] px-7 text-[#FBFCF7] hover:bg-[#3b6820]"
+                className="w-full rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820] sm:w-auto sm:px-7"
               >
                 <Link href="/investment" className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
                   {copy.primaryCtaLabel}

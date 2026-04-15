@@ -59,19 +59,19 @@ function App() {
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.08),transparent_38%)]" />
               <AppSidebar />
               <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden">
-                <header className="sticky top-0 z-50 border-b border-accent/20 bg-background/92 px-4 py-3 backdrop-blur-xl sm:px-6">
-                  <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 sm:gap-4">
+                <header className="sticky top-0 z-50 border-b border-accent/20 bg-background/92 px-3 py-2.5 backdrop-blur-xl sm:px-6 sm:py-3">
+                  <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 sm:flex-wrap sm:gap-4">
                     <div className="flex min-w-0 items-center gap-3">
                       <SidebarTrigger
                         data-testid="button-sidebar-toggle"
-                        className="h-10 w-10 rounded-full border border-accent/25 bg-card text-[#17392E] shadow-sm dark:text-foreground"
+                        className="h-9 w-9 shrink-0 rounded-full border border-accent/25 bg-card text-[#17392E] shadow-sm dark:text-foreground sm:h-10 sm:w-10"
                       />
                       <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center">
-                          <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6.5 w-6.5 object-contain" />
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10">
+                          <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6 w-6 object-contain sm:h-6.5 sm:w-6.5" />
                         </div>
-                        <div className="min-w-0">
-                          <p className="font-serif text-[0.9rem] leading-tight text-accent sm:text-[1rem]">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-serif text-[0.72rem] leading-tight text-accent sm:text-[1rem]">
                             Golden Forests Agroforestry Intelligence
                           </p>
                         </div>
