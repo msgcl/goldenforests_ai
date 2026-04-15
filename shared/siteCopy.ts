@@ -1679,7 +1679,9 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const ecotourismImageMap = new Map<string, string>([
     ["https://upload.wikimedia.org/wikipedia/commons/c/cf/Anawangin_Cove_at_Sunrise.jpg", defaultSiteCopy.ecotourism.featuredDestinationImages[0]],
     ["/gallery/sundowners.jpg", defaultSiteCopy.ecotourism.featuredDestinationImages[1]],
-    ["https://upload.wikimedia.org/wikipedia/en/9/92/Clark_International_Airport_%28Mabalacat%2C_Pampanga%3B_04-22-2024%29.jpg", defaultSiteCopy.ecotourism.featuredDestinationImages[2]],
+    ["https://upload.wikimedia.org/wikipedia/en/9/92/Clark_International_Airport_%28Mabalacat%2C_Pampanga%3B_04-22-2024%29.jpg", defaultSiteCopy.ecotourism.featuredDestinationImages[3]],
+    ["https://res.cloudinary.com/dezfh7wug/image/upload/v1775462091/golden-forests/plantation-visit-drone-gallery-20260406.png", defaultSiteCopy.ecotourism.featuredDestinationImages[2]],
+    ["https://res.cloudinary.com/dz49fckfu/image/upload/v1774352676/golden-forests/ecotourism-clark-airport.jpg", defaultSiteCopy.ecotourism.featuredDestinationImages[3]],
     ["https://upload.wikimedia.org/wikipedia/commons/9/90/Osme%C3%B1a_Peak%2C_Cebu%2C_Philippines.jpg", defaultSiteCopy.ecotourism.featuredDestinationImages[3]],
     ["/gallery/coron.jpg", defaultSiteCopy.ecotourism.featuredDestinationImages[4]],
     ["https://upload.wikimedia.org/wikipedia/commons/c/cd/Boracay_White_Beach.png", defaultSiteCopy.ecotourism.featuredDestinationImages[5]],
