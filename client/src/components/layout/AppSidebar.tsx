@@ -21,7 +21,7 @@ import {
 import { OptimizedImage } from "@/components/ui/optimized-media";
 
 const goldenForestsLogo =
-  "https://res.cloudinary.com/dezfh7wug/image/upload/v1775463650/golden-forests/sidebar-logo-20260406.png";
+  "https://res.cloudinary.com/dezfh7wug/image/upload/v1776224736/golden-forests/sidebar-logo-20260415.png";
 
 const navigationItems = [
   { title: "Home", url: "/home", icon: Home },
@@ -45,14 +45,14 @@ export function AppSidebar() {
   return (
     <Sidebar variant="inset" className="bg-transparent">
       <SidebarHeader className="border-b border-[#C8A070]/40 p-4">
-        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#3A6420] px-3 py-5 shadow-inner shadow-black/10">
+        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#3A6420] px-3 py-6 shadow-inner shadow-black/10">
           <Link href="/home" className="inline-flex flex-col items-center justify-center gap-0">
             <OptimizedImage
               src={goldenForestsLogo}
               alt="Golden Forests Holding"
               priority
-              sizes="184px"
-              className="h-32 w-auto max-w-full object-contain drop-shadow-sm"
+              sizes="220px"
+              className="h-40 w-auto max-w-full object-contain drop-shadow-sm"
             />
           </Link>
         </div>
