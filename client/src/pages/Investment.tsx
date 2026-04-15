@@ -21,7 +21,8 @@ const mangoRequestFormUrl =
   "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
 const faqRequestFormUrl =
   "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
-const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
+const combinedTwoPagerPdf =
+  "https://res.cloudinary.com/dezfh7wug/raw/upload/v1776245088/golden-forests/documents/GF_combined_two_pager_FINAL_20260415.pdf";
 
 function splitTitleIntoLines(value: string) {
   return value
@@ -142,6 +143,30 @@ export default function Investment() {
     question,
     answer: copy.faqAnswers[index] ?? "",
   }));
+
+  const handleCombinedProgrammeDownload = async () => {
+    try {
+      const response = await fetch(combinedTwoPagerPdf, {
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch combined programme overview.");
+      }
+
+      const blob = await response.blob();
+      const objectUrl = window.URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = objectUrl;
+      anchor.download = "GF_combined_two_pager_FINAL.pdf";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.URL.revokeObjectURL(objectUrl);
+    } catch {
+      window.open(combinedTwoPagerPdf, "_blank", "noopener,noreferrer");
+    }
+  };
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -280,11 +305,15 @@ export default function Investment() {
               {copy.portfolioDescription}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
-                <a href={combinedTwoPagerPdf} download className="inline-flex items-center gap-2">
+              <Button
+                type="button"
+                className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]"
+                onClick={() => {
+                  void handleCombinedProgrammeDownload();
+                }}
+              >
                   <Download className="h-4 w-4" />
                   {copy.portfolioDownloadLabel}
-                </a>
               </Button>
               <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
                 <Link href="/contact" className="inline-flex items-center gap-2">

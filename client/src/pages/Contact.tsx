@@ -13,7 +13,8 @@ const PIPEDRIVE_FORM_URL =
 const PIPEDRIVE_LOADER_URL = "https://webforms.pipedrive.com/f/loader";
 const contactHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767722/golden-forests/contact-hero-20260410.jpg";
-const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
+const combinedTwoPagerPdf =
+  "https://res.cloudinary.com/dezfh7wug/raw/upload/v1776245088/golden-forests/documents/GF_combined_two_pager_FINAL_20260415.pdf";
 const agarwoodRequestFormUrl =
   "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
 const mangoRequestFormUrl =
