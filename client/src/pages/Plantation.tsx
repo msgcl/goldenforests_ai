@@ -5,9 +5,7 @@ import { Link } from "wouter";
 import {
   ArrowRight,
   BrainCircuit,
-  GraduationCap,
   Leaf,
-  MapPinned,
   ShieldCheck,
   Trees,
   Waypoints,
@@ -64,7 +62,6 @@ function isPlantationVisitTransparencyLink(lead: string) {
 export default function Plantation() {
   const { data: siteCopy } = useSiteCopy();
   const copy = (siteCopy ?? defaultSiteCopy).plantation;
-  const universitySectionIntro = copy.universitySectionIntro.trim();
   const environmentalSectionSubtitle = copy.environmentalSectionSubtitle.trim();
   const overviewParagraphs = copy.overviewParagraphs.filter((paragraph) => {
     const normalizedParagraph = paragraph.trim();
@@ -74,12 +71,6 @@ export default function Plantation() {
 
     return true;
   });
-
-  const universityPartners = copy.universityPartnerNames.map((name, index) => ({
-    name,
-    leadLine: copy.universityPartnerLeadLines[index] ?? "",
-    bodyLine: copy.universityPartnerBodyLines[index] ?? "",
-  }));
 
   const riskManagementItems = copy.riskTitles.map((title, index) => ({
     title,
@@ -142,41 +133,6 @@ export default function Plantation() {
               </Card>
             );
           })}
-        </div>
-      </section>
-
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-6 shadow-sm sm:p-8">
-        <div className="max-w-4xl">
-          <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-            <GraduationCap className="h-5 w-5" />
-          </div>
-          <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
-            {copy.universitySectionTitle}
-          </h2>
-          {universitySectionIntro ? (
-            <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
-              {universitySectionIntro}
-            </p>
-          ) : null}
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.universitySectionDescription}</p>
-        </div>
-
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {universityPartners.map(({ name, leadLine, bodyLine }) => (
-            <Card key={name} className="border-[#C8A070]/24 bg-white/70 shadow-sm">
-              <CardContent className="p-5">
-                <div className="flex min-h-[3.5rem] items-start">
-                  <h3 className="text-[1rem] font-semibold leading-snug text-[#17392E]">{name}</h3>
-                </div>
-                <p className="mt-3 text-sm leading-7 text-[#17392E]/84">
-                  <span className="mb-1 block text-[0.9rem] font-semibold uppercase tracking-[0.08em] text-[#17392E]">
-                    {leadLine}
-                  </span>
-                  {bodyLine}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </section>
 
@@ -280,32 +236,6 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E8D2_100%)] p-6 shadow-sm sm:p-8">
-        <div className="max-w-4xl">
-          <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-            <MapPinned className="h-5 w-5" />
-          </div>
-          <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
-            {copy.overviewTitle}
-          </h2>
-          <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
-            {copy.overviewDescription}
-          </p>
-          {overviewParagraphs.map((paragraph) => (
-            <p key={paragraph} className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">
-              {paragraph}
-            </p>
-          ))}
-          <div className="mt-6">
-            <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#21483a]">
-              <a href={copy.overviewPortalCtaHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                {copy.overviewPortalCtaLabel}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
     </AnimatedPage>
   );
 }

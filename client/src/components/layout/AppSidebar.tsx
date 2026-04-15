@@ -21,15 +21,14 @@ import { OptimizedImage } from "@/components/ui/optimized-media";
 
 const goldenForestsLogo =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1776227031/golden-forests/sidebar-brand-logo-20260415.png";
-const operationsPortalBanner =
-  "https://res.cloudinary.com/dezfh7wug/image/upload/v1776227033/golden-forests/sidebar-portal-banner-20260415.png";
+const operationsPortalBanner = "/sidebar-portal-banner.png";
 
 const navigationItems = [
   { title: "Home", url: "/home", icon: Home },
   { title: "Investment", url: "/investment", icon: Sprout },
   { title: "AI Management", url: "/ai-management", icon: TreePine },
   { title: "Asset Management", url: "/asset-management", icon: Palmtree },
-  { title: "About", url: "/about", icon: Building2 },
+  { title: "Company Profile", url: "/company-profile", icon: Building2 },
   { title: "Contact", url: "/contact", icon: PhoneCall },
 ];
 
@@ -108,7 +107,7 @@ export function AppSidebar() {
               <div className="flex h-20 w-20 shrink-0 items-center justify-center p-3">
                 <OptimizedImage
                   src={operationsPortalBanner}
-                  alt="Philippine Operations Portal"
+                  alt="Philippine Operations"
                   sizes="96px"
                   className="h-14 w-auto max-w-full object-contain opacity-95 drop-shadow-sm transition-transform duration-200 group-hover:scale-[1.04]"
                 />
@@ -118,10 +117,10 @@ export function AppSidebar() {
                   Open External Site
                 </p>
                 <p className="text-[0.98rem] font-semibold leading-tight text-[#FBFCF7]">
-                  Philippine Operations Portal
+                  Philippine Operations
                 </p>
-                <p className="text-[0.74rem] leading-relaxed text-[#E6E9D8]/82">
-                  Access the live operations platform and field updates on goldenforests.ph.
+                <p className="text-[0.74rem] leading-relaxed text-[#FBFCF7]">
+                  Access the live operations platform and field updates.
                 </p>
                 <span className="inline-flex items-center rounded-full border border-[#C8A070]/60 px-3 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.14em] text-[#FBFCF7] transition-colors group-hover:border-[#E2C18F] group-hover:bg-[#C8A070]/10">
                   Visit Portal

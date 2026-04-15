@@ -2,7 +2,7 @@ import { AnimatedPage } from "@/components/layout/AnimatedPage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPinned } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-media";
 import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
@@ -14,6 +14,15 @@ export default function PlantationVisit() {
   const { data: siteCopy } = useSiteCopy();
   const resolvedSiteCopy = siteCopy ?? defaultSiteCopy;
   const copy = resolvedSiteCopy.ecotourism;
+  const plantationCopy = resolvedSiteCopy.plantation;
+  const overviewParagraphs = plantationCopy.overviewParagraphs.filter((paragraph) => {
+    const normalizedParagraph = paragraph.trim();
+
+    if (!normalizedParagraph) return false;
+    if (normalizedParagraph === plantationCopy.overviewDescription.trim()) return false;
+
+    return true;
+  });
   const galleryItems = copy.featuredDestinationNames.slice(0, 4).map((title, index) => ({
     title,
     description: copy.featuredDestinationDetails[index] ?? "",
@@ -40,6 +49,37 @@ export default function PlantationVisit() {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="mt-10">
+        <Card className="border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E8D2_100%)] shadow-sm">
+          <CardContent className="p-6 md:p-8">
+            <div className="max-w-4xl">
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <MapPinned className="h-5 w-5" />
+              </div>
+              <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
+                {plantationCopy.overviewTitle}
+              </h2>
+              <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+                {plantationCopy.overviewDescription}
+              </p>
+              {overviewParagraphs.map((paragraph) => (
+                <p key={paragraph} className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">
+                  {paragraph}
+                </p>
+              ))}
+              <div className="mt-6">
+                <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#21483a]">
+                  <a href={plantationCopy.overviewPortalCtaHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                    {plantationCopy.overviewPortalCtaLabel}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </section>
 
       <section className="mt-10">

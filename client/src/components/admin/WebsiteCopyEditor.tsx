@@ -43,6 +43,7 @@ type WebsiteCopyEditorProps = {
 };
 
 type FieldDescriptor = {
+  sourcePage: SiteCopyPageKey;
   path: string;
   label: string;
   value: string | string[] | string[][];
@@ -60,11 +61,11 @@ const pageCatalog: Array<{
   description: string;
 }> = [
   { key: "home", label: "Home", eyebrow: "Landing Page", description: "Hero messaging, investment pathways, university partnership copy, and closing CTA copy." },
-  { key: "about", label: "About", eyebrow: "Overview", description: "Hero, overview, USP cards, commitment columns, and leadership copy." },
+  { key: "about", label: "Company Profile", eyebrow: "Overview", description: "Hero, overview, USP cards, commitment columns, and leadership copy." },
   { key: "investment", label: "Investment", eyebrow: "Investor Summary", description: "Investment hero, programme summaries, portfolio benefits, and FAQ copy." },
-  { key: "ecotourism", label: "Plantation Visit", eyebrow: "Visit Programme", description: "Hero, visit programme copy, CTA, and the four-image gallery." },
+  { key: "ecotourism", label: "Asset Management", eyebrow: "Visit Programme", description: "Hero, visit programme copy, Zambales operations, CTA, and the four-image gallery." },
   { key: "contact", label: "Contact", eyebrow: "Contact Page", description: "Visible contact labels, contact details, and office information." },
-  { key: "plantation", label: "Operations", eyebrow: "Operations", description: "Hero, intelligence, partnerships, risk, environmental, and transparency copy." },
+  { key: "plantation", label: "AI Management", eyebrow: "Operations", description: "Hero, intelligence, risk, environmental, and transparency copy." },
 ];
 
 const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
@@ -181,22 +182,11 @@ const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
   plantation: [
     "heroTitle",
     "heroDescription",
-    "overviewTitle",
-    "overviewDescription",
-    "overviewParagraphs",
-    "overviewPortalCtaLabel",
-    "overviewPortalCtaHref",
     "intelligenceSectionTitle",
     "intelligenceSectionDescription",
     "intelligenceTitles",
     "intelligenceTaglines",
     "intelligenceDescriptions",
-    "universitySectionTitle",
-    "universitySectionIntro",
-    "universitySectionDescription",
-    "universityPartnerNames",
-    "universityPartnerLeadLines",
-    "universityPartnerBodyLines",
     "riskSectionTitle",
     "riskSectionDescription",
     "riskTitles",
@@ -214,6 +204,16 @@ const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
     "transparencyPrimaryCtaHref",
     "transparencySecondaryCtaLabel",
     "transparencySecondaryCtaHref",
+  ],
+};
+
+const crossPageEditableFieldsByPage: Partial<Record<SiteCopyPageKey, Array<{ sourcePage: SiteCopyPageKey; path: string }>>> = {
+  ecotourism: [
+    { sourcePage: "plantation", path: "overviewTitle" },
+    { sourcePage: "plantation", path: "overviewDescription" },
+    { sourcePage: "plantation", path: "overviewParagraphs" },
+    { sourcePage: "plantation", path: "overviewPortalCtaLabel" },
+    { sourcePage: "plantation", path: "overviewPortalCtaHref" },
   ],
 };
 
@@ -259,55 +259,102 @@ function updateValueAtPath<T>(source: T, path: string[], nextValue: unknown): T 
   } as T;
 }
 
-function collectTextFields(source: Record<string, unknown>, prefix = ""): FieldDescriptor[] {
+function collectTextFields(source: Record<string, unknown>, sourcePage: SiteCopyPageKey, prefix = ""): FieldDescriptor[] {
   return Object.entries(source).flatMap(([key, value]) => {
     const path = prefix ? `${prefix}.${key}` : key;
 
-      if (typeof value === "string") {
-        return [
-          {
-            path,
-            label: buildFieldLabel(path),
-            value,
-            isArray: false,
-            isNestedArray: false,
-            multiline: value.length > 90 || /description|intro|paragraph|details|helper|footnote/i.test(path),
-          },
-        ];
-      }
+    if (typeof value === "string") {
+      return [
+        {
+          sourcePage,
+          path,
+          label: buildFieldLabel(path),
+          value,
+          isArray: false,
+          isNestedArray: false,
+          multiline: value.length > 90 || /description|intro|paragraph|details|helper|footnote/i.test(path),
+        },
+      ];
+    }
 
     if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
       return [
-          {
-            path,
-            label: buildFieldLabel(path),
-            value: value as string[],
-            isArray: true,
-            isNestedArray: false,
-            multiline: true,
-          },
-        ];
-      }
+        {
+          sourcePage,
+          path,
+          label: buildFieldLabel(path),
+          value: value as string[],
+          isArray: true,
+          isNestedArray: false,
+          multiline: true,
+        },
+      ];
+    }
 
-      if (Array.isArray(value) && value.every((item) => Array.isArray(item) && item.every((nested) => typeof nested === "string"))) {
-        return [
-          {
-            path,
-            label: buildFieldLabel(path),
-            value: value as string[][],
-            isArray: false,
-            isNestedArray: true,
-            multiline: true,
-          },
-        ];
-      }
+    if (Array.isArray(value) && value.every((item) => Array.isArray(item) && item.every((nested) => typeof nested === "string"))) {
+      return [
+        {
+          sourcePage,
+          path,
+          label: buildFieldLabel(path),
+          value: value as string[][],
+          isArray: false,
+          isNestedArray: true,
+          multiline: true,
+        },
+      ];
+    }
 
     if (value && typeof value === "object") {
-      return collectTextFields(value as Record<string, unknown>, path);
+      return collectTextFields(value as Record<string, unknown>, sourcePage, path);
     }
 
     return [];
   });
+}
+
+function buildFieldDescriptor(
+  sourcePage: SiteCopyPageKey,
+  path: string,
+  value: unknown,
+): FieldDescriptor | null {
+  if (typeof value === "string") {
+    return {
+      sourcePage,
+      path,
+      label: buildFieldLabel(path),
+      value,
+      isArray: false,
+      isNestedArray: false,
+      multiline: value.length > 90 || /description|intro|paragraph|details|helper|footnote/i.test(path),
+    };
+  }
+
+  if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
+    return {
+      sourcePage,
+      path,
+      label: buildFieldLabel(path),
+      value: value as string[],
+      isArray: true,
+      isNestedArray: false,
+      multiline: true,
+    };
+  }
+
+  if (Array.isArray(value) && value.every((item) => Array.isArray(item) && item.every((nested) => typeof nested === "string"))) {
+    return {
+      sourcePage,
+      path,
+      label: buildFieldLabel(path),
+      value: value as string[][],
+      isArray: false,
+      isNestedArray: true,
+      multiline: true,
+    };
+  }
+
+  return null;
 }
 
 async function readFileAsDataUrl(file: File): Promise<string> {
@@ -396,14 +443,21 @@ export function WebsiteCopyEditor({
   const selectedPageValue = value[selectedPage] as Record<string, unknown>;
   const fields = useMemo(() => {
     const editablePaths = new Set(editableFieldPathsByPage[selectedPage] ?? []);
-    return collectTextFields(selectedPageValue).filter((field) => editablePaths.has(field.path));
-  }, [selectedPage, selectedPageValue]);
+    const primaryFields = collectTextFields(selectedPageValue, selectedPage).filter((field) => editablePaths.has(field.path));
+    const extraFields = (crossPageEditableFieldsByPage[selectedPage] ?? [])
+      .map(({ sourcePage, path }) =>
+        buildFieldDescriptor(sourcePage, path, getValueAtPath(value[sourcePage], path.split("."))),
+      )
+      .filter((field): field is FieldDescriptor => Boolean(field));
+
+    return [...primaryFields, ...extraFields];
+  }, [selectedPage, selectedPageValue, value]);
   const selectedPageTypography = value.typography[selectedPage];
   const previewFont = createPageTypography(value, selectedPage);
 
-  const updateFieldValue = (path: string, nextValue: string) => {
+  const updateFieldValue = (sourcePage: SiteCopyPageKey, path: string, nextValue: string) => {
     const pathParts = path.split(".");
-    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentValue = getValueAtPath(value[sourcePage], pathParts);
     const resolvedValue = Array.isArray(currentValue)
       ? nextValue
           .split(/\r?\n/)
@@ -413,7 +467,7 @@ export function WebsiteCopyEditor({
 
     onChange({
       ...value,
-      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, resolvedValue),
+      [sourcePage]: updateValueAtPath(value[sourcePage], pathParts, resolvedValue),
     });
   };
 
@@ -436,32 +490,38 @@ export function WebsiteCopyEditor({
     });
   };
 
-  const updateArrayItemValue = (path: string, index: number, nextValue: string) => {
+  const updateArrayItemValue = (sourcePage: SiteCopyPageKey, path: string, index: number, nextValue: string) => {
     const pathParts = path.split(".");
-    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentValue = getValueAtPath(value[sourcePage], pathParts);
     const currentItems = Array.isArray(currentValue) ? [...currentValue] : [];
     currentItems[index] = nextValue;
 
     onChange({
       ...value,
-      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, currentItems),
+      [sourcePage]: updateValueAtPath(value[sourcePage], pathParts, currentItems),
     });
   };
 
-  const addArrayItemValue = (path: string) => {
+  const addArrayItemValue = (sourcePage: SiteCopyPageKey, path: string) => {
     const pathParts = path.split(".");
-    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentValue = getValueAtPath(value[sourcePage], pathParts);
     const currentItems = Array.isArray(currentValue) ? [...currentValue] : [];
 
     onChange({
       ...value,
-      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, [...currentItems, ""]),
+      [sourcePage]: updateValueAtPath(value[sourcePage], pathParts, [...currentItems, ""]),
     });
   };
 
-  const updateNestedArrayItemValue = (path: string, groupIndex: number, itemIndex: number, nextValue: string) => {
+  const updateNestedArrayItemValue = (
+    sourcePage: SiteCopyPageKey,
+    path: string,
+    groupIndex: number,
+    itemIndex: number,
+    nextValue: string,
+  ) => {
     const pathParts = path.split(".");
-    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentValue = getValueAtPath(value[sourcePage], pathParts);
     const currentGroups = Array.isArray(currentValue) ? (currentValue as string[][]).map((group) => [...group]) : [];
 
     if (!currentGroups[groupIndex]) {
@@ -472,13 +532,13 @@ export function WebsiteCopyEditor({
 
     onChange({
       ...value,
-      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, currentGroups),
+      [sourcePage]: updateValueAtPath(value[sourcePage], pathParts, currentGroups),
     });
   };
 
-  const removeArrayItemValue = (path: string, index: number) => {
+  const removeArrayItemValue = (sourcePage: SiteCopyPageKey, path: string, index: number) => {
     const pathParts = path.split(".");
-    const currentValue = getValueAtPath(value[selectedPage], pathParts);
+    const currentValue = getValueAtPath(value[sourcePage], pathParts);
     const currentItems = Array.isArray(currentValue) ? [...currentValue] : [];
 
     if (currentItems.length <= 1) {
@@ -489,11 +549,11 @@ export function WebsiteCopyEditor({
 
     onChange({
       ...value,
-      [selectedPage]: updateValueAtPath(value[selectedPage], pathParts, currentItems),
+      [sourcePage]: updateValueAtPath(value[sourcePage], pathParts, currentItems),
     });
   };
 
-  const uploadImageForArrayItem = async (path: string, index: number, file: File) => {
+  const uploadImageForArrayItem = async (sourcePage: SiteCopyPageKey, path: string, index: number, file: File) => {
     const uploadKey = `${path}-${index}`;
 
     try {
@@ -517,7 +577,7 @@ export function WebsiteCopyEditor({
         throw new Error(payload.message ?? "Image upload failed.");
       }
 
-      updateArrayItemValue(path, index, payload.url);
+      updateArrayItemValue(sourcePage, path, index, payload.url);
       toast({
         title: "Profile image uploaded",
         description: "The file is now in Cloudinary. Save Website Copy to publish it on the live site.",
@@ -708,7 +768,7 @@ export function WebsiteCopyEditor({
                                             type="button"
                                             variant="outline"
                                             className="h-9 rounded-xl border-white/15 bg-transparent px-3 text-white hover:bg-white/10"
-                                            onClick={() => removeArrayItemValue(field.path, index)}
+                                            onClick={() => removeArrayItemValue(field.sourcePage, field.path, index)}
                                           >
                                             <Trash2 className="mr-2 h-4 w-4" />
                                             Remove
@@ -757,7 +817,7 @@ export function WebsiteCopyEditor({
                                               const file = event.target.files?.[0];
                                               event.currentTarget.value = "";
                                               if (!file) return;
-                                              await uploadImageForArrayItem(field.path, index, file);
+                                              await uploadImageForArrayItem(field.sourcePage, field.path, index, file);
                                             }}
                                           />
                                         </Label>
@@ -765,7 +825,7 @@ export function WebsiteCopyEditor({
                                           className={editorInputClassName}
                                           value={item}
                                           placeholder="Cloudinary image URL"
-                                          onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
+                                          onChange={(event) => updateArrayItemValue(field.sourcePage, field.path, index, event.target.value)}
                                         />
                                       </div>
                                     </div>
@@ -788,7 +848,9 @@ export function WebsiteCopyEditor({
                                           <Textarea
                                             className={cn(editorInputClassName, "min-h-[88px]")}
                                             value={item}
-                                            onChange={(event) => updateNestedArrayItemValue(field.path, groupIndex, itemIndex, event.target.value)}
+                                            onChange={(event) =>
+                                              updateNestedArrayItemValue(field.sourcePage, field.path, groupIndex, itemIndex, event.target.value)
+                                            }
                                           />
                                         </div>
                                       ))}
@@ -808,7 +870,7 @@ export function WebsiteCopyEditor({
                                         type="button"
                                         variant="outline"
                                         className="h-8 rounded-lg border-white/15 bg-transparent px-3 text-white hover:bg-white/10"
-                                        onClick={() => removeArrayItemValue(field.path, index)}
+                                        onClick={() => removeArrayItemValue(field.sourcePage, field.path, index)}
                                       >
                                         <Trash2 className="mr-2 h-3.5 w-3.5" />
                                         {items.length > 1 ? "Remove" : "Clear"}
@@ -818,13 +880,13 @@ export function WebsiteCopyEditor({
                                       <Input
                                         className={editorInputClassName}
                                         value={item}
-                                        onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
+                                        onChange={(event) => updateArrayItemValue(field.sourcePage, field.path, index, event.target.value)}
                                       />
                                     ) : (
                                       <Textarea
                                         className={cn(editorInputClassName, "min-h-[88px]")}
                                         value={item}
-                                        onChange={(event) => updateArrayItemValue(field.path, index, event.target.value)}
+                                        onChange={(event) => updateArrayItemValue(field.sourcePage, field.path, index, event.target.value)}
                                       />
                                     )}
                                   </div>
@@ -833,7 +895,7 @@ export function WebsiteCopyEditor({
                                   type="button"
                                   variant="outline"
                                   className="rounded-xl border-dashed border-white/20 bg-transparent text-white hover:bg-white/10"
-                                  onClick={() => addArrayItemValue(field.path)}
+                                  onClick={() => addArrayItemValue(field.sourcePage, field.path)}
                                 >
                                   <Plus className="mr-2 h-4 w-4" />
                                   Add item
@@ -843,13 +905,13 @@ export function WebsiteCopyEditor({
                               <Textarea
                                 className={cn(editorInputClassName, "min-h-[120px]")}
                                 value={fieldText}
-                                onChange={(event) => updateFieldValue(field.path, event.target.value)}
+                                onChange={(event) => updateFieldValue(field.sourcePage, field.path, event.target.value)}
                               />
                             ) : (
                               <Input
                                 className={editorInputClassName}
                                 value={fieldText}
-                                onChange={(event) => updateFieldValue(field.path, event.target.value)}
+                                onChange={(event) => updateFieldValue(field.sourcePage, field.path, event.target.value)}
                               />
                             )}
                           </div>

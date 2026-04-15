@@ -17,11 +17,16 @@ export function RealtimeContentSync() {
         if (queryKeys.length === 0) return;
 
         await Promise.all(
-          queryKeys.map((queryKey) =>
-            queryClient.invalidateQueries({
+          queryKeys.map(async (queryKey) => {
+            await queryClient.invalidateQueries({
               queryKey: [queryKey],
-            }),
-          ),
+            });
+
+            await queryClient.refetchQueries({
+              queryKey: [queryKey],
+              type: "active",
+            });
+          }),
         );
       } catch (error) {
         console.error("Failed to process realtime content update", error);

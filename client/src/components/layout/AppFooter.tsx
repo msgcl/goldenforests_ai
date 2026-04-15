@@ -17,8 +17,8 @@ export function AppFooter() {
 
         <div className="flex flex-col gap-2.5 lg:items-end">
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[0.95rem] text-[#1B1B1B]/68 dark:text-muted-foreground">
-            <Link href="/about" className="transition-colors hover:text-[#17392E] dark:hover:text-foreground">
-              About
+            <Link href="/company-profile" className="transition-colors hover:text-[#17392E] dark:hover:text-foreground">
+              Company Profile
             </Link>
             <Link href="/investment" className="transition-colors hover:text-[#17392E] dark:hover:text-foreground">
               Investment
