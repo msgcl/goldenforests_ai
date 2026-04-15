@@ -15,10 +15,13 @@ const investmentHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v
 const agarwoodChipsImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461736/golden-forests/agarwood-chips-20260406.jpg";
 const mangoImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461737/golden-forests/mango-support-1-20260406.jpg";
 const investmentCalculatorEmbedUrl = "https://tray-harp-15742696.figma.site/";
-const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
-const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
+const agarwoodRequestFormUrl =
+  "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
+const mangoRequestFormUrl =
+  "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
+const faqRequestFormUrl =
+  "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
 const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
-const faqDocumentPdf = "/Golden_Forests_FAQ_FINAL.pdf";
 
 function splitTitleIntoLines(value: string) {
   return value
@@ -116,7 +119,7 @@ function InvestmentProgrammeCard({
             </Link>
           </Button>
           <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-transparent px-5 text-primary hover:bg-background">
-            <a href={downloadHref} download className="inline-flex items-center gap-2">
+            <a href={downloadHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
               <Download className="h-4 w-4" />
               {downloadLabel}
             </a>
@@ -139,30 +142,6 @@ export default function Investment() {
     question,
     answer: copy.faqAnswers[index] ?? "",
   }));
-
-  const handleFaqDownload = async () => {
-    try {
-      const response = await fetch(faqDocumentPdf, {
-        cache: "no-store",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch FAQ document.");
-      }
-
-      const blob = await response.blob();
-      const objectUrl = window.URL.createObjectURL(blob);
-      const anchor = document.createElement("a");
-      anchor.href = objectUrl;
-      anchor.download = "Golden_Forests_FAQ_FINAL.pdf";
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-      window.URL.revokeObjectURL(objectUrl);
-    } catch {
-      window.open(faqDocumentPdf, "_blank", "noopener,noreferrer");
-    }
-  };
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -258,8 +237,8 @@ export default function Investment() {
           marketTitle={copy.agarwoodMarketTitle}
           returnsTitle={copy.agarwoodReturnsTitle}
           strengthsTitle={copy.agarwoodStrengthsTitle}
-          downloadLabel={copy.agarwoodDownloadLabel}
-          downloadHref={agarwoodExposePdf}
+          downloadLabel="Request Agarwood exposé"
+          downloadHref={agarwoodRequestFormUrl}
           sideImageSrc={agarwoodChipsImage}
           sideImageAlt="Agarwood chips arranged in a small presentation pile"
         />
@@ -277,8 +256,8 @@ export default function Investment() {
           marketTitle={copy.mangoMarketTitle}
           returnsTitle={copy.mangoReturnsTitle}
           strengthsTitle={copy.mangoStrengthsTitle}
-          downloadLabel={copy.mangoDownloadLabel}
-          downloadHref={mangoExposePdf}
+          downloadLabel="Request Mango exposé"
+          downloadHref={mangoRequestFormUrl}
           sideImageSrc={mangoImage}
           sideImageAlt="Ripe mangoes displayed in a small supporting image"
         />
@@ -383,16 +362,11 @@ export default function Investment() {
             </Accordion>
 
             <div className="mt-6">
-              <Button
-                type="button"
-                variant="outline"
-                className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background"
-                onClick={() => {
-                  void handleFaqDownload();
-                }}
-              >
-                {copy.faqDocumentLabel}
-                <ArrowRight className="h-4 w-4" />
+              <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
+                <a href={faqRequestFormUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                  Request FAQ Document
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </Button>
             </div>
           </CardContent>

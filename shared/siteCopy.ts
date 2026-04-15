@@ -584,15 +584,15 @@ export const defaultSiteCopy: SiteCopy = {
     resourcesTitle: "Investor Resources",
     resourceLabels: [
       "Download Investment Overview",
-      "Download Agarwood Exposé",
-      "Download Mango Exposé",
-      "View Full FAQ Document",
+      "Request Agarwood exposé",
+      "Request Mango exposé",
+      "Request FAQ Document",
     ],
       resourceHrefs: [
         "/downloads/home-overview.pdf",
-        "/investment",
-        "/investment",
-        "/Golden_Forests_FAQ_FINAL.pdf",
+        "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
+        "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
+        "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
       ],
   },
   about: {
@@ -994,8 +994,8 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     agarwoodLearnMoreLabel: "Learn More",
     agarwoodLearnMoreHref: "/contact",
-    agarwoodDownloadLabel: "Agarwood exposé",
-    agarwoodDownloadHref: "/contact",
+    agarwoodDownloadLabel: "Request Agarwood exposé",
+    agarwoodDownloadHref: "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
     agarwoodContactLabel: "Contact Our Team",
     mangoEyebrow: "Mango Programme",
     mangoTitle: "MANGO: Sweet Elena Carabao Mango",
@@ -1019,8 +1019,8 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     mangoLearnMoreLabel: "Learn More",
     mangoLearnMoreHref: "/contact",
-    mangoDownloadLabel: "Mango exposé",
-    mangoDownloadHref: "/contact",
+    mangoDownloadLabel: "Request Mango exposé",
+    mangoDownloadHref: "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
     mangoContactLabel: "Contact Our Team",
     portfolioEyebrow: "Portfolio Strategy",
     portfolioTitle: "Diversification Through Complementary Assets",
@@ -1052,8 +1052,8 @@ export const defaultSiteCopy: SiteCopy = {
       "We charge harvest management fees only: 10% of agarwood harvest proceeds, 20% of mango harvest proceeds. We earn only when your trees produce. No hidden fees or annual management charges. This ensures our interests are fully aligned with yours.",
       "All trees are covered under our Harvest Guarantee Insurance, providing a 100% replacement guarantee for losses caused by typhoons, fire, floods, pests, disease or wild animal damage. Each plantation includes a 20% buffer stock of replacement trees, grown to the same age and size as client-owned trees.",
     ],
-    faqDocumentLabel: "Access our complete FAQ document covering ownership, operations, sustainability, regulatory compliance and more.",
-    faqDocumentHref: "https://res.cloudinary.com/dezfh7wug/raw/upload/v1776235311/golden-forests/documents/Golden_Forests_FAQ_FINAL_20260415.pdf",
+    faqDocumentLabel: "Request FAQ Document",
+    faqDocumentHref: "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
   },
   ecotourism: {
     header: {
@@ -1118,8 +1118,8 @@ export const defaultSiteCopy: SiteCopy = {
     featuredDestinationImages: [
       "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352600/golden-forests/ecotourism-san-antonio-beaches.jpg",
       "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352600/golden-forests/ecotourism-sundowners-resort.jpg",
-      "https://res.cloudinary.com/dezfh7wug/image/upload/v1775462091/golden-forests/plantation-visit-drone-gallery-20260406.png",
-      "https://res.cloudinary.com/dz49fckfu/image/upload/v1774352676/golden-forests/ecotourism-clark-airport.jpg",
+      "https://res.cloudinary.com/dezfh7wug/image/upload/v1776242289/golden-forests/asset-management-plantation-drone-20260415.png",
+      "https://res.cloudinary.com/dezfh7wug/image/upload/v1776242289/golden-forests/asset-management-clark-airport-20260415.png",
     ],
   },
   home: {
@@ -1185,8 +1185,11 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     investmentOpportunityLearnMoreLabels: ["Learn More", "Learn More"],
     investmentOpportunityLearnMoreHrefs: ["/investment#agarwood", "/investment#mango"],
-    investmentOpportunityDownloadLabels: ["Download Agarwood Exposé", "Download Mango Exposé"],
-    investmentOpportunityDownloadHrefs: ["/investment", "/investment"],
+    investmentOpportunityDownloadLabels: ["Request Agarwood exposé", "Request Mango exposé"],
+    investmentOpportunityDownloadHrefs: [
+      "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
+      "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
+    ],
     credibilityEyebrow:
       "Every cultivation decision Golden Forests makes is informed by active research partnerships with three of the Philippines’ leading agricultural universities.",
     credibilityTitle: "Strategic research partnerships with leading Philippine agricultural universities.",
@@ -1580,6 +1583,36 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const data = (parsed ?? {}) as Partial<SiteCopy> & Record<string, any>;
 
   const normalizedContact = { ...defaultSiteCopy.contact, ...(data.contact ?? {}) };
+  normalizedContact.resourceLabels = (normalizedContact.resourceLabels ?? defaultSiteCopy.contact.resourceLabels).map((label, index) => {
+    if (index === 1 && (label === "Download Agarwood Exposé" || label === "Agarwood exposé")) {
+      return "Request Agarwood exposé";
+    }
+
+    if (index === 2 && (label === "Download Mango Exposé" || label === "Mango exposé")) {
+      return "Request Mango exposé";
+    }
+
+    if (index === 3 && (label === "View Full FAQ Document" || label === "View full FAQs")) {
+      return "Request FAQ Document";
+    }
+
+    return label ?? defaultSiteCopy.contact.resourceLabels[index];
+  });
+  normalizedContact.resourceHrefs = (normalizedContact.resourceHrefs ?? defaultSiteCopy.contact.resourceHrefs).map((href, index) => {
+    if (index === 1) {
+      return "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
+    }
+
+    if (index === 2) {
+      return "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
+    }
+
+    if (index === 3) {
+      return "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
+    }
+
+    return href ?? defaultSiteCopy.contact.resourceHrefs[index];
+  });
 
   const normalizedAbout = {
     ...defaultSiteCopy.about,
@@ -1676,11 +1709,23 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     ...(data.investment ?? {}),
     header: { ...defaultSiteCopy.investment.header, ...(data.investment?.header ?? {}) },
   };
-  if (normalizedInvestment.agarwoodDownloadLabel === "Download Agarwood Exposé") {
-    normalizedInvestment.agarwoodDownloadLabel = "Agarwood exposé";
+  if (
+    normalizedInvestment.agarwoodDownloadLabel === "Download Agarwood Exposé" ||
+    normalizedInvestment.agarwoodDownloadLabel === "Agarwood exposé"
+  ) {
+    normalizedInvestment.agarwoodDownloadLabel = "Request Agarwood exposé";
   }
-  if (normalizedInvestment.mangoDownloadLabel === "Download Mango Exposé") {
-    normalizedInvestment.mangoDownloadLabel = "Mango exposé";
+  if (
+    normalizedInvestment.mangoDownloadLabel === "Download Mango Exposé" ||
+    normalizedInvestment.mangoDownloadLabel === "Mango exposé"
+  ) {
+    normalizedInvestment.mangoDownloadLabel = "Request Mango exposé";
+  }
+  if (
+    normalizedInvestment.faqDocumentLabel === "Access our complete FAQ document covering ownership, operations, sustainability, regulatory compliance and more." ||
+    normalizedInvestment.faqDocumentLabel === "View Full FAQ Document"
+  ) {
+    normalizedInvestment.faqDocumentLabel = "Request FAQ Document";
   }
   if (
     normalizedInvestment.portfolioTitle ===
@@ -1769,6 +1814,32 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     }
 
     return legacyHomeInvestmentHrefMap.get(href) ?? href ?? fallbackHref;
+  });
+  normalizedHome.investmentOpportunityDownloadLabels = (
+    normalizedHome.investmentOpportunityDownloadLabels ?? defaultSiteCopy.home.investmentOpportunityDownloadLabels
+  ).map((label, index) => {
+    if (index === 0 && (label === "Download Agarwood Exposé" || label === "Agarwood exposé")) {
+      return "Request Agarwood exposé";
+    }
+
+    if (index === 1 && (label === "Download Mango Exposé" || label === "Mango exposé")) {
+      return "Request Mango exposé";
+    }
+
+    return label ?? defaultSiteCopy.home.investmentOpportunityDownloadLabels[index];
+  });
+  normalizedHome.investmentOpportunityDownloadHrefs = (
+    normalizedHome.investmentOpportunityDownloadHrefs ?? defaultSiteCopy.home.investmentOpportunityDownloadHrefs
+  ).map((href, index) => {
+    if (index === 0) {
+      return "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
+    }
+
+    if (index === 1) {
+      return "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
+    }
+
+    return href ?? defaultSiteCopy.home.investmentOpportunityDownloadHrefs[index];
   });
 
   const legacyPlantationOverviewDescription =

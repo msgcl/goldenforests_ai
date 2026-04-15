@@ -17,9 +17,10 @@ import { createPageTypography } from "@/lib/siteTypography";
 
 const plantationHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1774850962/golden-forests/plantation-image-home-20260330.jpg";
-const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
-const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
-const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
+const agarwoodRequestFormUrl =
+  "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
+const mangoRequestFormUrl =
+  "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
 const pillarIcons = [Trees, MapPin, Leaf] as const;
 const investmentOpportunityIcons = [Leaf, Trees] as const;
 
@@ -39,10 +40,18 @@ export default function Home() {
     description: copy.investmentOpportunityDescriptions[index] ?? "",
     learnMoreLabel: copy.investmentOpportunityLearnMoreLabels[index] ?? "Learn More",
     learnMoreHref: copy.investmentOpportunityLearnMoreHrefs[index] ?? "/contact",
-    downloadLabel: copy.investmentOpportunityDownloadLabels[index] ?? "Download",
-    downloadHref:
-      copy.investmentOpportunityDownloadHrefs[index] ??
-      (index === 0 ? agarwoodExposePdf : index === 1 ? mangoExposePdf : "/downloads"),
+    requestLabel:
+      index === 0
+        ? "Request Agarwood exposé"
+        : index === 1
+          ? "Request Mango exposé"
+          : copy.investmentOpportunityDownloadLabels[index] ?? "Request document",
+    requestHref:
+      index === 0
+        ? agarwoodRequestFormUrl
+        : index === 1
+          ? mangoRequestFormUrl
+          : copy.investmentOpportunityDownloadHrefs[index] ?? "/contact",
     icon: investmentOpportunityIcons[index] ?? Leaf,
   }));
 
@@ -101,7 +110,7 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          {investmentOpportunities.map(({ title, description, learnMoreLabel, learnMoreHref, downloadHref, downloadLabel, icon: Icon }) => (
+          {investmentOpportunities.map(({ title, description, learnMoreLabel, learnMoreHref, requestHref, requestLabel, icon: Icon }) => (
             <Card key={title} className="border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
               <CardContent className="p-6">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -119,8 +128,8 @@ export default function Home() {
                     </a>
                   </Button>
                   <Button asChild variant="outline" className="rounded-xl border-[#2D5016]/30 bg-transparent px-5 text-[#2D5016] hover:bg-[#FBFCF7]">
-                    <a href={downloadHref} download className="inline-flex items-center gap-2">
-                      {downloadLabel}
+                    <a href={requestHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                      {requestLabel}
                       <Download className="h-4 w-4" />
                     </a>
                   </Button>

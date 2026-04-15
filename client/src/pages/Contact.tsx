@@ -13,13 +13,49 @@ const PIPEDRIVE_FORM_URL =
 const PIPEDRIVE_LOADER_URL = "https://webforms.pipedrive.com/f/loader";
 const contactHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767722/golden-forests/contact-hero-20260410.jpg";
-const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
-const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
 const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
-const faqDocumentPdf = "/Golden_Forests_FAQ_FINAL.pdf";
+const agarwoodRequestFormUrl =
+  "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
+const mangoRequestFormUrl =
+  "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
+const faqRequestFormUrl =
+  "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
 
-function normalizeFaqLabel(value: string) {
+function normalizeResourceLabel(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function resolveResourceLabel(label: string, index: number) {
+  const normalizedLabel = normalizeResourceLabel(label);
+
+  if (
+    index === 1 ||
+    normalizedLabel === "download agarwood exposé" ||
+    normalizedLabel === "request agarwood exposé" ||
+    normalizedLabel === "agarwood exposé"
+  ) {
+    return "Request Agarwood exposé";
+  }
+
+  if (
+    index === 2 ||
+    normalizedLabel === "download mango exposé" ||
+    normalizedLabel === "request mango exposé" ||
+    normalizedLabel === "mango exposé"
+  ) {
+    return "Request Mango exposé";
+  }
+
+  if (
+    index === 3 ||
+    normalizedLabel === "view full faq document" ||
+    normalizedLabel === "view full faqs" ||
+    normalizedLabel === "request faq document"
+  ) {
+    return "Request FAQ Document";
+  }
+
+  return label;
 }
 
 export default function Contact() {
@@ -31,9 +67,9 @@ export default function Contact() {
   const [isFormLoading, setIsFormLoading] = useState(true);
   const fallbackResourceHrefs = [
     combinedTwoPagerPdf,
-    agarwoodExposePdf,
-    mangoExposePdf,
-    "/investment",
+    agarwoodRequestFormUrl,
+    mangoRequestFormUrl,
+    faqRequestFormUrl,
   ];
 
   useEffect(() => {
@@ -199,26 +235,26 @@ export default function Contact() {
               <h3 className={font("resourcesTitle", "text-2xl font-semibold text-[#6F4E2C]")}>{copy.resourcesTitle}</h3>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {copy.resourceLabels.map((label, index) => {
-                  const normalizedLabel = normalizeFaqLabel(label);
-                  const faqDownloadLabel = normalizedLabel === "view full faq document";
-                  const faqViewLabel = normalizedLabel === "view full faqs";
-                  const href = faqDownloadLabel || faqViewLabel
-                    ? faqDocumentPdf
-                    : copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
-                  const isPdf = href.endsWith(".pdf");
-                  const shouldDownload = faqDownloadLabel || (isPdf && !faqViewLabel);
+                  const resolvedLabel = resolveResourceLabel(label, index);
+                  const href =
+                    resolvedLabel === "Request Agarwood exposé"
+                      ? agarwoodRequestFormUrl
+                      : resolvedLabel === "Request Mango exposé"
+                        ? mangoRequestFormUrl
+                        : resolvedLabel === "Request FAQ Document"
+                          ? faqRequestFormUrl
+                          : copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
 
                   return (
                     <Button key={label} asChild variant="outline" className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white">
                       <a
                         href={href}
-                        download={shouldDownload || undefined}
-                        target={faqViewLabel ? "_blank" : undefined}
-                        rel={faqViewLabel ? "noreferrer" : undefined}
+                        target="_blank"
+                        rel="noreferrer"
                         className="inline-flex items-center gap-2"
                       >
                         <Download className="h-4 w-4" />
-                        {label}
+                        {resolvedLabel}
                       </a>
                     </Button>
                   );
