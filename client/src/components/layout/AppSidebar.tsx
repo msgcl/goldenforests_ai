@@ -3,7 +3,6 @@ import {
   Building2,
   Sprout,
   TreePine,
-  Handshake,
   PhoneCall,
   Palmtree,
 } from "lucide-react";
@@ -21,7 +20,9 @@ import {
 import { OptimizedImage } from "@/components/ui/optimized-media";
 
 const goldenForestsLogo =
-  "https://res.cloudinary.com/dezfh7wug/image/upload/v1776224736/golden-forests/sidebar-logo-20260415.png";
+  "https://res.cloudinary.com/dezfh7wug/image/upload/v1776227031/golden-forests/sidebar-brand-logo-20260415.png";
+const operationsPortalBanner =
+  "https://res.cloudinary.com/dezfh7wug/image/upload/v1776227033/golden-forests/sidebar-portal-banner-20260415.png";
 
 const navigationItems = [
   { title: "Home", url: "/home", icon: Home },
@@ -30,7 +31,6 @@ const navigationItems = [
   { title: "Plantation Visit", url: "/plantation-visit", icon: Palmtree },
   { title: "About", url: "/about", icon: Building2 },
   { title: "Contact", url: "/contact", icon: PhoneCall },
-  { title: "Operations Management Portal", url: "https://goldenforests.ph", icon: Handshake, external: true },
 ];
 
 export function AppSidebar() {
@@ -45,15 +45,23 @@ export function AppSidebar() {
   return (
     <Sidebar variant="inset" className="bg-transparent">
       <SidebarHeader className="border-b border-[#C8A070]/40 p-4">
-        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#3A6420] px-3 py-6 shadow-inner shadow-black/10">
-          <Link href="/home" className="inline-flex flex-col items-center justify-center gap-0">
+        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#3A6420] px-3 py-5 shadow-inner shadow-black/10">
+          <Link href="/home" className="inline-flex flex-col items-center justify-center gap-3 text-center">
             <OptimizedImage
               src={goldenForestsLogo}
               alt="Golden Forests Holding"
               priority
-              sizes="220px"
-              className="h-40 w-auto max-w-full object-contain drop-shadow-sm"
+              sizes="104px"
+              className="h-14 w-auto max-w-full object-contain drop-shadow-sm"
             />
+            <div className="space-y-0.5 text-[#C8A070]">
+              <p className="font-serif text-[1.15rem] font-medium uppercase leading-none">
+                GOLDEN FORESTS
+              </p>
+              <p className="font-serif text-[0.82rem] font-normal leading-tight text-[#DDBA84]">
+                Agroforestry Intelligence
+              </p>
+            </div>
           </Link>
         </div>
       </SidebarHeader>
@@ -103,6 +111,44 @@ export function AppSidebar() {
             </SidebarMenuItem>
           ))}
         </SidebarMenu>
+        <div className="px-3 pt-3">
+          <a
+            href="https://goldenforests.ph"
+            target="_blank"
+            rel="noreferrer"
+            className="group block rounded-[1.25rem] border border-[#C8A070]/65 bg-[linear-gradient(145deg,#355E1F_0%,#284617_52%,#213813_100%)] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_10px_18px_rgba(0,0,0,0.12)] transition-all duration-200 hover:border-[#E2C18F] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_16px_28px_rgba(0,0,0,0.2)]"
+            onClick={() => {
+              if (isMobile) {
+                setOpenMobile(false);
+              }
+            }}
+          >
+            <div className="flex flex-col items-center gap-1.5 text-center">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center p-3">
+                <OptimizedImage
+                  src={operationsPortalBanner}
+                  alt="Philippine Operations Portal"
+                  sizes="96px"
+                  className="h-14 w-auto max-w-full object-contain opacity-95 drop-shadow-sm transition-transform duration-200 group-hover:scale-[1.04]"
+                />
+              </div>
+              <div className="space-y-2">
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#DDBA84]">
+                  Open External Site
+                </p>
+                <p className="text-[0.98rem] font-semibold leading-tight text-[#FBFCF7]">
+                  Philippine Operations Portal
+                </p>
+                <p className="text-[0.74rem] leading-relaxed text-[#E6E9D8]/82">
+                  Access the live operations platform and field updates on goldenforests.ph.
+                </p>
+                <span className="inline-flex items-center rounded-full border border-[#C8A070]/60 px-3 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.14em] text-[#FBFCF7] transition-colors group-hover:border-[#E2C18F] group-hover:bg-[#C8A070]/10">
+                  Visit Portal
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
       </SidebarContent>
       <SidebarFooter className="border-t border-[#C8A070]/40 p-3" />
     </Sidebar>
