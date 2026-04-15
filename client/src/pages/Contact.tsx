@@ -16,6 +16,11 @@ const contactHeroImage =
 const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
 const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
 const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
+const faqDocumentPdf = "/Golden_Forests_FAQ_FINAL.pdf";
+
+function normalizeFaqLabel(value: string) {
+  return value.trim().toLowerCase().replace(/\s+/g, " ");
+}
 
 export default function Contact() {
   const { data: siteCopy } = useSiteCopy();
@@ -194,12 +199,24 @@ export default function Contact() {
               <h3 className={font("resourcesTitle", "text-2xl font-semibold text-[#6F4E2C]")}>{copy.resourcesTitle}</h3>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {copy.resourceLabels.map((label, index) => {
-                  const href = copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
+                  const normalizedLabel = normalizeFaqLabel(label);
+                  const faqDownloadLabel = normalizedLabel === "view full faq document";
+                  const faqViewLabel = normalizedLabel === "view full faqs";
+                  const href = faqDownloadLabel || faqViewLabel
+                    ? faqDocumentPdf
+                    : copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
                   const isPdf = href.endsWith(".pdf");
+                  const shouldDownload = faqDownloadLabel || (isPdf && !faqViewLabel);
 
                   return (
                     <Button key={label} asChild variant="outline" className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white">
-                      <a href={href} download={isPdf} className="inline-flex items-center gap-2">
+                      <a
+                        href={href}
+                        download={shouldDownload || undefined}
+                        target={faqViewLabel ? "_blank" : undefined}
+                        rel={faqViewLabel ? "noreferrer" : undefined}
+                        className="inline-flex items-center gap-2"
+                      >
                         <Download className="h-4 w-4" />
                         {label}
                       </a>

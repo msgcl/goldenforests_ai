@@ -588,12 +588,12 @@ export const defaultSiteCopy: SiteCopy = {
       "Download Mango Exposé",
       "View Full FAQ Document",
     ],
-    resourceHrefs: [
-      "/downloads/home-overview.pdf",
-      "/investment",
-      "/investment",
-      "/investment",
-    ],
+      resourceHrefs: [
+        "/downloads/home-overview.pdf",
+        "/investment",
+        "/investment",
+        "/Golden_Forests_FAQ_FINAL.pdf",
+      ],
   },
   about: {
     header: {
@@ -1053,7 +1053,7 @@ export const defaultSiteCopy: SiteCopy = {
       "All trees are covered under our Harvest Guarantee Insurance, providing a 100% replacement guarantee for losses caused by typhoons, fire, floods, pests, disease or wild animal damage. Each plantation includes a 20% buffer stock of replacement trees, grown to the same age and size as client-owned trees.",
     ],
     faqDocumentLabel: "Access our complete FAQ document covering ownership, operations, sustainability, regulatory compliance and more.",
-    faqDocumentHref: "/contact",
+    faqDocumentHref: "https://res.cloudinary.com/dezfh7wug/raw/upload/v1776235311/golden-forests/documents/Golden_Forests_FAQ_FINAL_20260415.pdf",
   },
   ecotourism: {
     header: {

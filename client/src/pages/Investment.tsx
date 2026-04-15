@@ -18,6 +18,7 @@ const investmentCalculatorEmbedUrl = "https://tray-harp-15742696.figma.site/";
 const agarwoodExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Agarwood Exposé Profesional final.pdf", import.meta.url).href;
 const mangoExposePdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF Mango Exposeì Private FINAL.pdf", import.meta.url).href;
 const combinedTwoPagerPdf = new URL("../../../gallery/ASSETS/DOCUMENTS/GF combined two-pager v1.pdf", import.meta.url).href;
+const faqDocumentPdf = "/Golden_Forests_FAQ_FINAL.pdf";
 
 function splitTitleIntoLines(value: string) {
   return value
@@ -138,6 +139,30 @@ export default function Investment() {
     question,
     answer: copy.faqAnswers[index] ?? "",
   }));
+
+  const handleFaqDownload = async () => {
+    try {
+      const response = await fetch(faqDocumentPdf, {
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch FAQ document.");
+      }
+
+      const blob = await response.blob();
+      const objectUrl = window.URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = objectUrl;
+      anchor.download = "Golden_Forests_FAQ_FINAL.pdf";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.URL.revokeObjectURL(objectUrl);
+    } catch {
+      window.open(faqDocumentPdf, "_blank", "noopener,noreferrer");
+    }
+  };
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -358,11 +383,16 @@ export default function Investment() {
             </Accordion>
 
             <div className="mt-6">
-              <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
-                <Link href="/contact" className="inline-flex items-center gap-2">
-                  {copy.faqDocumentLabel}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+              <Button
+                type="button"
+                variant="outline"
+                className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background"
+                onClick={() => {
+                  void handleFaqDownload();
+                }}
+              >
+                {copy.faqDocumentLabel}
+                <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </CardContent>
