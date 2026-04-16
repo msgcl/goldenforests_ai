@@ -37,14 +37,14 @@ app.use(
 
 app.use(express.urlencoded({ extended: false }));
 
-const removedPaths = new Set(["/faq", "/video"]);
+const legacyRedirectPaths = new Set(["/faq", "/video"]);
 
 app.use((req, res, next) => {
-  // Return a permanent removal signal for old Wix URLs we don't want indexed.
+  // Send legacy Wix URLs to the homepage on the current site.
   const normalizedPath = (req.path.replace(/\/+$/, "") || "/").toLowerCase();
 
-  if (removedPaths.has(normalizedPath)) {
-    return res.status(410).type("text/plain").send("Gone");
+  if (legacyRedirectPaths.has(normalizedPath)) {
+    return res.redirect(301, "/");
   }
 
   next();
