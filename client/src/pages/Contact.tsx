@@ -11,6 +11,7 @@ import { createPageTypography } from "@/lib/siteTypography";
 const PIPEDRIVE_FORM_URL =
   "https://webforms.pipedrive.com/f/ccFXKfVy5hM7bSUc7TncVRQZb2ZjziEa2mp80r9GPdeGh6WdNUurWsIIM6eEqUZGH9";
 const PIPEDRIVE_LOADER_URL = "https://webforms.pipedrive.com/f/loader";
+
 const contactHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767722/golden-forests/contact-hero-20260410.jpg";
 const combinedTwoPagerPdf = "/GF_combined_two_pager_FINAL.pdf";
