@@ -22,7 +22,7 @@ export function LegalPage({
             <h1 className="mt-3 font-serif text-[1.85rem] leading-tight text-[#17392E] sm:text-[2.45rem] lg:text-[3rem]">
               {title}
             </h1>
-            <p className="mt-4 text-[0.95rem] leading-8 text-[#17392E]/78 sm:text-[1rem]">
+            <p className="mt-4 text-[0.82rem] italic leading-6 text-[#17392E]/70 sm:text-[0.9rem]">
               {subtitle}
             </p>
           </div>
