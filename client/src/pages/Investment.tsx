@@ -39,6 +39,7 @@ function InvestmentProgrammeCard({
   learnMoreHref,
   contactLabel,
   marketTitle,
+  marketSource,
   returnsTitle,
   strengthsTitle,
   downloadLabel,
@@ -54,6 +55,7 @@ function InvestmentProgrammeCard({
   learnMoreHref: string;
   contactLabel: string;
   marketTitle: string;
+  marketSource?: string;
   returnsTitle: string;
   strengthsTitle: string;
   downloadLabel: string;
@@ -89,6 +91,9 @@ function InvestmentProgrammeCard({
           <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{marketTitle}</p>
             <p className="mt-3 text-sm leading-7 text-foreground/80">{market}</p>
+            {marketSource ? (
+              <p className="mt-4 text-[0.73rem] leading-5 text-foreground/55">{marketSource}</p>
+            ) : null}
           </div>
           <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{returnsTitle}</p>
@@ -259,6 +264,7 @@ export default function Investment() {
           learnMoreHref={copy.agarwoodLearnMoreHref}
           contactLabel={copy.agarwoodContactLabel}
           marketTitle={copy.agarwoodMarketTitle}
+          marketSource="Source: Precedence Research, 2024."
           returnsTitle={copy.agarwoodReturnsTitle}
           strengthsTitle={copy.agarwoodStrengthsTitle}
           downloadLabel="Request Agarwood exposé"
@@ -399,6 +405,15 @@ export default function Investment() {
             </div>
           </CardContent>
         </Card>
+      </section>
+
+      <section className="mb-8 rounded-[1.6rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F6ECD6_100%)] p-6 shadow-[0_16px_34px_rgba(23,57,46,0.08)] sm:p-7">
+        <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]">
+          Important Notice
+        </p>
+        <p className="mt-4 text-sm leading-7 text-foreground/80 sm:text-[0.96rem]">
+          This website is for informational purposes only and does not constitute a financial promotion, investment advice or a solicitation to invest. Projected returns are estimates based on modelling assumptions and are not guaranteed. Actual returns may differ materially. The value of investments may go down as well as up. Tree ownership is illiquid and long-term in nature. Independent financial, legal and tax advice should be sought before making any investment decision. This information is directed at sophisticated and professional investors only.
+        </p>
       </section>
 
       <section className="mb-8 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">

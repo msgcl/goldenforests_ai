@@ -9,6 +9,12 @@ const pageHeaderSchema = z.object({
   description: nonEmptyString,
 });
 
+const legalPageCopySchema = z.object({
+  title: nonEmptyString,
+  subtitle: nonEmptyString,
+  body: nonEmptyString,
+});
+
 export const brandFontOptionSchema = z.enum(["open-sans", "playfair-display"]);
 const pageTypographySchema = z.record(brandFontOptionSchema);
 
@@ -21,6 +27,9 @@ const siteCopyMetaSchema = z.object({
   sections: z.object({
     contact: siteCopySectionMetaSchema,
     about: siteCopySectionMetaSchema,
+    disclaimer: siteCopySectionMetaSchema,
+    privacyPolicy: siteCopySectionMetaSchema,
+    cookiePolicy: siteCopySectionMetaSchema,
     compliance: siteCopySectionMetaSchema,
     technology: siteCopySectionMetaSchema,
     impact: siteCopySectionMetaSchema,
@@ -468,6 +477,9 @@ export const siteCopySchema = z.object({
   typography: z.object({
     contact: pageTypographySchema,
     about: pageTypographySchema,
+    disclaimer: pageTypographySchema,
+    privacyPolicy: pageTypographySchema,
+    cookiePolicy: pageTypographySchema,
     compliance: pageTypographySchema,
     technology: pageTypographySchema,
     impact: pageTypographySchema,
@@ -486,6 +498,9 @@ export const siteCopySchema = z.object({
   }),
   contact: contactPageCopySchema,
   about: aboutPageCopySchema,
+  disclaimer: legalPageCopySchema,
+  privacyPolicy: legalPageCopySchema,
+  cookiePolicy: legalPageCopySchema,
   compliance: compliancePageCopySchema,
   technology: technologyPageCopySchema,
   impact: impactPageCopySchema,
@@ -512,6 +527,9 @@ export const defaultSiteCopy: SiteCopy = {
   typography: {
     contact: {},
     about: {},
+    disclaimer: {},
+    privacyPolicy: {},
+    cookiePolicy: {},
     compliance: {},
     technology: {},
     impact: {},
@@ -726,6 +744,177 @@ export const defaultSiteCopy: SiteCopy = {
       "Zambales province sites are selected through agro-climatic evaluation to optimise growth conditions, land efficiency, and harvest quality.",
       "Operations are built around transparent ownership, auditable reporting, and long-horizon stewardship for investors seeking alternative real-asset exposure.",
     ],
+  },
+  disclaimer: {
+    title: "Risk Warning and Disclaimer",
+    subtitle: "Last updated: April 2026",
+    body: `## Important Notice
+This website is published by Golden Forests Group and is intended for informational purposes only. Nothing on this website constitutes a financial promotion, investment advice, a solicitation to invest, or an offer to buy or sell any financial instrument or investment product.
+
+## No Investment Advice
+The information contained on this website does not constitute and should not be construed as investment, legal, tax or regulatory advice. Prospective investors should seek independent professional advice from appropriately qualified advisers before making any investment decision. Golden Forests Group does not provide regulated financial advice or services.
+
+## Projected Returns
+Any projected, estimated or target returns referenced on this website are based on modelling assumptions and historical data where available. They are provided for illustrative purposes only and are not a guarantee, promise or representation of future performance. Actual returns may differ materially from projections. The value of biological assets and the income derived from them may go down as well as up.
+
+## Nature of Investment
+Investment in agroforestry plantation assets is long-term and illiquid in nature. There is no established secondary market for tree ownership, and investors may not be able to realise the value of their investment within a predictable timeframe. Investments of this nature carry biological, environmental, market, operational and regulatory risks.
+
+## Key Risks
+Investors should be aware of the following risks before making any investment decision.
+- Biological risk: tree health may be affected by pests, disease, extreme weather events or other environmental factors. Whilst insurance and replacement tree buffers are in place, these measures may not fully compensate for all losses.
+- Market risk: the market prices of agarwood and mango are subject to fluctuation driven by global supply and demand dynamics, currency movements and other factors outside Golden Forests Group's control.
+- Operational risk: actual plantation performance depends on management execution, harvest timing and yield, which may differ from projections.
+- Regulatory risk: the regulatory environment in the Philippines and other relevant jurisdictions may change in ways that affect the operations or commercial viability of Golden Forests Group.
+- Currency risk: returns are projected in US dollars. Investors whose base currency differs from USD may be subject to exchange rate risk.
+
+## Jurisdiction and Geographic Scope
+This website and the information it contains are directed at sophisticated and professional investors only. They are not intended for retail investors or members of the public who are not experienced in evaluating investments of this nature.
+Persons accessing this website are responsible for ensuring compliance with all applicable laws and regulations in their own jurisdiction. In particular:
+- United Arab Emirates: this website is not intended to constitute a public offering or promotion of securities or investment products under UAE Securities and Commodities Authority (SCA) regulations or the Dubai Financial Services Authority (DFSA) rules. It is directed at professional clients and sophisticated investors only.
+- United Kingdom: this website is not a financial promotion as defined under the Financial Services and Markets Act 2000. It does not constitute regulated investment advice or a solicitation to invest. Prospective UK investors should seek independent FCA-authorised advice before making any investment decision.
+- European Union and Europe: this website is not directed at retail investors within the European Economic Area. It does not constitute an offer or solicitation in any jurisdiction where such an offer or solicitation would be unlawful. Investors in EU member states and other European jurisdictions should satisfy themselves that participation in plantation investment of this nature is permitted under their local laws and should seek appropriate independent advice.
+- Asia: this website does not constitute an offer or solicitation in any Asian jurisdiction where such activity requires regulatory authorisation. Investors based in Singapore, Hong Kong, India, Vietnam and other Asian markets should seek independent local legal and financial advice before making any investment decision.
+- Other jurisdictions: persons in jurisdictions not listed above should seek appropriate legal and financial advice to confirm whether investment of this nature is permitted in their jurisdiction before proceeding.
+
+## Third Party Information
+Where this website references third party research, market data or publications, Golden Forests Group does not warrant the accuracy or completeness of such information. Sources are cited where available and readers are encouraged to verify information independently.
+
+## No Liability
+Golden Forests Group, its directors, officers, employees and advisers accept no liability for any loss or damage arising from reliance on the information contained on this website. To the fullest extent permitted by law, all warranties and representations are excluded.
+
+## Contact
+If you have any questions regarding these disclaimers or risk warnings, please contact us at office@goldenforests.ai.`,
+  },
+  privacyPolicy: {
+    title: "Privacy Policy",
+    subtitle: "Last updated: April 2026",
+    body: `## 1. Introduction
+Golden Forests Group ("we", "us" or "our") is committed to protecting the personal data of all individuals who interact with our website at goldenforests.ai ("the Site"). This Privacy Policy explains what personal data we collect, how we use it, how we store it and the rights you have in relation to it.
+By using the Site or submitting an enquiry through our contact form, you acknowledge that you have read and understood this Privacy Policy.
+
+## 2. Who We Are
+Golden Forests Group operates through Investment in Agricultural Enterprises and Management FZCO, registered at IDZA Business Park, Dubai Digital Park, Dubai Silicon Oasis, Dubai, UAE.
+For any data protection enquiries, please contact us at office@goldenforests.ai.
+
+## 3. What Personal Data We Collect
+When you submit an enquiry through the contact form on our Site, we may collect the following personal data:
+- First and last name
+- Email address
+- Phone number (if provided)
+- Country of residence
+- Investment interests and preferences
+- How you heard about us
+- Any additional information you choose to share in your message
+We do not collect sensitive personal data such as financial account details, government identification numbers or health information through our Site.
+
+## 4. How We Use Your Personal Data
+We use the personal data you provide for the following purposes:
+- To respond to your enquiry and provide you with information about our investment programmes
+- To send you documents or materials you have requested, such as our investment exposés or FAQ document
+- To manage our relationship with you as a prospective investor
+- To maintain records of investor communications for business development and commercial strategy purposes
+- To comply with applicable legal and regulatory obligations
+We will not use your personal data for unsolicited marketing purposes without your prior consent and we will never sell your personal data to third parties.
+
+## 5. Legal Basis for Processing
+We process your personal data on the following legal bases:
+- Consent: where you have given us explicit consent to process your data, for example by ticking the GDPR consent box on our contact form
+- Legitimate interests: where processing is necessary for our legitimate business interests, such as responding to investor enquiries and managing our pipeline, provided these interests are not overridden by your rights
+- Legal obligation: where processing is required to comply with applicable laws or regulations
+
+## 6. How We Store Your Data
+Your personal data is stored securely within PipeDrive, our customer relationship management (CRM) platform. PipeDrive is a data processor acting on our behalf and is subject to appropriate data processing agreements. For more information about PipeDrive's data security and privacy practices, please visit www.pipedrive.com/en/privacy.
+We take appropriate technical and organisational measures to protect your data against unauthorised access, loss or disclosure.
+We will retain your personal data for as long as is necessary to fulfil the purposes for which it was collected, or as required by applicable law. Where you have provided consent, we will retain your data until you withdraw that consent or request deletion.
+
+## 7. Who We Share Your Data With
+We may share your personal data with the following categories of third parties:
+- PipeDrive, our CRM platform, for the purpose of storing and managing investor enquiries and communications
+- PandaDoc, our document management and outreach platform, where used to respond to your enquiry
+- Our internal team members who are responsible for investor relations, sales and marketing
+- Professional advisers such as legal or compliance advisers, where necessary
+We do not share your personal data with any other third parties without your consent, unless required to do so by law.
+
+## 8. International Data Transfers
+Golden Forests Group operates across multiple jurisdictions. Your personal data may be processed by team members or systems located outside your country of residence, including in the UAE, the Philippines and Europe. PipeDrive and PandaDoc may also process data outside your home jurisdiction. Where such transfers occur, we ensure appropriate safeguards are in place in accordance with applicable data protection laws.
+
+## 9. Your Rights
+Depending on your jurisdiction, you may have the following rights in relation to your personal data:
+- The right to access the personal data we hold about you
+- The right to request correction of inaccurate or incomplete data
+- The right to request deletion of your personal data
+- The right to withdraw consent at any time, where processing is based on consent
+- The right to object to processing based on legitimate interests
+- The right to data portability, where applicable
+To exercise any of these rights, please contact us at office@goldenforests.ai. We will respond to all requests within 30 days. In some circumstances we may be unable to fulfil your request, in which case we will explain our reasons.
+
+## 10. Cookies
+Our Site may use cookies and similar tracking technologies to improve your browsing experience and to gather analytical data about how the Site is used. You will be presented with a cookie consent notice when you first visit the Site, through which you can manage your preferences.
+We use Google Analytics 4 and Microsoft Clarity to analyse Site usage. Both platforms process anonymised data to help us understand visitor behaviour and improve the Site. For more information please refer to our Cookie Policy.
+
+## 11. Third Party Links
+Our Site contains a link to our plantation management portal at https://cadi-website.onrender.com/. This Privacy Policy applies only to goldenforests.ai. We are not responsible for the privacy practices of third-party sites and encourage you to review their policies before providing any personal data.
+
+## 12. Children
+Our Site is not directed at children under the age of 18 and we do not knowingly collect personal data from minors. If you believe we have inadvertently collected data from a minor, please contact us and we will delete it promptly.
+
+## 13. Changes to This Policy
+We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. The date at the top of this page will be updated accordingly. We encourage you to review this policy periodically.
+
+## 14. Contact Us
+If you have any questions, concerns or requests relating to this Privacy Policy or the way we handle your personal data, please contact us at:
+Golden Forests Group
+Investment in Agricultural Enterprises and Management FZCO
+IDZA Business Park, Dubai Digital Park, Dubai Silicon Oasis, Dubai, UAE
+Email: office@goldenforests.ai`,
+  },
+  cookiePolicy: {
+    title: "Cookie Policy",
+    subtitle: "Last updated: April 2026",
+    body: `## 1. What Are Cookies
+Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work efficiently, to improve the user experience and to provide information to website owners. Cookies do not contain personally identifiable information on their own, though they may be linked to personal data we hold about you in accordance with our Privacy Policy.
+
+## 2. How We Use Cookies
+Our website at goldenforests.ai uses cookies for the following purposes:
+- To ensure the website functions correctly and pages load as intended
+- To analyse how visitors use the Site so that we can improve it
+- To understand where our visitors are coming from and how they found us
+- To record your cookie preferences
+We do not use cookies to serve advertising or to track your activity across other websites.
+
+## 3. Types of Cookies We Use
+We use the following categories of cookies on the Site:
+- Essential Cookies
+- Analytics Cookies
+- Functional Cookies
+These cookies are strictly necessary for the website to function. They cannot be disabled. They include cookies that remember your cookie consent preferences and ensure the site loads correctly.
+We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the Site. These tools collect anonymised data including pages visited, time spent on the Site, traffic sources and device information. This information helps us improve the Site and our content.
+Google Analytics 4 is operated by Google LLC. For more information about how Google uses data collected through its analytics service, please visit www.google.com/policies/privacy/partners.
+Microsoft Clarity is operated by Microsoft Corporation. Clarity uses session recordings and heatmaps to show us how visitors navigate the Site. No personally identifiable information is recorded. For more information please visit privacy.microsoft.com.
+These cookies enable enhanced functionality on the Site, such as remembering your preferences or region. Disabling these cookies may affect your experience.
+
+## 4. Third Party Cookies
+Some cookies on our Site are set by third party services. We do not control these cookies and they are subject to the privacy policies of the relevant third parties. Third party cookies currently present on the Site include those from Google Analytics 4 and Microsoft Clarity, as described above.
+We will update this policy if additional third party services are introduced to the Site.
+
+## 5. Your Cookie Choices
+When you first visit the Site, you will be presented with a cookie consent banner through which you can choose to accept or decline non-essential cookies. You can change your preferences at any time by clearing your browser cookies and revisiting the Site.
+You can also control cookies through your browser settings. Most browsers allow you to refuse cookies, delete existing cookies or be notified when a new cookie is set. Please note that disabling certain cookies may affect the functionality of the Site. For guidance on managing cookies in your browser, please refer to your browser's help documentation.
+To opt out of Google Analytics tracking across all websites, you can install the Google Analytics Opt-out Browser Add-on available at tools.google.com/dlpage/gaoptout.
+
+## 6. Cookie Retention
+The length of time a cookie remains on your device depends on its type. Session cookies are deleted when you close your browser. Persistent cookies remain on your device for a set period or until you delete them manually. The cookies used by Google Analytics 4 and Microsoft Clarity are persistent and are retained for up to two years.
+
+## 7. Changes to This Policy
+We may update this Cookie Policy from time to time to reflect changes in the cookies we use or applicable law. The date at the top of this page will be updated accordingly. We encourage you to review this policy periodically.
+
+## 8. Contact Us
+If you have any questions about our use of cookies, please contact us at:
+Golden Forests Group
+Investment in Agricultural Enterprises and Management FZCO
+IDZA Business Park, Dubai Digital Park, Dubai Silicon Oasis, Dubai, UAE
+Email: office@goldenforests.ai`,
   },
   compliance: {
     header: {
@@ -979,7 +1168,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Aquilaria crassna is a tropical tree species that produces agarwood, prized for its complex fragrance. When inoculated with specific fungi, the tree creates dense, resinous heartwood known as oud, commanding premium prices across global luxury markets for perfumery, incense and traditional medicine.",
       "Golden Forests cultivates Aquilaria crassna using exclusive licensed inoculation technology, producing superior resin quality and consistent yields.",
     ],
-    agarwoodMarketTitle: "A USD 89 billion market driven by scarcity.",
+    agarwoodMarketTitle: "A USD 41 billion global market projected to reach USD 85 billion by 2034.",
     agarwoodMarketDescription:
       "Rising demand across Middle Eastern, Asian and luxury Western markets, combined with supply constraints from CITES regulations and depleted wild populations, creates sustained price pressure. Cultivated agarwood from verified sustainable sources commands premium positioning.",
     agarwoodReturnsTitle: "18.5% projected annualised returns over 10 years.",
@@ -1560,6 +1749,9 @@ export const defaultSiteCopy: SiteCopy = {
     sections: {
       contact: { updatedAt: defaultSiteCopyUpdatedAt },
       about: { updatedAt: defaultSiteCopyUpdatedAt },
+      disclaimer: { updatedAt: defaultSiteCopyUpdatedAt },
+      privacyPolicy: { updatedAt: defaultSiteCopyUpdatedAt },
+      cookiePolicy: { updatedAt: defaultSiteCopyUpdatedAt },
       compliance: { updatedAt: defaultSiteCopyUpdatedAt },
       technology: { updatedAt: defaultSiteCopyUpdatedAt },
       impact: { updatedAt: defaultSiteCopyUpdatedAt },
@@ -1914,6 +2106,18 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     },
     contact: normalizedContact,
     about: normalizedAbout,
+    disclaimer: {
+      ...defaultSiteCopy.disclaimer,
+      ...(data.disclaimer ?? {}),
+    },
+    privacyPolicy: {
+      ...defaultSiteCopy.privacyPolicy,
+      ...(data.privacyPolicy ?? {}),
+    },
+    cookiePolicy: {
+      ...defaultSiteCopy.cookiePolicy,
+      ...(data.cookiePolicy ?? {}),
+    },
     compliance: {
       ...defaultSiteCopy.compliance,
       ...(data.compliance ?? {}),

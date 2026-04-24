@@ -15,6 +15,9 @@ import About from "@/pages/About";
 import Plantation from "@/pages/Plantation";
 import Contact from "@/pages/Contact";
 import PlantationVisit from "@/pages/PlantationVisit";
+import Disclaimer from "@/pages/Disclaimer";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import CookiePolicy from "@/pages/CookiePolicy";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
 import { OptimizedImage } from "@/components/ui/optimized-media";
@@ -27,10 +30,15 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/home" component={Home} />
       <Route path="/investment" component={Investment} />
+      <Route path="/golden-forests-group" component={About} />
       <Route path="/company-profile" component={About} />
+      <Route path="/precision-farming" component={Plantation} />
       <Route path="/ai-management" component={Plantation} />
       <Route path="/plantation" component={Plantation} />
       <Route path="/asset-management" component={PlantationVisit} />
+      <Route path="/disclaimer" component={Disclaimer} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/cookie-policy" component={CookiePolicy} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>

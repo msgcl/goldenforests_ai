@@ -21,24 +21,25 @@ import { OptimizedImage } from "@/components/ui/optimized-media";
 
 const goldenForestsLogo =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1776227031/golden-forests/sidebar-brand-logo-20260415.png";
-const operationsPortalBanner = "/sidebar-portal-banner.png";
 
 const navigationItems = [
   { title: "Home", url: "/home", icon: Home },
   { title: "Investment", url: "/investment", icon: Sprout },
-  { title: "AI Management", url: "/ai-management", icon: TreePine },
+  { title: "Precision Farming", url: "/precision-farming", icon: TreePine, matchUrls: ["/precision-farming", "/ai-management", "/plantation"] },
   { title: "Asset Management", url: "/asset-management", icon: Palmtree },
-  { title: "Company Profile", url: "/company-profile", icon: Building2 },
+  { title: "Golden Forests Group", url: "/golden-forests-group", icon: Building2, matchUrls: ["/golden-forests-group", "/company-profile"] },
   { title: "Contact", url: "/contact", icon: PhoneCall },
 ];
 
 export function AppSidebar() {
   const [location] = useLocation();
   const { isMobile, setOpenMobile } = useSidebar();
-  const isItemActive = (url: string, external?: boolean) => {
+  const isItemActive = (url: string, external?: boolean, matchUrls?: string[]) => {
     if (external) return false;
+    const candidates = matchUrls?.length ? matchUrls : [url];
+
     if (url === "/home") return location === "/" || location === "/home";
-    return location === url || location.startsWith(`${url}/`);
+    return candidates.some((candidate) => location === candidate || location.startsWith(`${candidate}/`));
   };
 
   return (
@@ -70,7 +71,7 @@ export function AppSidebar() {
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton
                 asChild
-                isActive={isItemActive(item.url)}
+                isActive={isItemActive(item.url, false, "matchUrls" in item ? item.matchUrls : undefined)}
                 className="my-0 h-auto overflow-visible rounded-xl transition-all hover:bg-[#3A6420] data-[active=true]:bg-[#3A6420] data-[active=true]:shadow-sm [&>span:last-child]:whitespace-normal [&>span:last-child]:break-words [&>span:last-child]:text-wrap"
               >
                 <Link
@@ -104,18 +105,7 @@ export function AppSidebar() {
             }}
           >
             <div className="flex flex-col items-center gap-1.5 text-center">
-              <div className="flex h-20 w-20 shrink-0 items-center justify-center p-3">
-                <OptimizedImage
-                  src={operationsPortalBanner}
-                  alt="Philippine Operations"
-                  sizes="96px"
-                  className="h-14 w-auto max-w-full object-contain opacity-95 drop-shadow-sm transition-transform duration-200 group-hover:scale-[1.04]"
-                />
-              </div>
               <div className="space-y-2">
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#DDBA84]">
-                  Open External Site
-                </p>
                 <p className="text-[0.98rem] font-semibold leading-tight text-[#FBFCF7]">
                   Philippine Operations
                 </p>

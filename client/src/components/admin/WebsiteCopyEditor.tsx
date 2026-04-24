@@ -61,11 +61,14 @@ const pageCatalog: Array<{
   description: string;
 }> = [
   { key: "home", label: "Home", eyebrow: "Landing Page", description: "Hero messaging, investment pathways, university partnership copy, and closing CTA copy." },
-  { key: "about", label: "Company Profile", eyebrow: "Overview", description: "Hero, overview, USP cards, commitment columns, and leadership copy." },
+  { key: "about", label: "Golden Forests Group", eyebrow: "Overview", description: "Hero, overview, USP cards, commitment columns, and leadership copy." },
+  { key: "disclaimer", label: "Disclaimer", eyebrow: "Legal", description: "Risk warning and disclaimer page content." },
+  { key: "privacyPolicy", label: "Privacy Policy", eyebrow: "Legal", description: "Privacy policy page content." },
+  { key: "cookiePolicy", label: "Cookie Policy", eyebrow: "Legal", description: "Cookie policy page content." },
   { key: "investment", label: "Investment", eyebrow: "Investor Summary", description: "Investment hero, programme summaries, portfolio benefits, and FAQ copy." },
   { key: "ecotourism", label: "Asset Management", eyebrow: "Visit Programme", description: "Hero, visit programme copy, Zambales operations, CTA, and the four-image gallery." },
   { key: "contact", label: "Contact", eyebrow: "Contact Page", description: "Visible contact labels, contact details, and office information." },
-  { key: "plantation", label: "AI Management", eyebrow: "Operations", description: "Hero, intelligence, risk, environmental, and transparency copy." },
+  { key: "plantation", label: "Precision Farming", eyebrow: "Operations", description: "Hero, intelligence, risk, environmental, and transparency copy." },
 ];
 
 const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
@@ -116,6 +119,9 @@ const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
     "boardTitles",
     "boardDescriptions",
   ],
+  disclaimer: ["title", "subtitle", "body"],
+  privacyPolicy: ["title", "subtitle", "body"],
+  cookiePolicy: ["title", "subtitle", "body"],
   investment: [
     "header.title",
     "header.description",
