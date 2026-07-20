@@ -604,12 +604,12 @@ export const defaultSiteCopy: SiteCopy = {
     resourceLabels: [
       "Request Agarwood exposé",
       "Request Mango exposé",
-      "Request FAQ Document",
+      "View FAQ Document",
     ],
     resourceHrefs: [
       "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
       "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
-      "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
+      "/GF-FAQ-July-2026.pdf",
     ],
   },
   about: {
@@ -1243,8 +1243,8 @@ Email: office@goldenforests.ai`,
       "The current base case applies a 10% Agarwood Management Revenue Share to realised agarwood sales and a 20% Mango Harvesting Commission to gross mango sales, together with permitted crop-specific costs and deductions. Final mechanics and any distributions are governed exclusively by definitive documents.",
       "The operating model includes approximately 20% surplus replacement stock and insurance is expected to be maintained for specified plantation risks. These controls reduce but do not eliminate loss; coverage, exclusions, claims and replacement arrangements remain subject to applicable policies and governing documents.",
     ],
-    faqDocumentLabel: "Request FAQ Document",
-    faqDocumentHref: "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
+    faqDocumentLabel: "View FAQ Document",
+    faqDocumentHref: "/GF-FAQ-July-2026.pdf",
   },
   ecotourism: {
     header: {
@@ -1805,8 +1805,8 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
       return "Request Mango exposé";
     }
 
-    if (label === "View Full FAQ Document" || label === "View full FAQs") {
-      return "Request FAQ Document";
+    if (label === "View Full FAQ Document" || label === "View full FAQs" || label === "Request FAQ Document") {
+      return "View FAQ Document";
     }
 
     return label;
@@ -1814,7 +1814,7 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const contactResourceHrefByLabel = new Map<string, string>([
     ["Request Agarwood exposé", "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r"],
     ["Request Mango exposé", "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv"],
-    ["Request FAQ Document", "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07"],
+    ["View FAQ Document", "/GF-FAQ-July-2026.pdf"],
   ]);
   normalizedContact.resourceHrefs = normalizedContact.resourceLabels.map(
     (label, index) => contactResourceHrefByLabel.get(label) ?? normalizedContact.resourceHrefs?.[index] ?? "/contact",
@@ -1970,9 +1970,14 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   }
   if (
     normalizedInvestment.faqDocumentLabel === "Access our complete FAQ document covering ownership, operations, sustainability, regulatory compliance and more." ||
-    normalizedInvestment.faqDocumentLabel === "View Full FAQ Document"
+    normalizedInvestment.faqDocumentLabel === "View Full FAQ Document" ||
+    normalizedInvestment.faqDocumentLabel === "Request FAQ Document"
   ) {
-    normalizedInvestment.faqDocumentLabel = "Request FAQ Document";
+    normalizedInvestment.faqDocumentLabel = "View FAQ Document";
+    normalizedInvestment.faqDocumentHref = "/GF-FAQ-July-2026.pdf";
+  }
+  if (normalizedInvestment.faqDocumentLabel === "View FAQ Document") {
+    normalizedInvestment.faqDocumentHref = "/GF-FAQ-July-2026.pdf";
   }
   if (
     normalizedInvestment.portfolioTitle ===

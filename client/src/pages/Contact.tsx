@@ -18,8 +18,7 @@ const agarwoodRequestFormUrl =
   "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
 const mangoRequestFormUrl =
   "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
-const faqRequestFormUrl =
-  "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
+const faqDocumentUrl = "/GF-FAQ-July-2026.pdf";
 
 function normalizeResourceLabel(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, " ");
@@ -47,9 +46,10 @@ function resolveResourceLabel(label: string) {
   if (
     normalizedLabel === "view full faq document" ||
     normalizedLabel === "view full faqs" ||
-    normalizedLabel === "request faq document"
+    normalizedLabel === "request faq document" ||
+    normalizedLabel === "view faq document"
   ) {
-    return "Request FAQ Document";
+    return "View FAQ Document";
   }
 
   return label;
@@ -62,7 +62,7 @@ export default function Contact() {
   const font = createPageTypography(resolvedSiteCopy, "contact");
   const formContainerRef = useRef<HTMLDivElement | null>(null);
   const [isFormLoading, setIsFormLoading] = useState(true);
-  const fallbackResourceHrefs = [agarwoodRequestFormUrl, mangoRequestFormUrl, faqRequestFormUrl];
+  const fallbackResourceHrefs = [agarwoodRequestFormUrl, mangoRequestFormUrl, faqDocumentUrl];
 
   useEffect(() => {
     const container = formContainerRef.current;
@@ -233,8 +233,8 @@ export default function Contact() {
                       ? agarwoodRequestFormUrl
                       : resolvedLabel === "Request Mango exposé"
                         ? mangoRequestFormUrl
-                        : resolvedLabel === "Request FAQ Document"
-                          ? faqRequestFormUrl
+                        : resolvedLabel === "View FAQ Document"
+                          ? faqDocumentUrl
                           : copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
 
                   return (

@@ -13,8 +13,7 @@ import { createPageTypography } from "@/lib/siteTypography";
 const investmentHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775768101/golden-forests/investment-hero-20260410-v2.png";
 const agarwoodChipsImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461736/golden-forests/agarwood-chips-20260406.jpg";
 const mangoImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461737/golden-forests/mango-support-1-20260406.jpg";
-const faqRequestFormUrl =
-  "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
+const faqDocumentUrl = "/GF-FAQ-July-2026.pdf";
 
 function splitTitleIntoLines(value: string) {
   return value
@@ -306,8 +305,8 @@ export default function Investment() {
 
             <div className="mt-6">
               <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
-                <a href={faqRequestFormUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                  Request FAQ Document
+                <a href={faqDocumentUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                  View FAQ Document
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
