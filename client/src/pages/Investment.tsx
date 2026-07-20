@@ -13,7 +13,6 @@ import { createPageTypography } from "@/lib/siteTypography";
 const investmentHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775768101/golden-forests/investment-hero-20260410-v2.png";
 const agarwoodChipsImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461736/golden-forests/agarwood-chips-20260406.jpg";
 const mangoImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461737/golden-forests/mango-support-1-20260406.jpg";
-const investmentCalculatorEmbedUrl = "https://tray-harp-15742696.figma.site/";
 const faqRequestFormUrl =
   "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
 
@@ -33,7 +32,6 @@ function InvestmentProgrammeCard({
   ctaHref,
   ctaLabel,
   marketTitle,
-  marketSource,
   returnsTitle,
   strengthsTitle,
   sideImageSrc,
@@ -47,7 +45,6 @@ function InvestmentProgrammeCard({
   ctaHref: string;
   ctaLabel: string;
   marketTitle: string;
-  marketSource?: string;
   returnsTitle: string;
   strengthsTitle: string;
   sideImageSrc: string;
@@ -81,9 +78,6 @@ function InvestmentProgrammeCard({
           <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{marketTitle}</p>
             <p className="mt-3 text-sm leading-7 text-foreground/80">{market}</p>
-            {marketSource ? (
-              <p className="mt-4 text-[0.73rem] leading-5 text-foreground/55">{marketSource}</p>
-            ) : null}
           </div>
           <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{returnsTitle}</p>
@@ -225,7 +219,6 @@ export default function Investment() {
           ctaHref="/contact"
           ctaLabel={enquiryButtonLabel}
           marketTitle={copy.agarwoodMarketTitle}
-          marketSource="Source: Precedence Research, 2024."
           returnsTitle={copy.agarwoodReturnsTitle}
           strengthsTitle={copy.agarwoodStrengthsTitle}
           sideImageSrc={agarwoodChipsImage}
@@ -292,37 +285,6 @@ export default function Investment() {
         </div>
       </section>
 
-      <section className="mb-8 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F7EBD0_0%,#F4E4C1_100%)] p-5 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-6 lg:p-8">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl">
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]">
-              Interactive Calculator
-            </p>
-            <h2 className="mt-3 font-serif text-[1.8rem] leading-tight text-primary sm:text-[2.1rem]">
-              Investment Planning Calculator
-            </h2>
-          </div>
-
-          <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
-            <a href={investmentCalculatorEmbedUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-              Open calculator in new tab
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
-        </div>
-
-        <div className="mt-6 overflow-hidden rounded-[1.6rem] border border-[#C8A070]/28 bg-[#FBFCF7] shadow-[0_14px_34px_rgba(23,57,46,0.08)]">
-          <iframe
-            src={investmentCalculatorEmbedUrl}
-            title="Golden Forests Investment Calculator"
-            loading="lazy"
-            className="h-[920px] w-full border-0"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
-        </div>
-      </section>
-
       <section className="mb-4">
         <Card className="border-border/70 shadow-sm">
           <CardHeader>
@@ -359,14 +321,14 @@ export default function Investment() {
           Important Notice
         </p>
         <p className="mt-4 text-sm leading-7 text-foreground/80 sm:text-[0.96rem]">
-          This website is for informational purposes only and does not constitute a financial promotion, investment advice or a solicitation to invest. Projected returns are estimates based on modelling assumptions and are not guaranteed. Actual returns may differ materially. The value of investments may go down as well as up. Tree ownership is illiquid and long-term in nature. Independent financial, legal and tax advice should be sought before making any investment decision. This information is directed at sophisticated and professional investors only.
+          This website is for information only and does not constitute a financial promotion, investment advice, an offer or a solicitation. The proposed fund structure and all illustrative economics remain subject to final legal, regulatory, tax, structuring and commercial review. Investors would hold fund shares—not individual trees—and may lose some or all invested capital. The opportunity is long-term, illiquid and intended only for eligible professional or corporate investors. Any investment would be made solely under definitive documents and after independent professional advice.
         </p>
       </section>
 
       <section className="mb-8 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
         <div className="mx-auto max-w-4xl text-center">
           <p className="font-serif text-[1.3rem] leading-tight text-[#2D5016] sm:text-[1.65rem] lg:text-[1.95rem]">
-            Your trees are in expert hands.
+            Professional plantation operations. Structured investor reporting.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">

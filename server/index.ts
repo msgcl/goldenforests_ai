@@ -38,6 +38,7 @@ app.use(
 app.use(express.urlencoded({ extended: false }));
 
 const legacyRedirectPaths = new Set(["/faq", "/video"]);
+const retiredInvestmentDocumentPaths = new Set(["/gf_combined_two_pager_final.pdf"]);
 
 app.use((req, res, next) => {
   // Send legacy Wix URLs to the homepage on the current site.
@@ -45,6 +46,10 @@ app.use((req, res, next) => {
 
   if (legacyRedirectPaths.has(normalizedPath)) {
     return res.redirect(301, "/");
+  }
+
+  if (retiredInvestmentDocumentPaths.has(normalizedPath)) {
+    return res.redirect(302, "/contact");
   }
 
   next();

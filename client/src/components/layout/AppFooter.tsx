@@ -17,7 +17,7 @@ export function AppFooter() {
 
         <div className="flex flex-col gap-2.5 lg:items-end">
           <p className="max-w-2xl text-[0.8rem] leading-6 text-[#1B1B1B]/78 dark:text-muted-foreground lg:max-w-none lg:whitespace-nowrap lg:text-right lg:text-[0.76rem]">
-            Investment involves risk. Projected returns are not guaranteed. See our{" "}
+            Investment involves risk. Illustrative economics and distributions are not guaranteed. See our{" "}
             <Link href="/disclaimer" className="font-medium text-[#17392E] underline underline-offset-4 transition-colors hover:text-[#6B8E23] dark:text-foreground dark:hover:text-[#C8A070]">
               Risk Warning and Disclaimer
             </Link>{" "}

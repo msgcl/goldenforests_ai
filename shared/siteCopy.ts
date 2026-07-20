@@ -521,7 +521,8 @@ export const siteCopySchema = z.object({
 
 export type SiteCopy = z.infer<typeof siteCopySchema>;
 
-const defaultSiteCopyUpdatedAt = "2026-03-22T00:00:00.000Z";
+const defaultSiteCopyUpdatedAt = "2026-07-20T00:00:00.000Z";
+const july2026ContentCutoff = Date.parse(defaultSiteCopyUpdatedAt);
 const removedSweetElenaCultivationRightsLine = "Golden Forests holds exclusive cultivation rights to Sweet Elena.";
 export const defaultSiteCopy: SiteCopy = {
   typography: {
@@ -549,9 +550,9 @@ export const defaultSiteCopy: SiteCopy = {
   contact: {
     badge: "Get In Touch",
     heroTitle: "Connect With Our Team",
-    heroDescription: "Discuss direct tree ownership and how we can support your investment objectives.",
+    heroDescription: "Discuss the proposed fund share structure and request the current materials for professional investors.",
     intro:
-      "Whether you're exploring agroforestry investment for the first time or ready to discuss your portfolio, our team is here to answer your questions and guide you through the investment process.",
+      "Eligible professional and corporate investors can contact our team to discuss the proposed agarwood and mango fund structure, eligibility requirements and current due-diligence materials.",
     formTitle: "Enquiry Form",
     formDescription:
       "Complete the enquiry form below and our team will respond directly regarding your investment objectives.",
@@ -577,8 +578,8 @@ export const defaultSiteCopy: SiteCopy = {
     errorTitle: "Submission failed",
     errorDescription: "Please try again in a moment.",
     phoneNumbers: ["+971 50 974 5232"],
-    emailValue: "office@goldenforest.ai",
-    emailHref: "mailto:office@goldenforest.ai",
+    emailValue: "office@goldenforests.ai",
+    emailHref: "mailto:office@goldenforests.ai",
     websiteValue: "www.goldenforests.ai",
     websiteHref: "https://www.goldenforests.ai/",
     holdingCompanyLabel: "Office Address",
@@ -597,37 +598,35 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     managementOfficeAddress: [
       "Crassna Agroforestry Development Inc. (CADI)",
-      "Level 24, Philippines Stock Exchange Tower, One Bonafacio Street, 5th Ave Cor. 28th Street, BGC, Taguig City, Philippines",
+      "Level 24, Philippines Stock Exchange Tower, One Bonifacio Street, 5th Ave Cor. 28th Street, BGC, Taguig City, Philippines",
     ],
     resourcesTitle: "Investor Resources",
     resourceLabels: [
-      "Download Investment Overview",
       "Request Agarwood exposé",
       "Request Mango exposé",
       "Request FAQ Document",
     ],
-      resourceHrefs: [
-        "/GF_combined_two_pager_FINAL.pdf",
-        "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
-        "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
-        "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
-      ],
+    resourceHrefs: [
+      "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
+      "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
+      "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
+    ],
   },
   about: {
     header: {
       badge: "Company Overview",
       title: "Golden Forests",
       description:
-        "Golden Forests is an alternative investment company offering private and professional investors access to sustainably managed, high-value agroforestry plantations in the Philippines.",
+        "Golden Forests provides eligible professional and corporate investors with access to managed Philippine agroforestry exposure through a proposed fund share structure.",
     },
-    heroTitle: "For investors. For the land. For the people.",
-    heroDescription: "Building sustainable value through responsible agroforestry investment.",
+    heroTitle: "For shareholders. For the land. For the people.",
+    heroDescription: "Supporting long-term agroforestry participation through structured governance and professionally managed operations.",
     overviewEyebrow: "Growing Wealth. Preserving Nature.",
     overviewTitle: "About us",
     overviewParagraphs: [
-      "Golden Forests is a Philippine agroforestry investment platform specialising in professionally managed agarwood and mango plantations. We combine direct tree ownership with institutional-grade transparency, advanced agricultural science and measurable environmental impact.",
-      "Operating in Zambales province, Philippines, we provide private and professional investors access to premium biological assets through verified ownership structures, AI-enabled plantation management and strategic partnerships with leading agricultural research institutions.",
-      "Our approach integrates financial performance with environmental restoration and community development, creating enduring value for investors whilst supporting ecosystem health and local economic resilience.",
+      "Golden Forests provides access to professionally managed agarwood and mango plantation exposure in the Philippines through a proposed Singapore Variable Capital Company structure with crop-specific fund compartments.",
+      "Eligible professional and corporate investors would subscribe for shares in the relevant fund. Each share may use an underlying tree-equivalent reference for economic allocation and tracking, but shareholders do not acquire direct ownership of any individual tree, planting block, land or plantation asset.",
+      "The operating model combines long-term biological growth, AI-enabled plantation management, scientific partnerships, structured reporting and a native-species reforestation programme. Final rights, economics and protections are governed only by definitive offering, subscription and constitutional documents.",
     ],
     uspSectionTitle: "Built on science, regulation, and measurable stewardship.",
     uspCardTitles: [
@@ -644,23 +643,23 @@ export const defaultSiteCopy: SiteCopy = {
       "Golden Forests holds the first Wildlife Permit issued by the DENR for Aquilaria crassna cultivation in the Philippines.",
       "Research support from PRMSU, VSU, and UPLB strengthens cultivation protocols, elite variety development, and continuous innovation.",
       "Proprietary monitoring combines drone surveillance, geotagging, and predictive analytics to optimise biological asset performance.",
-      "For every commercial tree purchased, Golden Forests plants one native Philippine species to extend impact beyond the plantation itself.",
+      "One native Philippine tree is intended to be planted for each corresponding underlying commercial tree represented in the fund allocation model.",
     ],
     commitmentSectionTitle: "Our Commitment",
     commitmentColumnTitles: ["For Investors", "For the Land", "For the People"],
     commitmentItemTitles: [
-      ["DIRECT OWNERSHIP. TRANSPARENT BY DESIGN.", "PERFORMANCE-BASED RETURNS."],
-      ["ONE TREE PURCHASED. ONE NATIVE TREE PLANTED.", "PEFC CERTIFIED."],
+      ["FUND SHAREHOLDING. TRANSPARENT BY DESIGN.", "ILLUSTRATIVE HARVEST ECONOMICS."],
+      ["ONE UNDERLYING TREE. ONE NATIVE TREE.", "RESPONSIBLE STEWARDSHIP."],
       ["EMPLOYMENT ROOTED IN THE COMMUNITY.", "COMMUNITY. PARTNERSHIP. PURPOSE."],
     ],
     commitmentItemDescriptions: [
       [
-        "Your investment represents verified ownership of specific trees on professionally managed plantations. GPS-verified ownership certificates, real-time operational monitoring and quarterly reporting give you full visibility throughout every cultivation cycle. Tree ownership remains legally protected even if company operations cease and can be transferred, included in estates or held as a long-term asset.",
-        "Agarwood offers 18.5% projected annualised returns over 10 years. Mango offers 14-23% projected annualised returns over 25 years. Both programmes are built on a simple principle: Golden Forests earns only when your trees produce, ensuring our interests are fully aligned with yours.",
+        "Professional and corporate investors participate as shareholders in the relevant fund rather than as owners of individual trees. Fund-managed inventory is intended to be supported by GPS-referenced records, periodic reporting and independent audit processes, subject to the definitive governing documents.",
+        "Agarwood is modelled for harvest realisation in years 9-10, while mango may begin producing harvest proceeds from year 5 and continue through year 25. All figures are illustrative, depend on actual operating and market outcomes, and do not guarantee distributions or recovery of capital.",
       ],
       [
-        "For every commercial tree purchased, we plant one Philippine endemic species in designated restoration areas across Zambales province. Native species include Narra, Agoho, Mangono, Molave, Talisay and Belite, each chosen for their contribution to ecosystem restoration. This one-to-one commitment ensures that every plantation we develop actively regenerates the land around it.",
-        "We are progressing towards Programme for the Endorsement of Forest Certification, demonstrating our commitment to internationally recognised sustainability standards. Biodiversity monitoring, carbon sequestration tracking and habitat restoration metrics provide verifiable evidence of our environmental contribution. Responsible forest management is not an aspiration at Golden Forests. It is a measurable obligation.",
+        "The operating model includes a one-to-one reforestation programme: one native Philippine species is intended to be planted for each corresponding underlying commercial tree represented in the fund allocation model.",
+        "Biodiversity, carbon and certification initiatives remain subject to implementation, measurement and independent verification. Preliminary environmental estimates are not certified carbon credits and are not included in the core investor economics.",
       ],
       [
         "Our plantations provide stable employment for local communities in Zambales province, with continuous training and career progression opportunities for all employees. Fair wages are aligned with UN Global Compact principles, ensuring that the people who care for our plantations share in their success. We invest in our people with the same long-term commitment we bring to our trees.",
@@ -672,7 +671,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Lead sustainable agroforestry in Asia through Agroforestry Intelligence, combining artificial intelligence, advanced science and elite genetics to create long-term value, resilient ecosystems and thriving communities.",
     missionTitle: "Mission",
     missionDescription:
-      "Position sustainable agroforestry as a compelling alternative investment, delivering outstanding long-term returns whilst creating local impact and environmental sustainability. Transform Asian tree plantations into internationally recognised, high-value assets through sustainable practices, world-class production and community partnership.",
+      "Operate a sustainable and professionally managed agroforestry platform focused on premium crops, disciplined cultivation, structured governance and long-term value for shareholders, communities and the environment.",
     leadershipSectionTitle: "Leadership Team",
     leadershipNames: ["Charles McKenzie", "Mark LM Quinn", "Cord Kabus-Duprée"],
     leadershipImageUrls: ["", "", ""],
@@ -698,8 +697,8 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     highlightDescriptions: [
       "Agarwood and mango programmes balance shorter and longer commercial horizons within one structured plantation model.",
-      "GPS verification, drone surveillance, satellite geotagging, and independent annual auditing support visible, traceable asset management.",
-      "Each commercial tree purchased is matched by the planting of one native Philippine species, extending ecological value beyond investor ownership.",
+      "GPS-referenced fund inventory, operational monitoring and independent audit processes are intended to support traceable asset management.",
+      "Each corresponding underlying commercial tree in the fund allocation model is intended to be matched by one native Philippine tree.",
     ],
     differentiatorsEyebrow: "What Sets Golden Forests Apart",
     differentiatorsTitle: "Built on science, regulation, and measurable stewardship",
@@ -717,7 +716,7 @@ export const defaultSiteCopy: SiteCopy = {
       "Golden Forests holds the first Wildlife Permit issued by the DENR for Aquilaria crassna cultivation in the Philippines.",
       "Research support from PRMSU, VSU, and UPLB strengthens cultivation protocols, elite variety development, and continuous innovation.",
       "Proprietary monitoring combines drone surveillance, geotagging, and predictive analytics to optimise biological asset performance.",
-      "For every commercial tree purchased, Golden Forests plants one native Philippine species to extend impact beyond the plantation itself.",
+      "One native Philippine tree is intended to be planted for each corresponding underlying commercial tree in the fund allocation model.",
     ],
     investmentEyebrow: "Investment Products",
     investmentTitle: "Structured around premium biological assets",
@@ -726,50 +725,53 @@ export const defaultSiteCopy: SiteCopy = {
       "Sweet Elena Carabao Mango",
     ],
     productReturnProfiles: [
-      "18.5% annualised returns over 10 years",
-      "14% years 1 to 15, 23% years 16 to 25",
+      "Illustrative harvest realisation in years 9-10",
+      "Illustrative harvest proceeds from years 5-25",
     ],
     productDescriptions: [
       "Harvest targeted in years 9 to 10, supported by licensed inoculation protocols and structured plantation oversight.",
       "A proprietary university-developed hybrid designed for premium quality, efficient orchard density, and long-term annual production.",
     ],
     productValues: [
-      "USD 292.50 per tree",
-      "USD 592.50 per tree",
+      "Tree-equivalent share reference",
+      "Tree-equivalent share reference",
     ],
     frameworkEyebrow: "Agroforestry Intelligence",
     frameworkTitle: "The operating framework behind every plantation",
     frameworkItems: [
       "Agroforestry Intelligence integrates agronomic science, AI-enabled monitoring systems, and structured plantation management across the cultivation lifecycle.",
       "Zambales province sites are selected through agro-climatic evaluation to optimise growth conditions, land efficiency, and harvest quality.",
-      "Operations are built around transparent ownership, auditable reporting, and long-horizon stewardship for investors seeking alternative real-asset exposure.",
+      "Operations are built around fund-level traceability, auditable reporting and long-horizon stewardship for eligible professional investors seeking alternative real-asset exposure.",
     ],
   },
   disclaimer: {
     title: "Risk Warning and Disclaimer",
-    subtitle: "Last updated: April 2026",
+    subtitle: "Last updated: July 2026",
     body: `## Important Notice
 This website is published by Golden Forests Group and is intended for informational purposes only. Nothing on this website constitutes a financial promotion, investment advice, a solicitation to invest, or an offer to buy or sell any financial instrument or investment product.
 
 ## No Investment Advice
 The information contained on this website does not constitute and should not be construed as investment, legal, tax or regulatory advice. Prospective investors should seek independent professional advice from appropriately qualified advisers before making any investment decision. Golden Forests Group does not provide regulated financial advice or services.
 
-## Projected Returns
-Any projected, estimated or target returns referenced on this website are based on modelling assumptions and historical data where available. They are provided for illustrative purposes only and are not a guarantee, promise or representation of future performance. Actual returns may differ materially from projections. The value of biological assets and the income derived from them may go down as well as up.
+## Illustrative Economics and Forward-Looking Information
+Any economics, proceeds schedules, yields, prices, costs, timelines or other forward-looking information referenced on this website are based on modelling assumptions and are provided solely for illustration. They are not forecasts, guarantees or final investor returns. Actual results may differ materially, distributions may be delayed, reduced or withheld, and investors may lose some or all of their invested capital.
 
 ## Nature of Investment
-Investment in agroforestry plantation assets is long-term and illiquid in nature. There is no established secondary market for tree ownership, and investors may not be able to realise the value of their investment within a predictable timeframe. Investments of this nature carry biological, environmental, market, operational and regulatory risks.
+The opportunity described in the July 2026 materials is a proposed shareholding in one or more pooled, ring-fenced fund compartments associated with underlying agroforestry assets. A tree-equivalent reference is used only for economic allocation, accounting and reporting. It does not give a shareholder direct ownership of any specific tree, planting block, land or plantation asset. The proposed interests are long-term and illiquid, transfer restrictions may apply, and there may be no established secondary market.
+
+## Proposed Structure and Definitive Documents
+The fund, platform, governance, reserve, reporting, distribution and private-placement arrangements remain subject to final legal, regulatory, tax, structuring and commercial review. No investment may be accepted until the required structure and definitive documents are complete. Any investment would be made only on the basis of the final offering, subscription, constitutional and related transaction documents, which will prevail over this website.
 
 ## Key Risks
 Investors should be aware of the following risks before making any investment decision.
-- Biological risk: tree health may be affected by pests, disease, extreme weather events or other environmental factors. Whilst insurance and replacement tree buffers are in place, these measures may not fully compensate for all losses.
+- Biological risk: tree health may be affected by pests, disease, extreme weather events or other environmental factors. Insurance scope, availability and claims remain subject to policy terms, exclusions and annual review; replacement buffers cannot eliminate all losses.
 - Market risk: the market prices of agarwood and mango are subject to fluctuation driven by global supply and demand dynamics, currency movements and other factors outside Golden Forests Group's control.
 - Operational risk: actual plantation performance depends on management execution, harvest timing and yield, which may differ from projections.
 - Regulatory risk: the regulatory environment in the Philippines and other relevant jurisdictions may change in ways that affect the operations or commercial viability of Golden Forests Group.
 - Currency risk: returns are projected in US dollars. Investors whose base currency differs from USD may be subject to exchange rate risk.
 
 ## Jurisdiction and Geographic Scope
-This website and the information it contains are directed at sophisticated and professional investors only. They are not intended for retail investors or members of the public who are not experienced in evaluating investments of this nature.
+This website and the information it contains are directed only at eligible professional, corporate, institutional or accredited investors, as applicable in the relevant jurisdiction. They are not intended for retail investors or the general public.
 Persons accessing this website are responsible for ensuring compliance with all applicable laws and regulations in their own jurisdiction. In particular:
 - United Arab Emirates: this website is not intended to constitute a public offering or promotion of securities or investment products under UAE Securities and Commodities Authority (SCA) regulations or the Dubai Financial Services Authority (DFSA) rules. It is directed at professional clients and sophisticated investors only.
 - United Kingdom: this website is not a financial promotion as defined under the Financial Services and Markets Act 2000. It does not constitute regulated investment advice or a solicitation to invest. Prospective UK investors should seek independent FCA-authorised advice before making any investment decision.
@@ -1159,7 +1161,7 @@ Email: office@goldenforests.ai`,
     header: {
       badge: "Investment Overview",
       title: "Premium Agroforestry Investment",
-      description: "Direct ownership. Professional management. Attractive returns.",
+      description: "Proposed fund shareholding. Professional management. Long-term agroforestry exposure.",
     },
     agarwoodEyebrow: "Agarwood Programme",
     agarwoodTitle: "AGARWOOD: Aquilaria crassna",
@@ -1168,12 +1170,12 @@ Email: office@goldenforests.ai`,
       "Aquilaria crassna is a tropical tree species that produces agarwood, prized for its complex fragrance. When inoculated with specific fungi, the tree creates dense, resinous heartwood known as oud, commanding premium prices across global luxury markets for perfumery, incense and traditional medicine.",
       "Golden Forests cultivates Aquilaria crassna using exclusive licensed inoculation technology, producing superior resin quality and consistent yields.",
     ],
-    agarwoodMarketTitle: "A USD 41 billion global market projected to reach USD 85 billion by 2034.",
+    agarwoodMarketTitle: "A scarce natural product serving established luxury and cultural markets.",
     agarwoodMarketDescription:
       "Rising demand across Middle Eastern, Asian and luxury Western markets, combined with supply constraints from CITES regulations and depleted wild populations, creates sustained price pressure. Cultivated agarwood from verified sustainable sources commands premium positioning.",
-    agarwoodReturnsTitle: "18.5% projected annualised returns over 10 years.",
+    agarwoodReturnsTitle: "Illustrative harvest realisation in years 9-10.",
     agarwoodReturnsDescription:
-      "Harvest occurs in years 9-10, with revenue split 80% to tree owners and 20% operational management fee. Our performance-based fee structure ensures complete alignment of interests.",
+      "The current model uses tree-equivalent shares in a proposed agarwood fund compartment. Harvest proceeds are modelled for years 9-10 after a 10% Agarwood Management Revenue Share and applicable costs. Outcomes and distributions are not guaranteed and remain subject to definitive documents.",
     agarwoodStrengthsTitle: "Competitive Strengths",
     agarwoodStrengths: [
       "First company issued a Wildlife Permit by the Philippine Department of Environment and Natural Resources (DENR) to cultivate Aquilaria crassna, delivering a significant first-mover regulatory advantage",
@@ -1192,19 +1194,19 @@ Email: office@goldenforests.ai`,
       "A proprietary variety. Exclusive to Golden Forests.",
       "Sweet Elena is an exclusive Carabao mango cultivar developed through proprietary dwarfing techniques and selective breeding in collaboration with President Ramon Magsaysay State University. This variety produces premium export-grade fruit with exceptional sweetness, extended shelf life and year-round fruiting capability, a significant advantage over standard mango varieties limited to seasonal production.",
     ],
-    mangoMarketTitle: "A USD 50 billion global market. Year-round supply advantage.",
+    mangoMarketTitle: "Premium Philippine mango exposure with domestic and export-market potential.",
     mangoMarketDescription:
       "Premium varieties command significant price premiums in international export markets. Year-round production capability positions Sweet Elena to supply high-value markets during off-season periods when competing supply is limited.",
-    mangoReturnsTitle: "14-23% projected annualised returns over 25 years.",
+    mangoReturnsTitle: "Illustrative harvest proceeds from years 5-25.",
     mangoReturnsDescription:
-      "Returns of 14% annualised in years 1-15, increasing to 23% annualised in years 16-25 as trees reach full maturity. Revenue distributions begin year 5, with 80% to tree owners and 20% operational management fee. Our performance-based fee structure ensures complete alignment of interests.",
+      "The current model uses tree-equivalent shares in a proposed mango fund compartment. Mango may begin producing in year 5, with potential shareholder distributions after a 20% Mango Harvesting Commission and permitted operating deductions. Timing and amounts are not guaranteed.",
     mangoStrengthsTitle: "Competitive Strengths",
     mangoStrengths: [
-      "Proprietary Sweet Elena variety unavailable to competing growers",
+      "Sweet Elena Carabao mango supported by cultivar research and dwarfing techniques",
       "High-density cultivation: 416 trees per hectare versus 100-150 for traditional mango plantations",
       "Year-round fruiting cycles enable harvest during high-price periods",
       "Export-grade quality commands price premiums over domestic varieties",
-      "Extended 25-year productive period with increasing yields over time",
+      "Long-duration production model extending through year 25, subject to actual yields and operating conditions",
     ],
     mangoLearnMoreLabel: "Learn More",
     mangoLearnMoreHref: "/contact",
@@ -1214,32 +1216,32 @@ Email: office@goldenforests.ai`,
     portfolioEyebrow: "Portfolio Strategy",
     portfolioTitle: "Diversification Through Complementary Assets",
     portfolioDescription:
-      "Agarwood and mango occupy different markets and operate on different timelines. Combined, they create a portfolio with built-in diversification, early cash flow and long-term capital growth.",
+      "Agarwood and mango occupy different markets and operate on different timelines. A combined fund allocation may diversify crop and harvest timing, but it does not eliminate biological, market, operational, liquidity or regulatory risk.",
     portfolioBenefits: [
       "Timeline diversification: 10-year agarwood cycle complements 25-year mango lifecycle",
       "Market diversification: luxury goods and agricultural commodities respond to different economic drivers",
-      "Cash flow optimisation: mango distributions begin year 5, agarwood harvest years 9-10",
-      "Risk mitigation: dual-crop exposure reduces single-commodity concentration risk",
+      "Illustrative timing: mango proceeds may begin in year 5, with agarwood realisation modelled for years 9-10",
+      "Risk diversification: dual-crop exposure may reduce, but cannot remove, single-commodity concentration risk",
     ],
-    portfolioDownloadLabel: "Download Two-pager",
-    portfolioDownloadHref: "/GF_combined_two_pager_FINAL.pdf",
+    portfolioDownloadLabel: "Request Current Investment Materials",
+    portfolioDownloadHref: "/contact",
     portfolioContactLabel: "Speak to Our Team",
     faqTitle: "Frequently Asked Questions",
     faqDescription:
       "Have more questions?",
     faqQuestions: [
-      "What is the minimum investment?",
-      "Who owns the trees I purchase?",
-      "What returns can I expect from my investment?",
-      "What fees does Golden Forests charge?",
-      "What happens if trees are destroyed or damaged?",
+      "Who can invest, and what is the minimum subscription?",
+      "What do I own as a shareholder?",
+      "What documentation would I receive?",
+      "How are fees, costs and distributions structured?",
+      "How are plantation losses and replacement stock handled?",
     ],
     faqAnswers: [
-      "The minimum combined portfolio investment is USD 5,887.50 for 15 trees: 10 Aquilaria crassna agarwood trees and 5 Sweet Elena Carabao mango trees. Volume discounts available.",
-      "You do. Investors retain ownership of trees purchased, with Golden Forests managing them on your behalf throughout the tree's lifecycle. Ownership remains fully protected even if the company ceases operations. You can transfer ownership or include trees as part of your estate.",
-      "Agarwood offers projected 18.5% annualised returns over 10 years. Mango offers projected 14% annualised returns years 1-15, increasing to 23% annualised years 16-25. Returns depend on harvest yields, market conditions and operational execution.",
-      "We charge harvest management fees only: 10% of agarwood harvest proceeds, 20% of mango harvest proceeds. We earn only when your trees produce. No hidden fees or annual management charges. This ensures our interests are fully aligned with yours.",
-      "All trees are covered under our Harvest Guarantee Insurance, providing a 100% replacement guarantee for losses caused by typhoons, fire, floods, pests, disease or wild animal damage. Each plantation includes a 20% buffer stock of replacement trees, grown to the same age and size as client-owned trees.",
+      "The opportunity is intended only for eligible professional and corporate investors, not retail clients. The current materials use USD 100,000 as an indicative reference subscription, but the actual minimum and eligibility requirements will be determined by the relevant platform and definitive offering documents.",
+      "Investors would hold shares in the relevant fund compartment. A share may economically correspond to an underlying tree-equivalent reference, but shareholders do not directly own or receive a proprietary interest in any individual tree, planting block, land or plantation asset.",
+      "Subject to completion of the structure, investors would receive the relevant subscription and shareholder documentation, evidence of their shareholding, and reporting or communications provided under the governing documents.",
+      "The current base case applies a 10% Agarwood Management Revenue Share to realised agarwood sales and a 20% Mango Harvesting Commission to gross mango sales, together with permitted crop-specific costs and deductions. Final mechanics and any distributions are governed exclusively by definitive documents.",
+      "The operating model includes approximately 20% surplus replacement stock and insurance is expected to be maintained for specified plantation risks. These controls reduce but do not eliminate loss; coverage, exclusions, claims and replacement arrangements remain subject to applicable policies and governing documents.",
     ],
     faqDocumentLabel: "Request FAQ Document",
     faqDocumentHref: "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07",
@@ -1247,14 +1249,14 @@ Email: office@goldenforests.ai`,
   ecotourism: {
     header: {
       badge: "Plantation Visit Programme",
-      title: "See your investment first hand",
+      title: "See the plantation operations first hand",
       description:
-        "A structured two-day plantation visit programme in Zambales province, Philippines",
+        "Optional visits for eligible professional and corporate investors, arranged subject to operational availability",
     },
     introParagraphs: [
-      "Golden Forests offers a structured client plantation visit programme, enabling investors to visit operational sites in Southern Zambales, Philippines.",
-      "The Company hosts a two-day site programme including guided plantation tours, operational briefings and discussions with management and technical teams. This initiative supports transparency, operational oversight and informed participation in plantation investments.",
-      "Travel and accommodation arrangements remain the responsibility of the client.",
+      "Golden Forests intends to offer eligible professional and corporate investors the opportunity to visit operational plantation sites in Southern Zambales, Philippines and, where applicable, view assets associated with the relevant fund.",
+      "A visit may include guided plantation access, operational briefings and discussions with management or technical teams. The itinerary, hospitality, access and timing are confirmed individually and remain subject to plantation conditions and availability.",
+      "A site visit is provided for operational familiarisation only and does not replace independent legal, financial, tax or operational due diligence.",
     ],
     ctaLabel: "Register Your Interest",
     featuredVideoEyebrow: "Plantation Visit Video",
@@ -1313,37 +1315,37 @@ Email: office@goldenforests.ai`,
   },
   home: {
     heroBadge: "Tree Investment Site",
-    heroTitle: "Your investment. Your trees. Your impact.",
+    heroTitle: "Structured access to sustainable agroforestry.",
     heroParagraphs: [
-      "Premium Philippine agroforestry investment with verified ownership, professional management, combining 14-23% projected returns with one-to-one native tree reforestation.",
+      "Golden Forests provides eligible professional and corporate investors with access to managed Philippine agarwood and mango exposure through a proposed fund share structure. Shareholders participate in the relevant fund and do not directly own individual trees.",
     ],
-    primaryCtaLabel: "Start Your Investment Journey",
+    primaryCtaLabel: "Request Information",
     secondaryCtaLabel: "Review Plantation Operations",
     narrativeEyebrow: "Why Golden Forests",
     narrativeParagraphs: [
-      "What sets Golden Forests apart is the science and technology behind every plantation. We are the first company to be issued a Wildlife Permit by the Philippine Department of Environment and Natural Resources to cultivate exotic Aquilaria crassna, using exclusively licensed inoculation formulas from Thailand designed specifically for this DNA strain. Our mango programme employs university-developed dwarfing techniques enabling high-density cultivation at more than four times the industry standard, maximising both yield and land efficiency. Every investment is backed by a proprietary AI-enabled agroforestry intelligence platform, delivering institutional-grade transparency through GPS-verified tree locations, drone surveillance, satellite geotagging and independent annual auditing.",
-      "For every tree purchased, we plant one native endemic Philippine species, working closely with local communities to ensure that the prosperity generated by our plantations is shared by investors, people and the land. Golden Forests maintains collaborative research relationships with President Ramon Magsaysay State University, Visayas State University and the University of the Philippines Los Baños, supporting continuous innovation in sustainable agroforestry.",
-      "Our mission is to deliver exceptional returns through sustainable plantation investment, creating lasting value for investors, communities, and the environment.",
+      "Golden Forests combines Philippine operating capability, crop-specific cultivation, AI-enabled monitoring and research relationships with leading agricultural universities. GPS-referenced fund inventory, operational reporting and audit processes are intended to support institutional visibility.",
+      "The operating model includes one native Philippine tree for each corresponding underlying commercial tree represented in the fund allocation model, alongside community employment and long-term environmental stewardship.",
+      "Our mission is to operate a professionally managed agroforestry platform that supports responsible capital formation, sustainable production and enduring value for shareholders, communities and the environment.",
     ],
     pillarTitles: [
-      "Direct Ownership",
+      "Structured Fund Access",
       "Professional Management",
       "Environmental Impact",
     ],
     pillarTaglines: [
-      "TANGIBLE ASSETS.\nVERIFIED OWNERSHIP.\nCOMPLETE TRANSPARENCY.",
+      "PROFESSIONAL INVESTORS.\nFUND SHAREHOLDING.\nSTRUCTURED GOVERNANCE.",
       "EXPERT CULTIVATION.\nADVANCED TECHNOLOGY.\nRESEARCH-BACKED RESULTS.",
       "ONE-TO-ONE NATIVE TREE REFORESTATION.",
     ],
     pillarDescriptions: [
-      "Verified ownership. Complete transparency.",
+      "Fund shareholding. Structured reporting.",
       "Advanced technology. Research-backed results.",
-      "For every commercial tree purchased, one Philippine endemic tree is planted in designated restoration areas.",
+      "One native Philippine tree for each corresponding underlying commercial tree represented in the fund allocation model.",
     ],
     pillarBullets: [
-      "GPS-verified ownership certificates.",
-      "Real-time operational transparency.",
-      "Every tree tracked, monitored and documented.",
+      "Proposed crop-specific fund compartments.",
+      "Tree-equivalent references for economic allocation and reporting only.",
+      "Shareholder rights governed by definitive transaction documents.",
       "AI-enabled drone surveillance monitors growth conditions.",
       "Environmental sensors track soil health and climate patterns.",
       "Strategic partnerships with leading Philippine agricultural universities.",
@@ -1362,15 +1364,15 @@ Email: office@goldenforests.ai`,
     differentiatorDescriptions: [
       "Golden Forests holds the first Wildlife Permit issued by the DENR for exotic Aquilaria crassna cultivation in the Philippines.",
       "Exclusive inoculation formulas, DNA-aligned cultivation protocols, and university-developed mango dwarfing techniques shape every hectare.",
-      "GPS verification, drone surveillance, satellite geotagging, and annual auditing provide institutional-grade visibility for investors.",
+      "GPS-referenced fund inventory, drone surveillance, geotagging and audit processes are intended to support institutional visibility.",
       "PRMSU, VSU, and UPLB support continuous refinement of cultivation, productivity, and sustainable agroforestry innovation.",
     ],
     investmentSectionEyebrow: "Dual Investment Opportunities",
-    investmentSectionTitle: "Two distinct investment pathways, structured for different return horizons.",
+    investmentSectionTitle: "Two crop-specific pathways with different harvest horizons.",
     investmentOpportunityTitles: ["Agarwood", "Mango"],
     investmentOpportunityDescriptions: [
-      "Premium Aquilaria crassna cultivated with exclusive licensed inoculation technology. Projected 18.5% annualised returns over 10 years, delivering resinous heartwood for the global oud market.",
-      "Sweet Elena Carabao mango with proprietary dwarfing techniques enabling year-round fruiting. Projected 14-23% annualised returns over 25 years, supplying premium export-grade fruit to international markets.",
+      "Aquilaria crassna exposure through tree-equivalent fund shares, with licensed inoculation technology and illustrative harvest realisation in years 9-10.",
+      "Sweet Elena Carabao mango exposure through tree-equivalent fund shares, with production modelled from year 5 through year 25. Distributions are not guaranteed.",
     ],
     investmentOpportunityLearnMoreLabels: ["Learn More", "Learn More"],
     investmentOpportunityLearnMoreHrefs: ["/investment#agarwood", "/investment#mango"],
@@ -1413,14 +1415,14 @@ Email: office@goldenforests.ai`,
       "University of the Philippines Los Baños logo",
     ],
     missionEyebrow: "Closing CTA",
-    missionStatement: "Your trees. Your returns. Your environmental legacy.",
+    missionStatement: "Long-term agroforestry exposure. Disciplined operations. Responsible stewardship.",
     missionPanelText: " ",
-    missionCtaLabel: "Get Started",
+    missionCtaLabel: "Contact Our Team",
     missionSecondaryCtaLabel: "Download Overview",
     closingTitles: [
       "Agarwood opportunity",
       "Mango programme",
-      "Impact alongside returns",
+      "Impact alongside long-term participation",
     ],
     closingDescriptions: [
       "One of the world's rarest and most valuable trees, cultivated through a controlled programme supported by licensed inoculation formulas.",
@@ -1433,7 +1435,7 @@ Email: office@goldenforests.ai`,
       badge: "Propagation Site",
       title: "Nursery Operations",
       description:
-        "The nursery facility in Zambales province prepares agarwood and mango planting stock for July 2026 deployment, with continuous visual documentation for client transparency.",
+        "The nursery facility in Zambales province prepares agarwood and mango planting stock for planned fourth-quarter 2026 deployment, subject to operational readiness.",
     },
     overviewEyebrow: "Current nursery stock",
     overviewTitle: "Propagation Overview",
@@ -1527,20 +1529,20 @@ Email: office@goldenforests.ai`,
       "Soil science research. Integrated pest management and environmental sustainability.",
       "Elite variety propagation. Post-harvest technologies and certification pathways.",
     ],
-    riskSectionTitle: "Risk Management",
-    riskSectionDescription: "Your investment is protected at every stage of the cultivation cycle.",
-    riskTitles: ["Harvest Guarantee Insurance", "Replacement Tree Buffer", "Diversified Cultivation Sites", "Professional Agronomic Management"],
-    riskTaglines: ["Complete peace of mind.", "Always prepared.", "Strength in spread.", "Rigorous by design."],
+    riskSectionTitle: "Operational Risk Controls",
+    riskSectionDescription: "Controls are designed to manage plantation risks; they cannot eliminate risk or guarantee investor outcomes.",
+    riskTitles: ["Insurance Programme", "Replacement Tree Buffer", "Diversified Cultivation Sites", "Professional Agronomic Management"],
+    riskTaglines: ["Subject to policy terms.", "Mortality resilience.", "Strength in spread.", "Rigorous by design."],
     riskDescriptions: [
-      "Comprehensive coverage against typhoons, fire, flooding, pest outbreaks, disease and wild animal damage, with a 100% replacement guarantee on every tree.",
-      "A 20% buffer stock of company-owned trees maintained at equivalent age and size ensures immediate replacement if required, with no interruption to your investment cycle.",
+      "Plantation insurance is expected to address specified operational risks, subject to insurer availability, policy limits, exclusions, claims assessment and annual review.",
+      "The operating model includes approximately 20% surplus planting stock to support mortality replacement within fund-managed inventory. Replacement timing and suitability depend on actual conditions.",
       "Multiple plantation locations across Zambales reduce concentration risk from localised weather events or operational challenges.",
       "Quarterly plantation inspections, structured maintenance protocols and continuous monitoring throughout every cultivation cycle.",
     ],
     environmentalSectionTitle: "Environmental Commitment",
     environmentalSectionSubtitle: " ",
     environmentalSectionDescription:
-      "For every commercial tree purchased, Golden Forests plants one Philippine endemic species in designated restoration areas. Native species include Narra, Agoho, Mangono, Molave, Talisay and Belite, supporting ecosystem restoration and biodiversity enhancement in Zambales province.",
+      "The operating model intends to plant one native Philippine species for each corresponding underlying commercial tree represented in the fund allocation model, supporting restoration and biodiversity objectives alongside plantation operations.",
     environmentalSectionTagline: "Sustainability Pathways: measurable commitments, not aspirations.",
     environmentalItems: [
       "PEFC certification progress",
@@ -1548,13 +1550,13 @@ Email: office@goldenforests.ai`,
       "Carbon sequestration tracking and verification",
       "Sustainable resource management aligned with UN Global Compact principles",
     ],
-    transparencySectionTitle: "Client Transparency",
-    transparencySectionDescription: "Complete visibility throughout your investment lifecycle.",
+    transparencySectionTitle: "Investor Transparency",
+    transparencySectionDescription: "Operational visibility is designed around the relevant fund, planting blocks and biological-asset pools—not direct ownership of individual trees.",
     transparencyItems: [
-      "GPS-verified tree location coordinates",
-      "Access to client operations portal with real-time monitoring",
-      "Quarterly operational updates and plantation reports",
-      "Structured client plantation visit programme (two-day hosted site visits in Zambales)",
+      "FUND-MANAGED ASSET TRACEABILITY. GPS-referenced or geotagged records support fund-level inventory and operational control; they do not assign specific trees to individual shareholders.",
+      "SECURE INVESTOR VISIBILITY. The reporting model contemplates portal access to operational dashboards and documentation, subject to implementation and the governing documents.",
+      "REPORTING THROUGHOUT THE LIFECYCLE. The current framework contemplates quarterly operational updates, annual financial reporting where applicable and material-event notices.",
+      "OPTIONAL PLANTATION ACCESS. Eligible professional and corporate investors may request a visit to operational sites and relevant fund assets, subject to arrangements and availability.",
     ],
     transparencyPrimaryCtaLabel: "Explore Our Plantation Operations",
     transparencyPrimaryCtaHref: "https://cadi-website.onrender.com/",
@@ -1576,17 +1578,17 @@ Email: office@goldenforests.ai`,
       "High-density orchard planning supported by dwarfing techniques and annual production management.",
     ],
     galleryTitle: "Secured Land & Preparations",
-    galleryDescription: "Current documentation of field preparation and July 2026 deployment readiness.",
-    milestoneTitle: "July 2026: Field Deployment Milestone",
+    galleryDescription: "Current documentation of field preparation and planned fourth-quarter 2026 deployment readiness.",
+    milestoneTitle: "Q4 2026: Planned Field Deployment",
     milestoneDescription:
-      "The July 2026 program transitions nursery stock into field planting. Deployment includes spacing compliance, irrigation setup, AI-assisted monitoring readiness, and early-stage intercropping of cassava for agarwood shade (Years 1-2).",
+      "The current illustrative launch profile targets fourth-quarter 2026 field deployment, subject to legal, administrative and operational completion. Planning includes spacing compliance, irrigation setup, monitoring readiness and early-stage cassava intercropping for agarwood shade.",
     milestoneLabels: ["Agarwood Spacing", "Mango Spacing", "Cassava Intercrop", "2026 Plantation Scale"],
-    milestoneValues: ["3m x 2m", "6m x 4m", "Years 1-2", "50,000 Trees"],
+    milestoneValues: ["3m x 2m", "6m x 4m", "Years 1-2", "31,000 Trees"],
     milestoneNotes: [
       "Approx. 1,667 trees per hectare",
       "Approx. 416 trees per hectare",
       "Shade support for young agarwood trees",
-      "35,000 agarwood + 15,000 mango, each scaling by 10% p.a.",
+      "Illustrative launch inventory: 23,000 agarwood + 8,000 mango",
     ],
     landPreparationTitle: "Land Preparation",
     soilProtocolTitle: "Soil Protocol",
@@ -1674,12 +1676,12 @@ Email: office@goldenforests.ai`,
       badge: "Investor FAQ",
       title: "Frequently Asked Questions",
       description:
-        "Key questions and answers on Golden Forests, tree ownership, mango and agarwood opportunities, operations, fees, sustainability, and investor protections.",
+        "Key information for eligible professional and corporate investors on the proposed fund structure, plantation operations, reporting, fees and risks.",
     },
     sectionTitles: [
       "Market Opportunity",
       "Mission, Values, and Sustainability",
-      "Ownership and Investor Protection",
+      "Fund Shareholding and Investor Information",
       "Technology, Fees, and Operations",
       "Harvests, Returns, and Practical Questions",
     ],
@@ -1687,11 +1689,13 @@ Email: office@goldenforests.ai`,
       "What is the global demand for mangoes?",
       "What is the global demand for agarwood, oud oil, and agarwood chips?",
       "Who is Golden Forests?",
+      "Who can invest, and what is the indicative subscription?",
     ],
     marketAnswers: [
       "Mangoes are among the world's most consumed fruits, with global demand continuing to rise as premium export supply remains limited. Golden Forests positions Sweet Elena Carabao mango within that higher-value international market.",
       "Agarwood is one of the world's highest-value natural commodities. Its chips are used in incense, medicine, perfumery, and cosmetics, while distilled oud oil continues to benefit from strong luxury fragrance demand across global markets.",
       "Golden Forests is a next-generation agroforestry company combining scientific expertise, AI-enabled plantation management, and sustainable operations to build enduring value for investors, local communities, and the land.",
+      "The proposed opportunity is intended only for eligible professional and corporate investors and is not offered to retail clients. Current materials use USD 100,000 as an indicative reference subscription; the actual minimum is subject to the relevant platform and definitive offering terms.",
     ],
     missionQuestions: [
       "What is Golden Forests' mission?",
@@ -1700,22 +1704,22 @@ Email: office@goldenforests.ai`,
       "What ethical practices does Golden Forests follow?",
     ],
     missionAnswers: [
-      "Golden Forests aims to deliver strong and sustainable returns for investors while advancing ethical plantation management, environmental resilience, and long-term prosperity for local communities.",
+      "Golden Forests aims to operate a professionally managed agroforestry platform that supports responsible capital formation, environmental resilience and long-term value for shareholders and local communities.",
       "The business is guided by integrity, professionalism, sustainability, quality, innovation, and community empowerment. These principles shape governance, plantation standards, investor relations, and day-to-day field operations.",
       "The plantations are designed around biodiversity, responsible soil and water stewardship, reduced chemical dependency, and waste-conscious cultivation practices that support long-term land health and ecosystem resilience.",
       "Golden Forests emphasises fair treatment of workers, safe conditions, environmental responsibility, staff development, and alignment with recognised sustainability and compliance standards.",
     ],
     ownershipQuestions: [
-      "Who owns the trees I purchase?",
+      "Who owns the plantation assets and what do I own as a shareholder?",
       "What happens if Golden Forests were ever to cease operations?",
-      "What documentation will I receive?",
-      "Can I transfer my trees to someone else?",
+      "What documentation would I receive for my subscription?",
+      "Can I transfer my shares to someone else?",
     ],
     ownershipAnswers: [
-      "You do. Investors become the legal owners of the trees they purchase, while Golden Forests manages propagation, planting, maintenance, harvesting, and marketing on the owner's behalf under a management agreement.",
-      "Your ownership remains protected. If Golden Forests ceased operating, a replacement management company would be appointed so your trees could continue to be maintained and harvested.",
-      "Investors receive a Tree Purchase Agreement, a Management Agreement, a Certificate of Ownership, and ongoing annual reporting covering tree growth, plantation performance, and harvest activity.",
-      "Yes. Trees are private property and can be sold, gifted, transferred, or inherited, with updated ownership documentation issued once the new owner's details are provided.",
+      "The relevant fund is intended to own the underlying plantation assets. Eligible investors would subscribe for shares in one or both crop-specific fund compartments. Tree-equivalent references are used for economic allocation and tracking only and do not confer direct ownership of individual trees, planting blocks, land or plantation assets.",
+      "A shareholder's position would be governed by the relevant fund documents and applicable law. If the operator ceased operations, the fund's governance arrangements could include seeking shareholder approval for a replacement operator or another permitted action; no specific outcome is guaranteed.",
+      "Subject to completion of the structure, investors would receive the relevant subscription and shareholder documents, evidence of shareholding, and periodic reports or communications provided in accordance with the governing documents.",
+      "Transfers would be subject to the fund's constitutional documents, shareholder agreement, eligibility requirements, approvals and compliance checks. Shares should be treated as long-term and illiquid.",
     ],
     technologyQuestions: [
       "What does the AI in goldenforests.ai stand for?",
@@ -1727,20 +1731,20 @@ Email: office@goldenforests.ai`,
       "It stands for Agroforestry Intelligence: Golden Forests' proprietary application of artificial intelligence, precision agriculture, monitoring systems, and data-driven plantation management to improve efficiency, yield, and oversight.",
       "The platform supports crop monitoring, yield prediction, irrigation and fertilisation optimisation, pest and disease detection, and more precise use of water and plantation inputs.",
       "Plantations are equipped with irrigation and drainage systems connected to wells and solar-powered pumps, supporting consistent and sustainable water availability throughout the year.",
-      "Golden Forests charges a harvest management fee tied to realised performance: 10% of agarwood harvest proceeds and 20% of mango harvest proceeds, aligning the company's incentives with investor outcomes.",
+      "The current base case applies a 10% Agarwood Management Revenue Share to realised agarwood sales and a 20% Mango Harvesting Commission to gross mango sales. Crop-specific audit, reporting, logistics, certification, maintenance and harvesting deductions may also apply. Final mechanics are governed exclusively by definitive documents.",
     ],
     harvestQuestions: [
-      "Will I receive annual income from my mango trees?",
+      "Will I receive annual distributions from the mango fund?",
       "How long is the harvest period for mango trees?",
       "How are damaged trees handled?",
       "How and when do investors receive harvest income?",
       "Why invest in agroforestry in the Philippines?",
     ],
     harvestAnswers: [
-      "Yes. Mango trees are expected to begin producing in years four to five, with annual harvest income continuing for many years thereafter, subject to plantation performance and growing conditions.",
+      "Not necessarily. Mango production is modelled to begin in year 5, but any shareholder distribution depends on actual harvest proceeds, permitted deductions, reserves, the fund's governing documents and applicable law. Timing and amounts are not guaranteed.",
       "Mango trees typically produce for about 25 years before productivity gradually declines and replacement becomes appropriate.",
-      "Golden Forests maintains a replacement-tree buffer stock. If a client-owned tree is lost or materially damaged, a matching replacement tree is assigned so productive capacity is preserved.",
-      "Harvest proceeds are distributed within the harvest year, and investors can receive payments by bank transfer, cryptocurrency on request, or in person at the Manila office, depending on the available arrangements.",
+      "The operating model includes approximately 20% surplus replacement stock for fund-managed inventory. Replacement arrangements reduce but do not eliminate biological risk and remain subject to actual conditions and governing documents.",
+      "Any distributions, if declared, would be paid by the relevant fund to shareholders in accordance with its governing documents, applicable law and normal banking and compliance processes.",
       "The Philippines offers favourable agro-climatic conditions, lower operating costs, and strong long-term potential for high-value crops. Golden Forests pairs that location advantage with annual audits, physical tree verification, and transparent investor access.",
     ],
   },
@@ -1773,38 +1777,58 @@ Email: office@goldenforests.ai`,
 
 export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const data = (parsed ?? {}) as Partial<SiteCopy> & Record<string, any>;
+  const july2026MigratedSections: Array<keyof SiteCopy["_meta"]["sections"]> = [
+    "contact",
+    "about",
+    "disclaimer",
+    "investment",
+    "ecotourism",
+    "home",
+    "nursery",
+    "plantation",
+    "faq",
+  ];
+  const sectionNeedsJuly2026Refresh = (section: keyof SiteCopy["_meta"]["sections"]) => {
+    const sectionUpdatedAt = data._meta?.sections?.[section]?.updatedAt ?? data._meta?.updatedAt;
+    const parsedUpdatedAt = Date.parse(sectionUpdatedAt ?? "");
+
+    return !Number.isFinite(parsedUpdatedAt) || parsedUpdatedAt < july2026ContentCutoff;
+  };
 
   const normalizedContact = { ...defaultSiteCopy.contact, ...(data.contact ?? {}) };
-  normalizedContact.resourceLabels = (normalizedContact.resourceLabels ?? defaultSiteCopy.contact.resourceLabels).map((label, index) => {
-    if (index === 1 && (label === "Download Agarwood Exposé" || label === "Agarwood exposé")) {
+  normalizedContact.resourceLabels = (normalizedContact.resourceLabels ?? defaultSiteCopy.contact.resourceLabels).map((label) => {
+    if (label === "Download Agarwood Exposé" || label === "Agarwood exposé") {
       return "Request Agarwood exposé";
     }
 
-    if (index === 2 && (label === "Download Mango Exposé" || label === "Mango exposé")) {
+    if (label === "Download Mango Exposé" || label === "Mango exposé") {
       return "Request Mango exposé";
     }
 
-    if (index === 3 && (label === "View Full FAQ Document" || label === "View full FAQs")) {
+    if (label === "View Full FAQ Document" || label === "View full FAQs") {
       return "Request FAQ Document";
     }
 
-    return label ?? defaultSiteCopy.contact.resourceLabels[index];
-  });
-  normalizedContact.resourceHrefs = (normalizedContact.resourceHrefs ?? defaultSiteCopy.contact.resourceHrefs).map((href, index) => {
-    if (index === 1) {
-      return "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
-    }
+    return label;
+  }).filter((label) => label !== "Download Investment Overview");
+  const contactResourceHrefByLabel = new Map<string, string>([
+    ["Request Agarwood exposé", "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r"],
+    ["Request Mango exposé", "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv"],
+    ["Request FAQ Document", "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07"],
+  ]);
+  normalizedContact.resourceHrefs = normalizedContact.resourceLabels.map(
+    (label, index) => contactResourceHrefByLabel.get(label) ?? normalizedContact.resourceHrefs?.[index] ?? "/contact",
+  );
 
-    if (index === 2) {
-      return "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
-    }
-
-    if (index === 3) {
-      return "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
-    }
-
-    return href ?? defaultSiteCopy.contact.resourceHrefs[index];
-  });
+  if (sectionNeedsJuly2026Refresh("contact")) {
+    normalizedContact.heroDescription = defaultSiteCopy.contact.heroDescription;
+    normalizedContact.intro = defaultSiteCopy.contact.intro;
+    normalizedContact.emailValue = defaultSiteCopy.contact.emailValue;
+    normalizedContact.emailHref = defaultSiteCopy.contact.emailHref;
+    normalizedContact.managementOfficeAddress = [...defaultSiteCopy.contact.managementOfficeAddress];
+    normalizedContact.resourceLabels = [...defaultSiteCopy.contact.resourceLabels];
+    normalizedContact.resourceHrefs = [...defaultSiteCopy.contact.resourceHrefs];
+  }
 
   const normalizedAbout = {
     ...defaultSiteCopy.about,
@@ -1898,11 +1922,40 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     normalizedEcotourism.featuredDestinationImages = [...defaultSiteCopy.ecotourism.featuredDestinationImages];
   }
 
+  if (sectionNeedsJuly2026Refresh("ecotourism")) {
+    const preservedVisitImages = [...normalizedEcotourism.featuredDestinationImages];
+    Object.assign(normalizedEcotourism, defaultSiteCopy.ecotourism, {
+      header: { ...defaultSiteCopy.ecotourism.header },
+      featuredDestinationImages: preservedVisitImages,
+    });
+  }
+
   const normalizedInvestment = {
     ...defaultSiteCopy.investment,
     ...(data.investment ?? {}),
     header: { ...defaultSiteCopy.investment.header, ...(data.investment?.header ?? {}) },
   };
+  if (sectionNeedsJuly2026Refresh("investment")) {
+    Object.assign(normalizedInvestment, defaultSiteCopy.investment, {
+      header: { ...defaultSiteCopy.investment.header },
+    });
+  }
+
+  if (sectionNeedsJuly2026Refresh("about")) {
+    const preservedLeadership = {
+      leadershipNames: normalizedAbout.leadershipNames,
+      leadershipImageUrls: normalizedAbout.leadershipImageUrls,
+      leadershipTitles: normalizedAbout.leadershipTitles,
+      leadershipDescriptions: normalizedAbout.leadershipDescriptions,
+      boardNames: normalizedAbout.boardNames,
+      boardImageUrls: normalizedAbout.boardImageUrls,
+      boardTitles: normalizedAbout.boardTitles,
+      boardDescriptions: normalizedAbout.boardDescriptions,
+    };
+    Object.assign(normalizedAbout, defaultSiteCopy.about, preservedLeadership, {
+      header: { ...defaultSiteCopy.about.header },
+    });
+  }
   if (
     normalizedInvestment.agarwoodDownloadLabel === "Download Agarwood Exposé" ||
     normalizedInvestment.agarwoodDownloadLabel === "Agarwood exposé"
@@ -1947,6 +2000,15 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     ...defaultSiteCopy.home,
     ...(data.home ?? {}),
   };
+
+  if (sectionNeedsJuly2026Refresh("home")) {
+    const preservedPartnerLogos = [...normalizedHome.credibilityPartnerLogoUrls];
+    const preservedPartnerLogoAlts = [...normalizedHome.credibilityPartnerLogoAlts];
+    Object.assign(normalizedHome, defaultSiteCopy.home, {
+      credibilityPartnerLogoUrls: preservedPartnerLogos,
+      credibilityPartnerLogoAlts: preservedPartnerLogoAlts,
+    });
+  }
 
   const legacyHomeCredibilityEyebrow = "Credibility Markers";
 
@@ -2049,6 +2111,12 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     header: { ...defaultSiteCopy.plantation.header, ...(data.plantation?.header ?? {}) },
   };
 
+  if (sectionNeedsJuly2026Refresh("plantation")) {
+    Object.assign(normalizedPlantation, defaultSiteCopy.plantation, {
+      header: { ...defaultSiteCopy.plantation.header },
+    });
+  }
+
   if (normalizedPlantation.overviewDescription?.trim() === legacyPlantationOverviewDescription) {
     normalizedPlantation.overviewDescription = defaultSiteCopy.plantation.overviewDescription;
   }
@@ -2097,6 +2165,42 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     return restParts.join(". ").trim();
   });
 
+  const normalizedDisclaimer = sectionNeedsJuly2026Refresh("disclaimer")
+    ? { ...defaultSiteCopy.disclaimer }
+    : { ...defaultSiteCopy.disclaimer, ...(data.disclaimer ?? {}) };
+  const normalizedFaq = sectionNeedsJuly2026Refresh("faq")
+    ? { ...defaultSiteCopy.faq, header: { ...defaultSiteCopy.faq.header } }
+    : {
+        ...defaultSiteCopy.faq,
+        ...(data.faq ?? {}),
+        header: { ...defaultSiteCopy.faq.header, ...(data.faq?.header ?? {}) },
+      };
+  const normalizedNursery = sectionNeedsJuly2026Refresh("nursery")
+    ? { ...defaultSiteCopy.nursery, header: { ...defaultSiteCopy.nursery.header } }
+    : {
+        ...defaultSiteCopy.nursery,
+        ...(data.nursery ?? {}),
+        header: { ...defaultSiteCopy.nursery.header, ...(data.nursery?.header ?? {}) },
+      };
+  const refreshedSectionKeys = july2026MigratedSections.filter(sectionNeedsJuly2026Refresh);
+  const normalizedSectionMeta = {
+    ...defaultSiteCopy._meta.sections,
+    ...(data._meta?.sections ?? {}),
+  };
+
+  refreshedSectionKeys.forEach((sectionKey) => {
+    normalizedSectionMeta[sectionKey] = { ...defaultSiteCopy._meta.sections[sectionKey] };
+  });
+  const normalizedMeta: SiteCopy["_meta"] = {
+    ...defaultSiteCopy._meta,
+    ...(data._meta ?? {}),
+    updatedAt:
+      refreshedSectionKeys.length > 0
+        ? defaultSiteCopy._meta.updatedAt
+        : data._meta?.updatedAt ?? defaultSiteCopy._meta.updatedAt,
+    sections: normalizedSectionMeta,
+  };
+
   return siteCopySchema.parse({
     ...defaultSiteCopy,
     ...data,
@@ -2106,10 +2210,7 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     },
     contact: normalizedContact,
     about: normalizedAbout,
-    disclaimer: {
-      ...defaultSiteCopy.disclaimer,
-      ...(data.disclaimer ?? {}),
-    },
+    disclaimer: normalizedDisclaimer,
     privacyPolicy: {
       ...defaultSiteCopy.privacyPolicy,
       ...(data.privacyPolicy ?? {}),
@@ -2158,14 +2259,10 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     ecotourism: {
       ...defaultSiteCopy.ecotourism,
       ...normalizedEcotourism,
-      header: { ...defaultSiteCopy.ecotourism.header, ...(data.ecotourism?.header ?? {}) },
+      header: { ...normalizedEcotourism.header },
     },
     home: normalizedHome,
-    nursery: {
-      ...defaultSiteCopy.nursery,
-      ...(data.nursery ?? {}),
-      header: { ...defaultSiteCopy.nursery.header, ...(data.nursery?.header ?? {}) },
-    },
+    nursery: normalizedNursery,
     plantation: normalizedPlantation,
     management: {
       ...defaultSiteCopy.management,
@@ -2174,19 +2271,8 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     },
     photoGallery: { ...defaultSiteCopy.photoGallery, ...(data.photoGallery ?? {}) },
     videos: { ...defaultSiteCopy.videos, ...(data.videos ?? {}) },
-    faq: {
-      ...defaultSiteCopy.faq,
-      ...(data.faq ?? {}),
-      header: { ...defaultSiteCopy.faq.header, ...(data.faq?.header ?? {}) },
-    },
-    _meta: {
-      ...defaultSiteCopy._meta,
-      ...(data._meta ?? {}),
-      sections: {
-        ...defaultSiteCopy._meta.sections,
-        ...(data._meta?.sections ?? {}),
-      },
-    },
+    faq: normalizedFaq,
+    _meta: normalizedMeta,
   });
 }
 

@@ -17,10 +17,10 @@ import { defaultSiteCopy } from "@shared/siteCopy";
 const operationsHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461734/golden-forests/operations-hero-ai-3-20260406.jpg";
 const intelligenceIcons = [Waypoints, BrainCircuit, Leaf] as const;
 const transparencyLeadPhrases = [
-  "YOUR TREES. YOUR COORDINATES.",
-  "REAL-TIME. ALWAYS ON.",
-  "INFORMED AT EVERY STAGE.",
-  "SEE IT FOR YOURSELF.",
+  "FUND-MANAGED ASSET TRACEABILITY.",
+  "SECURE INVESTOR VISIBILITY.",
+  "REPORTING THROUGHOUT THE LIFECYCLE.",
+  "OPTIONAL PLANTATION ACCESS.",
 ] as const;
 
 function toSentenceCaseFromAllCaps(value: string) {

@@ -2,7 +2,7 @@ import { AnimatedPage } from "@/components/layout/AnimatedPage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/optimized-media";
-import { Download, LoaderCircle, Mail, MapPin, Smartphone } from "lucide-react";
+import { ArrowUpRight, LoaderCircle, Mail, MapPin, Smartphone } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
@@ -14,7 +14,6 @@ const PIPEDRIVE_LOADER_URL = "https://webforms.pipedrive.com/f/loader";
 
 const contactHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767722/golden-forests/contact-hero-20260410.jpg";
-const combinedTwoPagerPdf = "/GF_combined_two_pager_FINAL.pdf";
 const agarwoodRequestFormUrl =
   "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
 const mangoRequestFormUrl =
@@ -26,11 +25,10 @@ function normalizeResourceLabel(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, " ");
 }
 
-function resolveResourceLabel(label: string, index: number) {
+function resolveResourceLabel(label: string) {
   const normalizedLabel = normalizeResourceLabel(label);
 
   if (
-    index === 1 ||
     normalizedLabel === "download agarwood exposé" ||
     normalizedLabel === "request agarwood exposé" ||
     normalizedLabel === "agarwood exposé"
@@ -39,7 +37,6 @@ function resolveResourceLabel(label: string, index: number) {
   }
 
   if (
-    index === 2 ||
     normalizedLabel === "download mango exposé" ||
     normalizedLabel === "request mango exposé" ||
     normalizedLabel === "mango exposé"
@@ -48,7 +45,6 @@ function resolveResourceLabel(label: string, index: number) {
   }
 
   if (
-    index === 3 ||
     normalizedLabel === "view full faq document" ||
     normalizedLabel === "view full faqs" ||
     normalizedLabel === "request faq document"
@@ -66,36 +62,7 @@ export default function Contact() {
   const font = createPageTypography(resolvedSiteCopy, "contact");
   const formContainerRef = useRef<HTMLDivElement | null>(null);
   const [isFormLoading, setIsFormLoading] = useState(true);
-  const fallbackResourceHrefs = [
-    combinedTwoPagerPdf,
-    agarwoodRequestFormUrl,
-    mangoRequestFormUrl,
-    faqRequestFormUrl,
-  ];
-
-  const handleInvestmentOverviewDownload = async () => {
-    try {
-      const response = await fetch(combinedTwoPagerPdf, {
-        cache: "no-store",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch investment overview.");
-      }
-
-      const blob = await response.blob();
-      const objectUrl = window.URL.createObjectURL(blob);
-      const anchor = document.createElement("a");
-      anchor.href = objectUrl;
-      anchor.download = "GF_combined_two_pager_FINAL.pdf";
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-      window.URL.revokeObjectURL(objectUrl);
-    } catch {
-      window.open(combinedTwoPagerPdf, "_blank", "noopener,noreferrer");
-    }
-  };
+  const fallbackResourceHrefs = [agarwoodRequestFormUrl, mangoRequestFormUrl, faqRequestFormUrl];
 
   useEffect(() => {
     const container = formContainerRef.current;
@@ -260,7 +227,7 @@ export default function Contact() {
               <h3 className={font("resourcesTitle", "text-2xl font-semibold text-[#6F4E2C]")}>{copy.resourcesTitle}</h3>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {copy.resourceLabels.map((label, index) => {
-                  const resolvedLabel = resolveResourceLabel(label, index);
+                  const resolvedLabel = resolveResourceLabel(label);
                   const href =
                     resolvedLabel === "Request Agarwood exposé"
                       ? agarwoodRequestFormUrl
@@ -269,38 +236,23 @@ export default function Contact() {
                         : resolvedLabel === "Request FAQ Document"
                           ? faqRequestFormUrl
                           : copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
-                  const isInvestmentOverviewDownload = index === 0;
 
                   return (
                     <Button
                       key={label}
                       variant="outline"
                       className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white"
-                      asChild={!isInvestmentOverviewDownload}
-                      onClick={
-                        isInvestmentOverviewDownload
-                          ? () => {
-                              void handleInvestmentOverviewDownload();
-                            }
-                          : undefined
-                      }
+                      asChild
                     >
-                      {isInvestmentOverviewDownload ? (
-                        <span className="inline-flex items-center gap-2">
-                          <Download className="h-4 w-4" />
-                          {resolvedLabel}
-                        </span>
-                      ) : (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2"
-                        >
-                          <Download className="h-4 w-4" />
-                          {resolvedLabel}
-                        </a>
-                      )}
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2"
+                      >
+                        <ArrowUpRight className="h-4 w-4" />
+                        {resolvedLabel}
+                      </a>
                     </Button>
                   );
                 })}
