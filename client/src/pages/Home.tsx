@@ -5,7 +5,6 @@ import { Link } from "wouter";
 import { OptimizedImage } from "@/components/ui/optimized-media";
 import {
   ArrowRight,
-  Download,
   Leaf,
   MapPin,
   Sprout,
@@ -17,10 +16,6 @@ import { createPageTypography } from "@/lib/siteTypography";
 
 const plantationHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1774850962/golden-forests/plantation-image-home-20260330.jpg";
-const agarwoodRequestFormUrl =
-  "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
-const mangoRequestFormUrl =
-  "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
 const pillarIcons = [Trees, MapPin, Leaf] as const;
 const investmentOpportunityIcons = [Leaf, Trees] as const;
 
@@ -29,6 +24,7 @@ export default function Home() {
   const resolvedSiteCopy = siteCopy ?? defaultSiteCopy;
   const copy = resolvedSiteCopy.home;
   const font = createPageTypography(resolvedSiteCopy, "home");
+  const enquiryButtonLabel = "Enquiry and Information Requests";
   const valuePillars = copy.pillarTitles.map((title, index) => ({
     title,
     tagline: copy.pillarTaglines[index] ?? "",
@@ -38,20 +34,7 @@ export default function Home() {
   const investmentOpportunities = copy.investmentOpportunityTitles.map((title, index) => ({
     title,
     description: copy.investmentOpportunityDescriptions[index] ?? "",
-    learnMoreLabel: copy.investmentOpportunityLearnMoreLabels[index] ?? "Learn More",
-    learnMoreHref: copy.investmentOpportunityLearnMoreHrefs[index] ?? "/contact",
-    requestLabel:
-      index === 0
-        ? "Request Agarwood exposé"
-        : index === 1
-          ? "Request Mango exposé"
-          : copy.investmentOpportunityDownloadLabels[index] ?? "Request document",
-    requestHref:
-      index === 0
-        ? agarwoodRequestFormUrl
-        : index === 1
-          ? mangoRequestFormUrl
-          : copy.investmentOpportunityDownloadHrefs[index] ?? "/contact",
+    enquiryHref: "/contact",
     icon: investmentOpportunityIcons[index] ?? Leaf,
   }));
 
@@ -110,7 +93,7 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          {investmentOpportunities.map(({ title, description, learnMoreLabel, learnMoreHref, requestHref, requestLabel, icon: Icon }) => (
+          {investmentOpportunities.map(({ title, description, enquiryHref, icon: Icon }) => (
             <Card key={title} className="border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
               <CardContent className="p-6">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -122,16 +105,10 @@ export default function Home() {
                 </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Button asChild className="rounded-xl bg-[#2D5016] px-5 text-[#FBFCF7] hover:bg-[#3b6820]">
-                    <a href={learnMoreHref} className="inline-flex items-center gap-2">
-                      {learnMoreLabel}
+                    <Link href={enquiryHref} className="inline-flex items-center gap-2">
+                      {enquiryButtonLabel}
                       <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline" className="rounded-xl border-[#2D5016]/30 bg-transparent px-5 text-[#2D5016] hover:bg-[#FBFCF7]">
-                    <a href={requestHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                      {requestLabel}
-                      <Download className="h-4 w-4" />
-                    </a>
+                    </Link>
                   </Button>
                 </div>
               </CardContent>

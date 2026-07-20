@@ -1,11 +1,10 @@
 import { AnimatedPage } from "@/components/layout/AnimatedPage";
-import { PageHeader } from "@/components/layout/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { ArrowRight, Download, Leaf, PieChart, ShieldCheck, Sprout, Trees } from "lucide-react";
+import { ArrowRight, Leaf, PieChart, ShieldCheck, Sprout, Trees } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-media";
 import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
@@ -15,13 +14,8 @@ const investmentHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v
 const agarwoodChipsImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461736/golden-forests/agarwood-chips-20260406.jpg";
 const mangoImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461737/golden-forests/mango-support-1-20260406.jpg";
 const investmentCalculatorEmbedUrl = "https://tray-harp-15742696.figma.site/";
-const agarwoodRequestFormUrl =
-  "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
-const mangoRequestFormUrl =
-  "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
 const faqRequestFormUrl =
   "https://webforms.pipedrive.com/f/73JK4Ba88zCkMatKgkRraQgTnrL6b4n2Z8f9GizT6vencLt4ooCQMslKP2Lbs2Uj07";
-const combinedTwoPagerPdf = "/GF_combined_two_pager_FINAL.pdf";
 
 function splitTitleIntoLines(value: string) {
   return value
@@ -36,14 +30,12 @@ function InvestmentProgrammeCard({
   market,
   returns,
   strengths,
-  learnMoreHref,
-  contactLabel,
+  ctaHref,
+  ctaLabel,
   marketTitle,
   marketSource,
   returnsTitle,
   strengthsTitle,
-  downloadLabel,
-  downloadHref,
   sideImageSrc,
   sideImageAlt,
 }: {
@@ -52,14 +44,12 @@ function InvestmentProgrammeCard({
   market: string;
   returns: string;
   strengths: string[];
-  learnMoreHref: string;
-  contactLabel: string;
+  ctaHref: string;
+  ctaLabel: string;
   marketTitle: string;
   marketSource?: string;
   returnsTitle: string;
   strengthsTitle: string;
-  downloadLabel: string;
-  downloadHref: string;
   sideImageSrc: string;
   sideImageAlt: string;
 }) {
@@ -118,16 +108,10 @@ function InvestmentProgrammeCard({
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
-            <Link href={learnMoreHref} className="inline-flex items-center gap-2">
-              {contactLabel}
+            <Link href={ctaHref} className="inline-flex items-center gap-2">
+              {ctaLabel}
               <ArrowRight className="h-4 w-4" />
             </Link>
-          </Button>
-          <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-transparent px-5 text-primary hover:bg-background">
-            <a href={downloadHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-              <Download className="h-4 w-4" />
-              {downloadLabel}
-            </a>
           </Button>
         </div>
       </CardContent>
@@ -143,34 +127,11 @@ export default function Investment() {
   const font = createPageTypography(resolvedSiteCopy, "investment");
   const portfolioBenefits = copy.portfolioBenefits;
   const portfolioTitleLines = splitTitleIntoLines(copy.portfolioTitle);
+  const enquiryButtonLabel = "Enquiry and Information Requests";
   const faqItems = copy.faqQuestions.slice(0, 5).map((question, index) => ({
     question,
     answer: copy.faqAnswers[index] ?? "",
   }));
-
-  const handleCombinedProgrammeDownload = async () => {
-    try {
-      const response = await fetch(combinedTwoPagerPdf, {
-        cache: "no-store",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch combined programme overview.");
-      }
-
-      const blob = await response.blob();
-      const objectUrl = window.URL.createObjectURL(blob);
-      const anchor = document.createElement("a");
-      anchor.href = objectUrl;
-      anchor.download = "GF_combined_two_pager_FINAL.pdf";
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-      window.URL.revokeObjectURL(objectUrl);
-    } catch {
-      window.open(combinedTwoPagerPdf, "_blank", "noopener,noreferrer");
-    }
-  };
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -261,14 +222,12 @@ export default function Investment() {
           market={copy.agarwoodMarketDescription}
           returns={copy.agarwoodReturnsDescription}
           strengths={copy.agarwoodStrengths}
-          learnMoreHref={copy.agarwoodLearnMoreHref}
-          contactLabel={copy.agarwoodContactLabel}
+          ctaHref="/contact"
+          ctaLabel={enquiryButtonLabel}
           marketTitle={copy.agarwoodMarketTitle}
           marketSource="Source: Precedence Research, 2024."
           returnsTitle={copy.agarwoodReturnsTitle}
           strengthsTitle={copy.agarwoodStrengthsTitle}
-          downloadLabel="Request Agarwood exposé"
-          downloadHref={agarwoodRequestFormUrl}
           sideImageSrc={agarwoodChipsImage}
           sideImageAlt="Agarwood chips arranged in a small presentation pile"
         />
@@ -281,13 +240,11 @@ export default function Investment() {
           market={copy.mangoMarketDescription}
           returns={copy.mangoReturnsDescription}
           strengths={copy.mangoStrengths}
-          learnMoreHref={copy.mangoLearnMoreHref}
-          contactLabel={copy.mangoContactLabel}
+          ctaHref="/contact"
+          ctaLabel={enquiryButtonLabel}
           marketTitle={copy.mangoMarketTitle}
           returnsTitle={copy.mangoReturnsTitle}
           strengthsTitle={copy.mangoStrengthsTitle}
-          downloadLabel="Request Mango exposé"
-          downloadHref={mangoRequestFormUrl}
           sideImageSrc={mangoImage}
           sideImageAlt="Ripe mangoes displayed in a small supporting image"
         />
@@ -310,19 +267,9 @@ export default function Investment() {
               {copy.portfolioDescription}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button
-                type="button"
-                className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]"
-                onClick={() => {
-                  void handleCombinedProgrammeDownload();
-                }}
-              >
-                  <Download className="h-4 w-4" />
-                  {copy.portfolioDownloadLabel}
-              </Button>
-              <Button asChild variant="outline" className="rounded-xl border-primary/30 bg-[#FBFCF7]/55 px-5 text-primary hover:bg-background">
+              <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
                 <Link href="/contact" className="inline-flex items-center gap-2">
-                  {copy.portfolioContactLabel}
+                  {enquiryButtonLabel}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
