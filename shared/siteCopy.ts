@@ -1031,26 +1031,26 @@ Email: office@goldenforests.ai`,
       badge: "Asset Administration",
       title: "Client Services",
       description:
-        "Client services are structured around secure ownership, lifecycle management, and transparent reporting across the full plantation cycle.",
+        "Client services support professional shareholders through regulated onboarding, fund governance, operational visibility, and transparent reporting across the plantation lifecycle.",
     },
-    serviceTitles: ["Individual Tree Tracking", "Professional Reporting"],
+    serviceTitles: ["Sub-Fund Shareholding & Governance", "Professional Reporting"],
     serviceDescriptions: [
-      "Each client receives individually an identified geotagged tree and ownership certificate under sales and management contracts with GPS-verified allocation.",
-      "Reporting frameworks are designed for private and institutional clients requiring annual audited updates and continuous lifecycle visibility.",
+      "Eligible professional clients subscribe through licensed private-placement intermediaries and receive shares in the relevant ring-fenced VCC sub-fund. A share is valued on a tree-equivalent basis but does not convey ownership of an individual tree or other plantation asset.",
+      "Reporting is designed to provide professional shareholders with periodic visibility at sub-fund, planting-block, and biological-asset-pool level, subject to the definitive documents and administrator capabilities.",
     ],
     serviceBullets: [
       [
-        "Identified asset records per client holding",
-        "GPS-geotagged reference location mapping",
-        "Official ownership certificate per allocation",
-        "Digital portal access for all clients",
-        "Ownership can be transferred or inherited",
+        "Subscription Agreement and applicable governing documents",
+        "Evidence of shares issued and entry in the shareholder register",
+        "Licensed fund-manager and administrator oversight",
+        "Ring-fenced accounting for each crop sub-fund",
+        "Share transfers subject to eligibility, approvals, and compliance checks",
       ],
       [
-        "Annual independent plantation reports",
-        "Photo and field progress updates",
-        "GPS-verified replacement tree reporting",
-        "Real-time dashboard and documentation access",
+        "Periodic fund and plantation-operations reports",
+        "Independent audit and field-verification outputs",
+        "Harvest, yield, and material-exception reporting",
+        "Shareholder communications and document access",
       ],
     ],
     visitationTitle: "Client Visitation Programme",
@@ -2271,6 +2271,27 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     return restParts.join(". ").trim();
   });
 
+  const normalizedClientServices = {
+    ...defaultSiteCopy.clientServices,
+    ...(data.clientServices ?? {}),
+    header: {
+      ...defaultSiteCopy.clientServices.header,
+      ...(data.clientServices?.header ?? {}),
+    },
+  };
+  if (
+    normalizedClientServices.serviceTitles[0] === "Individual Tree Tracking" ||
+    normalizedClientServices.header.description ===
+      "Client services are structured around secure ownership, lifecycle management, and transparent reporting across the full plantation cycle."
+  ) {
+    Object.assign(normalizedClientServices, defaultSiteCopy.clientServices, {
+      header: { ...defaultSiteCopy.clientServices.header },
+      serviceTitles: [...defaultSiteCopy.clientServices.serviceTitles],
+      serviceDescriptions: [...defaultSiteCopy.clientServices.serviceDescriptions],
+      serviceBullets: defaultSiteCopy.clientServices.serviceBullets.map((items) => [...items]),
+    });
+  }
+
   const normalizedDisclaimer = sectionNeedsJuly2026Refresh("disclaimer")
     ? { ...defaultSiteCopy.disclaimer }
     : { ...defaultSiteCopy.disclaimer, ...(data.disclaimer ?? {}) };
@@ -2340,14 +2361,7 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
       ...(data.impact ?? {}),
       header: { ...defaultSiteCopy.impact.header, ...(data.impact?.header ?? {}) },
     },
-    clientServices: {
-      ...defaultSiteCopy.clientServices,
-      ...(data.clientServices ?? {}),
-      header: {
-        ...defaultSiteCopy.clientServices.header,
-        ...(data.clientServices?.header ?? {}),
-      },
-    },
+    clientServices: normalizedClientServices,
     mangoProgram: {
       ...defaultSiteCopy.mangoProgram,
       ...(data.mangoProgram ?? {}),

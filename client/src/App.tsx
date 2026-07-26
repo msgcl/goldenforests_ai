@@ -16,6 +16,7 @@ import About from "@/pages/About";
 import Plantation from "@/pages/Plantation";
 import Contact from "@/pages/Contact";
 import PlantationVisit from "@/pages/PlantationVisit";
+import ClientServices from "@/pages/ClientServices";
 import Disclaimer from "@/pages/Disclaimer";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CookiePolicy from "@/pages/CookiePolicy";
@@ -39,6 +40,7 @@ function Router() {
       <Route path="/ai-management" component={Plantation} />
       <Route path="/plantation" component={Plantation} />
       <Route path="/asset-management" component={PlantationVisit} />
+      <Route path="/services" component={ClientServices} />
       <Route path="/disclaimer" component={Disclaimer} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/cookie-policy" component={CookiePolicy} />

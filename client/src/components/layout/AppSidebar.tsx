@@ -5,6 +5,7 @@ import {
   TreePine,
   PhoneCall,
   Palmtree,
+  Handshake,
   type LucideIcon,
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
@@ -45,6 +46,7 @@ const navigationItems: Array<{
   },
   { title: "Precision Farming", url: "/precision-farming", icon: TreePine, matchUrls: ["/precision-farming", "/ai-management", "/plantation"] },
   { title: "Asset Management", url: "/asset-management", icon: Palmtree },
+  { title: "Client & Services", url: "/services", icon: Handshake },
   { title: "Golden Forests Group", url: "/golden-forests-group", icon: Building2, matchUrls: ["/golden-forests-group", "/company-profile"] },
   { title: "Contact", url: "/contact", icon: PhoneCall },
 ];
@@ -168,6 +170,3 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
-
-
-

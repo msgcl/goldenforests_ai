@@ -67,11 +67,26 @@ const pageCatalog: Array<{
   { key: "cookiePolicy", label: "Cookie Policy", eyebrow: "Legal", description: "Cookie policy page content." },
   { key: "investment", label: "Investment", eyebrow: "Investor Summary", description: "Investment hero, programme summaries, portfolio benefits, and FAQ copy." },
   { key: "ecotourism", label: "Asset Management", eyebrow: "Visit Programme", description: "Hero, visit programme copy, Zambales operations, CTA, and the four-image gallery." },
+  { key: "clientServices", label: "Client & Services", eyebrow: "Client Care", description: "Shareholder governance, reporting, visitation, logistics, and itinerary copy." },
   { key: "contact", label: "Contact", eyebrow: "Contact Page", description: "Visible contact labels, contact details, and office information." },
   { key: "plantation", label: "Precision Farming", eyebrow: "Operations", description: "Hero, intelligence, risk, environmental, and transparency copy." },
 ];
 
 const editableFieldPathsByPage: Partial<Record<SiteCopyPageKey, string[]>> = {
+  clientServices: [
+    "header.badge",
+    "header.title",
+    "header.description",
+    "serviceTitles",
+    "serviceDescriptions",
+    "serviceBullets",
+    "visitationTitle",
+    "visitationDescription",
+    "logisticsTitle",
+    "logisticsDescription",
+    "itineraryTitle",
+    "itineraryDescription",
+  ],
   home: [
     "heroTitle",
     "heroParagraphs",
