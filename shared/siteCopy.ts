@@ -605,13 +605,13 @@ export const defaultSiteCopy: SiteCopy = {
       "Request Agarwood exposé",
       "Request Mango exposé",
       "View FAQ Document",
-      "View Business Prospectus",
+      "Request Business Prospectus",
     ],
     resourceHrefs: [
       "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r",
       "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv",
       "/GF-FAQ-July-2026.pdf",
-      "/GF-Business-Prospectus-July-2026.pdf",
+      "/contact",
     ],
   },
   about: {
@@ -1817,16 +1817,20 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
       return "View FAQ Document";
     }
 
+    if (label === "View Business Prospectus") {
+      return "Request Business Prospectus";
+    }
+
     return label;
   }).filter((label) => label !== "Download Investment Overview");
-  if (!normalizedContact.resourceLabels.includes("View Business Prospectus")) {
-    normalizedContact.resourceLabels.push("View Business Prospectus");
+  if (!normalizedContact.resourceLabels.includes("Request Business Prospectus")) {
+    normalizedContact.resourceLabels.push("Request Business Prospectus");
   }
   const contactResourceHrefByLabel = new Map<string, string>([
     ["Request Agarwood exposé", "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r"],
     ["Request Mango exposé", "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv"],
     ["View FAQ Document", "/GF-FAQ-July-2026.pdf"],
-    ["View Business Prospectus", "/GF-Business-Prospectus-July-2026.pdf"],
+    ["Request Business Prospectus", "/contact"],
   ]);
   normalizedContact.resourceHrefs = normalizedContact.resourceLabels.map(
     (label, index) => contactResourceHrefByLabel.get(label) ?? normalizedContact.resourceHrefs?.[index] ?? "/contact",

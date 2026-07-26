@@ -52,6 +52,13 @@ function resolveResourceLabel(label: string) {
     return "View FAQ Document";
   }
 
+  if (
+    normalizedLabel === "view business prospectus" ||
+    normalizedLabel === "request business prospectus"
+  ) {
+    return "Request Business Prospectus";
+  }
+
   return label;
 }
 
@@ -228,6 +235,19 @@ export default function Contact() {
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {copy.resourceLabels.map((label, index) => {
                   const resolvedLabel = resolveResourceLabel(label);
+                  if (resolvedLabel === "Request Business Prospectus") {
+                    return (
+                      <Button
+                        key={label}
+                        type="button"
+                        variant="outline"
+                        className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white"
+                      >
+                        {resolvedLabel}
+                      </Button>
+                    );
+                  }
+
                   const href =
                     resolvedLabel === "Request Agarwood exposé"
                       ? agarwoodRequestFormUrl
