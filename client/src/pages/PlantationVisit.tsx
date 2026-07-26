@@ -31,7 +31,7 @@ export default function PlantationVisit() {
 
   return (
     <AnimatedPage className="pt-6 md:pt-8">
-      <section className="overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
+      <section className="light-surface overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F3E9D6_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
         <OptimizedImage
           src={plantationVisitHeroImage}
           alt="Workers on the plantation in a warm, human setting"
@@ -52,7 +52,7 @@ export default function PlantationVisit() {
       </section>
 
       <section className="mt-10">
-        <Card className="border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E8D2_100%)] shadow-sm">
+        <Card className="light-surface border-[#C8A070]/24 bg-[linear-gradient(135deg,#F7F3EA_0%,#EFE4CF_100%)] shadow-sm">
           <CardContent className="p-6 md:p-8">
             <div className="max-w-4xl">
               <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -61,7 +61,7 @@ export default function PlantationVisit() {
               <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
                 {plantationCopy.overviewTitle}
               </h2>
-              <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+              <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#C8A070] sm:text-[1rem]">
                 {plantationCopy.overviewDescription}
               </p>
               {overviewParagraphs.map((paragraph) => (

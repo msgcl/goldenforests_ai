@@ -11,6 +11,7 @@ import { AppFooter } from "@/components/layout/AppFooter";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 import Home from "@/pages/Home";
 import Investment from "@/pages/Investment";
+import { AgarwoodInvestment, MangoInvestment } from "@/pages/InvestmentCropPages";
 import About from "@/pages/About";
 import Plantation from "@/pages/Plantation";
 import Contact from "@/pages/Contact";
@@ -30,6 +31,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/home" component={Home} />
       <Route path="/investment" component={Investment} />
+      <Route path="/investment/agarwood" component={AgarwoodInvestment} />
+      <Route path="/investment/mango" component={MangoInvestment} />
       <Route path="/golden-forests-group" component={About} />
       <Route path="/company-profile" component={About} />
       <Route path="/precision-farming" component={Plantation} />
@@ -63,11 +66,11 @@ function App() {
           </main>
         ) : (
           <SidebarProvider defaultOpen={true} style={sidebarStyle}>
-            <div className="relative flex h-dvh min-h-dvh w-full overflow-x-hidden bg-background">
+            <div className="relative flex h-dvh min-h-dvh w-full overflow-x-hidden bg-[#092722]">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.08),transparent_38%)]" />
               <AppSidebar />
               <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden">
-                <header className="sticky top-0 z-50 border-b border-accent/20 bg-background/92 px-3 py-2.5 backdrop-blur-xl sm:px-6 sm:py-3">
+                <header className="sticky top-0 z-50 border-b border-accent/20 bg-[#092722]/92 px-3 py-2.5 backdrop-blur-xl sm:px-6 sm:py-3">
                   <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 sm:flex-wrap sm:gap-4">
                     <div className="flex min-w-0 items-center gap-3">
                       <SidebarTrigger
@@ -79,7 +82,7 @@ function App() {
                           <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6 w-6 object-contain sm:h-6.5 sm:w-6.5" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="font-serif text-[0.72rem] leading-tight text-accent sm:text-[1rem]">
+                          <p className="font-serif text-[0.72rem] leading-tight text-[#F7F3EA] sm:text-[1rem]">
                             Golden Forests Agroforestry Intelligence
                           </p>
                         </div>

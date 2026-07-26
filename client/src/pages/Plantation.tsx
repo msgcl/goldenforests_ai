@@ -84,7 +84,7 @@ export default function Plantation() {
 
   return (
     <AnimatedPage className="pt-6 md:pt-8">
-      <section className="overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
+      <section className="light-surface overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F3E9D6_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
         <OptimizedImage
           src={operationsHeroImage}
           alt="Golden Forests drone and agroforestry intelligence operations"
@@ -104,8 +104,8 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#6B8E23]/18 bg-[#7F9E62] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
-        <div className="max-w-4xl rounded-[1.45rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-5 shadow-sm sm:p-6">
+      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/18 bg-[#F3E9D6] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+        <div className="max-w-4xl rounded-[1.45rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-5 shadow-sm sm:p-6">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.intelligenceSectionTitle}
           </h2>
@@ -119,7 +119,7 @@ export default function Plantation() {
             const Icon = intelligenceIcons[index] ?? Leaf;
 
             return (
-              <Card key={title} className="border-[#C8A070]/24 bg-[#F4E8D2] shadow-sm">
+              <Card key={title} className="border-[#C8A070]/24 bg-[#F3E9D6] shadow-sm">
                 <CardContent className="p-6">
                   <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <Icon className="h-5 w-5" />
@@ -136,8 +136,8 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#6B8E23]/18 bg-[#7F9E62] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
-        <div className="max-w-4xl rounded-[1.45rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-5 shadow-sm sm:p-6">
+      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/18 bg-[#F3E9D6] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+        <div className="max-w-4xl rounded-[1.45rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-5 shadow-sm sm:p-6">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.riskSectionTitle}
           </h2>
@@ -146,7 +146,7 @@ export default function Plantation() {
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {riskManagementItems.map(({ title, tagline, description }) => (
-            <Card key={title} className="border-[#C8A070]/24 bg-[#F4E8D2] shadow-sm">
+            <Card key={title} className="border-[#C8A070]/24 bg-[#F3E9D6] shadow-sm">
               <CardContent className="p-6">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <ShieldCheck className="h-5 w-5" />
@@ -162,13 +162,13 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-6 shadow-sm sm:p-8">
+      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.environmentalSectionTitle}
           </h2>
           {environmentalSectionSubtitle ? (
-            <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#6B8E23] sm:text-[1rem]">
+            <p className="mt-4 max-w-3xl text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#C8A070] sm:text-[1rem]">
               {environmentalSectionSubtitle}
             </p>
           ) : null}
@@ -187,7 +187,7 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F4E8D2] p-6 shadow-sm sm:p-8">
+      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Trees className="h-5 w-5" />
@@ -226,7 +226,7 @@ export default function Plantation() {
                 <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
-            <Button asChild variant="outline" className="rounded-xl border-[#17392E]/25 bg-[#FBFCF7] px-6 text-[#17392E] hover:bg-[#F4E8D2]">
+            <Button asChild variant="outline" className="rounded-xl border-[#17392E]/25 bg-[#FBFCF7] px-6 text-[#17392E] hover:bg-[#F3E9D6]">
               <Link href={copy.transparencySecondaryCtaHref} className="inline-flex items-center gap-2">
                 {copy.transparencySecondaryCtaLabel}
                 <ArrowRight className="h-4 w-4" />

@@ -796,7 +796,7 @@ export function WebsiteCopyEditor({
                                                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#17392E]/12 bg-white/55 font-serif text-2xl text-[#17392E] shadow-sm">
                                                   {initials}
                                                 </div>
-                                                <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6B8E23]">
+                                                <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C8A070]">
                                                   Photo placeholder
                                                 </p>
                                               </div>

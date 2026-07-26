@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <AnimatedPage className="pt-6 md:pt-8">
-      <section className="overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.18),transparent_30%),linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_65%,#EBD4A5_100%)] text-[#2D5016] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
+      <section className="overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.18),transparent_30%),linear-gradient(135deg,#F7F3EA_0%,#F7F3EA_65%,#EFE4CF_100%)] text-[#17392E] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
         <OptimizedImage
           src={plantationHeroImage}
           alt="Golden Forests plantation landscape in Zambales province"
@@ -58,10 +58,10 @@ export default function Home() {
         />
         <div className="px-5 py-8 sm:px-8 md:px-10 lg:px-12 lg:py-12">
           <div className="max-w-5xl">
-            <h1 className={font("heroTitle", "max-w-[14ch] break-words font-serif text-[clamp(1.85rem,6.4vw,2.55rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016] sm:max-w-none")}>
+            <h1 className={font("heroTitle", "max-w-[14ch] break-words font-serif text-[clamp(1.85rem,6.4vw,2.55rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#17392E] sm:max-w-none")}>
               {copy.heroTitle}
             </h1>
-            <div className={font("heroParagraphs", "mt-5 max-w-4xl space-y-4 text-[0.95rem] leading-8 text-[#2D5016]/86 sm:mt-6 sm:text-[1rem]")}>
+            <div className={font("heroParagraphs", "mt-5 max-w-4xl space-y-4 text-[0.95rem] leading-8 text-[#17392E]/86 sm:mt-6 sm:text-[1rem]")}>
               {copy.heroParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -70,7 +70,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="w-full rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820] sm:w-auto sm:px-7"
+                className="w-full rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40] sm:w-auto sm:px-7"
               >
                 <Link href="/investment" className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
                   {copy.primaryCtaLabel}
@@ -84,27 +84,27 @@ export default function Home() {
 
       <section
         id="investment-pathways"
-        className="mt-10 rounded-[1.9rem] border border-[#6B8E23]/18 bg-[#7F9E62] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8"
+        className="light-surface mt-10 rounded-[1.9rem] border border-[#C8A070]/18 bg-[#F3E9D6] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8"
       >
         <div className="mb-6 max-w-none">
-          <h2 className="font-serif text-[1.5rem] leading-tight text-[#F6F0DE] sm:text-[1.75rem] lg:whitespace-nowrap lg:text-[2rem]">
+          <h2 className="font-serif text-[1.5rem] leading-tight text-[#17392E] sm:text-[1.75rem] lg:whitespace-nowrap lg:text-[2rem]">
             {copy.investmentSectionTitle}
           </h2>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
           {investmentOpportunities.map(({ title, description, enquiryHref, icon: Icon }) => (
-            <Card key={title} className="border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
+            <Card key={title} className="border-[#C8A070]/24 bg-[#F7F3EA] shadow-sm">
               <CardContent className="p-6">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-4 font-serif text-[1.6rem] text-[#2D5016]">{title}</h3>
-                <p className="mt-4 text-[0.97rem] leading-8 text-[#2D5016]">
+                <h3 className="mt-4 font-serif text-[1.6rem] text-[#17392E]">{title}</h3>
+                <p className="mt-4 text-[0.97rem] leading-8 text-[#17392E]">
                   {description}
                 </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Button asChild className="rounded-xl bg-[#2D5016] px-5 text-[#FBFCF7] hover:bg-[#3b6820]">
+                  <Button asChild className="rounded-xl bg-[#17392E] px-5 text-[#FBFCF7] hover:bg-[#214C40]">
                     <Link href={enquiryHref} className="inline-flex items-center gap-2">
                       {enquiryButtonLabel}
                       <ArrowRight className="h-4 w-4" />
@@ -121,21 +121,21 @@ export default function Home() {
         {valuePillars.map(({ title, tagline, bullets }, index) => {
           const Icon = pillarIcons[index] ?? Leaf;
           return (
-          <Card key={title} className="h-full border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
+          <Card key={title} className="h-full border-[#C8A070]/24 bg-[#F7F3EA] shadow-sm">
             <CardContent className="flex h-full p-6 md:p-7">
               <div className="flex flex-col gap-5">
                 <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h2 className={font("pillarTitles", "font-serif text-[1.65rem] font-semibold leading-tight text-[#2D5016]")}>{title}</h2>
-                  <p className={font("pillarDescriptions", "mt-4 whitespace-pre-line text-[0.98rem] font-medium uppercase tracking-[0.28em] text-[#6B8E23] sm:text-[1rem]")}>
+                  <h2 className={font("pillarTitles", "font-serif text-[1.65rem] font-semibold leading-tight text-[#17392E]")}>{title}</h2>
+                  <p className={font("pillarDescriptions", "mt-4 whitespace-pre-line text-[0.98rem] font-medium uppercase tracking-[0.28em] text-[#C8A070] sm:text-[1rem]")}>
                     {tagline}
                   </p>
-                  <ul className="mt-4 space-y-3 text-[0.98rem] leading-7 text-[#2D5016]/84">
+                  <ul className="mt-4 space-y-3 text-[0.98rem] leading-7 text-[#17392E]/84">
                     {bullets.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-3">
-                        <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#6B8E23]" />
+                        <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C8A070]" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -147,22 +147,22 @@ export default function Home() {
         )})}
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F4E4C1] p-6 shadow-sm sm:p-8">
+      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F7F3EA] p-6 shadow-sm sm:p-8">
         <div className="mb-6 max-w-4xl">
-          <h2 className="font-serif text-[1.6rem] leading-tight text-[#2D5016] sm:text-[2rem]">
+          <h2 className="font-serif text-[1.6rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.credibilityTitle}
           </h2>
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#2D5016]/84 sm:text-[1rem]">
+          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84 sm:text-[1rem]">
             {copy.credibilityEyebrow}
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           {credibilityPartners.map(({ logo, logoAlt, name, leadLine, bodyLine }) => (
-            <Card key={name} className="border-[#C8A070]/24 bg-[#F4E4C1] shadow-sm">
+            <Card key={name} className="border-[#C8A070]/24 bg-[#F7F3EA] shadow-sm">
               <CardContent className="p-5">
                 <div className="flex items-start gap-4">
-                  <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-[#C8A070]/35 bg-[#F4E8D2] p-2">
+                  <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-[#C8A070]/35 bg-[#F3E9D6] p-2">
                     <OptimizedImage
                       src={logo}
                       alt={logoAlt}
@@ -172,10 +172,10 @@ export default function Home() {
                   </div>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <div className="flex min-h-14 items-center">
-                      <h3 className="text-[1rem] font-semibold leading-snug text-[#2D5016]">{name}</h3>
+                      <h3 className="text-[1rem] font-semibold leading-snug text-[#17392E]">{name}</h3>
                     </div>
-                    <p className="mt-4 text-sm leading-7 text-[#2D5016]/84">
-                      <span className="mb-3 block text-[0.98rem] font-semibold uppercase tracking-[0.1em] text-[#2D5016]">
+                    <p className="mt-4 text-sm leading-7 text-[#17392E]/84">
+                      <span className="mb-3 block text-[0.98rem] font-semibold uppercase tracking-[0.1em] text-[#17392E]">
                         {leadLine}
                       </span>
                       {bodyLine}
@@ -188,13 +188,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F7F3EA_0%,#F7F3EA_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
         <div className="mx-auto max-w-4xl text-center">
-          <p className={font("missionStatement", "font-serif text-[1.3rem] leading-tight text-[#2D5016] sm:text-[1.65rem] lg:text-[1.95rem]")}>
+          <p className={font("missionStatement", "font-serif text-[1.3rem] leading-tight text-[#17392E] sm:text-[1.65rem] lg:text-[1.95rem]")}>
             {copy.missionStatement}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+            <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40]">
               <Link href="/contact" className={font("missionCtaLabel", "inline-flex items-center gap-2")}>
                 {copy.missionCtaLabel}
                 <ArrowRight className="h-4 w-4" />

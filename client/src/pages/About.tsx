@@ -69,7 +69,7 @@ export default function About() {
 
   return (
     <AnimatedPage>
-      <section className="mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
+      <section className="light-surface mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F3E9D6_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
         <OptimizedImage
           src={aboutHeroImage}
           alt="Plantation landscape with local workers and community context"
@@ -106,7 +106,7 @@ export default function About() {
 
       <section className="mb-8">
         <div className="mb-5 max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#F7F3EA]">
             {copy.uspSectionTitle}
           </h2>
         </div>
@@ -133,18 +133,18 @@ export default function About() {
 
       <section className="mb-8">
         <div className="mb-5 max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">{copy.commitmentSectionTitle}</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#F7F3EA]">{copy.commitmentSectionTitle}</h2>
         </div>
         <div className="grid gap-4 xl:grid-cols-3">
           {commitmentColumns.map((column) => (
-            <Card key={column.title} className="border-[#6B8E23]/18 bg-[#7F9E62] shadow-[0_18px_40px_rgba(23,57,46,0.1)]">
+            <Card key={column.title} className="light-surface border-[#C8A070]/18 bg-[#F3E9D6] shadow-[0_18px_40px_rgba(23,57,46,0.1)]">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-[#F6F0DE]">{column.title}</h3>
+                <h3 className="text-xl font-semibold text-[#17392E]">{column.title}</h3>
                 <div className="mt-5 space-y-5">
                   {column.items.map((item) => (
                     <div key={item.title}>
-                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#F6F0DE]">{item.title}</p>
-                      <p className="mt-2 text-sm leading-7 text-[#F6F0DE]/90">{item.description}</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#17392E]">{item.title}</p>
+                      <p className="mt-2 text-sm leading-7 text-[#17392E]/90">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -156,7 +156,7 @@ export default function About() {
 
       <section className="mb-8">
         <div className="mb-5 max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">{copy.leadershipSectionTitle}</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#F7F3EA]">{copy.leadershipSectionTitle}</h2>
         </div>
         <div className="grid gap-4 xl:grid-cols-3">
           {leadershipTeam.map((person) => (
@@ -177,7 +177,7 @@ export default function About() {
                           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#17392E]/12 bg-white/55 font-serif text-2xl text-[#17392E] shadow-sm">
                             {getInitials(person.name)}
                           </div>
-                          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6B8E23]">
+                          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#C8A070]">
                             Profile Photo
                           </p>
                         </div>
@@ -197,7 +197,7 @@ export default function About() {
 
       <section className="mb-8">
         <div className="mb-5 max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">{copy.boardSectionTitle}</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#F7F3EA]">{copy.boardSectionTitle}</h2>
         </div>
         <div className="grid gap-4 xl:grid-cols-3">
           {boardDirectors.map((person) => (
@@ -218,7 +218,7 @@ export default function About() {
                           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#17392E]/12 bg-white/55 font-serif text-2xl text-[#17392E] shadow-sm">
                             {getInitials(person.name)}
                           </div>
-                          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6B8E23]">
+                          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#C8A070]">
                             Profile Photo
                           </p>
                         </div>

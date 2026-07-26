@@ -7,7 +7,7 @@ import "./index.css";
 initAnalytics();
 
 createRoot(document.getElementById("root")!).render(
-  <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" enableSystem={false}>
+  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
     <App />
   </ThemeProvider>,
 );

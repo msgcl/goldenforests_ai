@@ -74,17 +74,17 @@ function InvestmentProgrammeCard({
         </div>
 
         <div className="mt-6 grid gap-4 xl:grid-cols-2">
-          <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
+          <div className="light-surface rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{marketTitle}</p>
             <p className="mt-3 text-sm leading-7 text-foreground/80">{market}</p>
           </div>
-          <div className="rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
+          <div className="light-surface rounded-[1.35rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
             <p className="text-base font-semibold leading-snug text-primary">{returnsTitle}</p>
             <p className="mt-3 text-sm leading-7 text-foreground/80">{returns}</p>
           </div>
         </div>
 
-        <div className="mt-6 rounded-[1.5rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
+        <div className="light-surface mt-6 rounded-[1.5rem] border border-[#C8A070]/30 bg-[#FBFCF7]/70 p-5 shadow-[0_10px_24px_rgba(23,57,46,0.05)]">
           <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <ShieldCheck className="h-5 w-5" />
           </div>
@@ -100,7 +100,7 @@ function InvestmentProgrammeCard({
         </div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
+          <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#214C40]">
             <Link href={ctaHref} className="inline-flex items-center gap-2">
               {ctaLabel}
               <ArrowRight className="h-4 w-4" />
@@ -176,28 +176,28 @@ export default function Investment() {
           sizes="100vw"
           className="h-[280px] w-full object-cover sm:h-[360px] lg:h-[460px]"
         />
-        <div className="bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.18),transparent_30%),linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_65%,#EBD4A5_100%)] px-6 py-10 text-[#2D5016] sm:px-8 md:px-10 lg:px-12 lg:py-12">
+        <div className="bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.18),transparent_30%),linear-gradient(135deg,#F7F3EA_0%,#F7F3EA_65%,#EFE4CF_100%)] px-6 py-10 text-[#17392E] sm:px-8 md:px-10 lg:px-12 lg:py-12">
           <div className="max-w-5xl">
-            <h1 className={font("header.title", "font-serif text-[clamp(2rem,3.4vw,3.05rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#2D5016]")}>
+            <h1 className={font("header.title", "font-serif text-[clamp(2rem,3.4vw,3.05rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#17392E]")}>
               {copy.header.title}
             </h1>
-            <p className={font("header.description", "mt-5 max-w-4xl text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23] sm:text-[0.9rem]")}>
+            <p className={font("header.description", "mt-5 max-w-4xl text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#C8A070] sm:text-[0.9rem]")}>
               {copy.header.description}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+              <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40]">
                 <a href="#agarwood" className="inline-flex items-center gap-2">
                   Agarwood
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
-              <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+              <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40]">
                 <a href="#mango" className="inline-flex items-center gap-2">
                   Mango
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
-              <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+              <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40]">
                 <a href="#diversification" className="inline-flex items-center gap-2">
                   Combined Programme
                   <ArrowRight className="h-4 w-4" />
@@ -244,7 +244,7 @@ export default function Investment() {
 
       <section
         id="diversification"
-        className="mb-8 scroll-mt-24 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-8"
+        className="light-surface mb-8 scroll-mt-24 rounded-[1.9rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#F7F3EA_0%,#F7F3EA_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.08)] sm:p-8"
       >
         <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
           <div>
@@ -259,7 +259,7 @@ export default function Investment() {
               {copy.portfolioDescription}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#3b6820]">
+              <Button asChild className="rounded-xl bg-primary px-5 text-primary-foreground hover:bg-[#214C40]">
                 <Link href="/contact" className="inline-flex items-center gap-2">
                   {enquiryButtonLabel}
                   <ArrowRight className="h-4 w-4" />
@@ -315,8 +315,8 @@ export default function Investment() {
         </Card>
       </section>
 
-      <section className="mb-8 rounded-[1.6rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F6ECD6_100%)] p-6 shadow-[0_16px_34px_rgba(23,57,46,0.08)] sm:p-7">
-        <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]">
+      <section className="light-surface mb-8 rounded-[1.6rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F6ECD6_100%)] p-6 shadow-[0_16px_34px_rgba(23,57,46,0.08)] sm:p-7">
+        <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#C8A070]">
           Important Notice
         </p>
         <p className="mt-4 text-sm leading-7 text-foreground/80 sm:text-[0.96rem]">
@@ -324,13 +324,13 @@ export default function Investment() {
         </p>
       </section>
 
-      <section className="mb-8 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F4E4C1_0%,#F4E4C1_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
+      <section className="light-surface mb-8 rounded-[1.8rem] border border-[#C8A070]/26 bg-[linear-gradient(135deg,#F7F3EA_0%,#F7F3EA_100%)] p-6 shadow-[0_18px_40px_rgba(23,57,46,0.1)] sm:p-8">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="font-serif text-[1.3rem] leading-tight text-[#2D5016] sm:text-[1.65rem] lg:text-[1.95rem]">
+          <p className="font-serif text-[1.3rem] leading-tight text-[#17392E] sm:text-[1.65rem] lg:text-[1.95rem]">
             Professional plantation operations. Structured investor reporting.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Button asChild className="rounded-xl bg-[#2D5016] px-6 text-[#FBFCF7] hover:bg-[#3b6820]">
+            <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40]">
               <Link href="/plantation" className="inline-flex items-center gap-2">
                 Explore our plantation operations
                 <ArrowRight className="h-4 w-4" />

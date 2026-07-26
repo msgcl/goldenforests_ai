@@ -106,7 +106,7 @@ export default function Contact() {
 
   return (
     <AnimatedPage className="pt-6 md:pt-8">
-      <section className="mb-10 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
+      <section className="light-surface mb-10 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F3E9D6_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
         <OptimizedImage
           src={contactHeroImage}
           alt="People in a plantation setting"
@@ -127,7 +127,7 @@ export default function Contact() {
       </section>
 
       <div className="max-w-6xl space-y-6">
-        <Card className="border-[#D8C9B1] bg-[linear-gradient(180deg,#F6EFE2_0%,#EFE4CF_100%)] shadow-[0_24px_54px_rgba(88,65,32,0.12)]">
+        <Card className="light-surface border-[#D8C9B1] bg-[linear-gradient(180deg,#F6EFE2_0%,#EFE4CF_100%)] shadow-[0_24px_54px_rgba(88,65,32,0.12)]">
           <CardContent className="p-5 md:p-7">
             <h2 className={font("formTitle", "mb-2 text-3xl text-[#6F4E2C] md:text-4xl")}>{copy.formTitle}</h2>
             <p className={font("formDescription", "mb-6 max-w-full text-sm leading-relaxed text-[#6A5A44] break-words")}>
@@ -168,8 +168,8 @@ export default function Contact() {
 
         <div className="space-y-5">
           <div className="max-w-3xl">
-            <h3 className={font("detailsTitle", "text-2xl font-semibold text-foreground")}>{copy.detailsTitle}</h3>
-            <p className={font("detailsDescription", "mt-2 text-sm leading-relaxed text-muted-foreground")}>
+            <h3 className={font("detailsTitle", "text-2xl font-semibold text-[#F7F3EA]")}>{copy.detailsTitle}</h3>
+            <p className={font("detailsDescription", "mt-2 text-sm leading-relaxed text-[#D0DBD2]")}>
               {copy.detailsDescription}
             </p>
           </div>
@@ -222,7 +222,7 @@ export default function Contact() {
             </a>
           </div>
 
-          <Card className="border-[#D8C9B1] bg-[linear-gradient(180deg,#F6EFE2_0%,#EFE4CF_100%)] shadow-[0_24px_54px_rgba(88,65,32,0.12)]">
+          <Card className="light-surface border-[#D8C9B1] bg-[linear-gradient(180deg,#F6EFE2_0%,#EFE4CF_100%)] shadow-[0_24px_54px_rgba(88,65,32,0.12)]">
             <CardContent className="p-5 md:p-7">
               <h3 className={font("resourcesTitle", "text-2xl font-semibold text-[#6F4E2C]")}>{copy.resourcesTitle}</h3>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

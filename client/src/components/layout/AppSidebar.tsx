@@ -5,6 +5,7 @@ import {
   TreePine,
   PhoneCall,
   Palmtree,
+  type LucideIcon,
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import {
@@ -15,6 +16,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { OptimizedImage } from "@/components/ui/optimized-media";
@@ -22,9 +26,23 @@ import { OptimizedImage } from "@/components/ui/optimized-media";
 const goldenForestsLogo =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1776227031/golden-forests/sidebar-brand-logo-20260415.png";
 
-const navigationItems = [
+const navigationItems: Array<{
+  title: string;
+  url: string;
+  icon: LucideIcon;
+  matchUrls?: string[];
+  subItems?: Array<{ title: string; url: string }>;
+}> = [
   { title: "Home", url: "/home", icon: Home },
-  { title: "Investment", url: "/investment", icon: Sprout },
+  {
+    title: "Investment",
+    url: "/investment",
+    icon: Sprout,
+    subItems: [
+      { title: "Agarwood", url: "/investment/agarwood" },
+      { title: "Mango", url: "/investment/mango" },
+    ],
+  },
   { title: "Precision Farming", url: "/precision-farming", icon: TreePine, matchUrls: ["/precision-farming", "/ai-management", "/plantation"] },
   { title: "Asset Management", url: "/asset-management", icon: Palmtree },
   { title: "Golden Forests Group", url: "/golden-forests-group", icon: Building2, matchUrls: ["/golden-forests-group", "/company-profile"] },
@@ -34,6 +52,7 @@ const navigationItems = [
 export function AppSidebar() {
   const [location] = useLocation();
   const { isMobile, setOpenMobile } = useSidebar();
+
   const isItemActive = (url: string, external?: boolean, matchUrls?: string[]) => {
     if (external) return false;
     const candidates = matchUrls?.length ? matchUrls : [url];
@@ -45,7 +64,7 @@ export function AppSidebar() {
   return (
     <Sidebar variant="inset" className="bg-transparent">
       <SidebarHeader className="border-b border-[#C8A070]/40 p-4">
-        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#3A6420] px-3 py-5 shadow-inner shadow-black/10">
+        <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#17392E] px-3 py-5 shadow-inner shadow-black/10">
           <Link href="/home" className="inline-flex flex-col items-center justify-center gap-3 text-center">
             <OptimizedImage
               src={goldenForestsLogo}
@@ -72,7 +91,7 @@ export function AppSidebar() {
               <SidebarMenuButton
                 asChild
                 isActive={isItemActive(item.url, false, "matchUrls" in item ? item.matchUrls : undefined)}
-                className="my-0 h-auto overflow-visible rounded-xl transition-all hover:bg-[#3A6420] data-[active=true]:bg-[#3A6420] data-[active=true]:shadow-sm [&>span:last-child]:whitespace-normal [&>span:last-child]:break-words [&>span:last-child]:text-wrap"
+                className="my-0 h-auto overflow-visible rounded-xl transition-all hover:bg-[#17392E] data-[active=true]:bg-[#17392E] data-[active=true]:shadow-sm [&>span:last-child]:whitespace-normal [&>span:last-child]:break-words [&>span:last-child]:text-wrap"
               >
                 <Link
                   href={item.url}
@@ -89,6 +108,31 @@ export function AppSidebar() {
                   </span>
                 </Link>
               </SidebarMenuButton>
+              {item.subItems ? (
+                <SidebarMenuSub className="border-[#C8A070]/35">
+                  {item.subItems.map((subItem) => (
+                    <SidebarMenuSubItem key={subItem.title}>
+                      <SidebarMenuSubButton
+                        asChild
+                        isActive={location === subItem.url}
+                        className="h-8 rounded-lg text-[#D0DBD2] hover:bg-[#17392E] hover:text-[#F7F3EA] data-[active=true]:bg-[#17392E] data-[active=true]:text-[#C8A070]"
+                      >
+                        <Link
+                          href={subItem.url}
+                          onClick={() => {
+                            if (isMobile) {
+                              setOpenMobile(false);
+                            }
+                          }}
+                        >
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#C8A070]" />
+                          <span>{subItem.title}</span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  ))}
+                </SidebarMenuSub>
+              ) : null}
             </SidebarMenuItem>
           ))}
         </SidebarMenu>
@@ -97,7 +141,7 @@ export function AppSidebar() {
             href="https://cadi-website.onrender.com/"
             target="_blank"
             rel="noreferrer"
-            className="group block rounded-[1.25rem] border border-[#C8A070]/65 bg-[linear-gradient(145deg,#355E1F_0%,#284617_52%,#213813_100%)] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_10px_18px_rgba(0,0,0,0.12)] transition-all duration-200 hover:border-[#E2C18F] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_16px_28px_rgba(0,0,0,0.2)]"
+            className="group block rounded-[1.25rem] border border-[#C8A070]/65 bg-[linear-gradient(145deg,#17392E_0%,#123831_52%,#102F2A_100%)] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_10px_18px_rgba(0,0,0,0.12)] transition-all duration-200 hover:border-[#E2C18F] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_16px_28px_rgba(0,0,0,0.2)]"
             onClick={() => {
               if (isMobile) {
                 setOpenMobile(false);
@@ -124,9 +168,6 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
-
-
-
 
 
 

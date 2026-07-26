@@ -6,59 +6,59 @@
 
 @layer base {
   :root {
-    /* Brand palette from provided guide */
+    /* Exact palette used by goldenforests.ai */
     --background: 72 45.5% 97.8%; /* #FBFCF7 */
     --foreground: 0 0% 10.6%; /* #1B1B1B */
 
     --card: 34 42% 90%;
     --card-foreground: 0 0% 10.6%;
-    --card-border: 33 44.4% 61.2%; /* #C8A070 */
+    --card-border: 33 24% 76%;
 
     --popover: 34 42% 90%;
     --popover-foreground: 0 0% 10.6%;
-    --popover-border: 33 44.4% 61.2%;
+    --popover-border: 33 24% 76%;
 
-    --primary: 93.3 56.3% 20.8%; /* #2D5016 */
+    --primary: 170 62.5% 9.4%; /* #092722 */
     --primary-foreground: 72 45.5% 97.8%;
-    --primary-border: hsl(93.3 56.3% 28%);
+    --primary-border: hsl(170 62.5% 16%);
 
-    --secondary: 79.1 60.2% 34.3%; /* #6B8E23 */
+    --secondary: 161 42.5% 15.7%; /* #17392E */
     --secondary-foreground: 72 45.5% 97.8%;
-    --secondary-border: hsl(79.1 60.2% 40%);
+    --secondary-border: hsl(161 42.5% 24%);
 
     --muted: 72 20% 93%;
     --muted-foreground: 0 0% 35%;
-    --muted-border: hsl(33 44.4% 61.2%);
+    --muted-border: hsl(0 0% 84%);
 
     --accent: 33 44.4% 61.2%; /* #C8A070 Main Accent */
-    --accent-foreground: 93.3 56.3% 20.8%;
+    --accent-foreground: 170 62.5% 9.4%;
     --accent-border: hsl(33 44.4% 50%);
 
     --destructive: 358 71.7% 45.7%; /* #C82127 negative */
     --destructive-foreground: 72 45.5% 97.8%;
     --destructive-border: hsl(358 71.7% 39%);
 
-    --border: 33 44.4% 61.2%;
-    --input: 33 44.4% 61.2%;
+    --border: 0 0% 84%;
+    --input: 0 0% 84%;
     --ring: 33 44.4% 61.2%;
 
     --radius: 0.85rem;
 
-    --sidebar: 93.3 56.3% 20.8%;
-    --sidebar-background: 93.3 56.3% 20.8%;
+    --sidebar: 170 62.5% 9.4%;
+    --sidebar-background: 170 62.5% 9.4%;
     --sidebar-foreground: 72 45.5% 97.8%;
     --sidebar-primary: 33 44.4% 61.2%;
-    --sidebar-primary-foreground: 93.3 56.3% 20.8%;
+    --sidebar-primary-foreground: 170 62.5% 9.4%;
     --sidebar-primary-border: hsl(33 44.4% 50%);
-    --sidebar-accent: 79.1 60.2% 34.3%;
+    --sidebar-accent: 161 42.5% 15.7%;
     --sidebar-accent-foreground: 72 45.5% 97.8%;
-    --sidebar-accent-border: hsl(79.1 60.2% 40%);
-    --sidebar-border: 93.3 28% 32%;
+    --sidebar-accent-border: hsl(161 42.5% 24%);
+    --sidebar-border: 170 30% 24%;
     --sidebar-ring: 33 44.4% 61.2%;
 
     --chart-1: 33 44.4% 61.2%; /* accent */
-    --chart-2: 93.3 56.3% 20.8%; /* main green */
-    --chart-3: 79.1 60.2% 34.3%; /* secondary green */
+    --chart-2: 170 62.5% 9.4%; /* deep teal */
+    --chart-3: 161 42.5% 15.7%; /* secondary teal */
     --chart-4: 151 35.4% 44.3%; /* positive */
     --chart-5: 358 71.7% 45.7%; /* negative */
 
@@ -69,57 +69,57 @@
   }
 
   .dark {
-    --background: 72 45.5% 97.8%; /* #FBFCF7 */
-    --foreground: 0 0% 10.6%; /* #1B1B1B */
+    --background: 170 62.5% 9.4%;
+    --foreground: 72 45.5% 97.8%;
 
-    --card: 41.9 70.6% 86.3%; /* #F4E4C1 */
-    --card-foreground: 0 0% 10.6%;
-    --card-border: 33 44.4% 61.2%; /* #C8A070 */
+    --card: 161 42.5% 15.7%;
+    --card-foreground: 72 45.5% 97.8%;
+    --card-border: 170 24% 22%;
 
-    --popover: 41.9 70.6% 86.3%;
-    --popover-foreground: 0 0% 10.6%;
-    --popover-border: 33 44.4% 61.2%;
+    --popover: 161 42.5% 15.7%;
+    --popover-foreground: 72 45.5% 97.8%;
+    --popover-border: 170 24% 22%;
 
-    --primary: 93.3 56.3% 20.8%; /* #2D5016 */
-    --primary-foreground: 72 45.5% 97.8%;
-    --primary-border: hsl(93.3 56.3% 28%);
+    --primary: 33 44.4% 61.2%;
+    --primary-foreground: 170 62.5% 9.4%;
+    --primary-border: hsl(33 44.4% 50%);
 
-    --secondary: 79.1 60.2% 34.3%; /* #6B8E23 */
+    --secondary: 151 35.4% 44.3%;
     --secondary-foreground: 72 45.5% 97.8%;
-    --secondary-border: hsl(79.1 60.2% 40%);
+    --secondary-border: hsl(151 35.4% 35%);
 
-    --muted: 41.9 52% 90%;
-    --muted-foreground: 0 0% 35%;
-    --muted-border: hsl(33 44.4% 61.2%);
+    --muted: 170 20% 14%;
+    --muted-foreground: 72 18% 72%;
+    --muted-border: hsl(170 16% 24%);
 
     --accent: 33 44.4% 61.2%;
-    --accent-foreground: 93.3 56.3% 20.8%;
+    --accent-foreground: 170 62.5% 9.4%;
     --accent-border: hsl(33 44.4% 50%);
 
     --destructive: 358 71.7% 50%;
     --destructive-foreground: 72 45.5% 97.8%;
     --destructive-border: hsl(358 71.7% 43%);
 
-    --border: 33 44.4% 61.2%;
-    --input: 33 44.4% 61.2%;
+    --border: 170 16% 24%;
+    --input: 170 16% 24%;
     --ring: 33 44.4% 61.2%;
 
-    --sidebar: 93.3 56.3% 20.8%;
-    --sidebar-background: 93.3 56.3% 20.8%;
+    --sidebar: 170 62.5% 9.4%;
+    --sidebar-background: 170 62.5% 9.4%;
     --sidebar-foreground: 72 45.5% 97.8%;
     --sidebar-primary: 33 44.4% 61.2%;
-    --sidebar-primary-foreground: 93.3 56.3% 20.8%;
+    --sidebar-primary-foreground: 170 62.5% 9.4%;
     --sidebar-primary-border: hsl(33 44.4% 50%);
-    --sidebar-accent: 79.1 60.2% 34.3%;
+    --sidebar-accent: 161 42.5% 15.7%;
     --sidebar-accent-foreground: 72 45.5% 97.8%;
-    --sidebar-accent-border: hsl(79.1 60.2% 40%);
-    --sidebar-border: 93.3 28% 32%;
+    --sidebar-accent-border: hsl(161 42.5% 24%);
+    --sidebar-border: 170 16% 24%;
     --sidebar-ring: 33 44.4% 61.2%;
 
     --chart-1: 33 44.4% 61.2%;
     --chart-2: 93.3 56.3% 20.8%;
     --chart-3: 72 45.5% 97.8%;
-    --chart-4: 79.1 60.2% 34.3%;
+    --chart-4: 161 42.5% 15.7%;
     --chart-5: 358 71.7% 50%;
 
   }
@@ -147,8 +147,8 @@
     font-family: var(--font-sans);
     background-image:
       radial-gradient(circle at 8% 0%, rgba(200, 160, 112, 0.14), transparent 28%),
-      radial-gradient(circle at 100% 0%, rgba(200, 160, 112, 0.08), transparent 30%),
-      linear-gradient(180deg, rgba(251, 252, 247, 0.98), rgba(244, 228, 193, 0.68));
+      radial-gradient(circle at 100% 0%, rgba(9, 39, 34, 0.1), transparent 30%),
+      linear-gradient(180deg, rgba(243, 233, 214, 0.98), rgba(238, 228, 209, 0.98));
     background-attachment: fixed;
   }
 
@@ -201,22 +201,36 @@
   .section-surface {
     @apply rounded-[1.6rem] border border-accent/20 bg-card shadow-sm;
     background-image:
-      linear-gradient(180deg, rgba(244, 228, 193, 0.94), rgba(244, 228, 193, 0.98));
+      linear-gradient(180deg, rgba(247, 243, 234, 0.94), rgba(239, 228, 207, 0.98));
   }
 
   .brand-shell {
     @apply rounded-[2rem] border border-accent/20 bg-card shadow-sm;
     background-image:
-      linear-gradient(180deg, rgba(244, 228, 193, 0.94), rgba(244, 228, 193, 0.98));
+      linear-gradient(180deg, rgba(247, 243, 234, 0.94), rgba(239, 228, 207, 0.98));
+  }
+
+  /* Keep semantic text colors dark on every explicitly light surface,
+     including when the surrounding application is in dark mode. */
+  .light-surface {
+    --foreground: 161 42.5% 15.7%;
+    --card-foreground: 161 42.5% 15.7%;
+    --popover-foreground: 161 42.5% 15.7%;
+    --muted-foreground: 0 0% 35%;
+    --primary: 170 62.5% 9.4%;
+    --primary-foreground: 72 45.5% 97.8%;
+    --secondary: 161 42.5% 15.7%;
+    --secondary-foreground: 72 45.5% 97.8%;
+    color: #17392e;
   }
 
   .brand-hero {
     @apply relative overflow-hidden rounded-[2rem] border shadow-xl shadow-black/10;
     border-color: rgba(200, 160, 112, 0.28);
     background:
-      radial-gradient(circle at top left, rgba(200, 160, 112, 0.22), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(200, 160, 112, 0.14), transparent 28%),
-      linear-gradient(135deg, #F4E4C1 0%, #F4E4C1 56%, #EFD9AB 100%);
+      radial-gradient(circle at top left, rgba(200, 160, 112, 0.24), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(73, 153, 114, 0.12), transparent 28%),
+      linear-gradient(135deg, #17392E 0%, #092722 56%, #17392E 100%);
   }
 
   .brand-hero::after {
@@ -230,12 +244,12 @@
   }
 
   .brand-hero-title {
-    color: #2d5016;
-    text-shadow: none;
+    color: #c8a070;
+    text-shadow: 0 1px 0 rgba(9, 39, 34, 0.35);
   }
 
   .brand-hero-copy {
-    color: rgba(45, 80, 22, 0.88);
+    color: rgba(251, 252, 247, 0.84);
   }
 
   .brand-pill {

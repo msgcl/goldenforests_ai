@@ -13,10 +13,10 @@ export function LegalPage({
 }) {
   return (
     <AnimatedPage>
-      <section className="mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F4E8D2_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
+      <section className="light-surface mb-8 overflow-hidden rounded-[2rem] border border-[#C8A070]/24 bg-[linear-gradient(135deg,#FBFCF7_0%,#F3E9D6_100%)] shadow-[0_24px_54px_rgba(23,57,46,0.12)]">
         <div className="px-6 py-10 sm:px-8 md:px-10 lg:px-12 lg:py-12">
           <div className="max-w-4xl">
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#6B8E23]">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#C8A070]">
               Golden Forests Group
             </p>
             <h1 className="mt-3 font-serif text-[1.85rem] leading-tight text-[#17392E] sm:text-[2.45rem] lg:text-[3rem]">
@@ -50,7 +50,7 @@ export function LegalMarkdown({ body }: { body: string }) {
   const flushList = () => {
     if (!listItems.length) return;
     nodes.push(
-      <ul key={`list-${nodes.length}`} className="my-4 list-disc space-y-2 pl-5 text-[#17392E] marker:text-[#6B8E23]">
+      <ul key={`list-${nodes.length}`} className="my-4 list-disc space-y-2 pl-5 text-[#17392E] marker:text-[#C8A070]">
         {listItems.map((item, index) => (
           <li key={`${item}-${index}`}>{item}</li>
         ))}
