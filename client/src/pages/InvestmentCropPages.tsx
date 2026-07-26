@@ -502,14 +502,6 @@ function AgarwoodProgramPage() {
         </article>
       </section>
 
-      <section className="mt-6 rounded-[1.35rem] border border-[#C8A070]/35 bg-[#0F312B] p-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C8A070]">
-          Draft status and important notice
-        </p>
-        <p className="mt-3 text-sm leading-6 text-[#D0DBD2]">
-          This page summarizes current July 2026 professional-client materials. The proposed Singapore VCC structure, service-provider appointments, reserve-control framework, reporting and distribution mechanics, legal and tax treatment, and final financial model remain subject to legal, regulatory, tax, structuring and commercial review. This is not an offer, recommendation or guarantee. Any investment decision must rely only on final definitive documents and independent professional advice.
-        </p>
-      </section>
     </AnimatedPage>
   );
 }
@@ -718,14 +710,6 @@ function MangoProgramSnapshot() {
         </article>
       </section>
 
-      <section className="mt-6 rounded-[1.35rem] border border-[#C8A070]/35 bg-[#0F312B] p-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C8A070]">
-          Draft status and important notice
-        </p>
-        <p className="mt-3 text-sm leading-6 text-[#D0DBD2]">
-          This page summarizes current July 2026 professional-client materials. The proposed Singapore VCC structure, service-provider appointments, reporting framework, cost and distribution mechanics, legal and tax treatment, and final financial model remain subject to legal, regulatory, tax, structuring and commercial review. This is not an offer, recommendation or guarantee. Any investment decision must rely only on final definitive documents and independent professional advice.
-        </p>
-      </section>
     </AnimatedPage>
   );
 }
