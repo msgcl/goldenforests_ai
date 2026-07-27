@@ -1058,7 +1058,7 @@ Email: office@goldenforests.ai`,
       "Golden Forests clients can inspect operations directly through a structured plantation visit program, including curated two-night premium accommodation options including transportation.",
     logisticsTitle: "Logistics",
     logisticsDescription:
-      "Zambales province operations are accessible from Clark, Manila, and Subic corridors, with Clark approximately 1.5 hours away and Manila about 4.5 hours by road, plus onward access from Clark to major island destinations.",
+      "Zambales province operations are accessible from Clark, Manila, and Subic corridors, with Clark approximately 1.5 hours away and Manila about 4.5 hours by road, plus onward access from Clark to major island destinations. Negros province operations are accessible via Manila airport to Bacolod, being 1.5 hours away from the plantation site.",
     itineraryTitle: "Itinerary",
     itineraryDescription:
       "Typical itineraries include nursery review, plantation walkthrough, management briefing, and optional extended travel from Clark.",
@@ -2290,6 +2290,13 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
       serviceDescriptions: [...defaultSiteCopy.clientServices.serviceDescriptions],
       serviceBullets: defaultSiteCopy.clientServices.serviceBullets.map((items) => [...items]),
     });
+  }
+  if (
+    normalizedClientServices.logisticsDescription ===
+    "Zambales province operations are accessible from Clark, Manila, and Subic corridors, with Clark approximately 1.5 hours away and Manila about 4.5 hours by road, plus onward access from Clark to major island destinations."
+  ) {
+    normalizedClientServices.logisticsDescription =
+      defaultSiteCopy.clientServices.logisticsDescription;
   }
 
   const normalizedDisclaimer = sectionNeedsJuly2026Refresh("disclaimer")

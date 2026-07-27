@@ -40,8 +40,8 @@ const agarwoodProgramSnapshot: Array<{
     value: "10% of gross realized sales proceeds",
   },
   {
-    label: "Illustrative 10-Year Net Income / Annualised IRR",
-    value: "USD 416,336 / 17.8%",
+    label: "Illustrative 10-Year Net Income / true IRR",
+    value: "USD 413,114 / 21.3%",
   },
 ];
 
@@ -159,16 +159,16 @@ const mangoProgramSnapshot: Array<{
     value: "Approximately 229 mango shares",
   },
   {
-    label: "Years 5-15 Net Income / Annualised IRR",
-    value: "USD 705,594 / 14.9%",
+    label: "Years 5-15 Net Income / true IRR",
+    value: "USD 639,779 / 24.3%",
   },
   {
-    label: "Years 16-25 Net Income / Annualised IRR",
-    value: "USD 991,677 / 8.4%",
+    label: "Years 16-25 Net Income",
+    value: "USD 1,073,506",
   },
   {
-    label: "25-Year Net Income / Annualised IRR",
-    value: "USD 1,697,271 / 12.3%",
+    label: "25-Year Net Income / true IRR",
+    value: "USD 1,713,285 / 26.5%",
   },
   {
     label: "Replacement Buffer",
