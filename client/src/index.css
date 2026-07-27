@@ -161,6 +161,31 @@
     color: hsl(var(--primary));
   }
 
+  .protected-content {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .protected-content input,
+  .protected-content textarea,
+  .protected-content select,
+  .protected-content [contenteditable="true"] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  .protected-content ::selection {
+    background: transparent;
+    color: inherit;
+  }
+
+  .protected-content img,
+  .protected-content video {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
   img,
   video,
   canvas,
@@ -421,6 +446,21 @@
   50% {
     transform: translateY(5px);
     opacity: 1;
+  }
+}
+
+@media print {
+  .protected-content {
+    display: none !important;
+  }
+
+  body::after {
+    display: block;
+    padding: 3rem;
+    color: #092722;
+    content: "Printing and capture of Golden Forests protected content is not permitted.";
+    font: 600 18px/1.5 "Open Sans", "Segoe UI", sans-serif;
+    text-align: center;
   }
 }
 

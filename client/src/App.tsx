@@ -23,6 +23,7 @@ import CookiePolicy from "@/pages/CookiePolicy";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
 import { OptimizedImage } from "@/components/ui/optimized-media";
+import { ContentProtection } from "@/components/ContentProtection";
 
 function Router() {
   return (
@@ -67,44 +68,46 @@ function App() {
             <Router />
           </main>
         ) : (
-          <SidebarProvider defaultOpen={true} style={sidebarStyle}>
-            <div className="relative flex h-dvh min-h-dvh w-full overflow-x-hidden bg-[#092722]">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.08),transparent_38%)]" />
-              <AppSidebar />
-              <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden">
-                <header className="sticky top-0 z-50 border-b border-accent/20 bg-[#092722]/92 px-3 py-2.5 backdrop-blur-xl sm:px-6 sm:py-3">
-                  <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 sm:flex-wrap sm:gap-4">
-                    <div className="flex min-w-0 items-center gap-3">
-                      <SidebarTrigger
-                        data-testid="button-sidebar-toggle"
-                        className="h-9 w-9 shrink-0 rounded-full border border-accent/25 bg-card text-[#17392E] shadow-sm dark:text-foreground sm:h-10 sm:w-10"
-                      />
-                      <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10">
-                          <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6 w-6 object-contain sm:h-6.5 sm:w-6.5" />
+          <ContentProtection>
+            <SidebarProvider defaultOpen={true} style={sidebarStyle}>
+              <div className="relative flex h-dvh min-h-dvh w-full overflow-x-hidden bg-[#092722]">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,160,112,0.08),transparent_38%)]" />
+                <AppSidebar />
+                <div className="relative flex min-w-0 flex-1 flex-col overflow-hidden">
+                  <header className="sticky top-0 z-50 border-b border-accent/20 bg-[#092722]/92 px-3 py-2.5 backdrop-blur-xl sm:px-6 sm:py-3">
+                    <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 sm:flex-wrap sm:gap-4">
+                      <div className="flex min-w-0 items-center gap-3">
+                        <SidebarTrigger
+                          data-testid="button-sidebar-toggle"
+                          className="h-9 w-9 shrink-0 rounded-full border border-accent/25 bg-card text-[#17392E] shadow-sm dark:text-foreground sm:h-10 sm:w-10"
+                        />
+                        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10">
+                            <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6 w-6 object-contain sm:h-6.5 sm:w-6.5" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="font-serif text-[0.72rem] leading-tight text-[#F7F3EA] sm:text-[1rem]">
+                              Golden Forests Agroforestry Intelligence
+                            </p>
+                          </div>
                         </div>
-                        <div className="min-w-0 flex-1">
-                          <p className="font-serif text-[0.72rem] leading-tight text-[#F7F3EA] sm:text-[1rem]">
-                            Golden Forests Agroforestry Intelligence
-                          </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="hidden items-center rounded-full border border-accent/35 bg-accent/12 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-accent sm:flex">
+                          Powered by Golden Forests
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="hidden items-center rounded-full border border-accent/35 bg-accent/12 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-accent sm:flex">
-                        Powered by Golden Forests
-                      </div>
-                    </div>
-                  </div>
-                </header>
-                <main id="app-scroll-container" className="relative z-10 flex-1 overflow-y-auto overflow-x-hidden scroll-smooth">
-                  <ScrollToTop />
-                  <Router />
-                  <AppFooter />
-                </main>
+                  </header>
+                  <main id="app-scroll-container" className="relative z-10 flex-1 overflow-y-auto overflow-x-hidden scroll-smooth">
+                    <ScrollToTop />
+                    <Router />
+                    <AppFooter />
+                  </main>
+                </div>
               </div>
-            </div>
-          </SidebarProvider>
+            </SidebarProvider>
+          </ContentProtection>
         )}
         <Toaster />
       </TooltipProvider>
