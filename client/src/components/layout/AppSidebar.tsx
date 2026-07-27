@@ -140,9 +140,9 @@ export function AppSidebar() {
         </SidebarMenu>
         <div className="px-3 pt-3">
           <a
-            href="https://cadi-website.onrender.com/"
+            href="https://goldenforests.ph/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="group block rounded-[1.25rem] border border-[#C8A070]/65 bg-[linear-gradient(145deg,#17392E_0%,#123831_52%,#102F2A_100%)] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_10px_18px_rgba(0,0,0,0.12)] transition-all duration-200 hover:border-[#E2C18F] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_16px_28px_rgba(0,0,0,0.2)]"
             onClick={() => {
               if (isMobile) {
