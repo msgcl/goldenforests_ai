@@ -632,7 +632,7 @@ export const defaultSiteCopy: SiteCopy = {
     ],
     uspSectionTitle: "Built on science, regulation, and measurable stewardship.",
     uspCardTitles: [
-      "140 Years Combined Management Experience",
+      "80 Years Combined Management Experience",
       "Exclusive Cultivation Technology",
       "First-Mover Regulatory Position",
       "Scientific Partnerships",
@@ -705,7 +705,7 @@ export const defaultSiteCopy: SiteCopy = {
     differentiatorsEyebrow: "What Sets Golden Forests Apart",
     differentiatorsTitle: "Built on science, regulation, and measurable stewardship",
     differentiatorTitles: [
-      "140 Years Combined Management Experience",
+      "80 Years Combined Management Experience",
       "Exclusive Cultivation Technology",
       "First-Mover Regulatory Position",
       "Scientific Partnerships",
@@ -1861,10 +1861,16 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     normalizedAbout.header = { ...defaultSiteCopy.about.header };
   }
   normalizedAbout.uspCardTitles = normalizedAbout.uspCardTitles.map((title) =>
-    title === "80+ Years Combined Management Experience" ? "140 Years Combined Management Experience" : title,
+    title === "80+ Years Combined Management Experience" ||
+    title === "140 Years Combined Management Experience"
+      ? "80 Years Combined Management Experience"
+      : title,
   );
   normalizedAbout.differentiatorTitles = normalizedAbout.differentiatorTitles.map((title) =>
-    title === "80+ Years Combined Management Experience" ? "140 Years Combined Management Experience" : title,
+    title === "80+ Years Combined Management Experience" ||
+    title === "140 Years Combined Management Experience"
+      ? "80 Years Combined Management Experience"
+      : title,
   );
 
   const legacyAboutCommitmentItemTitles = [
