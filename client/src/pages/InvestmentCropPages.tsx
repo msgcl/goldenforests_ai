@@ -3,7 +3,6 @@ import {
   CalendarRange,
   ChartNoAxesCombined,
   Landmark,
-  ListChecks,
   ShieldAlert,
   Sprout,
 } from "lucide-react";
@@ -42,67 +41,6 @@ const agarwoodProgramSnapshot: Array<{
   {
     label: "Illustrative 10-Year Net Income / true IRR",
     value: "USD 413,114 / 21.3%",
-  },
-];
-
-const agarwoodInitialUseOfProceeds = [
-  {
-    category: "Plantable seedling",
-    amount: "USD 30.00",
-    purpose: "Importation and approximately ten months of nursery propagation.",
-  },
-  {
-    category: "Capex",
-    amount: "USD 9.99",
-    purpose: "Land lease, planting and maintenance allocation.",
-  },
-  {
-    category: "Maintenance",
-    amount: "USD 5.94",
-    purpose: "Drip irrigation, farm equipment, transport and plantation protection.",
-  },
-  {
-    category: "Management, payroll and overhead",
-    amount: "USD 24.00",
-    purpose: "Ten-year operating allocation, including stated escalation assumptions.",
-  },
-  {
-    category: "Plantation service fee",
-    amount: "USD 30.38",
-    purpose: "Current base-case allocation equal to 15% of plantation costs, including reserve pricing.",
-  },
-  {
-    category: "Annual audit",
-    amount: "USD 0.87",
-    purpose: "Audit, certification, verification and reporting support for Years 1–10.",
-  },
-  {
-    category: "Capital transaction costs",
-    amount: "USD 27.43",
-    purpose: "Current base-case transaction-cost allocation.",
-  },
-];
-
-const agarwoodReserveUseOfProceeds = [
-  {
-    category: "Inoculation",
-    amount: "USD 42.35",
-    purpose: "Two litres of inoculation formula plus labour for Years 7–8.",
-  },
-  {
-    category: "Harvesting",
-    amount: "USD 19.05",
-    purpose: "Harvesting into logs and related logistics for Years 9–10.",
-  },
-  {
-    category: "Extraction",
-    amount: "USD 95.20",
-    purpose: "Manual extraction of oud wood chips during Years 9–10.",
-  },
-  {
-    category: "Packaging and logistics",
-    amount: "USD 16.50",
-    purpose: "Cleaning, packaging, certification, customs and security for Years 9–10.",
   },
 ];
 
@@ -173,44 +111,6 @@ const mangoProgramSnapshot: Array<{
   {
     label: "Replacement Buffer",
     value: "1,600 trees (20% of the 8,000-tree launch inventory)",
-  },
-];
-
-const mangoUseOfProceeds = [
-  {
-    category: "Plantable seedling",
-    amount: "USD 40.00",
-    purpose: "Ten months of nursery propagation and grafting.",
-  },
-  {
-    category: "Establishment and maintenance",
-    amount: "USD 201.50",
-    purpose: "Twenty-five-year land lease plus planting and maintenance for Years 1–9.",
-  },
-  {
-    category: "Capital expenditure",
-    amount: "USD 24.50",
-    purpose: "Irrigation and land-preparation equipment.",
-  },
-  {
-    category: "Plantation service fee",
-    amount: "USD 39.90",
-    purpose: "Current base-case allocation equal to 15% of plantation cost.",
-  },
-  {
-    category: "Management, payroll and overhead",
-    amount: "USD 89.00",
-    purpose: "Ten-year operating allocation, including stated escalation assumptions.",
-  },
-  {
-    category: "Initial audit and reporting",
-    amount: "USD 2.69",
-    purpose: "Pre-harvest inventory, establishment verification and reporting support for Years 1–4.",
-  },
-  {
-    category: "Capital transaction costs",
-    amount: "USD 39.49",
-    purpose: "Current base-case transaction-cost allocation.",
   },
 ];
 
@@ -336,73 +236,6 @@ function AgarwoodProgramPage() {
             No additional investor capital calls are contemplated under the current base case. Any extraordinary funding, reserve adjustment or distribution remains subject to the final governance process and definitive documents.
           </p>
         </article>
-      </section>
-
-      <section className="mt-6 rounded-[1.5rem] border border-[#2A5646] bg-[#123831] p-5 sm:p-6">
-        <div className="flex items-start gap-3">
-          <ListChecks className="mt-0.5 h-5 w-5 shrink-0 text-[#C8A070]" />
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C8A070]">
-              Subscription allocation
-            </p>
-            <h2 className="mt-2 font-serif text-2xl text-[#F7F3EA]">
-              Illustrative use of proceeds per share
-            </h2>
-          </div>
-        </div>
-
-        <div className="mt-5 grid gap-5 xl:grid-cols-2">
-          <div className="overflow-hidden rounded-xl border border-[#2A5646]">
-            <div className="bg-[#0F312B] px-4 py-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#C8A070]">
-                Initial investment share pricing
-              </p>
-            </div>
-            <div className="divide-y divide-[#2A5646]">
-              {agarwoodInitialUseOfProceeds.map((item) => (
-                <div key={item.category} className="bg-[#0F312B]/45 px-4 py-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <p className="text-sm font-semibold text-[#F7F3EA]">{item.category}</p>
-                    <p className="shrink-0 text-sm font-semibold text-[#C8A070]">{item.amount}</p>
-                  </div>
-                  <p className="mt-2 text-sm leading-6 text-[#D0DBD2]">{item.purpose}</p>
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center justify-between gap-4 border-t border-[#C8A070]/35 bg-[#0F312B] px-4 py-4">
-              <span className="text-sm font-semibold text-[#F7F3EA]">Initial subtotal</span>
-              <span className="text-base font-bold text-[#C8A070]">USD 128.61</span>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-xl border border-[#2A5646]">
-            <div className="bg-[#0F312B] px-4 py-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#C8A070]">
-                Segregated Years 7–10 reserve
-              </p>
-            </div>
-            <div className="divide-y divide-[#2A5646]">
-              {agarwoodReserveUseOfProceeds.map((item) => (
-                <div key={item.category} className="bg-[#0F312B]/45 px-4 py-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <p className="text-sm font-semibold text-[#F7F3EA]">{item.category}</p>
-                    <p className="shrink-0 text-sm font-semibold text-[#C8A070]">{item.amount}</p>
-                  </div>
-                  <p className="mt-2 text-sm leading-6 text-[#D0DBD2]">{item.purpose}</p>
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center justify-between gap-4 border-t border-[#C8A070]/35 bg-[#0F312B] px-4 py-4">
-              <span className="text-sm font-semibold text-[#F7F3EA]">Reserve subtotal</span>
-              <span className="text-base font-bold text-[#C8A070]">USD 173.10</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-5 flex flex-col gap-2 rounded-xl border border-[#C8A070]/35 bg-[#0F312B] px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <span className="text-sm font-semibold text-[#F7F3EA]">Total per-tree equivalent</span>
-          <span className="text-lg font-bold text-[#C8A070]">USD 301.71</span>
-        </div>
       </section>
 
       <section className="mt-6 rounded-[1.5rem] border border-[#2A5646] bg-[#123831] p-5 sm:p-6">
@@ -602,43 +435,6 @@ function MangoProgramSnapshot() {
             Distributions are not automatic or guaranteed. Timing and amount depend on realized sales, fund liquidity, operating requirements, applicable law and the definitive governing documents.
           </p>
         </article>
-      </section>
-
-      <section className="mt-6 rounded-[1.5rem] border border-[#2A5646] bg-[#123831] p-5 sm:p-6">
-        <div className="flex items-start gap-3">
-          <ListChecks className="mt-0.5 h-5 w-5 shrink-0 text-[#C8A070]" />
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C8A070]">
-              Year 0 allocation
-            </p>
-            <h2 className="mt-2 font-serif text-2xl text-[#F7F3EA]">
-              Illustrative use of proceeds per share
-            </h2>
-          </div>
-        </div>
-        <div className="mt-5 overflow-hidden rounded-xl border border-[#2A5646]">
-          <div className="hidden grid-cols-[minmax(0,0.8fr)_8rem_minmax(0,1.25fr)] gap-4 bg-[#0F312B] px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#C8A070] md:grid">
-            <span>Category</span>
-            <span>Per share</span>
-            <span>Illustrative purpose</span>
-          </div>
-          <div className="divide-y divide-[#2A5646]">
-            {mangoUseOfProceeds.map((item) => (
-              <div
-                key={item.category}
-                className="grid gap-2 bg-[#0F312B]/45 px-4 py-4 md:grid-cols-[minmax(0,0.8fr)_8rem_minmax(0,1.25fr)] md:gap-4"
-              >
-                <p className="text-sm font-semibold text-[#F7F3EA]">{item.category}</p>
-                <p className="text-sm font-semibold text-[#C8A070]">{item.amount}</p>
-                <p className="text-sm leading-6 text-[#D0DBD2]">{item.purpose}</p>
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center justify-between gap-4 border-t border-[#C8A070]/35 bg-[#0F312B] px-4 py-4">
-            <span className="text-sm font-semibold text-[#F7F3EA]">Total per-tree equivalent</span>
-            <span className="text-base font-bold text-[#C8A070]">USD 437.08</span>
-          </div>
-        </div>
       </section>
 
       <section className="mt-6 rounded-[1.5rem] border border-[#2A5646] bg-[#123831] p-5 sm:p-6">
