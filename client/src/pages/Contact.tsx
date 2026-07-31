@@ -7,6 +7,12 @@ import { useEffect, useRef, useState } from "react";
 import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
 import { createPageTypography } from "@/lib/siteTypography";
+import {
+  COOKIE_CONSENT_UPDATED_EVENT,
+  openCookiePreferences,
+  readCookieConsent,
+  type CookieConsent,
+} from "@/lib/cookieConsent";
 
 const PIPEDRIVE_FORM_URL =
   "https://webforms.pipedrive.com/f/ccFXKfVy5hM7bSUc7TncVRQZb2ZjziEa2mp80r9GPdeGh6WdNUurWsIIM6eEqUZGH9";
@@ -69,11 +75,27 @@ export default function Contact() {
   const font = createPageTypography(resolvedSiteCopy, "contact");
   const formContainerRef = useRef<HTMLDivElement | null>(null);
   const [isFormLoading, setIsFormLoading] = useState(true);
+  const [functionalCookiesAllowed, setFunctionalCookiesAllowed] = useState(
+    () => readCookieConsent()?.functional === true,
+  );
   const fallbackResourceHrefs = [agarwoodRequestFormUrl, mangoRequestFormUrl, faqDocumentUrl];
 
   useEffect(() => {
+    const updateConsent = (event: Event) => {
+      const nextConsent = (event as CustomEvent<CookieConsent>).detail;
+      setFunctionalCookiesAllowed(nextConsent.functional);
+    };
+
+    window.addEventListener(COOKIE_CONSENT_UPDATED_EVENT, updateConsent);
+    return () => window.removeEventListener(COOKIE_CONSENT_UPDATED_EVENT, updateConsent);
+  }, []);
+
+  useEffect(() => {
     const container = formContainerRef.current;
-    if (!container) return;
+    if (!container || !functionalCookiesAllowed) {
+      setIsFormLoading(false);
+      return;
+    }
 
     setIsFormLoading(true);
     container.innerHTML = "";
@@ -109,7 +131,7 @@ export default function Contact() {
       window.clearTimeout(timeout);
       container.innerHTML = "";
     };
-  }, []);
+  }, [functionalCookiesAllowed]);
 
   return (
     <AnimatedPage className="pt-6 md:pt-8">
@@ -142,7 +164,25 @@ export default function Contact() {
             </p>
             <div className="contact-pipedrive-frame">
               <div className="contact-pipedrive-shell mx-auto w-full max-w-[820px]">
-                {isFormLoading ? (
+                {!functionalCookiesAllowed ? (
+                  <div className="rounded-2xl border border-[#8A673E]/20 bg-[#FBFCF7]/75 p-6 text-center">
+                    <h3 className="font-serif text-xl text-[#6F4E2C]">Enable the enquiry form</h3>
+                    <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-[#6A5A44]">
+                      The form is provided by Pipedrive and is blocked until you allow
+                      third-party functionality. You can change this choice at any time.
+                    </p>
+                    <div className="mt-4 flex flex-col justify-center gap-2 sm:flex-row">
+                      <Button type="button" onClick={openCookiePreferences}>
+                        Manage cookie preferences
+                      </Button>
+                      <Button asChild type="button" variant="outline">
+                        <a href={PIPEDRIVE_FORM_URL} target="_blank" rel="noreferrer">
+                          Open form on Pipedrive
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                ) : isFormLoading ? (
                   <div className="contact-pipedrive-loading">
                     <div className="contact-pipedrive-loading-panel">
                       <LoaderCircle className="h-6 w-6 animate-spin text-[#8A673E]" />
@@ -165,7 +205,9 @@ export default function Contact() {
                 ) : null}
                 <div
                   ref={formContainerRef}
-                  className={`pipedriveWebForms min-h-[420px] transition-opacity duration-500 ${isFormLoading ? "opacity-0" : "opacity-100"}`}
+                  className={`pipedriveWebForms transition-opacity duration-500 ${
+                    functionalCookiesAllowed ? "min-h-[420px]" : "hidden"
+                  } ${isFormLoading ? "opacity-0" : "opacity-100"}`}
                   data-pd-webforms={PIPEDRIVE_FORM_URL}
                 />
               </div>

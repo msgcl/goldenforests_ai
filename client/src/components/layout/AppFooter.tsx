@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { openCookiePreferences } from "@/lib/cookieConsent";
 
 export function AppFooter() {
   const year = new Date().getFullYear();
@@ -33,6 +34,13 @@ export function AppFooter() {
             <Link href="/cookie-policy" className="text-[#F7F3EA] transition-colors hover:text-white">
               Cookie Policy
             </Link>
+            <button
+              type="button"
+              onClick={openCookiePreferences}
+              className="text-left text-[#F7F3EA] transition-colors hover:text-white"
+            >
+              Cookie Preferences
+            </button>
             <Link href="/contact" className="text-[#F7F3EA] transition-colors hover:text-white">
               Contact
             </Link>

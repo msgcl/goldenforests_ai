@@ -523,6 +523,8 @@ export type SiteCopy = z.infer<typeof siteCopySchema>;
 
 const defaultSiteCopyUpdatedAt = "2026-07-20T00:00:00.000Z";
 const july2026ContentCutoff = Date.parse(defaultSiteCopyUpdatedAt);
+const cookieConsentCopyUpdatedAt = "2026-07-31T00:00:00.000Z";
+const cookieConsentCopyCutoff = Date.parse(cookieConsentCopyUpdatedAt);
 const removedSweetElenaCultivationRightsLine = "Golden Forests holds exclusive cultivation rights to Sweet Elena.";
 export const defaultSiteCopy: SiteCopy = {
   typography: {
@@ -855,7 +857,7 @@ To exercise any of these rights, please contact us at office@goldenforests.ai. W
 
 ## 10. Cookies
 Our Site may use cookies and similar tracking technologies to improve your browsing experience and to gather analytical data about how the Site is used. You will be presented with a cookie consent notice when you first visit the Site, through which you can manage your preferences.
-We use Google Analytics 4 and Microsoft Clarity to analyse Site usage. Both platforms process anonymised data to help us understand visitor behaviour and improve the Site. For more information please refer to our Cookie Policy.
+Where configured, we may use analytics tools such as Google Analytics 4, Microsoft Clarity or Hotjar only after you opt in to analytics cookies. For more information please refer to our Cookie Policy.
 
 ## 11. Third Party Links
 Our Site contains a link to our plantation management portal at https://cadi-website.onrender.com/. This Privacy Policy applies only to goldenforests.ai. We are not responsible for the privacy practices of third-party sites and encourage you to review their policies before providing any personal data.
@@ -875,40 +877,33 @@ Email: office@goldenforests.ai`,
   },
   cookiePolicy: {
     title: "Cookie Policy",
-    subtitle: "Last updated: April 2026",
+    subtitle: "Last updated: 31 July 2026",
     body: `## 1. What Are Cookies
 Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work efficiently, to improve the user experience and to provide information to website owners. Cookies do not contain personally identifiable information on their own, though they may be linked to personal data we hold about you in accordance with our Privacy Policy.
 
 ## 2. How We Use Cookies
 Our website at goldenforests.ai uses cookies for the following purposes:
 - To ensure the website functions correctly and pages load as intended
-- To analyse how visitors use the Site so that we can improve it
-- To understand where our visitors are coming from and how they found us
+- With your permission, to analyse how visitors use the Site so that we can improve it
+- With your permission, to understand where our visitors are coming from and how they found us
 - To record your cookie preferences
 We do not use cookies to serve advertising or to track your activity across other websites.
 
 ## 3. Types of Cookies We Use
-We use the following categories of cookies on the Site:
-- Essential Cookies
-- Analytics Cookies
-- Functional Cookies
-These cookies are strictly necessary for the website to function. They cannot be disabled. They include cookies that remember your cookie consent preferences and ensure the site loads correctly.
-We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the Site. These tools collect anonymised data including pages visited, time spent on the Site, traffic sources and device information. This information helps us improve the Site and our content.
-Google Analytics 4 is operated by Google LLC. For more information about how Google uses data collected through its analytics service, please visit www.google.com/policies/privacy/partners.
-Microsoft Clarity is operated by Microsoft Corporation. Clarity uses session recordings and heatmaps to show us how visitors navigate the Site. No personally identifiable information is recorded. For more information please visit privacy.microsoft.com.
-These cookies enable enhanced functionality on the Site, such as remembering your preferences or region. Disabling these cookies may affect your experience.
+Essential cookies are required for the Site to operate securely. The gf_cookie_consent cookie remembers your choices for up to 180 days. The connect.sid cookie supports authenticated administrator sessions for up to 12 hours. These cookies cannot be disabled through our preference panel.
+Analytics cookies are optional and are disabled unless you opt in. Where an analytics service is configured, it may collect information such as pages visited, approximate location, device information, traffic source and time spent on the Site. Supported providers are Google Analytics 4, Microsoft Clarity and Hotjar. The services actually active may change as our measurement configuration changes.
+Functional cookies and similar technologies are optional. If you allow them, the embedded Pipedrive enquiry form can load on the Contact page. If you decline, you can still open the form directly on Pipedrive's website.
 
 ## 4. Third Party Cookies
-Some cookies on our Site are set by third party services. We do not control these cookies and they are subject to the privacy policies of the relevant third parties. Third party cookies currently present on the Site include those from Google Analytics 4 and Microsoft Clarity, as described above.
-We will update this policy if additional third party services are introduced to the Site.
+After you opt in to the relevant category, third-party services may set or access cookies under their own policies. These providers may include Google Analytics 4, Microsoft Clarity, Hotjar and Pipedrive. We block their scripts or embedded content before the relevant permission is granted.
 
 ## 5. Your Cookie Choices
-When you first visit the Site, you will be presented with a cookie consent banner through which you can choose to accept or decline non-essential cookies. You can change your preferences at any time by clearing your browser cookies and revisiting the Site.
+When you first visit the Site, you will be presented with a cookie consent banner through which you can accept all optional cookies, reject them or choose by category. Optional cookies are off unless you make a positive choice to allow them.
+You can change or withdraw your choice at any time using the Cookie Preferences link in the website footer. Withdrawing analytics consent removes analytics cookies accessible to our Site and reloads the page to stop active analytics scripts. A third party may require you to clear cookies set on its own domain through your browser.
 You can also control cookies through your browser settings. Most browsers allow you to refuse cookies, delete existing cookies or be notified when a new cookie is set. Please note that disabling certain cookies may affect the functionality of the Site. For guidance on managing cookies in your browser, please refer to your browser's help documentation.
-To opt out of Google Analytics tracking across all websites, you can install the Google Analytics Opt-out Browser Add-on available at tools.google.com/dlpage/gaoptout.
 
 ## 6. Cookie Retention
-The length of time a cookie remains on your device depends on its type. Session cookies are deleted when you close your browser. Persistent cookies remain on your device for a set period or until you delete them manually. The cookies used by Google Analytics 4 and Microsoft Clarity are persistent and are retained for up to two years.
+The length of time a cookie remains on your device depends on its purpose and provider. Our consent preference is retained for up to 180 days and administrator sessions for up to 12 hours. Optional third-party cookie retention is determined by the relevant provider and may change. You can delete cookies sooner through your browser settings.
 
 ## 7. Changes to This Policy
 We may update this Cookie Policy from time to time to reflect changes in the cookies we use or applicable law. The date at the top of this page will be updated accordingly. We encourage you to review this policy periodically.
@@ -1802,6 +1797,14 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
 
     return !Number.isFinite(parsedUpdatedAt) || parsedUpdatedAt < july2026ContentCutoff;
   };
+  const sectionNeedsCookieConsentRefresh = (
+    section: "privacyPolicy" | "cookiePolicy",
+  ) => {
+    const sectionUpdatedAt = data._meta?.sections?.[section]?.updatedAt ?? data._meta?.updatedAt;
+    const parsedUpdatedAt = Date.parse(sectionUpdatedAt ?? "");
+
+    return !Number.isFinite(parsedUpdatedAt) || parsedUpdatedAt < cookieConsentCopyCutoff;
+  };
 
   const normalizedContact = { ...defaultSiteCopy.contact, ...(data.contact ?? {}) };
   normalizedContact.resourceLabels = (normalizedContact.resourceLabels ?? defaultSiteCopy.contact.resourceLabels).map((label) => {
@@ -2308,6 +2311,12 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const normalizedDisclaimer = sectionNeedsJuly2026Refresh("disclaimer")
     ? { ...defaultSiteCopy.disclaimer }
     : { ...defaultSiteCopy.disclaimer, ...(data.disclaimer ?? {}) };
+  const normalizedPrivacyPolicy = sectionNeedsCookieConsentRefresh("privacyPolicy")
+    ? { ...defaultSiteCopy.privacyPolicy }
+    : { ...defaultSiteCopy.privacyPolicy, ...(data.privacyPolicy ?? {}) };
+  const normalizedCookiePolicy = sectionNeedsCookieConsentRefresh("cookiePolicy")
+    ? { ...defaultSiteCopy.cookiePolicy }
+    : { ...defaultSiteCopy.cookiePolicy, ...(data.cookiePolicy ?? {}) };
   const normalizedFaq = sectionNeedsJuly2026Refresh("faq")
     ? { ...defaultSiteCopy.faq, header: { ...defaultSiteCopy.faq.header } }
     : {
@@ -2322,14 +2331,24 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
         ...(data.nursery ?? {}),
         header: { ...defaultSiteCopy.nursery.header, ...(data.nursery?.header ?? {}) },
       };
-  const refreshedSectionKeys = july2026MigratedSections.filter(sectionNeedsJuly2026Refresh);
+  const refreshedSectionKeys = [
+    ...july2026MigratedSections.filter(sectionNeedsJuly2026Refresh),
+    ...(["privacyPolicy", "cookiePolicy"] as const).filter(
+      sectionNeedsCookieConsentRefresh,
+    ),
+  ];
   const normalizedSectionMeta = {
     ...defaultSiteCopy._meta.sections,
     ...(data._meta?.sections ?? {}),
   };
 
   refreshedSectionKeys.forEach((sectionKey) => {
-    normalizedSectionMeta[sectionKey] = { ...defaultSiteCopy._meta.sections[sectionKey] };
+    normalizedSectionMeta[sectionKey] = {
+      updatedAt:
+        sectionKey === "privacyPolicy" || sectionKey === "cookiePolicy"
+          ? cookieConsentCopyUpdatedAt
+          : defaultSiteCopy._meta.sections[sectionKey].updatedAt,
+    };
   });
   const normalizedMeta: SiteCopy["_meta"] = {
     ...defaultSiteCopy._meta,
@@ -2351,14 +2370,8 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     contact: normalizedContact,
     about: normalizedAbout,
     disclaimer: normalizedDisclaimer,
-    privacyPolicy: {
-      ...defaultSiteCopy.privacyPolicy,
-      ...(data.privacyPolicy ?? {}),
-    },
-    cookiePolicy: {
-      ...defaultSiteCopy.cookiePolicy,
-      ...(data.cookiePolicy ?? {}),
-    },
+    privacyPolicy: normalizedPrivacyPolicy,
+    cookiePolicy: normalizedCookiePolicy,
     compliance: {
       ...defaultSiteCopy.compliance,
       ...(data.compliance ?? {}),

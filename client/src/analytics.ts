@@ -1,3 +1,11 @@
+import {
+  COOKIE_CONSENT_UPDATED_EVENT,
+  readCookieConsent,
+  type CookieConsent,
+} from "./lib/cookieConsent";
+
+let analyticsInitialized = false;
+
 function appendScript(options: {
   id: string;
   src?: string;
@@ -61,30 +69,6 @@ function initMicrosoftClarity(projectId: string) {
   });
 }
 
-function initLinkedInInsightTag(partnerId: string) {
-  appendScript({
-    id: "linkedin-insight-init",
-    inlineText: `
-      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-      window._linkedin_data_partner_ids.push("${partnerId}");
-      (function(l) {
-        if (!l) {
-          window.lintrk = function(a, b) {
-            window.lintrk.q.push([a, b]);
-          };
-          window.lintrk.q = [];
-        }
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript";
-        b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);
-      })(window.lintrk);
-    `,
-  });
-}
-
 function initHotjar(siteId: string, snippetVersion: string) {
   appendScript({
     id: "hotjar-init",
@@ -102,10 +86,12 @@ function initHotjar(siteId: string, snippetVersion: string) {
   });
 }
 
-export function initAnalytics() {
+function loadConfiguredAnalytics() {
+  if (analyticsInitialized) return;
+  analyticsInitialized = true;
+
   const ga4MeasurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID?.trim();
   const clarityProjectId = import.meta.env.VITE_CLARITY_PROJECT_ID?.trim();
-  const linkedInPartnerId = import.meta.env.VITE_LINKEDIN_PARTNER_ID?.trim();
   const hotjarSiteId = import.meta.env.VITE_HOTJAR_SITE_ID?.trim();
   const hotjarSnippetVersion =
     import.meta.env.VITE_HOTJAR_SNIPPET_VERSION?.trim() || "6";
@@ -118,11 +104,20 @@ export function initAnalytics() {
     initMicrosoftClarity(clarityProjectId);
   }
 
-  if (linkedInPartnerId) {
-    initLinkedInInsightTag(linkedInPartnerId);
-  }
-
   if (hotjarSiteId) {
     initHotjar(hotjarSiteId, hotjarSnippetVersion);
   }
+}
+
+export function initAnalytics() {
+  if (readCookieConsent()?.analytics) {
+    loadConfiguredAnalytics();
+  }
+
+  window.addEventListener(COOKIE_CONSENT_UPDATED_EVENT, (event) => {
+    const consent = (event as CustomEvent<CookieConsent>).detail;
+    if (consent.analytics) {
+      loadConfiguredAnalytics();
+    }
+  });
 }

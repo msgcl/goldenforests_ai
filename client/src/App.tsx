@@ -25,6 +25,7 @@ import AdminDashboard from "@/pages/AdminDashboard";
 import { OptimizedImage } from "@/components/ui/optimized-media";
 import { ContentProtection } from "@/components/ContentProtection";
 import { Seo } from "@/components/Seo";
+import { CookieConsentManager } from "@/components/CookieConsent";
 
 function Router() {
   return (
@@ -112,6 +113,7 @@ function App() {
           </ContentProtection>
         )}
         <Toaster />
+        <CookieConsentManager />
       </TooltipProvider>
     </QueryClientProvider>
   );
