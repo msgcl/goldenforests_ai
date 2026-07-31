@@ -39,6 +39,12 @@ app.use(express.urlencoded({ extended: false }));
 
 const legacyRedirectPaths = new Set(["/faq", "/video"]);
 const retiredInvestmentDocumentPaths = new Set(["/gf_combined_two_pager_final.pdf"]);
+const canonicalRedirects = new Map([
+  ["/home", "/"],
+  ["/company-profile", "/golden-forests-group"],
+  ["/precision-farming", "/plantation"],
+  ["/ai-management", "/plantation"],
+]);
 
 app.use((req, res, next) => {
   // Send legacy Wix URLs to the homepage on the current site.
@@ -48,8 +54,17 @@ app.use((req, res, next) => {
     return res.redirect(301, "/");
   }
 
+  const canonicalPath = canonicalRedirects.get(normalizedPath);
+  if (canonicalPath) {
+    return res.redirect(301, canonicalPath);
+  }
+
   if (retiredInvestmentDocumentPaths.has(normalizedPath)) {
     return res.redirect(302, "/contact");
+  }
+
+  if (normalizedPath === "/admin" || normalizedPath.startsWith("/admin/")) {
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
   }
 
   next();
