@@ -39,10 +39,6 @@ const navigationItems: Array<{
     title: "Investment",
     url: "/investment",
     icon: Sprout,
-    subItems: [
-      { title: "Agarwood", url: "/investment/agarwood" },
-      { title: "Mango", url: "/investment/mango" },
-    ],
   },
   { title: "Precision Farming", url: "/precision-farming", icon: TreePine, matchUrls: ["/precision-farming", "/ai-management", "/plantation"] },
   { title: "Asset Management", url: "/asset-management", icon: Palmtree },
