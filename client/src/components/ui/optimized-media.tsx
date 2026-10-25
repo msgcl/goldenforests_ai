@@ -11,7 +11,7 @@ function OptimizedImage({ priority = false, loading, decoding, fetchPriority, dr
     <img
       loading={loading ?? (priority ? "eager" : "lazy")}
       decoding={decoding ?? "async"}
-      fetchPriority={fetchPriority ?? (priority ? "high" : "auto")}
+      {...{ fetchpriority: fetchPriority ?? (priority ? "high" : "auto") }}
       draggable={draggable}
       className={className ? `block ${className}` : "block"}
       {...props}

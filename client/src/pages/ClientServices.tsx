@@ -2,15 +2,13 @@ import {
   CheckCircle2,
   FileChartColumnIncreasing,
   Landmark,
-  MapPinned,
-  Route,
-  UsersRound,
 } from "lucide-react";
 import { AnimatedPage } from "@/components/layout/AnimatedPage";
 import { Card, CardContent } from "@/components/ui/card";
 import { useSiteCopy } from "@/hooks/use-site-copy";
 import { createPageTypography } from "@/lib/siteTypography";
 import { defaultSiteCopy } from "@shared/siteCopy";
+import { Link } from "wouter";
 
 const serviceIcons = [Landmark, FileChartColumnIncreasing];
 
@@ -30,7 +28,7 @@ export default function ClientServices() {
           <h1 className={font("header.title", "mt-4 font-serif text-[2rem] leading-tight text-[#17392E] sm:text-[2.65rem] lg:text-[3.2rem]")}>
             {copy.header.title}
           </h1>
-          <p className={font("header.description", "mt-5 max-w-3xl text-[1rem] leading-8 text-[#17392E]/84 sm:text-[1.08rem]")}>
+          <p className={font("header.description", "mt-5 max-w-3xl text-[1rem] leading-8 text-[#17392E]/[0.84] sm:text-[1.08rem]")}>
             {copy.header.description}
           </p>
         </div>
@@ -53,10 +51,10 @@ export default function ClientServices() {
                 <h2 className={font("serviceTitles", "mt-6 font-serif text-[1.55rem] leading-tight text-[#17392E] sm:text-[1.8rem]")}>
                   {title}
                 </h2>
-                <p className={font("serviceDescriptions", "mt-4 text-[0.96rem] leading-8 text-[#17392E]/82")}>
+                <p className={font("serviceDescriptions", "mt-4 text-[0.96rem] leading-8 text-[#17392E]/[0.82]")}>
                   {copy.serviceDescriptions[index] ?? ""}
                 </p>
-                <ul className={font("serviceBullets", "mt-6 space-y-3 text-sm leading-7 text-[#17392E]/84")}>
+                <ul className={font("serviceBullets", "mt-6 space-y-3 text-sm leading-7 text-[#17392E]/[0.84]")}>
                   {bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-3">
                       <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#8A6744]" />
@@ -64,53 +62,19 @@ export default function ClientServices() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href={index === 0 ? "/investment#participation-options" : "/plantation#investor-transparency"}
+                  className="mt-6 inline-block font-medium text-[#17392E] underline underline-offset-4"
+                >
+                  {index === 0 ? "Explore participation pathways" : "Explore operational reporting"}
+                </Link>
               </CardContent>
             </Card>
           );
         })}
       </section>
 
-      <section className="mt-10 overflow-hidden rounded-[1.8rem] border border-[#2A5646] bg-[#123831] shadow-[0_24px_54px_rgba(0,0,0,0.16)]">
-        <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="border-b border-[#C8A070]/24 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#C8A070]/12 text-[#C8A070]">
-              <UsersRound className="h-7 w-7" />
-            </div>
-            <h2 className={font("visitationTitle", "mt-6 font-serif text-[1.8rem] leading-tight text-[#C8A070] sm:text-[2.1rem]")}>
-              {copy.visitationTitle}
-            </h2>
-            <p className={font("visitationDescription", "mt-4 text-sm leading-7 text-[#D0DBD2] sm:text-[0.96rem]")}>
-              {copy.visitationDescription}
-            </p>
-          </div>
 
-          <div className="grid gap-6 p-6 sm:p-8 md:grid-cols-2 lg:p-10">
-            <div>
-              <div className="flex items-center gap-3">
-                <MapPinned className="h-5 w-5 text-[#C8A070]" />
-                <h3 className={font("logisticsTitle", "text-lg font-semibold text-[#F7F3EA]")}>
-                  {copy.logisticsTitle}
-                </h3>
-              </div>
-              <p className={font("logisticsDescription", "mt-4 text-sm leading-7 text-[#D0DBD2]")}>
-                {copy.logisticsDescription}
-              </p>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-3">
-                <Route className="h-5 w-5 text-[#C8A070]" />
-                <h3 className={font("itineraryTitle", "text-lg font-semibold text-[#F7F3EA]")}>
-                  {copy.itineraryTitle}
-                </h3>
-              </div>
-              <p className={font("itineraryDescription", "mt-4 text-sm leading-7 text-[#D0DBD2]")}>
-                {copy.itineraryDescription}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </AnimatedPage>
   );
 }

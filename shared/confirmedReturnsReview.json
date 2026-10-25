@@ -1,0 +1,21 @@
+[
+  {
+    "section": "investment",
+    "field": "scenarioIrrs",
+    "value": [
+      "Over 20%",
+      "Over 20%",
+      "Over 20%"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioSource",
+    "value": "Source: updated November 2026 Investment and Partnership Opportunities document and Investment and Partnership Overview presentation, with management’s subsequent clarification. IRR wording and proceeds bands are management-stated illustrative scenarios, not independently verified or recalculated. Review the current opportunity-specific financial model during due diligence."
+  },
+  {
+    "section": "investment",
+    "field": "scenarioCashNote",
+    "value": "Each scenario starts with an illustrative USD 100,000 allocation. Net proceeds (total net receipts) include capital recovery after modeled costs and commissions; net gain deducts the initial allocation once. Figures cover the stated horizon, are before participant-specific taxes and are not guaranteed."
+  }
+]

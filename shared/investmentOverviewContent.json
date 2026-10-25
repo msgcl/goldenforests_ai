@@ -1,0 +1,84 @@
+{
+  "scenarioTitle": "Illustrative Projected IRRs",
+  "scenarioIntro": "Philippine crop scenarios for professional and institutional investors, each modeled on an illustrative USD 100,000 allocation. These company-model outcomes are not guaranteed investor returns or subscription terms.",
+  "scenarioNames": [
+    "Agarwood",
+    "Mango",
+    "Combined Scenario"
+  ],
+  "scenarioIrrs": [
+    "21.3%",
+    "24.3%",
+    "22.4%"
+  ],
+  "scenarioHorizons": [
+    "10-year cycle",
+    "15-year cycle",
+    "15-year cycle"
+  ],
+  "scenarioDescriptions": [
+    "Modeled around an agarwood harvest in Years 9–10.",
+    "Modeled annual mango harvests from Year 5.",
+    "Combines different crop maturities to illustrate a more balanced cash-flow profile."
+  ],
+  "scenarioQualification": "Illustrative only—not forecasts, promises or guaranteed returns. Actual outcomes may differ materially and capital may be lost. These Philippine scenarios do not represent Thailand opportunities or fund performance. Investor outcomes depend on the selected structure and definitive documents.",
+  "scenarioSource": "Source: Golden Forests, Investment Opportunities and Participation Overview, November 2026. Figures reproduced from company scenarios; not independently verified.",
+  "scenarioAssumptionsTitle": "Assumptions and sensitivities",
+  "scenarioAssumptions": [
+    "Illustrative allocation: USD 100,000 per scenario. Agarwood uses a 10-year cycle; mango and the combined scenario use 15-year cycles. IRR reflects the timing of modeled cash flows and is not an annual payout.",
+    "Timing: agarwood harvests are modeled in Years 9–10; recurring mango harvests begin in Year 5. Actual survival, fruiting, yields, quality and harvest timing may differ.",
+    "Pricing: the agarwood model starts at USD 775/kg and the mango model at USD 4.00/kg, each escalating at 3% annually. These are modeling assumptions, not secured sale prices.",
+    "Costs: the agarwood model includes reserve funding for inoculation, harvest, extraction and packaging, with a 10% commission on gross harvested income. The mango model deducts packaging, cold storage, export certification, audit and related harvest-period costs, with a 20% commission after applicable deductions.",
+    "Outcomes are sensitive to selling prices, operating and processing costs, commissions, taxes, foreign exchange, regulation, export access, counterparty performance and successful third-party sales. Crop proceeds are not automatically shareholder distributions.",
+    "Review the full financial models and agronomic, operational, market, legal and tax due diligence before making a decision. Request opportunity-specific materials, subject to eligibility, approval and confidentiality requirements."
+  ],
+  "partnershipTitle": "Joint Ventures & Strategic Partnerships",
+  "partnershipDescription": "Golden Forests welcomes established plantation businesses and related industry partners with complementary operations, assets, sector expertise, market access or professional-investor relationships. Tailored partnerships can combine these capabilities with Golden Forests’ agroforestry intelligence and operating platform.",
+  "partnershipPoints": [
+    "Explore collaboration on plantation development, operating capability and commercial routes to market.",
+    "Assess strategic fit, assets, execution capability and opportunity-specific economics through due diligence.",
+    "Agree governance, responsibilities, reporting, risk allocation and exit terms in definitive agreements."
+  ],
+  "regionalTitle": "Regional Scale-Up",
+  "regionalDescription": "Alongside established Philippine operations, Golden Forests is developing regional agarwood scale-up in Thailand through mature-tree opportunities and the Classic seedling-to-harvest model.",
+  "nextStepsTitle": "From Initial Discussion to Participation",
+  "nextSteps": [
+    "Discuss objectives, eligibility, investment horizon and strategic fit.",
+    "Select the relevant company, independent fund, plantation asset or partnership opportunity.",
+    "Review approved due-diligence materials under the appropriate confidentiality arrangements.",
+    "Agree economics, governance, responsibilities, reporting, risk allocation and exit provisions.",
+    "Complete independent professional review and required approvals.",
+    "Proceed only after eligibility and suitability checks and execution of definitive agreements."
+  ],
+  "readinessTitle": "Philippine Operating Readiness",
+  "readinessIntro": "Established Philippine operating base through Crassna Agroforestry Development Incorporated (CADI)",
+  "readinessTitles": [
+    "Nursery Inventory",
+    "Land & Field Preparation",
+    "Technical Capability",
+    "Cultivation Records"
+  ],
+  "readinessDescriptions": [
+    "Agarwood and Dwarf Sweet Elena nursery stock support staged planting.",
+    "Secured land for planting and orchard development.",
+    "Agarwood inoculation licence and a management team in place for implementation.",
+    "Cultivation permits, supporting records and the permissions applicable to the selected Philippine operation."
+  ],
+  "readinessCtaLabel": "Request data-room access",
+  "scenarioNetGains": [
+    "USD 531,649",
+    "USD 548,555",
+    "USD 537,508"
+  ],
+  "scenarioNetReceipts": [
+    "USD 631,649",
+    "USD 648,555",
+    "USD 637,508"
+  ],
+  "scenarioMultiples": [
+    "6.32×",
+    "6.49×",
+    "6.38×"
+  ],
+  "scenarioCashNote": "Each scenario starts with USD 100,000. Net receipts include capital recovery after modeled costs and commissions; net gain deducts the initial allocation once. Figures are before participant-specific taxes and are not guaranteed."
+}

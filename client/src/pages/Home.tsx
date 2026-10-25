@@ -6,7 +6,6 @@ import { OptimizedImage } from "@/components/ui/optimized-media";
 import {
   ArrowRight,
   Leaf,
-  MapPin,
   Sprout,
   Trees,
 } from "lucide-react";
@@ -16,7 +15,6 @@ import { createPageTypography } from "@/lib/siteTypography";
 
 const plantationHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1774850962/golden-forests/plantation-image-home-20260330.jpg";
-const pillarIcons = [Trees, MapPin, Leaf] as const;
 const investmentOpportunityIcons = [Leaf, Trees] as const;
 
 export default function Home() {
@@ -24,17 +22,10 @@ export default function Home() {
   const resolvedSiteCopy = siteCopy ?? defaultSiteCopy;
   const copy = resolvedSiteCopy.home;
   const font = createPageTypography(resolvedSiteCopy, "home");
-  const enquiryButtonLabel = "Enquiry and Information Requests";
-  const valuePillars = copy.pillarTitles.map((title, index) => ({
-    title,
-    tagline: copy.pillarTaglines[index] ?? "",
-    bullets: (copy.pillarBullets ?? []).slice(index * 3, index * 3 + 3),
-  }));
-
   const investmentOpportunities = copy.investmentOpportunityTitles.map((title, index) => ({
     title,
     description: copy.investmentOpportunityDescriptions[index] ?? "",
-    enquiryHref: "/contact",
+    enquiryHref: copy.investmentOpportunityLearnMoreHrefs[index] ?? "/investment",
     icon: investmentOpportunityIcons[index] ?? Leaf,
   }));
 
@@ -61,7 +52,7 @@ export default function Home() {
             <h1 className={font("heroTitle", "max-w-[14ch] break-words font-serif text-[clamp(1.85rem,6.4vw,2.55rem)] font-normal leading-[1.08] tracking-[0.01em] text-[#17392E] sm:max-w-none")}>
               {copy.heroTitle}
             </h1>
-            <div className={font("heroParagraphs", "mt-5 max-w-4xl space-y-4 text-[0.95rem] leading-8 text-[#17392E]/86 sm:mt-6 sm:text-[1rem]")}>
+            <div className={font("heroParagraphs", "mt-5 max-w-4xl space-y-4 text-[0.95rem] leading-8 text-[#17392E]/[0.86] sm:mt-6 sm:text-[1rem]")}>
               {copy.heroParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -77,9 +68,28 @@ export default function Home() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
+              <Button asChild variant="outline" size="lg" className="w-full rounded-xl border-[#17392E]/30 text-[#17392E] sm:w-auto">
+                <Link href="/why-golden-forests">Why Golden Forests <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
             </div>
           </div>
         </div>
+      </section>
+
+      <p className="mt-6 text-sm italic leading-7 text-[#D0DBD2]">
+        Investments are illiquid and may result in loss of capital. Returns and dividends are not guaranteed.{" "}
+        <Link href="/disclaimer" className="underline underline-offset-4">Read Important Information &amp; Risks.</Link>
+      </p>
+
+
+
+      <p className="mt-6 text-sm italic leading-7 text-[#F7F3EA]">Explore the separate <Link href="/crop-economics" className="underline underline-offset-4">Philippine crop economics and model assumptions</Link>. Crop models do not establish investor distribution rights.</p>
+
+      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F7F3EA] p-6 text-[#17392E] sm:p-8">
+        <h2 className="font-serif text-2xl sm:text-3xl">{copy.narrativeEyebrow}</h2>
+        {copy.narrativeParagraphs.map((paragraph) => (
+          <p key={paragraph} className="mt-4 max-w-5xl leading-8">{paragraph}</p>
+        ))}
       </section>
 
       <section
@@ -106,7 +116,7 @@ export default function Home() {
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Button asChild className="rounded-xl bg-[#17392E] px-5 text-[#FBFCF7] hover:bg-[#214C40]">
                     <Link href={enquiryHref} className="inline-flex items-center gap-2">
-                      {enquiryButtonLabel}
+                      {"Explore crop operations"}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
@@ -117,42 +127,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-10 grid gap-4 xl:grid-cols-3">
-        {valuePillars.map(({ title, tagline, bullets }, index) => {
-          const Icon = pillarIcons[index] ?? Leaf;
-          return (
-          <Card key={title} className="h-full border-[#C8A070]/24 bg-[#F7F3EA] shadow-sm">
-            <CardContent className="flex h-full p-6 md:p-7">
-              <div className="flex flex-col gap-5">
-                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h2 className={font("pillarTitles", "font-serif text-[1.65rem] font-semibold leading-tight text-[#17392E]")}>{title}</h2>
-                  <p className={font("pillarDescriptions", "mt-4 whitespace-pre-line text-[0.98rem] font-medium uppercase tracking-[0.28em] text-[#C8A070] sm:text-[1rem]")}>
-                    {tagline}
-                  </p>
-                  <ul className="mt-4 space-y-3 text-[0.98rem] leading-7 text-[#17392E]/84">
-                    {bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-3">
-                        <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#C8A070]" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )})}
-      </section>
-
       <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F7F3EA] p-6 shadow-sm sm:p-8">
         <div className="mb-6 max-w-4xl">
           <h2 className="font-serif text-[1.6rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.credibilityTitle}
           </h2>
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84 sm:text-[1rem]">
+          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/[0.84] sm:text-[1rem]">
             {copy.credibilityEyebrow}
           </p>
         </div>
@@ -174,7 +154,7 @@ export default function Home() {
                     <div className="flex min-h-14 items-center">
                       <h3 className="text-[1rem] font-semibold leading-snug text-[#17392E]">{name}</h3>
                     </div>
-                    <p className="mt-4 text-sm leading-7 text-[#17392E]/84">
+                    <p className="mt-4 text-sm leading-7 text-[#17392E]/[0.84]">
                       <span className="mb-3 block text-[0.98rem] font-semibold uppercase tracking-[0.1em] text-[#17392E]">
                         {leadLine}
                       </span>

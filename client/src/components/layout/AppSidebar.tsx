@@ -4,7 +4,6 @@ import {
   Sprout,
   TreePine,
   PhoneCall,
-  Palmtree,
   Handshake,
   type LucideIcon,
 } from "lucide-react";
@@ -35,21 +34,36 @@ const navigationItems: Array<{
   subItems?: Array<{ title: string; url: string }>;
 }> = [
   { title: "Home", url: "/home", icon: Home },
+  { title: "Why Golden Forests", url: "/why-golden-forests", icon: TreePine },
   {
-    title: "Investment",
+    title: "Investment Opportunities",
     url: "/investment",
     icon: Sprout,
+  },
+  {
+    title: "Crop-specific Pathways",
+    url: "/crop-specific-pathways",
+    icon: Sprout,
+    matchUrls: ["/investment/agarwood", "/investment/mango", "/crop-economics"],
     subItems: [
       { title: "Agarwood", url: "/investment/agarwood" },
       { title: "Mango", url: "/investment/mango" },
+      { title: "Crop Economics", url: "/crop-economics" },
     ],
   },
   { title: "Precision Farming", url: "/precision-farming", icon: TreePine, matchUrls: ["/precision-farming", "/ai-management", "/plantation"] },
-  { title: "Asset Management", url: "/asset-management", icon: Palmtree },
-  { title: "Client & Services", url: "/services", icon: Handshake },
+  { title: "Client Services", url: "/services", icon: Handshake, matchUrls: ["/services", "/visitation-programme", "/asset-management"], subItems: [{ title: "Visitation Programme", url: "/visitation-programme" }] },
   { title: "Golden Forests Group", url: "/golden-forests-group", icon: Building2, matchUrls: ["/golden-forests-group", "/company-profile"] },
   { title: "Contact", url: "/contact", icon: PhoneCall },
 ];
+
+function scrollPageToTop() {
+  document.getElementById("app-scroll-container")?.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+}
 
 export function AppSidebar() {
   const [location] = useLocation();
@@ -60,6 +74,7 @@ export function AppSidebar() {
     const candidates = matchUrls?.length ? matchUrls : [url];
 
     if (url === "/home") return location === "/" || location === "/home";
+    if (url === "/investment") return location === "/investment";
     return candidates.some((candidate) => location === candidate || location.startsWith(`${candidate}/`));
   };
 
@@ -98,7 +113,13 @@ export function AppSidebar() {
                 <Link
                   href={item.url}
                   className="flex items-start gap-2.5 rounded-xl px-3 py-2.5"
-                  onClick={() => {
+                  onClick={(event) => {
+                    if (item.url === "/investment" && location.includes("#")) {
+                        event.preventDefault();
+                        window.history.replaceState(window.history.state, "", "/investment");
+                      }
+                    scrollPageToTop();
+
                     if (isMobile) {
                       setOpenMobile(false);
                     }
@@ -122,6 +143,7 @@ export function AppSidebar() {
                         <Link
                           href={subItem.url}
                           onClick={() => {
+                            scrollPageToTop();
                             if (isMobile) {
                               setOpenMobile(false);
                             }

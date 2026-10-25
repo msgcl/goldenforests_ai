@@ -1,0 +1,785 @@
+[
+  {
+    "section": "contact",
+    "field": "heroDescription",
+    "value": "Discuss our operating businesses and request direct-company investment information."
+  },
+  {
+    "section": "contact",
+    "field": "intro",
+    "value": "Contact our team about plantation operations or direct investment in the relevant operating company. Availability and eligibility are subject to the transaction terms and applicable law."
+  },
+  {
+    "section": "contact",
+    "field": "resourceLabels",
+    "value": [
+      "Agarwood operations",
+      "Mango operations",
+      "Important Information & Risks"
+    ]
+  },
+  {
+    "section": "contact",
+    "field": "resourceHrefs",
+    "value": [
+      "/investment/agarwood",
+      "/investment/mango",
+      "/disclaimer"
+    ]
+  },
+  {
+    "section": "about",
+    "field": "header",
+    "value": {
+      "badge": "Company Overview",
+      "title": "Golden Forests",
+      "description": "Golden Forests develops and manages agroforestry businesses, with agarwood and mango operations in the Philippines."
+    }
+  },
+  {
+    "section": "about",
+    "field": "overviewEyebrow",
+    "value": "Business Development and Stewardship"
+  },
+  {
+    "section": "about",
+    "field": "overviewParagraphs",
+    "value": [
+      "Golden Forests develops and manages agarwood and mango plantation operations in the Philippines. Our approach combines cultivation, operational monitoring and long-term stewardship.",
+      "Direct equity investment provides a shareholding in the issuing operating company. It does not confer direct ownership of individual trees, planting blocks or land. Shareholder rights depend on the share terms, transaction documents and applicable law.",
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "uspCardTitles",
+    "value": [
+      "80 Years Combined Management Experience",
+      "Exclusive Cultivation Technology",
+      "Cultivation and Permitting",
+      "Scientific Partnerships",
+      "AI-Enabled Plantation Intelligence",
+      "Native-Tree Planting Objectives"
+    ]
+  },
+  {
+    "section": "about",
+    "field": "uspCardDescriptions",
+    "value": [
+      "Proven leadership across agroforestry, governance, and emerging-market operations.",
+      "Licensed agarwood inoculation formulas and DNA-verified Thai genetics support premium resin quality and commercial readiness.",
+      "Cultivation activities are subject to applicable permissions. Operational permits do not establish investment approval or protection.",
+      "Research support from PRMSU, VSU, and UPLB strengthens cultivation protocols, elite variety development, and continuous innovation.",
+      "Proprietary monitoring combines drone surveillance, geotagging, and predictive analytics to optimise biological asset performance.",
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "commitmentItemTitles",
+    "value": [
+      [
+        "COMPANY SHAREHOLDING. DEFINED RIGHTS.",
+        "BUSINESS PERFORMANCE AND INVESTMENT RISK."
+      ],
+      [
+        "NATIVE-TREE PLANTING.",
+        "RESPONSIBLE STEWARDSHIP."
+      ],
+      [
+        "EMPLOYMENT ROOTED IN THE COMMUNITY.",
+        "COMMUNITY. PARTNERSHIP. PURPOSE."
+      ]
+    ]
+  },
+  {
+    "section": "about",
+    "field": "commitmentItemDescriptions",
+    "value": [
+      [
+        "Direct equity investment provides a shareholding in the issuing operating company. It does not confer direct ownership of individual trees, planting blocks or land. Shareholder rights depend on the share terms, transaction documents and applicable law.",
+        "Investments are long-term and illiquid. Returns, dividends and repayment of capital are not guaranteed, and investors may lose some or all invested capital. Dividends, if declared, depend on company performance, available cash, reserves, share rights and applicable law. Crop production does not guarantee shareholder income or repayment of capital."
+      ],
+      [
+        "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification.",
+        "Biodiversity, carbon and certification initiatives remain subject to implementation, measurement and independent verification. Preliminary environmental estimates are not certified carbon credits and are not included in the core investor economics."
+      ],
+      [
+        "Our plantations provide stable employment for local communities in Zambales province, with continuous training and career progression opportunities for all employees. Fair wages are aligned with UN Global Compact principles, ensuring that the people who care for our plantations share in their success. We invest in our people with the same long-term commitment we bring to our trees.",
+        "We work collaboratively with local communities, supporting economic development whilst respecting traditional land relationships and cultural practices that have shaped the region for generations. Our operations are designed to create lasting local benefit that extends well beyond direct employment. The prosperity of our plantations belongs to the land and the people that make it possible."
+      ]
+    ]
+  },
+  {
+    "section": "about",
+    "field": "highlightDescriptions",
+    "value": [
+      "Agarwood and mango programmes balance shorter and longer commercial horizons within one structured plantation model.",
+      "Plantation records, field monitoring and company reporting support operational visibility. The scope of any independent audit must be confirmed in the relevant documents.",
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "differentiatorTitles",
+    "value": [
+      "80 Years Combined Management Experience",
+      "Exclusive Cultivation Technology",
+      "Cultivation and Permitting",
+      "Scientific Partnerships",
+      "AI-Enabled Plantation Intelligence",
+      "Native-Tree Planting Objectives"
+    ]
+  },
+  {
+    "section": "about",
+    "field": "differentiatorDescriptions",
+    "value": [
+      "Proven leadership across agroforestry, governance, and emerging-market operations.",
+      "Licensed agarwood inoculation formulas and DNA-verified Thai genetics support premium resin quality and commercial readiness.",
+      "Cultivation activities are subject to applicable permissions. Operational permits do not establish investment approval or protection.",
+      "Research support from PRMSU, VSU, and UPLB strengthens cultivation protocols, elite variety development, and continuous innovation.",
+      "Proprietary monitoring combines drone surveillance, geotagging, and predictive analytics to optimise biological asset performance.",
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "investmentEyebrow",
+    "value": "Our Crops"
+  },
+  {
+    "section": "about",
+    "field": "productValues",
+    "value": [
+      "Crop operations",
+      "Crop operations"
+    ]
+  },
+  {
+    "section": "about",
+    "field": "frameworkItems",
+    "value": [
+      "Agroforestry Intelligence integrates agronomic science, AI-enabled monitoring systems, and structured plantation management across the cultivation lifecycle.",
+      "Zambales province sites are selected through agro-climatic evaluation to optimise growth conditions, land efficiency, and harvest quality.",
+      "Operations focus on plantation traceability, company reporting and long-term stewardship. Shareholders do not acquire direct ownership of specific plantation assets."
+    ]
+  },
+  {
+    "section": "disclaimer",
+    "field": "title",
+    "value": "Important Information & Risks"
+  },
+  {
+    "section": "disclaimer",
+    "field": "subtitle",
+    "value": "Direct company investment and plantation operations"
+  },
+  {
+    "section": "disclaimer",
+    "field": "body",
+    "value": "## Purpose of this website\nThis website provides general information about Golden Forests operating businesses and plantation activities. It does not provide investment, financial, legal or tax advice. Website content alone is not an offer or a commitment to issue shares or enter into a transaction.\n\n## Direct company investment\nAny direct equity transaction is an investment in the identified issuing company. A company share does not confer direct ownership of specific trees, planting blocks, land or other plantation assets. The identity of the issuer, share class, rights, price and transaction terms must be established in the relevant documents before any commitment.\n\n## Eligibility and governing documents\nAvailability, eligibility, minimum investment and jurisdictional restrictions depend on the actual transaction and applicable law. Review the subscription and constitutional documents, share terms, risk disclosures, financial information and any relevant fee arrangements. Definitive transaction documents govern the transaction and prevail over summaries on this website. An enquiry does not constitute a subscription or acceptance.\n\n## Investment risks\n- Loss of some or all invested capital.\n- No guarantee of returns, dividends, distributions, capital appreciation or repayment.\n- Illiquidity, transfer restrictions, long investment horizons and potentially no secondary market.\n- Agricultural, biological, weather, fire, pest, disease and natural-disaster risks.\n- Operational, management, market, commodity-price, logistics and counterparty risks.\n- Land-title, land-use, permitting, regulatory, political and legal risks.\n- Currency, taxation and cross-border investment risks.\n- Valuation uncertainty and delays in development, harvesting, sales or exits.\n- Concentration and private-company risks, including insolvency.\n\n## Business revenues and shareholder outcomes\nHarvest proceeds belong to the relevant business and are not automatically payable to shareholders. Any dividends depend on company performance, available cash, reserves, share rights and applicable law. Plantation records and inspections do not guarantee asset value, title, liquidity or investor returns.\n\n## Forward-looking and environmental statements\nPlans, forecasts and illustrative operating timelines depend on assumptions and actual conditions. They are not guarantees of future results. Environmental objectives, including biodiversity and carbon-related outcomes, require implementation, measurement and verification. No certified carbon credits or certification status should be inferred from an objective or estimate.\n\n## Reporting and third parties\nCompany financial reports, plantation inspections and independent audits serve different purposes. Their availability and scope must be confirmed in the relevant company arrangements. References to research, technical or operational partners do not imply their endorsement of an investment or a guarantee of its results.\n\n## Independent advice\nProspective investors should assess their circumstances, liquidity needs, risk tolerance and investment horizon and obtain independent advice from appropriately qualified financial, legal, tax and accounting professionals. Do not act on this website where doing so would breach applicable law. Accessing this website does not create an advisory relationship, an investment commitment or a waiver of legal rights."
+  },
+  {
+    "section": "technology",
+    "field": "stackDescriptions",
+    "value": [
+      "Our experts evaluate and target the most attractive plantation opportunities in high-value crops in Asia, allowing Golden Forests to build its own premium brands.",
+      "Our project managers secure high-profitable land locations that combine strong yields with positive impact.",
+      "Our plantation management applies best-practice, science-based agronomy and rigorous, sustainable management standards across every site.",
+      "Our proprietary AI platform, combined with precision farming, maximises harvest yields and strengthens decision-making across the plantation lifecycle.",
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+    ]
+  },
+  {
+    "section": "impact",
+    "field": "cardDescriptions",
+    "value": [
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification.",
+      "Operations prioritize local employment and community engagement, with field teams trained on plantation care, monitoring procedures, and responsible production practices."
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "header",
+    "value": {
+      "badge": "Asset Administration",
+      "title": "Client Services",
+      "description": "Information and support for enquiries about the operating company, shareholder documentation and plantation operations."
+    }
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceTitles",
+    "value": [
+      "Company Shareholding & Documentation",
+      "Company and Operational Reporting"
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceDescriptions",
+    "value": [
+      "Direct equity investment provides a shareholding in the issuing operating company. It does not confer direct ownership of individual trees, planting blocks or land. Shareholder rights depend on the share terms, transaction documents and applicable law.",
+      "Reporting arrangements depend on the relevant company documents. Company financial reporting, plantation inspections and independent audits have different scopes and should be assessed separately."
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceBullets",
+    "value": [
+      [
+        "Issuing company and share-class information",
+        "Subscription and shareholder documents, where applicable",
+        "Rights defined by the company documents and applicable law",
+        "Shareholding records following a completed issue",
+        "Transfers subject to the relevant restrictions and approvals"
+      ],
+      [
+        "Company and plantation updates under the agreed reporting arrangements",
+        "Scope and availability of independent audits to be confirmed",
+        "Material operational developments and harvest information",
+        "Shareholder communications and document access as provided in the company documents"
+      ]
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "header",
+    "value": {
+      "badge": "Company Investment",
+      "title": "Direct Company Investment",
+      "description": "Company shareholding. Plantation operations. Long-term business development."
+    }
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodIntroParagraphs",
+    "value": [
+      "Golden Forests develops Aquilaria crassna plantation operations. Agarwood is the resinous wood used in fragrance and incense markets.",
+      "The cultivation process involves nursery propagation, field establishment, crop care and inoculation, followed by assessment of resin development and harvest readiness."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodMarketTitle",
+    "value": "Agarwood markets"
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodMarketDescription",
+    "value": "Commercial outcomes depend on resin quality, buyer demand, trade permissions, processing and achievable sale prices. Cultivation does not guarantee a sale or a particular price."
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodReturnsTitle",
+    "value": "Cultivation and harvest planning"
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodReturnsDescription",
+    "value": "Harvest timing depends on tree development, resin formation, site conditions and operational readiness. Crop harvest proceeds are company revenues and do not establish shareholder returns."
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodStrengthsTitle",
+    "value": "Operational focus"
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodStrengths",
+    "value": [
+      "Nursery and plantation establishment",
+      "Crop-health monitoring and inoculation planning",
+      "Harvest, processing and quality assessment",
+      "Applicable cultivation and trade permissions"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodDownloadLabel",
+    "value": "Explore agarwood operations"
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodDownloadHref",
+    "value": "/investment/agarwood"
+  },
+  {
+    "section": "investment",
+    "field": "mangoIntroParagraphs",
+    "value": [
+      "Golden Forests develops Sweet Elena mango orchard operations, with nursery preparation, planting, crop care and harvest planning.",
+      "Cultivation practices include canopy management, irrigation, nutrition and pest monitoring. Actual production depends on tree maturity, weather, disease pressure and field execution."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "mangoMarketTitle",
+    "value": "Mango markets"
+  },
+  {
+    "section": "investment",
+    "field": "mangoMarketDescription",
+    "value": "Fruit quality, timing, logistics and access to buyers affect commercial results. Domestic and export sales remain subject to market demand and applicable requirements."
+  },
+  {
+    "section": "investment",
+    "field": "mangoReturnsTitle",
+    "value": "Orchard development and production"
+  },
+  {
+    "section": "investment",
+    "field": "mangoReturnsDescription",
+    "value": "Orchard production develops over time and varies by season and site. Harvest volumes and sale prices are not guaranteed, and company revenues are not automatically distributed to shareholders."
+  },
+  {
+    "section": "investment",
+    "field": "mangoStrengthsTitle",
+    "value": "Operational focus"
+  },
+  {
+    "section": "investment",
+    "field": "mangoStrengths",
+    "value": [
+      "Nursery and orchard establishment",
+      "Canopy, water and crop-health management",
+      "Harvest timing and quality control",
+      "Sales and logistics planning"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "mangoDownloadLabel",
+    "value": "Explore mango operations"
+  },
+  {
+    "section": "investment",
+    "field": "mangoDownloadHref",
+    "value": "/investment/mango"
+  },
+  {
+    "section": "investment",
+    "field": "portfolioEyebrow",
+    "value": "Crop Operations"
+  },
+  {
+    "section": "investment",
+    "field": "portfolioTitle",
+    "value": "Two crops. Different operating cycles."
+  },
+  {
+    "section": "investment",
+    "field": "portfolioDescription",
+    "value": "Agarwood and mango involve different cultivation processes and markets. Operating across both crops does not eliminate biological, market, operational, liquidity or regulatory risks."
+  },
+  {
+    "section": "investment",
+    "field": "portfolioBenefits",
+    "value": [
+      "Agarwood requires resin development and harvest assessment.",
+      "Mango involves orchard management and recurring harvest planning.",
+      "Both crops depend on weather, crop health, execution and buyer demand.",
+      "Company share rights determine any participation in business results."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "faqAnswers",
+    "value": [
+      "Availability, investor eligibility and any minimum investment depend on the issuing company, the transaction terms and applicable jurisdictional restrictions. Contact our team for the relevant company information.",
+      "Direct equity investment provides a shareholding in the issuing operating company. It does not confer direct ownership of individual trees, planting blocks or land. Shareholder rights depend on the share terms, transaction documents and applicable law.",
+      "Review the issuing company, share terms, subscription documents, constitutional documents, risk disclosures and available financial information before deciding whether to invest.",
+      "Company costs, any investor charges and distribution terms must be assessed in the relevant transaction documents. Crop sales are company revenues; they are not automatically payable to shareholders.",
+      "Replacement planting, maintenance and any insurance are subject to actual arrangements and conditions. They do not eliminate biological or financial loss."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "faqDocumentLabel",
+    "value": "Read Important Information & Risks"
+  },
+  {
+    "section": "investment",
+    "field": "faqDocumentHref",
+    "value": "/disclaimer"
+  },
+  {
+    "section": "ecotourism",
+    "field": "introParagraphs",
+    "value": [
+      "Explore examples of our plantation operations in Zambales and Negros, Philippines. Visits are subject to site availability, safety requirements and prior arrangements.",
+      "A visit may include guided plantation access, operational briefings and discussions with management or technical teams. The itinerary, hospitality, access and timing are confirmed individually and remain subject to plantation conditions and availability.",
+      "A site visit is provided for operational familiarisation only and does not replace independent legal, financial, tax or operational due diligence."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "heroBadge",
+    "value": "Agroforestry Operations"
+  },
+  {
+    "section": "home",
+    "field": "heroTitle",
+    "value": "Developing and managing agroforestry businesses."
+  },
+  {
+    "section": "home",
+    "field": "heroParagraphs",
+    "value": [
+      "Golden Forests develops and manages agarwood and mango plantation operations in the Philippines. Explore our operating businesses, crop development approach and plantation management capabilities.",
+      "Information about direct investment in the relevant operating company is available on enquiry, subject to eligibility, availability and definitive transaction documents."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "primaryCtaLabel",
+    "value": "Direct Company Investment"
+  },
+  {
+    "section": "home",
+    "field": "narrativeParagraphs",
+    "value": [
+      "Our operating approach combines crop-specific cultivation, plantation monitoring and research collaboration. Operational records support management decisions and company reporting.",
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification.",
+      "Our aim is long-term business development through responsible cultivation and stewardship. Commercial and environmental outcomes are not guaranteed."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarTitles",
+    "value": [
+      "Direct Company Investment",
+      "Plantation Management",
+      "Environmental Objectives"
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarTaglines",
+    "value": [
+      "COMPANY SHARES.\nDEFINED SHARE RIGHTS.\nLONG-TERM PARTICIPATION.",
+      "CROP CULTIVATION.\nOPERATIONAL MONITORING.\nRESEARCH COLLABORATION.",
+      "NATIVE TREES. SOIL AND WATER. BIODIVERSITY."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarDescriptions",
+    "value": [
+      "A shareholding in the issuing operating company.",
+      "Cultivation, monitoring and operational reporting.",
+      "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarBullets",
+    "value": [
+      "Direct equity in the issuing operating company.",
+      "Shares do not convey ownership of specific trees or land.",
+      "Rights and reporting depend on the transaction documents.",
+      "Crop monitoring supports cultivation decisions.",
+      "Soil and water management inform field operations.",
+      "Research collaboration supports cultivation practices.",
+      "Native-tree planting and habitat restoration objectives.",
+      "Biodiversity and resource-management monitoring.",
+      "Environmental claims require measurement and verification."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "differentiatorTitles",
+    "value": [
+      "Cultivation and permitting",
+      "Science-led plantation execution",
+      "Agroforestry Intelligence",
+      "Research collaboration"
+    ]
+  },
+  {
+    "section": "home",
+    "field": "differentiatorDescriptions",
+    "value": [
+      "Cultivation and trade activities require the permissions applicable to each site, crop and market. Operational permits do not establish investor protection or guarantee returns.",
+      "Exclusive inoculation formulas, DNA-aligned cultivation protocols, and university-developed mango dwarfing techniques shape every hectare.",
+      "GPS-referenced plantation records, field observations and monitoring tools support operational visibility. Reporting rights depend on the company documents.",
+      "PRMSU, VSU, and UPLB support continuous refinement of cultivation, productivity, and sustainable agroforestry innovation."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "investmentSectionEyebrow",
+    "value": "Our Crops"
+  },
+  {
+    "section": "home",
+    "field": "investmentSectionTitle",
+    "value": "Crop-specific operations with different harvest horizons."
+  },
+  {
+    "section": "home",
+    "field": "investmentOpportunityDescriptions",
+    "value": [
+      "Aquilaria crassna cultivation involves establishment, growth, inoculation and resin assessment before harvest. Timing, quality and sale proceeds depend on actual conditions.",
+      "Sweet Elena mango operations involve nursery care, orchard establishment, crop management, harvesting and sales. Production and prices vary with field and market conditions."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "investmentOpportunityLearnMoreHrefs",
+    "value": [
+      "/investment/agarwood",
+      "/investment/mango"
+    ]
+  },
+  {
+    "section": "home",
+    "field": "investmentOpportunityDownloadLabels",
+    "value": [
+      "Explore agarwood operations",
+      "Explore mango operations"
+    ]
+  },
+  {
+    "section": "home",
+    "field": "investmentOpportunityDownloadHrefs",
+    "value": [
+      "/investment/agarwood",
+      "/investment/mango"
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "riskDescriptions",
+    "value": [
+      "Production planning must allow for variable fruiting and crop losses. Planning assumptions do not guarantee a particular harvest.",
+      "Replacement planting may support plantation maintenance, subject to available stock and actual site conditions. It does not eliminate biological loss.",
+      "Multiple plantation locations across Zambales reduce concentration risk from localised weather events or operational challenges.",
+      "Quarterly plantation inspections, structured maintenance protocols and continuous monitoring throughout every cultivation cycle."
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "environmentalSectionDescription",
+    "value": "Our environmental objectives include native-tree planting, biodiversity, responsible soil and water management, and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+  },
+  {
+    "section": "plantation",
+    "field": "environmentalSectionTagline",
+    "value": "Environmental objectives depend on implementation and verification."
+  },
+  {
+    "section": "plantation",
+    "field": "environmentalItems",
+    "value": [
+      "Native-tree planting and habitat restoration objectives",
+      "Responsible soil and water management",
+      "Biodiversity monitoring",
+      "Assessment of carbon sequestration using documented methods",
+      "Any certification or carbon-credit issuance requires the applicable assessment and independent verification",
+      "Community employment and responsible working practices"
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "transparencySectionDescription",
+    "value": "Company and plantation reporting supports operational visibility. Share ownership does not assign specific trees or land to an investor."
+  },
+  {
+    "section": "plantation",
+    "field": "transparencyItems",
+    "value": [
+      "PLANTATION TRACEABILITY. GPS-referenced or geotagged records support operational control; they do not assign individual trees to shareholders.",
+      "COMPANY INFORMATION. Access to reporting and documents depends on the relevant share terms and company arrangements.",
+      "REPORTING THROUGHOUT THE LIFECYCLE. Company financial reporting, operational updates and any independent audit have distinct scopes.",
+      "OPTIONAL PLANTATION ACCESS. Visits may be requested subject to site availability, safety requirements and prior arrangements."
+    ]
+  },
+  {
+    "section": "faq",
+    "field": "header",
+    "value": {
+      "badge": "Investor FAQ",
+      "title": "Frequently Asked Questions",
+      "description": "Information about direct company investment, plantation operations and associated risks."
+    }
+  },
+  {
+    "section": "faq",
+    "field": "sectionTitles",
+    "value": [
+      "Market Opportunity",
+      "Mission, Values, and Sustainability",
+      "Company Shareholding and Investor Information",
+      "Technology, Fees, and Operations",
+      "Harvests, Returns, and Practical Questions"
+    ]
+  },
+  {
+    "section": "faq",
+    "field": "marketAnswers",
+    "value": [
+      "Mangoes are among the world's most consumed fruits, with global demand continuing to rise as premium export supply remains limited. Golden Forests positions Sweet Elena mango within that higher-value international market.",
+      "Agarwood is one of the world's highest-value natural commodities. Its chips are used in incense, medicine, perfumery, and cosmetics, while distilled oud oil continues to benefit from strong luxury fragrance demand across global markets.",
+      "Golden Forests is a next-generation agroforestry company combining scientific expertise, AI-enabled plantation management, and sustainable operations to build enduring value for investors, local communities, and the land.",
+      "Availability, investor eligibility and any minimum investment depend on the issuing company, the transaction terms and applicable jurisdictional restrictions. Contact our team for the relevant company information."
+    ]
+  },
+  {
+    "section": "faq",
+    "field": "ownershipAnswers",
+    "value": [
+      "Direct equity investment provides a shareholding in the issuing operating company. It does not confer direct ownership of individual trees, planting blocks or land. Shareholder rights depend on the share terms, transaction documents and applicable law.",
+      "Business failure could result in loss of some or all invested capital. Shareholder rights and any recovery depend on the company documents, creditor claims and applicable law. No replacement operator or recovery is guaranteed.",
+      "Review the relevant company, share-class, subscription and shareholder documents. Evidence of shareholding and reporting arrangements depend on the completed transaction.",
+      "Transfers depend on the company documents, applicable law, eligibility requirements and any required approvals. Shares should be treated as long-term and illiquid."
+    ]
+  },
+  {
+    "section": "faq",
+    "field": "technologyAnswers",
+    "value": [
+      "It stands for Agroforestry Intelligence: Golden Forests' proprietary application of artificial intelligence, precision agriculture, monitoring systems, and data-driven plantation management to improve efficiency, yield, and oversight.",
+      "The platform supports crop monitoring, yield prediction, irrigation and fertilisation optimisation, pest and disease detection, and more precise use of water and plantation inputs.",
+      "Plantations are equipped with irrigation and drainage systems connected to wells and solar-powered pumps, supporting consistent and sustainable water availability throughout the year.",
+      "Company costs, any investor charges and distribution terms must be assessed in the relevant transaction documents. Crop sales are company revenues; they are not automatically payable to shareholders."
+    ]
+  },
+  {
+    "section": "faq",
+    "field": "harvestQuestions",
+    "value": [
+      "Are annual dividends guaranteed?",
+      "How long is the harvest period for mango trees?",
+      "How are damaged trees handled?",
+      "How and when do investors receive harvest income?",
+      "Why invest in agroforestry in the Philippines?"
+    ]
+  },
+  {
+    "section": "faq",
+    "field": "harvestAnswers",
+    "value": [
+      "Dividends, if declared, depend on company performance, available cash, reserves, share rights and applicable law. Crop production does not guarantee shareholder income or repayment of capital.",
+      "Mango trees typically produce for about 25 years before productivity gradually declines and replacement becomes appropriate.",
+      "Plantation maintenance may include replacement planting where feasible. Stock availability and actual conditions determine what is possible; biological risk remains.",
+      "Dividends, if declared, depend on company performance, available cash, reserves, share rights and applicable law. Crop production does not guarantee shareholder income or repayment of capital.",
+      "The Philippines offers favourable agro-climatic conditions, lower operating costs, and strong long-term potential for high-value crops. Golden Forests pairs that location advantage with annual audits, physical tree verification, and transparent investor access."
+    ]
+  },
+  {
+    "section": "mangoProgram",
+    "field": "header",
+    "value": {
+      "badge": "Crop Operations",
+      "title": "Mango Programme",
+      "description": "Sweet Elena mango cultivation, orchard care and harvest planning in the Philippines."
+    }
+  },
+  {
+    "section": "mangoProgram",
+    "field": "insuranceTitle",
+    "value": "Operational Risk Management"
+  },
+  {
+    "section": "mangoProgram",
+    "field": "insuranceDescription",
+    "value": "Plantation maintenance and monitoring address operational risks but do not guarantee harvests or investment outcomes."
+  },
+  {
+    "section": "mangoProgram",
+    "field": "insurancePoints",
+    "value": [
+      "Crop-health monitoring and field maintenance",
+      "Replacement planting subject to stock and actual conditions",
+      "Production planning that allows for variable fruiting",
+      "Any insurance subject to confirmed policy coverage and exclusions",
+      "Company records do not confer individual tree ownership"
+    ]
+  },
+  {
+    "section": "mangoProgram",
+    "field": "snapshotTitle",
+    "value": "Operations Snapshot"
+  },
+  {
+    "section": "mangoProgram",
+    "field": "snapshotLabels",
+    "value": [
+      "Crop",
+      "Cultivation",
+      "Production",
+      "Harvests",
+      "Company revenue",
+      "Shareholder outcomes"
+    ]
+  },
+  {
+    "section": "mangoProgram",
+    "field": "snapshotValues",
+    "value": [
+      "Sweet Elena mango",
+      "Orchard establishment and care",
+      "Dependent on maturity and conditions",
+      "Variable by season and site",
+      "Dependent on actual sales and costs",
+      "Determined by share rights and company performance"
+    ]
+  },
+  {
+    "section": "mangoProgram",
+    "field": "snapshotFootnote",
+    "value": "Operational information is not a forecast of investor returns. Any investment terms must be established in the issuing company documents."
+  },
+  {
+    "section": "mangoProgram",
+    "field": "benefitsPoints",
+    "value": [
+      "Exclusive PRMSU-developed Dwarf Sweet Elena Carabao variety with high-density cultivation of 416 trees per hectare.",
+      "Prime Zambales location with strong climate, soil conditions, drip irrigation, and fertigation support.",
+      "Scientific partnerships with PRMSU, UPLB, and supporting institutions for cultivar development, post-harvest quality, and continuous improvement.",
+      "AI-enabled plantation intelligence using drones, satellite geotagging, environmental monitoring, and predictive analytics.",
+      "GPS-referenced records support plantation management; they do not assign individual trees to shareholders.",
+      "Native-tree planting and biodiversity objectives accompany plantation development, subject to implementation and measurement."
+    ]
+  },
+  {
+    "section": "nursery",
+    "field": "propagationDescriptions",
+    "value": [
+      "Aquilaria crassna stock is raised under nursery protocols before field deployment. Replacement planting depends on available stock and actual conditions.",
+      "Mango propagation and nursery care support orchard establishment. Crop monitoring and maintenance do not eliminate biological risk."
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "riskTitles",
+    "value": [
+      "Production Variability",
+      "Replacement Planting",
+      "Site Exposure",
+      "Agronomic Management"
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "riskTaglines",
+    "value": [
+      "Variable harvests.",
+      "Subject to actual conditions.",
+      "Location-specific risks.",
+      "Operational oversight."
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "mangoLifecycleDescriptions",
+    "value": [
+      "Carabao-Elena hybrid mangoes are prepared on dwarf rootstock for high-density planting, with nursery conditioning aligned to the field rollout.",
+      "Young trees receive regular care, irrigation, pruning, induced flowering applications, and pest & disease management to build canopy structure and orchard stability.",
+      "Fruiting and yield development depend on maturity, site conditions, weather and cultivation practices. The timing and size of harvests are not guaranteed.",
+      "Mature production varies by season and site. Sales depend on fruit quality, buyer demand, logistics and achievable prices."
+    ]
+  }
+]

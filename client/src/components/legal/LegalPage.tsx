@@ -30,7 +30,7 @@ export function LegalPage({
       </section>
 
       <section className="mb-8">
-        <Card className="border-border/60 shadow-sm">
+        <Card className="light-surface border-[#C8A070]/30 bg-[#F7F3EA] text-[#17392E] shadow-sm">
           <CardContent className="p-6 md:p-8">
             <div className="prose prose-sm max-w-none text-[#17392E] prose-headings:font-serif prose-headings:text-[#17392E] prose-p:leading-7 prose-li:leading-7 prose-strong:text-[#17392E] sm:prose-base">
               {children}
@@ -84,7 +84,7 @@ export function LegalMarkdown({ body }: { body: string }) {
     }
 
     nodes.push(
-      <p key={`paragraph-${index}`} className="mt-4 text-sm leading-7 text-[#17392E]/82 first:mt-0 sm:text-base">
+      <p key={`paragraph-${index}`} className="mt-4 text-sm leading-7 text-[#17392E]/[0.82] first:mt-0 sm:text-base">
         {line}
       </p>,
     );

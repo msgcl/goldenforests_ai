@@ -1,0 +1,47 @@
+[
+  {
+    "section": "home",
+    "field": "pillarBullets",
+    "value": [
+      "Equity exposure to a selected operating company.",
+      "Agree the entity, valuation, capital use and share rights.",
+      "Review governance, distributions and exit terms.",
+      "Explore an agroforestry relationship with an independent licensed manager.",
+      "The manager alone offers and manages its vehicle.",
+      "Scope, fees and responsibilities require agreement.",
+      "Selected professionally managed plantation assets.",
+      "Review ownership or contractual rights and costs.",
+      "Agree harvest proceeds, reporting and exit terms.",
+      "Collaboration with plantation operators, impact funds and ESG-focused businesses.",
+      "Agree each party’s assets, capital or expertise.",
+      "Define profit sharing, governance and exit arrangements."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioSource",
+    "value": "Sources: Golden Forests’ Investment Opportunities and Participation Overview and Investment and Partnership Opportunities presentation, November 2026. Figures reproduced from company scenarios; not independently verified."
+  },
+  {
+    "section": "investment",
+    "field": "scenarioAssumptions",
+    "value": [
+      "Illustrative allocation: USD 100,000 per scenario. Agarwood uses a 10-year cycle; mango and the combined scenario use 15-year cycles. IRR is the annual money-weighted rate at which modeled dated cash flows have zero net present value. It is not an annual payout; total receipts alone cannot verify a timing-dependent IRR.",
+      "Timing: agarwood harvests are modeled in Years 9–10; recurring mango harvests begin in Year 5. Actual survival, fruiting, yields, quality and harvest timing may differ.",
+      "Pricing: the agarwood model starts at USD 775/kg and the mango model at USD 4.00/kg, each escalating at 3% annually. These are modeling assumptions, not secured sale prices. Confirm the exact base date and period count in the approved financial model.",
+      "Costs: the agarwood model includes reserve funding for inoculation, harvest, extraction and packaging, with a 10% commission on gross harvested income. The mango model deducts packaging, cold storage, export certification, audit and related harvest-period costs, with a 20% commission after applicable deductions.",
+      "Outcomes are sensitive to selling prices, operating and processing costs, commissions, taxes, foreign exchange, regulation, export access, counterparty performance and successful third-party sales. Crop proceeds are not automatically shareholder distributions.",
+      "Sales sensitivity: a 10% reduction in both selling price and harvest volume reduces gross sales by 19%. This is a sales illustration, not an IRR forecast; the effect on net receipts and IRR depends on costs and cash-flow timing.",
+      "Review the full financial models and agronomic, operational, market, legal and tax due diligence before making a decision. Request opportunity-specific materials, subject to eligibility, approval and confidentiality requirements."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "partnershipPoints",
+    "value": [
+      "Explore regional collaboration with plantation operators, impact funds and ESG-focused businesses.",
+      "Agree each party’s proposed assets, capital, expertise and operating contribution.",
+      "Define profit sharing, governance, responsibilities, reporting, risk allocation and exit arrangements through due diligence and definitive agreements."
+    ]
+  }
+]

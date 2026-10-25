@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+#app-scroll-container .light-surface,
+#app-scroll-container .shadcn-card,
+#app-scroll-container article[class*="rounded-"][class*="border"],
+#app-scroll-container div[class*="rounded-"][class*="border"][class*="bg-white/"] {
+  background-color: #F3E9D6;
+}
+
 @layer base {
   :root {
     /* Exact palette used by goldenforests.ai */
@@ -153,7 +160,8 @@
   }
 
   a {
-    color: hsl(var(--secondary));
+    /* Inline links follow their surface; explicit link/button utilities still win. */
+    color: inherit;
   }
 
   ::selection {
@@ -238,6 +246,10 @@
   /* Keep semantic text colors dark on every explicitly light surface,
      including when the surrounding application is in dark mode. */
   .light-surface {
+    --background: 72 45.5% 97.8%;
+    --card: 34 42% 90%;
+    --popover: 34 42% 90%;
+    --muted: 72 20% 93%;
     --foreground: 161 42.5% 15.7%;
     --card-foreground: 161 42.5% 15.7%;
     --popover-foreground: 161 42.5% 15.7%;

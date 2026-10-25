@@ -17,8 +17,8 @@ import { defaultSiteCopy } from "@shared/siteCopy";
 const operationsHeroImage = "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461734/golden-forests/operations-hero-ai-3-20260406.jpg";
 const intelligenceIcons = [Waypoints, BrainCircuit, Leaf] as const;
 const transparencyLeadPhrases = [
-  "FUND-MANAGED ASSET TRACEABILITY.",
-  "SECURE INVESTOR VISIBILITY.",
+  "PLANTATION TRACEABILITY.",
+  "COMPANY INFORMATION.",
   "REPORTING THROUGHOUT THE LIFECYCLE.",
   "OPTIONAL PLANTATION ACCESS.",
 ] as const;
@@ -97,7 +97,7 @@ export default function Plantation() {
             <h1 className="font-serif text-[1.85rem] leading-tight text-[#17392E] sm:text-[2.45rem] lg:text-[3rem]">
               {copy.heroTitle}
             </h1>
-            <p className="mt-4 text-[1rem] leading-8 text-[#17392E]/84 sm:text-[1.08rem]">
+            <p className="mt-4 text-[1rem] leading-8 text-[#17392E]/[0.84] sm:text-[1.08rem]">
               {copy.heroDescription}
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function Plantation() {
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.intelligenceSectionTitle}
           </h2>
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">
+          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/[0.84]">
             {copy.intelligenceSectionDescription}
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function Plantation() {
                   <p className="mt-2 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-[#8A6744]">
                     {copy.intelligenceTaglines[index] ?? ""}
                   </p>
-                  <p className="mt-4 text-sm leading-7 text-[#17392E]/84">{copy.intelligenceDescriptions[index] ?? ""}</p>
+                  <p className="mt-4 text-sm leading-7 text-[#17392E]/[0.84]">{copy.intelligenceDescriptions[index] ?? ""}</p>
                 </CardContent>
               </Card>
             );
@@ -141,7 +141,7 @@ export default function Plantation() {
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.riskSectionTitle}
           </h2>
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.riskSectionDescription}</p>
+          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/[0.84]">{copy.riskSectionDescription}</p>
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -155,14 +155,14 @@ export default function Plantation() {
                 <p className="mt-2 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-[#8A6744]">
                   {tagline}
                 </p>
-                <p className="mt-4 text-sm leading-7 text-[#17392E]/84">{description}</p>
+                <p className="mt-4 text-sm leading-7 text-[#17392E]/[0.84]">{description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
-      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-6 shadow-sm sm:p-8">
+      <section className="light-surface mt-10 scroll-mt-24 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.environmentalSectionTitle}
@@ -172,11 +172,11 @@ export default function Plantation() {
               {environmentalSectionSubtitle}
             </p>
           ) : null}
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.environmentalSectionDescription}</p>
+          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/[0.84]">{copy.environmentalSectionDescription}</p>
           <p className="mt-6 text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#8A6744]">
             {copy.environmentalSectionTagline}
           </p>
-          <ul className="mt-4 space-y-3 text-sm leading-7 text-[#17392E]/84">
+          <ul className="mt-4 space-y-3 text-sm leading-7 text-[#17392E]/[0.84]">
             {copy.environmentalItems.map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C8A070]" />
@@ -187,7 +187,7 @@ export default function Plantation() {
         </div>
       </section>
 
-      <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-6 shadow-sm sm:p-8">
+      <section id="investor-transparency" className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F3E9D6] p-6 shadow-sm sm:p-8">
         <div className="max-w-4xl">
           <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Trees className="h-5 w-5" />
@@ -195,8 +195,8 @@ export default function Plantation() {
           <h2 className="mt-4 font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
             {copy.transparencySectionTitle}
           </h2>
-          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">{copy.transparencySectionDescription}</p>
-          <ul className="mt-6 space-y-4 text-sm leading-7 text-[#17392E]/84">
+          <p className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/[0.84]">{copy.transparencySectionDescription}</p>
+          <ul className="mt-6 space-y-4 text-sm leading-7 text-[#17392E]/[0.84]">
             {transparencyItems.map(({ original, before, lead, after }) => (
               <li key={original} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C8A070]" />

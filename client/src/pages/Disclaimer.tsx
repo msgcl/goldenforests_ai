@@ -8,7 +8,7 @@ export default function Disclaimer() {
 
   return (
     <LegalPage title={copy.title} subtitle={copy.subtitle}>
-      <LegalMarkdown body={copy.body} />
+      <div className="italic"><LegalMarkdown body={copy.body} /></div>
     </LegalPage>
   );
 }

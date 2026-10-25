@@ -1,0 +1,48 @@
+[
+  {
+    "section": "investment",
+    "field": "scenarioTitle",
+    "value": "Illustrative Crop Scenarios"
+  },
+  {
+    "section": "investment",
+    "field": "scenarioIrrs",
+    "value": [
+      "Available on request",
+      "Available on request",
+      "Available on request"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioNetGains",
+    "value": [
+      "USD 400,000+",
+      "USD 500,000+",
+      "USD 450,000+"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioNetReceipts",
+    "value": [
+      "USD 500,000+",
+      "USD 600,000+",
+      "USD 550,000+"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioMultiples",
+    "value": [
+      "Over 5×",
+      "Over 6×",
+      "Over 5×"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioSource",
+    "value": "Source: updated November 2026 Investment and Partnership Opportunities document and Investment and Partnership Overview presentation. Income bands are illustrative management scenarios, not independently verified. Detailed return information is available through opportunity-specific due diligence."
+  }
+]

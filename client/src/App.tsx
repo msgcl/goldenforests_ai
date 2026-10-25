@@ -10,6 +10,9 @@ import { RealtimeContentSync } from "@/components/RealtimeContentSync";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 import Home from "@/pages/Home";
+import WhyGoldenForests from "@/pages/WhyGoldenForests";
+import CropPathways from "@/pages/CropPathways";
+import CropEconomics from "@/pages/CropEconomics";
 import Investment from "@/pages/Investment";
 import { AgarwoodInvestment, MangoInvestment } from "@/pages/InvestmentCropPages";
 import About from "@/pages/About";
@@ -34,6 +37,10 @@ function Router() {
       <Route path="/admin" component={AdminDashboard} />
       <Route path="/" component={Home} />
       <Route path="/home" component={Home} />
+      <Route path="/why-golden-forests" component={WhyGoldenForests} />
+      <Route path="/crop-specific-pathways" component={CropPathways} />
+      <Route path="/visitation-programme" component={PlantationVisit} />
+      <Route path="/crop-economics" component={CropEconomics} />
       <Route path="/investment" component={Investment} />
       <Route path="/investment/agarwood" component={AgarwoodInvestment} />
       <Route path="/investment/mango" component={MangoInvestment} />
@@ -102,7 +109,7 @@ function App() {
                       </div>
                     </div>
                   </header>
-                  <main id="app-scroll-container" className="relative z-10 flex-1 overflow-y-auto overflow-x-hidden scroll-smooth">
+                  <main id="app-scroll-container" className="relative z-10 flex-1 overflow-y-auto overflow-x-hidden scroll-smooth text-[#F7F3EA]">
                     <ScrollToTop />
                     <Router />
                     <AppFooter />

@@ -1,0 +1,243 @@
+[
+  {
+    "section": "home",
+    "field": "pillarTitles",
+    "value": [
+      "Direct Equity Participation",
+      "Dedicated Funds",
+      "Direct Plantation Ownership",
+      "Joint Ventures & Strategic Partnerships"
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarDescriptions",
+    "value": [
+      "Targeted exposure to selected operating agroforestry companies. Share ownership does not confer ownership of individual trees or land.",
+      "Participation through independent, licensed and regulated partners, subject to the relevant partner and fund documentation.",
+      "Ownership of selected, professionally managed plantation assets, subject to the relevant ownership documents and applicable requirements.",
+      "Golden Forests welcomes established plantation businesses and related industry partners with complementary operations, assets, sector expertise, market access or professional-investor relationships. Tailored partnerships can combine these capabilities with Golden Forests’ agroforestry intelligence and operating platform."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarTaglines",
+    "value": [
+      "COMPANY EQUITY.\nDEFINED SHARE RIGHTS.",
+      "INDEPENDENT PARTNERS.\nDEDICATED FUNDS.",
+      "PLANTATION ASSETS.\nPROFESSIONAL MANAGEMENT.",
+      "COMPLEMENTARY ASSETS.\nSHARED EXPERTISE."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarBullets",
+    "value": [
+      "Targeted exposure to selected operating companies.",
+      "Share rights depend on the company documents.",
+      "Company shares do not convey ownership of trees or land.",
+      "Participation through independent, licensed and regulated partners.",
+      "Eligibility and terms depend on the relevant fund documents.",
+      "Due diligence and oversight tailored to the fund pathway.",
+      "Selected, professionally managed plantation assets.",
+      "Ownership rights depend on the final transaction documents.",
+      "Eligibility and jurisdictional requirements apply.",
+      "Collaboration with established plantation and industry partners.",
+      "Combine operating expertise, assets and market access.",
+      "Tailored governance, economics and exit terms."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "overviewParagraphs",
+    "value": [
+      "Each opportunity is subject to disciplined due diligence, investment structuring and ongoing oversight, with a focus on long-term biological and real-asset exposure, potential risk-adjusted returns and measurable environmental and social outcomes. Partnership structures may be designed to combine Golden Forests’ agroforestry intelligence with established operators’ sector expertise, assets and market access. Golden Forests Holding is headquartered in Abu Dhabi Global Market (ADGM), UAE, with operating companies in the UAE and the Philippines and planned regional expansion across Asia.",
+      "Golden Forests combines local plantation execution with agronomic science, licensed cultivation technologies and AI-enabled monitoring to improve visibility across the asset lifecycle. Drone surveillance, predictive analytics and structured field data support earlier identification of operational risks, more informed cultivation decisions and transparent oversight. This integrated approach transforms plantation management from a largely manual activity into a disciplined, technology-enabled real-asset platform designed for long-term stewardship, resilience and measurable environmental and social value."
+    ]
+  },
+  {
+    "section": "contact",
+    "field": "intro",
+    "value": "Contact our team about direct equity, independent regulated funds, direct plantation ownership, or joint ventures and strategic partnerships. Availability and eligibility depend on the selected opportunity and applicable requirements."
+  },
+  {
+    "section": "contact",
+    "field": "resourceLabels",
+    "value": [
+      "Investment Opportunities and Participation Overview",
+      "Mango operations",
+      "Important Information & Risks"
+    ]
+  },
+  {
+    "section": "contact",
+    "field": "resourceHrefs",
+    "value": [
+      "/investment",
+      "/investment/mango",
+      "/disclaimer"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "header",
+    "value": {
+      "badge": "Investment Opportunities",
+      "title": "Investment Opportunities & Participation",
+      "description": "Four curated pathways for professional and institutional investors and strategic partners, supported by disciplined due diligence and local operating capability."
+    }
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodMarketDescription",
+    "value": "The current agarwood income model focuses on traceable, cultivated oud wood chips for specialist buyers. Resin content, aroma, quality, legal origin and documented chain of custody influence realized pricing. Oil, incense, fragrance ingredients and branded products are potential future opportunities, not the basis of the illustrative returns."
+  },
+  {
+    "section": "investment",
+    "field": "agarwoodIntroParagraphs",
+    "value": [
+      "Golden Forests cultivates Aquilaria crassna in Negros Occidental, Philippines, combining nursery and field establishment, tree-health monitoring, inoculation readiness and resin development.",
+      "Agarwood provides the platform’s longer-duration crop exposure. Its commercial outcome depends on cultivation discipline, controlled processing, documented legal origin and successful sales."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "mangoIntroParagraphs",
+    "value": [
+      "Dwarf Sweet Elena mango combines Carabao mango seedlings grafted with Elena bud stock and managed through dwarfing techniques. The programme's premium Philippine fruit proposition is cultivated in Zambales Province, Philippines.",
+      "Nursery propagation, orchard establishment, pruning, crop protection and post-harvest quality support potential recurring harvests once trees mature. The illustrative model assumes annual harvests from Year 5 to 25; actual production and timing vary."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "mangoMarketDescription",
+    "value": "The commercial objective is premium Philippine mango supply for domestic premium channels, export-quality fruit programmes and branded produce relationships. Sorting, grading, packaging, cold-chain planning and buyer development are central to saleability and realized pricing."
+  },
+  {
+    "section": "investment",
+    "field": "portfolioTitle",
+    "value": "Complementary Crops. Different Harvest Horizons."
+  },
+  {
+    "section": "investment",
+    "field": "portfolioDescription",
+    "value": "The Philippine combined scenario pairs mango’s modeled recurring harvests from Year 5 with agarwood’s modeled harvest in Years 9–10. It illustrates a different cash-flow profile over 15 years; diversification does not eliminate agricultural, market or investment risk."
+  },
+  {
+    "section": "investment",
+    "field": "portfolioBenefits",
+    "value": [
+      "Two crops with different maturity and harvest profiles.",
+      "Premium food-market exposure alongside specialty oud wood chips.",
+      "Shared emphasis on traceability, quality control and buyer development.",
+      "Opportunity-specific structures, due diligence and reporting."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "faqTitle",
+    "value": "Participation & Due Diligence"
+  },
+  {
+    "section": "investment",
+    "field": "faqQuestions",
+    "value": [
+      "Who can participate?",
+      "What does direct equity participation provide?",
+      "Which materials should I review?",
+      "How are costs and distributions determined?",
+      "Does replacement planting eliminate investment risk?",
+      "Who offers and manages a fund opportunity?",
+      "How can strategic partners work with Golden Forests?",
+      "Are the projected IRRs guaranteed?"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "faqAnswers",
+    "value": [
+      "The platform is intended for professional and institutional investors, high net worth individuals, and strategic partners. Availability, eligibility, suitability, minimum investment and jurisdictional restrictions depend on the selected opportunity and its definitive documents.",
+      "Direct equity provides a shareholding in the issuing operating company, with potential participation in business growth through dividends or capital appreciation. Financial outcomes are not guaranteed. Shareholder reporting, information and governance rights depend on the share terms and applicable law; shares do not confer ownership of individual trees or land.",
+      "Review the approved corporate, financial, legal, agronomic, operational, asset and commercial materials relevant to the selected pathway. Detailed due-diligence materials are available to eligible investors, approved reviewers and strategic partners, subject to approval and confidentiality requirements.",
+      "Company costs, any investor charges and distribution terms must be assessed in the relevant transaction documents. Crop sales are company revenues; they are not automatically payable to shareholders.",
+      "Replacement planting, maintenance and any insurance are subject to actual arrangements and conditions. They do not eliminate biological or financial loss as a result of force majeure.",
+      "Any fund is offered, managed and documented solely by the relevant independent licensed entity under its own regulatory permissions and approved materials. The Philippine crop scenarios shown here are not fund performance.",
+      "Established plantation businesses and related industry partners can discuss complementary operations, assets, expertise, market access and professional-investor relationships. Governance, economics, responsibilities and exit terms require due diligence and definitive agreements.",
+      "No. The IRRs are illustrative company-model scenarios, not forecasts, promises, subscription terms or assured payouts. Outcomes depend on crop performance, timing, prices, costs, taxes, foreign exchange and the selected structure. Investors may lose capital."
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceTitles",
+    "value": [
+      "Opportunity Selection & Due Diligence",
+      "Reporting & Investor Visibility"
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceDescriptions",
+    "value": [
+      "Discuss direct company equity, plantation assets, independent regulated funds and/or strategic partnerships that fit your objectives and eligibility. Approved materials are provided subject to confidentiality and opportunity-specific requirements.",
+      "Structured field records and opportunity-appropriate reporting support oversight of crop progress, asset condition and material operating developments. Access and reporting rights depend on the selected pathway and final documents."
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceBullets",
+    "value": [
+      [
+        "Initial discussion of objectives, investment horizon and strategic fit",
+        "Corporate, financial, legal, agronomic and operational materials as applicable",
+        "Independent professional review before participation",
+        "Fund materials provided only by the relevant licensed manager or authorised intermediary"
+      ],
+      [
+        "Planting records, field condition and crop progress",
+        "Harvest readiness and material operational events",
+        "Governance and reporting scope defined in final agreements",
+        "Separate scopes for financial reporting, field verification and independent audits"
+      ]
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "environmentalSectionDescription",
+    "value": "Golden Forests aims to combine productive land rehabilitation, cultivated and traceable supply, native-tree planting, biodiversity and inclusive employment. In Zambales, the mango programme is intended to rehabilitate lahar-affected land. These are intentions and projected outcomes requiring baseline evidence, field records and appropriate measurement and verification."
+  },
+  {
+    "section": "plantation",
+    "field": "environmentalItems",
+    "value": [
+      "Planned 1:1 native-tree planting alongside commercial mango and agarwood, subject to implementation and survival monitoring",
+      "Productive rehabilitation of lahar-affected land through soil preparation, drainage, irrigation and perennial cultivation",
+      "Potential local employment and livelihood opportunities, including for women and members of the Indigenous Aeta community, subject to respectful consultation and cultural safeguards",
+      "Traceability through planting records, documented field activity and operating milestones",
+      "Potential biodiversity, soil protection and climate-resilience benefits requiring baselines and independent verification",
+      "No sustainability certification, regulatory alignment or carbon-credit issuance is implied by these objectives"
+    ]
+  },
+  {
+    "section": "about",
+    "field": "leadershipTitles",
+    "value": [
+      "Chairman",
+      "Chief Executive Officer",
+      "Director of Business Development"
+    ]
+  },
+  {
+    "section": "about",
+    "field": "leadershipDescriptions",
+    "value": [
+      "Charles McKenzie brings institutional fixed-income leadership from senior roles at Fidelity International, JP Morgan Asset Management, Aberdeen Asset Management and Deutsche Asset Management. At Fidelity he led more than 100 investment professionals across Europe and Asia. His experience supports board oversight, investment processes, risk controls and capital stewardship. He holds an MBA in Finance from Bayes Business School and a BSc (Hons) in Economics from the University of Southampton.",
+      "Mark Quinn is an international operating executive and entrepreneur with more than 35 years of experience in venture building, project finance, plantation operations, renewable energy and emerging-market execution. As founding President and CEO of CADI, he leads Philippine execution, operating partnerships and regional scale-up, bringing practical experience in nurseries, workforces, harvesting, processing, logistics, permitting and reporting systems.",
+      "Cord Kabus-Duprée brings international sales, client-management and business-development experience across investments, private equity, finance, family offices and strategic partnerships. He leads professional-investor outreach, commercial partnerships, strategic relationships and UAE market development, supported by financial-planning training and a master’s degree in business administration."
+    ]
+  },
+  {
+    "section": "disclaimer",
+    "field": "body",
+    "value": "## Participation pathways\nGolden Forests presents potential direct equity participation, participation through independent licensed and regulated fund partners, direct plantation ownership, and joint ventures or strategic partnerships. Each pathway requires opportunity-specific due diligence and final documentation. Fund offerings and materials are the responsibility of the relevant independent licensed entity. A company shareholding and direct plantation ownership are distinct arrangements.\n\n## Illustrative return scenarios\nThe Philippine agarwood, mango and combined IRRs shown on this website are illustrative company scenarios reproduced from the November 2026 Investment Opportunities and Participation Overview. They use different time horizons and modeled cash flows, and are not forecasts, guaranteed returns, annual payouts, subscription terms or fund performance. They do not apply to Thailand opportunities. Actual investor outcomes depend on the selected structure, applicable documents and actual performance. Review the scenario assumptions and full financial models with independent advisers.\n\n## Purpose of this website\nThis website provides general information about Golden Forests operating businesses and plantation activities. It does not provide investment, financial, legal or tax advice. Website content alone is not an offer or a commitment to issue shares or enter into a transaction.\n\n## Direct company investment\nAny direct equity transaction is an investment in the identified issuing company. A company share does not confer direct ownership of specific trees, planting blocks, land or other plantation assets. The identity of the issuer, share class, rights, price and transaction terms must be established in the relevant documents before any commitment.\n\n## Eligibility and governing documents\nAvailability, eligibility, minimum investment and jurisdictional restrictions depend on the actual transaction and applicable law. Review the subscription and constitutional documents, share terms, risk disclosures, financial information and any relevant fee arrangements. Definitive transaction documents govern the transaction and prevail over summaries on this website. An enquiry does not constitute a subscription or acceptance.\n\n## Investment risks\n- Loss of some or all invested capital.\n- No guarantee of returns, dividends, distributions, capital appreciation or repayment.\n- Illiquidity, transfer restrictions, long investment horizons and potentially no secondary market.\n- Agricultural, biological, weather, fire, pest, disease and natural-disaster risks.\n- Operational, management, market, commodity-price, logistics and counterparty risks.\n- Land-title, land-use, permitting, regulatory, political and legal risks.\n- Currency, taxation and cross-border investment risks.\n- Valuation uncertainty and delays in development, harvesting, sales or exits.\n- Concentration and private-company risks, including insolvency.\n\n## Business revenues and shareholder outcomes\nHarvest proceeds belong to the relevant business and are not automatically payable to shareholders. Any dividends depend on company performance, available cash, reserves, share rights and applicable law. Plantation records and inspections do not guarantee asset value, title, liquidity or investor returns.\n\n## Forward-looking and environmental statements\nPlans, forecasts and illustrative operating timelines depend on assumptions and actual conditions. They are not guarantees of future results. Environmental objectives, including biodiversity and carbon-related outcomes, require implementation, measurement and verification. No certified carbon credits or certification status should be inferred from an objective or estimate.\n\n## Reporting and third parties\nCompany financial reports, plantation inspections and independent audits serve different purposes. Their availability and scope must be confirmed in the relevant company arrangements. References to research, technical or operational partners do not imply their endorsement of an investment or a guarantee of its results.\n\n## Independent advice\nProspective investors should assess their circumstances, liquidity needs, risk tolerance and investment horizon and obtain independent advice from appropriately qualified financial, legal, tax and accounting professionals. Do not act on this website where doing so would breach applicable law. Accessing this website does not create an advisory relationship, an investment commitment or a waiver of legal rights."
+  }
+]

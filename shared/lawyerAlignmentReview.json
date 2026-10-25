@@ -1,0 +1,138 @@
+[
+  {
+    "section": "home",
+    "field": "pillarTitles",
+    "value": [
+      "Direct Equity Participation",
+      "Independent Regulated Fund Participation",
+      "Direct Plantation Ownership",
+      "Joint Ventures & Strategic Partnerships"
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarDescriptions",
+    "value": [
+      "Targeted exposure to selected operating agroforestry companies. Share ownership does not confer ownership of individual trees or land.",
+      "Separately from direct company investment, eligible investors may request an introduction to an independent licensed fund manager. Any fund opportunity is offered and managed by that manager under its own permissions and approved documents.",
+      "Ownership of selected, professionally managed plantation assets, subject to the relevant ownership documents and applicable requirements.",
+      "Golden Forests welcomes established plantation businesses and related industry partners with complementary operations, assets, sector expertise, market access or professional-investor relationships. Tailored partnerships can combine these capabilities with Golden Forests’ agroforestry intelligence and operating platform."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarTaglines",
+    "value": [
+      "COMPANY EQUITY.\nDEFINED SHARE RIGHTS.",
+      "Access invest through independent licensed fund managers",
+      "PLANTATION ASSETS.\nPROFESSIONAL MANAGEMENT.",
+      "COMPLEMENTARY ASSETS.\nSHARED EXPERTISE."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarBullets",
+    "value": [
+      "Equity exposure to a selected operating company.",
+      "Agree the entity, valuation, capital use and share rights.",
+      "Review governance, distributions and exit terms.",
+      "Explore an agroforestry investment with a licensed fund manager",
+      "Investing shares in a ring-fenced fund",
+      "Review offering memorandum and subscription agreement approved materials",
+      "Selected professionally managed plantation assets.",
+      "Review ownership or contractual rights and costs.",
+      "Agree harvest proceeds, reporting and exit terms.",
+      "Collaboration with plantation operators, impact funds and ESG-focused businesses.",
+      "Agree each party’s assets, capital or expertise.",
+      "Define profit sharing, governance and exit arrangements."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioTitle",
+    "value": "Illustrative Philippine Crop Economics"
+  },
+  {
+    "section": "investment",
+    "field": "scenarioIrrs",
+    "value": [
+      "Over 20%",
+      "Over 20%",
+      "Over 20%"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioIntro",
+    "value": "These management models illustrate crop-linked participant cash flows under assumed allocations, production costs and commissions. Each uses an illustrative USD 100,000 allocation. They are separate from company-wide financial forecasts, shareholder dividends and fund performance."
+  },
+  {
+    "section": "investment",
+    "field": "scenarioQualification",
+    "value": "No participation pathway automatically grants the modeled crop receipts shown here. Any entitlement to crop proceeds must be established by the selected opportunity’s definitive agreements. Company shareholders receive only distributions permitted by their share terms and applicable law; independent funds have their own fees, allocations and reporting. Actual outcomes may differ materially, and capital may be lost."
+  },
+  {
+    "section": "investment",
+    "field": "scenarioSource",
+    "value": "Source: management’s November 2026 Philippine crop-economics and investment materials. Agarwood and combined IRRs are presented as rounded thresholds; mango is rounded to approximately 20% from the last supplied precise model. These source-model IRRs have not been independently recalculated. Review the current dated cash-flow model and applicable transaction documents before relying on any scenario."
+  },
+  {
+    "section": "investment",
+    "field": "scenarioCashNote",
+    "value": "Modeled net proceeds include recovery of the illustrative USD 100,000 allocation after the model’s stated costs and commissions. Modeled net gain deducts that allocation once. Amounts cover the stated horizon, are before participant-specific taxes and are not guaranteed or amounts automatically payable to an investor."
+  },
+  {
+    "section": "investment",
+    "field": "faqAnswers",
+    "value": [
+      "The platform is intended for professional and institutional investors, high net worth individuals, and strategic partners. Availability, eligibility, suitability, minimum investment and jurisdictional restrictions depend on the selected opportunity and its definitive documents.",
+      "Direct equity provides a shareholding in the issuing operating company, with potential participation in business growth through dividends or capital appreciation. Financial outcomes are not guaranteed. Shareholder reporting, information and governance rights depend on the share terms and applicable law; shares do not confer ownership of individual trees or land.",
+      "Review the approved corporate, financial, legal, agronomic, operational, asset and commercial materials relevant to the selected pathway. Detailed due-diligence materials are available to eligible investors, approved reviewers and strategic partners, subject to approval and confidentiality requirements.",
+      "Company costs, any investor charges and distribution terms must be assessed in the relevant transaction documents. Crop sales are company revenues; they are not automatically payable to shareholders.",
+      "Replacement planting, maintenance and any insurance are subject to actual arrangements and conditions. They do not eliminate biological or financial loss as a result of force majeure.",
+      "You may request a separate introduction to an independent licensed manager, subject to availability and eligibility. That manager alone offers, manages and documents its vehicle under its own permissions and approved materials. This website does not offer fund units, and the Philippine crop models are not fund performance.",
+      "Established plantation businesses and related industry partners can discuss complementary operations, assets, expertise, market access and professional-investor relationships. Governance, economics, responsibilities and exit terms require due diligence and definitive agreements.",
+      "No. The separate crop-economics page shows illustrative crop-linked cash flows under management assumptions, not assured investor payouts. Company share rights, asset ownership contracts, fund terms and partnership agreements can produce different investor outcomes. Review the underlying cash flows and definitive documents; capital may be lost."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "regionalDescription",
+    "value": "Alongside established Philippine operations, Golden Forests is developing regional agarwood scale-up in Thailand through mature-tree opportunities and the Classic seedling-to-harvest model."
+  },
+  {
+    "section": "investment",
+    "field": "portfolioDescription",
+    "value": "Mango’s modeled recurring harvests from Year 5 and agarwood’s modeled harvest in Years 9–10 illustrate different operating cycles. The separate crop-economics page explains their modeled cash flows. This is not a combined fund offering or an entitlement to distributions. Diversification does not eliminate agricultural, market or investment risk."
+  },
+  {
+    "section": "investment",
+    "field": "nextSteps",
+    "value": [
+      "Discuss objectives, eligibility, investment horizon and strategic fit.",
+      "Identify the relevant company, plantation asset or partnership opportunity, or request a separate introduction to an independent licensed fund manager.",
+      "Review approved due-diligence materials under the appropriate confidentiality arrangements.",
+      "Agree economics, governance, responsibilities, reporting, risk allocation and exit provisions.",
+      "Complete independent professional review and required approvals.",
+      "Proceed only after eligibility and suitability checks and execution of definitive agreements."
+    ]
+  },
+  {
+    "section": "contact",
+    "field": "intro",
+    "value": "Discuss direct company equity, plantation assets or strategic partnerships with our team. Eligible investors may separately request an introduction to an independent licensed fund manager, subject to availability. Each opportunity requires its own documents and eligibility assessment."
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceDescriptions",
+    "value": [
+      "Discuss direct company equity, plantation assets, independent regulated funds and/or strategic partnerships that fit your objectives and eligibility. For a fund route, request a separate introduction to an independent licensed manager. That manager provides any fund offering and approved materials.",
+      "Structured field records and opportunity-appropriate reporting support oversight of crop progress, asset condition and material operating developments. Access and reporting rights depend on the selected pathway and final documents."
+    ]
+  },
+  {
+    "section": "disclaimer",
+    "field": "body",
+    "value": "## Participation pathways\nGolden Forests presents direct company equity, selected plantation assets and strategic partnership opportunities. Separately, eligible investors may request an introduction to an independent licensed fund manager where available. Any fund is offered, managed and documented solely by that manager under its own permissions and approved materials. This website does not offer fund units. A company shareholding, a direct asset ownership arrangement and a fund interest have distinct rights and economics.\n\n## Illustrative crop economics\nThe separate Philippine crop-economics page presents modeled crop-linked participant receipts under assumed allocations, costs and commissions. These are not company-wide profits, shareholder dividends or fund performance. No participation pathway automatically conveys the modeled receipts. Entitlement to proceeds, deductions, fees, governance and distributions must be established in the selected opportunity’s definitive agreements. Company revenues are not automatically payable to shareholders.\n\nIRRs reflect modeled cash-flow timing and are not assured annual payouts. The mango IRR is presented as approximately 20%, rounded from the last supplied precise model. Returns and proceeds are illustrative, before participant-specific taxes and not guaranteed. They do not apply to Thailand opportunities. Review the current dated financial model and final transaction documents with independent advisers.\n\n## Purpose of this website\nThis website provides general information about Golden Forests operating businesses and plantation activities. It does not provide investment, financial, legal or tax advice. Website content alone is not an offer or a commitment to issue shares or enter into a transaction.\n\n## Direct company investment\nAny direct equity transaction is an investment in the identified issuing company. A company share does not confer direct ownership of specific trees, planting blocks, land or other plantation assets. The identity of the issuer, share class, rights, price and transaction terms must be established in the relevant documents before any commitment.\n\n## Eligibility and governing documents\nAvailability, eligibility, minimum investment and jurisdictional restrictions depend on the actual transaction and applicable law. Review the subscription and constitutional documents, share terms, risk disclosures, financial information and any relevant fee arrangements. Definitive transaction documents govern the transaction and prevail over summaries on this website. An enquiry does not constitute a subscription or acceptance.\n\n## Investment risks\n- Loss of some or all invested capital.\n- No guarantee of returns, dividends, distributions, capital appreciation or repayment.\n- Illiquidity, transfer restrictions, long investment horizons and potentially no secondary market.\n- Agricultural, biological, weather, fire, pest, disease and natural-disaster risks.\n- Operational, management, market, commodity-price, logistics and counterparty risks.\n- Land-title, land-use, permitting, regulatory, political and legal risks.\n- Currency, taxation and cross-border investment risks.\n- Valuation uncertainty and delays in development, harvesting, sales or exits.\n- Concentration and private-company risks, including insolvency.\n\n## Business revenues and shareholder outcomes\nHarvest proceeds belong to the relevant business and are not automatically payable to shareholders. Any dividends depend on company performance, available cash, reserves, share rights and applicable law. Plantation records and inspections do not guarantee asset value, title, liquidity or investor returns.\n\n## Forward-looking and environmental statements\nPlans, forecasts and illustrative operating timelines depend on assumptions and actual conditions. They are not guarantees of future results. Environmental objectives, including biodiversity and carbon-related outcomes, require implementation, measurement and verification. No certified carbon credits or certification status should be inferred from an objective or estimate.\n\n## Reporting and third parties\nCompany financial reports, plantation inspections and independent audits serve different purposes. Their availability and scope must be confirmed in the relevant company arrangements. References to research, technical or operational partners do not imply their endorsement of an investment or a guarantee of its results.\n\n## Independent advice\nProspective investors should assess their circumstances, liquidity needs, risk tolerance and investment horizon and obtain independent advice from appropriately qualified financial, legal, tax and accounting professionals. Do not act on this website where doing so would breach applicable law. Accessing this website does not create an advisory relationship, an investment commitment or a waiver of legal rights."
+  }
+]

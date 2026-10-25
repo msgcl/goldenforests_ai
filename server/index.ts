@@ -38,7 +38,7 @@ app.use(
 app.use(express.urlencoded({ extended: false }));
 
 const legacyRedirectPaths = new Set(["/faq", "/video"]);
-const retiredInvestmentDocumentPaths = new Set(["/gf_combined_two_pager_final.pdf"]);
+const retiredInvestmentDocumentPaths = new Set(["/gf_combined_two_pager_final.pdf", "/gf-faq-july-2026.pdf", "/golden_forests_faq_final.pdf"]);
 const canonicalRedirects = new Map([
   ["/home", "/"],
   ["/company-profile", "/golden-forests-group"],

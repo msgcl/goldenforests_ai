@@ -1,0 +1,62 @@
+[
+  {
+    "section": "investment",
+    "field": "scenarioIrrs",
+    "value": [
+      "21.29%",
+      "19.98%",
+      "20.86%"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioSource",
+    "value": "Sources: revised November 2026 Investment and Partnership Opportunities document, Investment and Partnership Overview presentation, and Philippine Business and Crop Economics presentation supplied by management. Source-model IRRs are management-supplied and have not been independently recalculated."
+  },
+  {
+    "section": "investment",
+    "field": "scenarioAssumptions",
+    "value": [
+      "Illustrative allocation: USD 100,000 per scenario. Agarwood uses a 10-year cycle; mango and the combined scenario use 15-year cycles. IRR is the annual money-weighted rate at which modeled dated cash flows have zero net present value. It is not an annual payout; total receipts alone cannot verify a timing-dependent IRR.",
+      "The combined scenario allocates approximately 65% to agarwood and 35% to mango. Net receipts include recovery of initial capital; net gain deducts the initial USD 100,000 once. Crop scenarios are before participant-specific taxes and are separate from company revenue and income projections.",
+      "Timing: agarwood harvests are modeled in Years 9–10; recurring mango harvests begin in Year 5. Actual survival, fruiting, yields, quality and harvest timing may differ.",
+      "Pricing: the agarwood model starts at USD 775/kg and the mango model at USD 4.00/kg, each escalating at 3% annually. These are modeling assumptions, not secured sale prices. Confirm the exact base date and period count in the approved financial model.",
+      "Costs: the agarwood model includes reserve funding for inoculation, harvest, extraction and packaging, with a 10% commission on gross harvest sales. The mango model applies a 20% commission to gross harvest sales, with audit, harvesting, maintenance, packaging, cold storage, quality control and export-related costs deducted separately in their modeled periods.",
+      "Outcomes are sensitive to selling prices, operating and processing costs, commissions, taxes, foreign exchange, regulation, export access, counterparty performance and successful third-party sales. Crop proceeds are not automatically shareholder distributions.",
+      "Sales sensitivity: a 10% reduction in both selling price and harvest volume reduces gross sales by 19%. This is a sales illustration, not an IRR forecast; the effect on net receipts and IRR depends on costs and cash-flow timing.",
+      "Review the full financial models and agronomic, operational, market, legal and tax due diligence before making a decision. Request opportunity-specific materials, subject to eligibility, approval and confidentiality requirements."
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioNetGains",
+    "value": [
+      "USD 531,649",
+      "USD 548,555",
+      "USD 537,508"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioNetReceipts",
+    "value": [
+      "USD 631,649",
+      "USD 648,555",
+      "USD 637,508"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioMultiples",
+    "value": [
+      "6.32×",
+      "6.49×",
+      "6.38×"
+    ]
+  },
+  {
+    "section": "investment",
+    "field": "scenarioCashNote",
+    "value": "Each scenario starts with USD 100,000. Net receipts include capital recovery after modeled costs and commissions; net gain deducts the initial allocation once. Figures are before participant-specific taxes and are not guaranteed."
+  }
+]

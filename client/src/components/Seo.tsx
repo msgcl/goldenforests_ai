@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 const SITE_URL = "https://goldenforests.ai";
 const SITE_NAME = "Golden Forests Agroforestry Intelligence";
 const DEFAULT_DESCRIPTION =
-  "Golden Forests Agroforestry Intelligence connects investors with professionally managed plantation assets in the Philippines, backed by AI-driven operations and transparent reporting.";
+  "Golden Forests provides professional and institutional investors with curated access to sustainable plantation and agroforestry opportunities across Asia.";
 
 type SeoConfig = {
   title: string;
@@ -14,6 +14,26 @@ type SeoConfig = {
 };
 
 const seoByPath: Record<string, SeoConfig> = {
+  "/crop-specific-pathways": {
+    title: "Crop-specific Pathways | Golden Forests",
+    description: "Explore agarwood, mango and their complementary harvest horizons and crop economics.",
+    canonicalPath: "/crop-specific-pathways",
+  },
+  "/visitation-programme": {
+    title: "Visitation Programme | Golden Forests",
+    description: "Explore the Golden Forests client visitation programme, visit logistics and plantation itineraries.",
+    canonicalPath: "/visitation-programme",
+  },
+  "/crop-economics": {
+    title: "Philippine Crop Economics & Assumptions | Golden Forests",
+    description: "Explore illustrative Philippine crop-linked cash flows, modeled deductions and harvest timing, distinct from investor distribution rights and fund performance.",
+    canonicalPath: "/crop-economics",
+  },
+  "/why-golden-forests": {
+    title: "Why Golden Forests | Sustainable Agroforestry",
+    description: "Explore Golden Forests’ approach to long-term agroforestry, scientific cultivation, responsible stewardship and strategic partnerships.",
+    canonicalPath: "/why-golden-forests",
+  },
   "/": {
     title: SITE_NAME,
     description: DEFAULT_DESCRIPTION,
@@ -25,33 +45,33 @@ const seoByPath: Record<string, SeoConfig> = {
     canonicalPath: "/",
   },
   "/investment": {
-    title: "Agroforestry Investment Opportunities | Golden Forests",
+    title: "Investment Opportunities & Participation | Golden Forests",
     description:
-      "Explore professionally managed agarwood and mango plantation opportunities in the Philippines with Golden Forests.",
+      "Explore direct company investment, plantation assets, strategic partnerships and separate introductions to independent licensed fund managers.",
     canonicalPath: "/investment",
   },
   "/investment/agarwood": {
-    title: "Agarwood Plantation Investment | Golden Forests",
+    title: "Agarwood Plantation Operations | Golden Forests",
     description:
-      "Learn about Golden Forests' professionally managed agarwood plantation opportunity in the Philippines.",
+      "Learn about Golden Forests' agarwood plantation operations in the Philippines.",
     canonicalPath: "/investment/agarwood",
   },
   "/investment/mango": {
-    title: "Mango Plantation Investment | Golden Forests",
+    title: "Mango Orchard Operations | Golden Forests",
     description:
-      "Learn about Golden Forests' professionally managed Philippine mango plantation opportunity.",
+      "Learn about Golden Forests' Philippine mango orchard operations.",
     canonicalPath: "/investment/mango",
   },
   "/golden-forests-group": {
     title: "About Golden Forests Agroforestry Intelligence",
     description:
-      "Meet Golden Forests and learn about our approach to technology-supported, professionally managed agroforestry in the Philippines.",
+      "Meet Golden Forests: an Asia-focused agroforestry platform combining disciplined oversight, scientific cultivation and technology-enabled monitoring.",
     canonicalPath: "/golden-forests-group",
   },
   "/company-profile": {
     title: "About Golden Forests Agroforestry Intelligence",
     description:
-      "Meet Golden Forests and learn about our approach to technology-supported, professionally managed agroforestry in the Philippines.",
+      "Meet Golden Forests: an Asia-focused agroforestry platform combining disciplined oversight, scientific cultivation and technology-enabled monitoring.",
     canonicalPath: "/golden-forests-group",
   },
   "/plantation": {
@@ -73,10 +93,10 @@ const seoByPath: Record<string, SeoConfig> = {
     canonicalPath: "/plantation",
   },
   "/asset-management": {
-    title: "Plantation Visits and Asset Management | Golden Forests",
+    title: "Visitation Programme | Golden Forests",
     description:
       "Learn about Golden Forests plantation visits, asset oversight, and ongoing client reporting.",
-    canonicalPath: "/asset-management",
+    canonicalPath: "/visitation-programme",
   },
   "/services": {
     title: "Agroforestry Client Services | Golden Forests",

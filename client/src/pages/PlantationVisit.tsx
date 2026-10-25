@@ -1,7 +1,7 @@
+import { VisitationProgramme } from "@/components/VisitationProgramme";
 import { AnimatedPage } from "@/components/layout/AnimatedPage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 import { ArrowRight, MapPinned } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-media";
 import { useSiteCopy } from "@/hooks/use-site-copy";
@@ -15,14 +15,9 @@ export default function PlantationVisit() {
   const resolvedSiteCopy = siteCopy ?? defaultSiteCopy;
   const copy = resolvedSiteCopy.ecotourism;
   const plantationCopy = resolvedSiteCopy.plantation;
-  const overviewParagraphs = plantationCopy.overviewParagraphs.filter((paragraph) => {
-    const normalizedParagraph = paragraph.trim();
-
-    if (!normalizedParagraph) return false;
-    if (normalizedParagraph === plantationCopy.overviewDescription.trim()) return false;
-
-    return true;
-  });
+  const overviewParagraphs = plantationCopy.overviewParagraphs.filter((paragraph) =>
+    paragraph.trim() && paragraph.trim() !== plantationCopy.overviewDescription.trim(),
+  );
   const galleryItems = copy.featuredDestinationNames.slice(0, 4).map((title, index) => ({
     title,
     description: copy.featuredDestinationDetails[index] ?? "",
@@ -42,9 +37,9 @@ export default function PlantationVisit() {
         <div className="px-6 py-10 sm:px-8 md:px-10 lg:px-12 lg:py-12">
           <div className="max-w-4xl">
             <h1 className="font-serif text-[1.85rem] leading-tight text-[#17392E] sm:text-[2.45rem] lg:text-[3rem]">
-              {copy.header.title}
+              Visitation Programme
             </h1>
-            <p className="mt-4 text-[1rem] leading-8 text-[#17392E]/84 sm:text-[1.08rem]">
+            <p className="mt-4 text-[1rem] leading-8 text-[#17392E]/[0.84] sm:text-[1.08rem]">
               {copy.header.description}
             </p>
           </div>
@@ -65,7 +60,7 @@ export default function PlantationVisit() {
                 {plantationCopy.overviewDescription}
               </p>
               {overviewParagraphs.map((paragraph) => (
-                <p key={paragraph} className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/84">
+                <p key={paragraph} className="mt-4 text-[0.98rem] leading-8 text-[#17392E]/[0.84]">
                   {paragraph}
                 </p>
               ))}
@@ -82,26 +77,7 @@ export default function PlantationVisit() {
         </Card>
       </section>
 
-      <section className="mt-10">
-        <Card className="border-border/60 shadow-sm">
-          <CardContent className="p-6 md:p-8">
-            <div className="space-y-4 text-sm leading-8 text-muted-foreground md:text-base">
-              {copy.introParagraphs.slice(0, 3).map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#21483a]">
-                <Link href="/contact" className="inline-flex items-center gap-2">
-                  {copy.ctaLabel}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
+      <VisitationProgramme />
 
       <section className="mt-10">
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">

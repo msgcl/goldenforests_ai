@@ -21,10 +21,10 @@ const PIPEDRIVE_LOADER_URL = "https://webforms.pipedrive.com/f/loader";
 const contactHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767722/golden-forests/contact-hero-20260410.jpg";
 const agarwoodRequestFormUrl =
-  "https://webforms.pipedrive.com/f/6Ox6XFcTiL7Gkj7c8kPmK8LtXoKWm7FKGyfDUa8d5X3aNO0lKTy5EAKb11khVTtd2r";
+  "/investment/agarwood";
 const mangoRequestFormUrl =
-  "https://webforms.pipedrive.com/f/6xQwKZ6bimvjlCRgZoVzczm8SQ2MomeApjsqHTj3T0x6NcKw4DsPP0nIFMEltUvlkv";
-const faqDocumentUrl = "/GF-FAQ-July-2026.pdf";
+  "/investment/mango";
+const faqDocumentUrl = "/disclaimer";
 
 function normalizeResourceLabel(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, " ");
@@ -62,7 +62,7 @@ function resolveResourceLabel(label: string) {
     normalizedLabel === "view business prospectus" ||
     normalizedLabel === "request business prospectus"
   ) {
-    return "Request Business Prospectus";
+    return "Investment Opportunities and Participation Overview";
   }
 
   return label;
@@ -148,7 +148,7 @@ export default function Contact() {
             <h1 className={font("heroTitle", "font-serif text-[1.9rem] leading-tight text-[#17392E] sm:text-[2.5rem] lg:text-[3rem]")}>
               {copy.heroTitle}
             </h1>
-            <p className={font("heroDescription", "mt-4 text-[1rem] leading-8 text-[#17392E]/84 sm:text-[1.08rem]")}>
+            <p className={font("heroDescription", "mt-4 text-[1rem] leading-8 text-[#17392E]/[0.84] sm:text-[1.08rem]")}>
               {copy.heroDescription}
             </p>
           </div>
@@ -277,21 +277,10 @@ export default function Contact() {
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {copy.resourceLabels.map((label, index) => {
                   const resolvedLabel = resolveResourceLabel(label);
-                  if (resolvedLabel === "Request Business Prospectus") {
-                    return (
-                      <Button
-                        key={label}
-                        type="button"
-                        variant="outline"
-                        className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white"
-                      >
-                        {resolvedLabel}
-                      </Button>
-                    );
-                  }
-
                   const href =
-                    resolvedLabel === "Request Agarwood exposé"
+                    resolvedLabel === "Investment Opportunities and Participation Overview"
+                      ? "/investment"
+                      : resolvedLabel === "Request Agarwood exposé"
                       ? agarwoodRequestFormUrl
                       : resolvedLabel === "Request Mango exposé"
                         ? mangoRequestFormUrl

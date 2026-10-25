@@ -4,6 +4,10 @@ import path from "path";
 
 const frontendPaths = new Set([
   "/",
+  "/why-golden-forests",
+  "/crop-economics",
+  "/crop-specific-pathways",
+  "/visitation-programme",
   "/investment",
   "/investment/agarwood",
   "/investment/mango",

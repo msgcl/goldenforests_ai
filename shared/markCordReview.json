@@ -1,0 +1,87 @@
+[
+  {
+    "section": "home",
+    "field": "narrativeEyebrow",
+    "value": "Why agroforestry?"
+  },
+  {
+    "section": "home",
+    "field": "narrativeParagraphs",
+    "value": [
+      "Forestry and agroforestry combine long-term biological growth with exposure to real operating assets. They may support portfolio diversification and potential inflation resilience, alongside environmental and social objectives. These benefits are not assured; investments remain illiquid and exposed to agricultural and market risks.",
+      "Our approach brings together plantation development, operational oversight and responsible stewardship, with objectives that include carbon mitigation, biodiversity and benefits for local communities. Environmental outcomes require measurement and verification."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarTaglines",
+    "value": [
+      "DIRECT EQUITY.\nCOMPANY SHARE RIGHTS.",
+      "CULTIVATION.\nOPERATIONAL OVERSIGHT.",
+      "LAND. BIODIVERSITY.\nLOCAL COMMUNITIES."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "overviewParagraphs",
+    "value": [
+      "Golden Forests develops and manages agarwood and mango businesses in the Philippines, combining plantation operations, research collaboration and responsible stewardship.",
+      "Direct equity participation provides a shareholding in the issuing operating company. Potential dividends or capital appreciation depend on business performance, share terms and applicable law; they are not guaranteed. Shareholders do not own individual trees or land.",
+      "Our environmental and social objectives include native-tree planting, soil and water management, biodiversity and benefits for local communities. Outcomes depend on implementation, measurement and verification."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "heroDescription",
+    "value": "Plantation development, company investment and responsible stewardship."
+  },
+  {
+    "section": "investment",
+    "field": "header",
+    "value": {
+      "badge": "Direct Equity Participation",
+      "title": "Direct Company Investment",
+      "description": "Participate in an operating agroforestry business, subject to eligibility and the relevant share terms."
+    }
+  },
+  {
+    "section": "investment",
+    "field": "faqAnswers",
+    "value": [
+      "Availability, investor eligibility and any minimum investment depend on the issuing company, the transaction terms and applicable jurisdictional restrictions. Contact our team for the relevant company information.",
+      "Direct equity provides a shareholding in the issuing operating company, with potential participation in business growth through dividends or capital appreciation. Financial outcomes are not guaranteed. Shareholder reporting, information and governance rights depend on the share terms and applicable law; shares do not confer ownership of individual trees or land.",
+      "Review the issuing company, share terms, subscription documents, constitutional documents, risk disclosures and available financial information before deciding whether to invest.",
+      "Company costs, any investor charges and distribution terms must be assessed in the relevant transaction documents. Crop sales are company revenues; they are not automatically payable to shareholders.",
+      "Replacement planting, maintenance and any insurance are subject to actual arrangements and conditions. They do not eliminate biological or financial loss."
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "intelligenceSectionDescription",
+    "value": "Agroforestry Intelligence brings together agronomic science, field monitoring and plantation management to support decisions about crop health, water use and cultivation."
+  },
+  {
+    "section": "ecotourism",
+    "field": "introParagraphs",
+    "value": [
+      "See examples of our plantation operations first hand in Zambales and Negros, Philippines. Visits are subject to availability, safety requirements and prior arrangements.",
+      "Our approach combines long-term plantation development with objectives for responsible land use, carbon mitigation, biodiversity and benefits for local communities. Commercial and environmental outcomes are not guaranteed; environmental claims require measurement and verification."
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceTitles",
+    "value": [
+      "Direct Equity Participation",
+      "Company Reporting"
+    ]
+  },
+  {
+    "section": "clientServices",
+    "field": "serviceDescriptions",
+    "value": [
+      "Explore direct equity participation in the issuing operating company. Share rights, eligibility and transaction terms are set out in the relevant company documents. Shares do not convey ownership of individual trees or land.",
+      "Company reports and operational updates provide information about the business and its plantations. Access, frequency and any audit scope depend on the company arrangements and relevant documents."
+    ]
+  }
+]

@@ -36,7 +36,7 @@ function renderOverviewParagraph(paragraph: string) {
   return (
     <>
       {trimmedBefore ? `${trimmedBefore} ` : null}
-      <span className="mt-2 block text-[#17392E]">{standoutOverviewLine}</span>
+      <span className="mt-2 block text-card-foreground">{standoutOverviewLine}</span>
     </>
   );
 }
@@ -77,22 +77,12 @@ export default function About() {
           sizes="100vw"
           className="h-[300px] w-full object-cover sm:h-[400px] lg:h-[520px]"
         />
-        <div className="px-6 py-10 sm:px-8 md:px-10 lg:px-12 lg:py-12">
-          <div className="max-w-4xl">
-            <h1 className="font-serif text-[1.85rem] leading-tight text-[#17392E] sm:text-[2.45rem] lg:text-[3rem]">
-              {copy.heroTitle}
-            </h1>
-            <p className="mt-4 text-[1rem] leading-8 text-[#17392E]/84 sm:text-[1.08rem]">
-              {copy.heroDescription}
-            </p>
-          </div>
-        </div>
       </section>
 
       <section className="mb-8">
         <Card className="border-border/60 shadow-sm">
           <CardContent className="p-6 md:p-8">
-            <h2 className="font-serif text-[1.7rem] leading-tight text-[#17392E] sm:text-[2rem]">
+            <h2 className="font-serif text-[1.7rem] leading-tight text-card-foreground sm:text-[2rem]">
               {copy.overviewTitle}
             </h2>
             <div className="mt-5 space-y-4 text-sm leading-8 text-muted-foreground md:text-base">
@@ -102,6 +92,20 @@ export default function About() {
             </div>
           </CardContent>
         </Card>
+      </section>
+
+      <section className="mb-8 grid gap-4 md:grid-cols-2">
+        {[
+          { title: copy.visionTitle, description: copy.visionDescription },
+          { title: copy.missionTitle, description: copy.missionDescription },
+        ].map(({ title, description }) => (
+          <Card key={title} className="border-border/60 shadow-sm">
+            <CardContent className="p-6 md:p-8">
+              <h2 className="font-serif text-2xl text-primary">{title}</h2>
+              <p className="mt-4 text-sm leading-8 text-muted-foreground">{description}</p>
+            </CardContent>
+          </Card>
+        ))}
       </section>
 
       <section className="mb-8">

@@ -17,6 +17,8 @@ export async function writeSiteCopy(copy: SiteCopy): Promise<SiteCopy> {
   const incoming = normalizeSiteCopy(copy);
   const timestamp = new Date().toISOString();
   const nextMeta = {
+    operatingCompanyReview: incoming._meta.operatingCompanyReview,
+    companyOverviewReview: incoming._meta.companyOverviewReview,
     updatedAt: timestamp,
     sections: { ...previous._meta.sections },
   };

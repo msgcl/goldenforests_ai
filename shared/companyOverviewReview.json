@@ -1,0 +1,165 @@
+[
+  {
+    "section": "home",
+    "field": "heroBadge",
+    "value": "Agroforestry Intelligence"
+  },
+  {
+    "section": "home",
+    "field": "heroTitle",
+    "value": "Direct Participation in Sustainable Agroforestry."
+  },
+  {
+    "section": "home",
+    "field": "heroParagraphs",
+    "value": [
+      "Golden Forests provides professional and institutional investors with curated access to sustainable plantation and agroforestry opportunities across Asia.",
+      "Each opportunity is subject to disciplined due diligence, investment structuring and ongoing oversight. Availability and participation depend on eligibility, jurisdiction and the final documents for the selected opportunity."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "primaryCtaLabel",
+    "value": "Explore Participation Options"
+  },
+  {
+    "section": "home",
+    "field": "pillarTitles",
+    "value": [
+      "Direct Equity Participation",
+      "Dedicated Funds",
+      "Direct Plantation Ownership"
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarDescriptions",
+    "value": [
+      "Targeted exposure to selected operating agroforestry companies. Share ownership does not confer ownership of individual trees or land.",
+      "Participation through independent, licensed and regulated partners, subject to the relevant partner and fund documentation.",
+      "Ownership of selected, professionally managed plantation assets, subject to the relevant ownership documents and applicable requirements."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarTaglines",
+    "value": [
+      "COMPANY EQUITY.\nDEFINED SHARE RIGHTS.",
+      "INDEPENDENT PARTNERS.\nDEDICATED FUNDS.",
+      "PLANTATION ASSETS.\nPROFESSIONAL MANAGEMENT."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "pillarBullets",
+    "value": [
+      "Targeted exposure to selected operating companies.",
+      "Share rights depend on the company documents.",
+      "Company shares do not convey ownership of trees or land.",
+      "Participation through independent, licensed and regulated partners.",
+      "Eligibility and terms depend on the relevant fund documents.",
+      "Due diligence and oversight tailored to the fund pathway.",
+      "Selected, professionally managed plantation assets.",
+      "Ownership rights depend on the final transaction documents.",
+      "Eligibility and jurisdictional requirements apply."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "narrativeEyebrow",
+    "value": "From Land to Intelligence"
+  },
+  {
+    "section": "home",
+    "field": "narrativeParagraphs",
+    "value": [
+      "Golden Forests combines local plantation execution with agronomic science, licensed cultivation technologies and AI-enabled monitoring to improve visibility across the asset lifecycle. Drone surveillance, predictive analytics and structured field data support earlier identification of operational risks, more informed cultivation decisions and transparent oversight. This integrated approach transforms plantation management from a largely manual activity into a disciplined, technology-enabled real-asset platform designed for long-term stewardship, resilience and measurable environmental and social value."
+    ]
+  },
+  {
+    "section": "home",
+    "field": "differentiationTitle",
+    "value": "Curated access. Disciplined oversight. Local execution."
+  },
+  {
+    "section": "about",
+    "field": "header",
+    "value": {
+      "badge": "Company Overview",
+      "title": "Golden Forests",
+      "description": "Golden Forests provides professional and institutional investors with curated access to sustainable plantation and agroforestry opportunities across Asia."
+    }
+  },
+  {
+    "section": "about",
+    "field": "heroTitle",
+    "value": "Direct Participation in Sustainable Agroforestry."
+  },
+  {
+    "section": "about",
+    "field": "heroDescription",
+    "value": "Golden Forests provides professional and institutional investors with curated access to sustainable plantation and agroforestry opportunities across Asia."
+  },
+  {
+    "section": "about",
+    "field": "overviewParagraphs",
+    "value": [
+      "Each opportunity is subject to disciplined due diligence, investment structuring and ongoing oversight, with a focus on long-term real-asset exposure, potential risk-adjusted returns and measurable environmental and social outcomes. Golden Forests Holding is headquartered in Abu Dhabi Global Market (ADGM), UAE, with operating companies in the UAE and the Philippines and planned regional expansion across Asia.",
+      "Golden Forests combines local plantation execution with agronomic science, licensed cultivation technologies and AI-enabled monitoring to improve visibility across the asset lifecycle. Drone surveillance, predictive analytics and structured field data support earlier identification of operational risks, more informed cultivation decisions and transparent oversight. This integrated approach transforms plantation management from a largely manual activity into a disciplined, technology-enabled real-asset platform designed for long-term stewardship, resilience and measurable environmental and social value."
+    ]
+  },
+  {
+    "section": "about",
+    "field": "visionDescription",
+    "value": "To become a trusted Asia-focused platform for sustainable plantation and agroforestry investment, connecting professional capital with responsibly managed real assets that support resilient ecosystems, productive landscapes and long-term community value."
+  },
+  {
+    "section": "about",
+    "field": "missionDescription",
+    "value": "Our mission is to identify and oversee high-quality sustainable agroforestry opportunities across Asia through disciplined due diligence, responsible governance, scientific cultivation and technology-enabled monitoring—supporting long-term value for investors, ecosystems and local communities."
+  },
+  {
+    "section": "about",
+    "field": "uspSectionTitle",
+    "value": "What Sets Golden Forests Apart"
+  },
+  {
+    "section": "about",
+    "field": "uspCardTitles",
+    "value": [
+      "Curated Investor Access",
+      "80+ Years of Combined Management Experience",
+      "Disciplined Due Diligence and Oversight",
+      "Regional Platform with Local Execution",
+      "Science and Technology-Enabled Operations",
+      "Measurable Environmental and Social Outcomes"
+    ]
+  },
+  {
+    "section": "about",
+    "field": "uspCardDescriptions",
+    "value": [
+      "Carefully selected sustainable plantation and agroforestry opportunities designed for professional and institutional investors",
+      "Leadership spanning agroforestry, plantation operations, investment structuring and emerging markets",
+      "Opportunity selection, investment structuring and ongoing company-, fund- or asset-level monitoring tailored to each pathway",
+      "An ADGM-headquartered holding structure supported by operating capabilities in the UAE and the Philippines and planned expansion across Asia",
+      "AI-enabled plantation intelligence, drone surveillance, predictive analytics, licensed cultivation technology and collaboration with agricultural research institutions",
+      "A focus on sustainable land use, biodiversity, climate resilience, responsible reforestation and long-term benefits for local communities"
+    ]
+  },
+  {
+    "section": "plantation",
+    "field": "intelligenceSectionDescription",
+    "value": "Golden Forests combines local plantation execution with agronomic science, licensed cultivation technologies and AI-enabled monitoring to improve visibility across the asset lifecycle. Drone surveillance, predictive analytics and structured field data support earlier identification of operational risks, more informed cultivation decisions and transparent oversight. This integrated approach transforms plantation management from a largely manual activity into a disciplined, technology-enabled real-asset platform designed for long-term stewardship, resilience and measurable environmental and social value."
+  },
+  {
+    "section": "contact",
+    "field": "heroDescription",
+    "value": "Discuss sustainable plantation and agroforestry opportunities across Asia."
+  },
+  {
+    "section": "contact",
+    "field": "intro",
+    "value": "Contact our team about direct equity participation, dedicated funds through independent partners, or direct plantation ownership. Availability and eligibility depend on the selected opportunity and applicable requirements."
+  }
+]
