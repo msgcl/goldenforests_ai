@@ -12,6 +12,8 @@ function CropOperations({ crop }: { crop: "agarwood" | "mango" }) {
   const paragraphs = isAgarwood ? copy.agarwoodIntroParagraphs : copy.mangoIntroParagraphs;
   const focus = isAgarwood ? copy.agarwoodStrengths : copy.mangoStrengths;
   const market = isAgarwood ? copy.agarwoodMarketDescription : copy.mangoMarketDescription;
+  const [marketOpening, ...marketDetails] = market.split(/(?<=[.!?])\s+/);
+  const marketParagraphs = [marketOpening, marketDetails.join(" ")].filter(Boolean);
   const cultivation = isAgarwood ? copy.agarwoodReturnsDescription : copy.mangoReturnsDescription;
   const image = isAgarwood
     ? "https://res.cloudinary.com/dezfh7wug/image/upload/v1775461736/golden-forests/agarwood-chips-20260406.jpg"
@@ -37,8 +39,7 @@ function CropOperations({ crop }: { crop: "agarwood" | "mango" }) {
         </section>
         <section className="light-surface rounded-2xl border border-[#C8A070]/25 bg-[#F7F3EA] p-6 text-[#17392E]">
           <h2 className="font-serif text-2xl">Commercial considerations</h2>
-          <p className="mt-4 leading-8">{market}</p>
-          <p className="mt-4 rounded-xl border border-[#17392E]/15 bg-white/50 p-4 text-sm italic leading-7">Weather, pests, disease, operating costs, permitting and delays can affect production and sales. Crop information does not establish an investment return.</p>
+          {marketParagraphs.map(text => <p key={text} className="mt-4 leading-8">{text}</p>)}
         </section>
       </div>
     </AnimatedPage>

@@ -34,7 +34,6 @@ export function ReturnScenarios({ detailed = false, crop }: { detailed?: boolean
           <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-7">
             {copy.scenarioAssumptions.map(text => <li key={text}>{text}</li>)}
           </ul>
-          <Link href="/contact" className="mt-5 inline-block font-semibold underline underline-offset-4">Request the Investment Opportunities and Participation Overview</Link>
         </div>
       ) : (
         <Link href="/crop-economics#return-assumptions" className="mt-5 inline-block font-semibold underline underline-offset-4">Review scenario assumptions and due diligence</Link>

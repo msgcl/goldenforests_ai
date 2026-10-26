@@ -62,14 +62,7 @@ export default function Investment() {
         <a href="https://goldenforests.ph/" target="_blank" rel="noopener noreferrer" className="mt-5 inline-block font-semibold underline underline-offset-4">{copy.readinessCtaLabel}</a>
       </section>
 
-      <section id="strategic-partnerships" className="light-surface mb-8 scroll-mt-24 rounded-2xl border border-[#C8A070]/25 bg-[#F7F3EA] p-6 text-[#17392E] sm:p-8">
-        <h2 className="font-serif text-2xl">{copy.partnershipTitle}</h2>
-        <p className="mt-4 leading-8">{copy.partnershipDescription}</p>
-        <ul className="mt-4 list-disc space-y-3 pl-5 leading-7">
-          {copy.partnershipPoints.map(text => <li key={text}>{text}</li>)}
-        </ul>
-        <Link href="/contact" className="mt-5 inline-block font-semibold underline underline-offset-4">Discuss a strategic partnership</Link>
-      </section>
+
 
       <section className="light-surface mb-8 rounded-2xl border border-[#C8A070]/25 bg-[#F7F3EA] p-6 text-[#17392E] sm:p-8">
         <h2 className="font-serif text-2xl">{copy.regionalTitle}</h2>
@@ -83,13 +76,7 @@ export default function Investment() {
         <p className="mt-4 leading-6 text-[0.9375rem] italic">Each pathway needs asset verification.</p>
       </section>
 
-      <section id="direct-equity" className="light-surface mb-8 scroll-mt-24 rounded-2xl border border-[#C8A070]/25 bg-[#F7F3EA] p-6 text-[#17392E] sm:p-8">
-        <h2 className="font-serif text-2xl">Direct equity participation</h2>
-        <p className="mt-4 leading-8">{copy.faqAnswers[1]}</p>
-        <p className="mt-4 leading-8">{copy.faqAnswers[0]}</p>
-        <p className="mt-4 leading-8 text-[0.9375rem] italic">Dividends, capital appreciation and repayment are not guaranteed. Investors may lose some or all invested capital.</p>
-        <Link href="/disclaimer" className="mt-4 inline-block underline underline-offset-4">Important Information &amp; Risks</Link>
-      </section>
+
 
       <section className="mb-4">
         <Card className="light-surface border-[#C8A070]/30 bg-[#F7F3EA] text-[#17392E] shadow-sm">
@@ -129,10 +116,10 @@ export default function Investment() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Button asChild className="rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40]">
-              <Link href="/plantation" className="inline-flex items-center gap-2">
+              <a href="https://goldenforests.ph/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                 Explore our plantation operations
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </Button>
           </div>
         </div>

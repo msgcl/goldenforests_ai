@@ -55,7 +55,7 @@ function applyPreviousCompanyOverviewReview(input: unknown): unknown {
 }
 
 /** Apply the requested crop, fund and navigation copy update once. */
-export function applyCompanyOverviewReview(input: unknown): unknown {
+function applyPageRevisions(input: unknown): unknown {
   if (!input || typeof input !== "object" || Array.isArray(input)) return input;
   if ((input as any)._meta?.companyOverviewReview === "2026-10-25-page-revisions") {
     const copy = structuredClone(input) as Record<string, any>;
@@ -77,5 +77,56 @@ export function applyCompanyOverviewReview(input: unknown): unknown {
   assumptions.splice(1, 0, "The illustrative mango and combined models reflect only mango yields from Years 5–15. The actual mango production cycle extends consistently from Years 5–25.");
   copy.investment.scenarioAssumptions = assumptions;
   copy._meta = { ...copy._meta, companyOverviewReview: "2026-10-25-page-revisions" };
+  return copy;
+}
+
+/** Update the homepage wording while preserving unrelated CMS content. */
+export function applyCompanyOverviewReview(input: unknown): unknown {
+  const reviewed = applyPageRevisions(input);
+  if (!reviewed || typeof reviewed !== "object" || Array.isArray(reviewed)) return reviewed;
+  const copy = reviewed as Record<string, any>;
+  if (Array.isArray(copy.home?.heroParagraphs)) {
+    copy.home.heroParagraphs = copy.home.heroParagraphs.map((text: string) =>
+      text.replace("and the final documents", "and definitive agreements"),
+    );
+  }
+  if (copy.home?.narrativeEyebrow === "From Land to Intelligence") {
+    copy.home.narrativeEyebrow = "Rooted in Intelligence";
+  }
+  if (Array.isArray(copy.home?.pillarDescriptions)) {
+    copy.home.pillarDescriptions = copy.home.pillarDescriptions.map((text: string) =>
+      text.replace("Tailored partnerships can combine these capabilities with Golden Forests\u2019 agroforestry intelligence and operating platform.", "").trim(),
+    );
+  }
+  if (copy.investment?.regionalTitle === "Direct Plantation Ownership") {
+    copy.investment.regionalTitle = "Thai Agarwood Plantation Platform";
+  }
+  const plantation = copy.plantation;
+  if (plantation) {
+    plantation.riskDescriptions = plantation.riskDescriptions.map((text: string, index: number) => {
+      const title = plantation.riskTitles[index];
+      if (title === "Production Variability") return "Production planning must allow for variable fruiting and crop losses. Planning assumptions reflect only 80% of mango trees fruiting and do not guarantee a particular harvest.";
+      if (title === "Replacement Planting") return "During each plantation cycle, an additional 20% volume of trees are planted to provide a replacement buffer for mortalities that may occur during the full life cycle of the tree. It does not eliminate biological loss due to Force Majeure.";
+      if (title === "Site Exposure") return text.replace(/across Zambales(?= reduce)/, "across Zambales Province and Negros Island");
+      return text;
+    });
+    plantation.environmentalSectionDescription = plantation.environmentalSectionDescription.replace("These are intentions and projected outcomes requiring baseline evidence, field records and appropriate measurement and verification.", "").trim();
+    plantation.environmentalItems = plantation.environmentalItems.map((text: string) => text.replace(/^Planned (?=1:1)/, ""));
+    plantation.transparencySectionTitle = "Investor Transparency";
+    plantation.transparencyPrimaryCtaHref = "https://goldenforests.ph/";
+    plantation.overviewPortalCtaHref = "https://goldenforests.ph/";
+    const negrosParagraph = "Negros Island is highly suitable for agarwood plantations due to its fertile volcanic soils, favorable drainage, ample agricultural land, and established farming infrastructure. Its strategic location and sustainable cultivation practices further support resilient, scalable plantation development.";
+    plantation.overviewParagraphs = plantation.overviewParagraphs.map((text: string) => text.replace(/^Across the province/, "Across Zambales and Negros").replace(/^Every plantation/, "Across Zambales and Negros, every plantation"));
+    if (!plantation.overviewParagraphs.includes(negrosParagraph)) plantation.overviewParagraphs.splice(1, 0, negrosParagraph);
+  }
+  const services = copy.clientServices;
+  if (services) {
+    services.header.title = services.header.title.replace("Client Services", "Investor Services");
+    services.serviceDescriptions = services.serviceDescriptions.map((text: string) => text.replace(/For a fund route, request a separate introduction to an independent licensed manager\. That manager provides any fund offering and approved materials\./, "For a regulated fund opportunity, request a separate introduction with an independent licensed fund manager or private placement intermediary."));
+    services.itineraryDescription = services.itineraryDescription.replace("extended travel from Clark.", "extended travel from Clark or Manila Airports.");
+  }
+  if (copy.ecotourism?.header) {
+    copy.ecotourism.header.description = "A two-day hosted plantation visit programme in Zambales province or Negros Island, Philippines.";
+  }
   return copy;
 }

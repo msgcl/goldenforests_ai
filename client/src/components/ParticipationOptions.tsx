@@ -16,7 +16,7 @@ export function ParticipationOptions() {
             <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7">
               {copy.pillarBullets.slice(index * 3, index * 3 + 3).map(text => <li key={text}>{text}</li>)}
             </ul>
-            <Link href="/contact" className="mt-5 inline-block font-semibold underline underline-offset-4">{index === 1 ? "Request a separate manager introduction" : "Enquire about this option"}</Link>
+            <Link href="/contact" className="mt-5 inline-block font-semibold underline underline-offset-4">{index === 1 ? "Request a separate fund manager introduction" : "Enquire about this option"}</Link>
           </article>
         ))}
       </div>

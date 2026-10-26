@@ -8,8 +8,8 @@ export function VisitationProgramme() {
   const copy = resolvedSiteCopy.clientServices;
   const font = createPageTypography(resolvedSiteCopy, "clientServices");
   return (      <section className="mt-10 overflow-hidden rounded-[1.8rem] border border-[#2A5646] bg-[#123831] shadow-[0_24px_54px_rgba(0,0,0,0.16)]">
-        <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="border-b border-[#C8A070]/24 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
+        <div className="flex flex-col">
+          <div className="border-b border-[#C8A070]/24 p-6 sm:p-8 lg:p-10">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#C8A070]/12 text-[#C8A070]">
               <UsersRound className="h-7 w-7" />
             </div>
@@ -21,7 +21,7 @@ export function VisitationProgramme() {
             </p>
           </div>
 
-          <div className="grid gap-6 p-6 sm:p-8 md:grid-cols-2 lg:p-10">
+          <div className="grid gap-8 p-6 sm:p-8 lg:p-10">
             <div>
               <div className="flex items-center gap-3">
                 <MapPinned className="h-5 w-5 text-[#C8A070]" />

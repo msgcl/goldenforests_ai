@@ -99,9 +99,9 @@ const seoByPath: Record<string, SeoConfig> = {
     canonicalPath: "/visitation-programme",
   },
   "/services": {
-    title: "Agroforestry Client Services | Golden Forests",
+    title: "Agroforestry Investor Services | Golden Forests",
     description:
-      "Explore Golden Forests client services for professionally managed plantation assets and long-term reporting.",
+      "Explore Golden Forests investor services for professionally managed plantation assets and long-term reporting.",
     canonicalPath: "/services",
   },
   "/contact": {

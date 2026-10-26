@@ -76,15 +76,6 @@ export default function Home() {
         </div>
       </section>
 
-      <p className="mt-6 text-sm italic leading-7 text-[#D0DBD2]">
-        Investments are illiquid and may result in loss of capital. Returns and dividends are not guaranteed.{" "}
-        <Link href="/disclaimer" className="underline underline-offset-4">Read Important Information &amp; Risks.</Link>
-      </p>
-
-
-
-      <p className="mt-6 text-sm italic leading-7 text-[#F7F3EA]">Explore the separate <Link href="/crop-economics" className="underline underline-offset-4">Philippine crop economics and model assumptions</Link>. Crop models do not establish investor distribution rights.</p>
-
       <section className="light-surface mt-10 rounded-[1.8rem] border border-[#C8A070]/24 bg-[#F7F3EA] p-6 text-[#17392E] sm:p-8">
         <h2 className="font-serif text-2xl sm:text-3xl">{copy.narrativeEyebrow}</h2>
         {copy.narrativeParagraphs.map((paragraph) => (

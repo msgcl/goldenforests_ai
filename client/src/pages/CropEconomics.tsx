@@ -9,7 +9,6 @@ export default function CropEconomics() {
         <p className="text-sm font-semibold uppercase tracking-widest text-[#806238]">Operating models · Philippines</p>
         <h1 className="mt-4 font-serif text-3xl sm:text-4xl">Crop Economics &amp; Model Assumptions</h1>
         <p className="mt-5 italic leading-8">Explore how cultivation, harvest timing, sale prices and modeled deductions shape crop-linked cash flows. These illustrations explain management’s models; they do not establish the economics of a shareholding, fund interest, asset purchase or partnership.</p>
-        <p className="mt-4 italic leading-8">Before participating, identify the legal entity, the rights to receipts, all applicable costs and the distribution terms in the relevant final agreements. An operational model alone does not establish a contractual right to its proceeds.</p>
       </header>
       <ReturnScenarios detailed />
       <nav aria-label="Investment information" className="flex flex-wrap gap-6 text-[#F7F3EA]">

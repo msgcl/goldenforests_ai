@@ -158,7 +158,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="mb-8">
+      <section id="leadership" className="mb-8 scroll-mt-6">
         <div className="mb-5 max-w-3xl">
           <h2 className="text-3xl font-semibold tracking-tight text-[#F7F3EA]">{copy.leadershipSectionTitle}</h2>
         </div>
