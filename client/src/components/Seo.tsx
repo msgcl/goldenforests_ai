@@ -15,7 +15,7 @@ type SeoConfig = {
 
 const seoByPath: Record<string, SeoConfig> = {
   "/crop-specific-pathways": {
-    title: "Crop-specific Pathways | Golden Forests",
+    title: "Crop Specific Operations | Golden Forests",
     description: "Explore agarwood, mango and their complementary harvest horizons and crop economics.",
     canonicalPath: "/crop-specific-pathways",
   },

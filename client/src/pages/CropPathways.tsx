@@ -57,7 +57,7 @@ export default function CropPathways() {
   const agarwoodPathwayDescription = combineOpeningSentences(copy.agarwoodIntroParagraphs);
   const mangoPathwayDescription = combineOpeningSentences(copy.mangoIntroParagraphs);
   return <AnimatedPage>
-    <h1 className="mb-6 font-serif text-3xl text-[#F7F3EA]">Crop-specific Pathways</h1>
+    <h1 className="mb-6 font-serif text-3xl text-[#F7F3EA]">Crop Specific Operations</h1>
     <nav aria-label="Crop pathways" className="mb-8 flex flex-wrap gap-6 text-[#F7F3EA]">
       <Link href="/investment/agarwood" className="underline underline-offset-4">Agarwood</Link>
       <Link href="/investment/mango" className="underline underline-offset-4">Mango</Link>

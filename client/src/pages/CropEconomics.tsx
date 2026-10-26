@@ -12,7 +12,6 @@ export default function CropEconomics() {
       </header>
       <ReturnScenarios detailed />
       <nav aria-label="Investment information" className="flex flex-wrap gap-6 text-[#F7F3EA]">
-        <Link href="/investment" className="underline underline-offset-4">Participation options and legal rights</Link>
         <Link href="/disclaimer" className="underline underline-offset-4">Important Information &amp; Risks</Link>
       </nav>
     </AnimatedPage>

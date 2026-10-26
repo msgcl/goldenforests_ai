@@ -46,13 +46,6 @@ export function AppFooter() {
             <span>© {year} Golden Forests Group</span>
           </div>
         </div>
-          <p className="border-t border-[#C8A070]/25 pt-4 text-left text-sm leading-relaxed text-[#D0DBD2] lg:col-span-2">
-            Investments are illiquid and may lose capital. Returns and dividends are not guaranteed. Read our{" "}
-            <Link href="/disclaimer" className="font-medium text-[#F7F3EA] underline underline-offset-4 transition-colors hover:text-[#C8A070]">
-              Important Information & Risks
-            </Link>{" "}
-            for full details.
-          </p>
       </div>
     </footer>
   );

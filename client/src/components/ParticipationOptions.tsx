@@ -20,7 +20,7 @@ export function ParticipationOptions() {
           </article>
         ))}
       </div>
-      <p className="mt-4 leading-7 text-[#F7F3EA] text-[0.9375rem] italic">For professional and institutional investors and strategic partners, subject to eligibility, suitability and jurisdictional requirements. Final company, fund, transaction, ownership, joint-venture or partnership documents govern each opportunity. Returns and repayment of capital are not guaranteed.</p>
+      <p className="mt-4 text-xs leading-5 text-[#F7F3EA] italic">For professional and institutional investors and strategic partners, subject to eligibility, suitability and jurisdictional requirements. Final company, fund, transaction, ownership, joint-venture or partnership documents govern each opportunity. Returns and repayment of capital are not guaranteed.</p>
     </section>
   );
 }

@@ -41,7 +41,7 @@ const navigationItems: Array<{
     icon: Sprout,
   },
   {
-    title: "Crop-specific Pathways",
+    title: "Crop Specific Operations",
     url: "/crop-specific-pathways",
     icon: Sprout,
     matchUrls: ["/investment/agarwood", "/investment/mango", "/crop-economics"],

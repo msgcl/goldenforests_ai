@@ -73,7 +73,6 @@ export default function Investment() {
           <li><strong>Mature / pre-inoculation:</strong> Ages 15–25, inoculation still required.</li>
           <li><strong>Classic:</strong> Seedling-to-harvest cultivation and commercialization.</li>
         </ul>
-        <p className="mt-4 leading-6 text-[0.9375rem] italic">Each pathway needs asset verification.</p>
       </section>
 
 

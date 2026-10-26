@@ -128,5 +128,10 @@ export function applyCompanyOverviewReview(input: unknown): unknown {
   if (copy.ecotourism?.header) {
     copy.ecotourism.header.description = "A two-day hosted plantation visit programme in Zambales province or Negros Island, Philippines.";
   }
+  if (copy.home) {
+    copy.home.credibilityTitle = "Science at the heart of every cultivation decision.";
+    copy.home.investmentSectionTitle = "The Premium Dual-Crop Strategy";
+  }
+  if (copy.investment) copy.investment.mangoTitle = "Sweet Elena Mango";
   return copy;
 }

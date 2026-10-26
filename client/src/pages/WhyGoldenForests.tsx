@@ -47,8 +47,7 @@ export default function WhyGoldenForests() {
         <h2 className="font-serif text-3xl">For the Land and Local Communities</h2>
         <p className="mt-4 leading-8">Our objectives include responsible soil and water management, productive land rehabilitation, native-tree planting and biodiversity. Local employment, training and respectful community engagement form part of the intended long-term value of plantation development.</p>
         <p className="mt-4 leading-8">The native-tree programme complements commercial cultivation. Community opportunities include potential participation by women, rural families and members of the Indigenous Aeta community.</p>
-        <p className="mt-6 border-t border-[#C8A070]/30 pt-4 text-sm leading-relaxed">These are objectives and planned outcomes, not verified achievements. Environmental and social claims require baseline evidence, implementation records, monitoring and appropriate independent verification. No certification or assured carbon income is implied.</p>
-        <Link href="/plantation" className="mt-5 inline-block font-semibold underline underline-offset-4">See our operating approach</Link>
+        <p className="mt-6 border-t border-[#C8A070]/30 pt-4 text-[0.6875rem] leading-5">These are objectives and planned outcomes, not verified achievements. Environmental and social claims require baseline evidence, implementation records, monitoring and appropriate independent verification. No certification or assured carbon income is implied.</p>
       </section>
 
 
