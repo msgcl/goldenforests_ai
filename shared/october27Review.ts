@@ -3,8 +3,8 @@ export function applyOctober27Review(copy: Record<string, any>) {
   const home = copy.home;
   if (home) {
     if (Array.isArray(home.heroParagraphs)) home.heroParagraphs = home.heroParagraphs.map((text: string) => text.replace(
-      "curated access to sustainable plantation and agroforestry opportunities across Asia",
-      "curated access to sustainable plantations, large-scale reforestation and carbon offset projects, and agroforestry opportunities across Southeast Asia",
+      /curated access to (?:sustainable plantation and agroforestry opportunities across Asia|sustainable plantations, large-scale reforestation and carbon offset projects, and agroforestry opportunities across Southeast Asia)/g,
+      "curated access to large-scale sustainable forestry and nature-based investments, including reforestation, agroforestry, and carbon offset projects across Southeast Asia",
     ));
     if (["Rooted in Intelligence", "Rooted in Agroforestry Intelligence"].includes(home.narrativeEyebrow)) {
       home.narrativeEyebrow = "Agroforestry Intelligence";

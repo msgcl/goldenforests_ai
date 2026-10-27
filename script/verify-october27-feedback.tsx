@@ -23,7 +23,7 @@ function render(Page: React.ComponentType, path: string) {
 try {
   const home = render(Home, pagePaths.home);
   assert.match(home, /Agroforestry Intelligence/);
-  assert.match(home, /large-scale reforestation and carbon offset projects, and agroforestry opportunities across Southeast Asia/);
+  assert.ok(home.includes("Golden Forests provides professional and institutional investors with curated access to large-scale sustainable forestry and nature-based investments, including reforestation, agroforestry, and carbon offset projects across Southeast Asia."));
   const investment = render(Investment, pagePaths.agroforestry);
   const partnerships = investment.match(/<article[^>]*>[^]*?Joint Ventures[^]*?<\/article>/)?.[0];
   assert.ok(partnerships);
