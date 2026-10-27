@@ -63,7 +63,7 @@ export default function Home() {
                 size="lg"
                 className="w-full rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40] sm:w-auto sm:px-7"
               >
-                <Link href="/investment" className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
+                <Link href="/investment#participation-options" className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
                   {copy.primaryCtaLabel}
                   <ArrowRight className="h-4 w-4" />
                 </Link>

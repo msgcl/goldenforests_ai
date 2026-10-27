@@ -2,7 +2,7 @@ import { AnimatedPage } from "@/components/layout/AnimatedPage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/optimized-media";
-import { ArrowUpRight, LoaderCircle, Mail, MapPin, Smartphone } from "lucide-react";
+import { LoaderCircle, Mail, MapPin, Smartphone } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useSiteCopy } from "@/hooks/use-site-copy";
 import { defaultSiteCopy } from "@shared/siteCopy";
@@ -20,54 +20,6 @@ const PIPEDRIVE_LOADER_URL = "https://webforms.pipedrive.com/f/loader";
 
 const contactHeroImage =
   "https://res.cloudinary.com/dezfh7wug/image/upload/v1775767722/golden-forests/contact-hero-20260410.jpg";
-const agarwoodRequestFormUrl =
-  "/investment/agarwood";
-const mangoRequestFormUrl =
-  "/investment/mango";
-const faqDocumentUrl = "/disclaimer";
-
-function normalizeResourceLabel(value: string) {
-  return value.trim().toLowerCase().replace(/\s+/g, " ");
-}
-
-function resolveResourceLabel(label: string) {
-  const normalizedLabel = normalizeResourceLabel(label);
-
-  if (
-    normalizedLabel === "download agarwood exposé" ||
-    normalizedLabel === "request agarwood exposé" ||
-    normalizedLabel === "agarwood exposé"
-  ) {
-    return "Request Agarwood exposé";
-  }
-
-  if (
-    normalizedLabel === "download mango exposé" ||
-    normalizedLabel === "request mango exposé" ||
-    normalizedLabel === "mango exposé"
-  ) {
-    return "Request Mango exposé";
-  }
-
-  if (
-    normalizedLabel === "view full faq document" ||
-    normalizedLabel === "view full faqs" ||
-    normalizedLabel === "request faq document" ||
-    normalizedLabel === "view faq document"
-  ) {
-    return "View FAQ Document";
-  }
-
-  if (
-    normalizedLabel === "view business prospectus" ||
-    normalizedLabel === "request business prospectus"
-  ) {
-    return "Investment Opportunities and Participation Overview";
-  }
-
-  return label;
-}
-
 export default function Contact() {
   const { data: siteCopy } = useSiteCopy();
   const resolvedSiteCopy = siteCopy ?? defaultSiteCopy;
@@ -78,7 +30,6 @@ export default function Contact() {
   const [functionalCookiesAllowed, setFunctionalCookiesAllowed] = useState(
     () => readCookieConsent()?.functional === true,
   );
-  const fallbackResourceHrefs = [agarwoodRequestFormUrl, mangoRequestFormUrl, faqDocumentUrl];
 
   useEffect(() => {
     const updateConsent = (event: Event) => {
@@ -271,45 +222,7 @@ export default function Contact() {
             </a>
           </div>
 
-          <Card className="light-surface border-[#D8C9B1] bg-[linear-gradient(180deg,#F6EFE2_0%,#EFE4CF_100%)] shadow-[0_24px_54px_rgba(88,65,32,0.12)]">
-            <CardContent className="p-5 md:p-7">
-              <h3 className={font("resourcesTitle", "text-2xl font-semibold text-[#6F4E2C]")}>{copy.resourcesTitle}</h3>
-              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                {copy.resourceLabels.map((label, index) => {
-                  const resolvedLabel = resolveResourceLabel(label);
-                  const href =
-                    resolvedLabel === "Investment Opportunities and Participation Overview"
-                      ? "/investment"
-                      : resolvedLabel === "Request Agarwood exposé"
-                      ? agarwoodRequestFormUrl
-                      : resolvedLabel === "Request Mango exposé"
-                        ? mangoRequestFormUrl
-                        : resolvedLabel === "View FAQ Document"
-                          ? faqDocumentUrl
-                          : copy.resourceHrefs[index] ?? fallbackResourceHrefs[index] ?? "/investment";
 
-                  return (
-                    <Button
-                      key={label}
-                      variant="outline"
-                      className="rounded-xl border-[#6F4E2C]/20 bg-[#FBFCF7]/70 px-5 text-[#6F4E2C] hover:bg-white"
-                      asChild
-                    >
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2"
-                      >
-                        <ArrowUpRight className="h-4 w-4" />
-                        {resolvedLabel}
-                      </a>
-                    </Button>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </AnimatedPage>
