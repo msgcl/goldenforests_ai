@@ -30,9 +30,30 @@ export const legacyPagePaths: Record<string, string> = {
   "/plantation": pagePaths.precisionFarming,
   "/ai-management": pagePaths.precisionFarming,
   "/company-profile": pagePaths.group,
+  "/about": pagePaths.group,
+  "/location": pagePaths.visitation,
+  "/plantation-visit": pagePaths.visitation,
+  "/ecotourism": pagePaths.visitation,
+  "/agarwood-life-cycle": pagePaths.agarwood,
+  "/mango-program": pagePaths.mango,
 };
 
+/** Historical pages with no current standalone replacement. */
+export const retiredPagePaths = [
+  "/impact", "/technology", "/ai-technology", "/nursery", "/management", "/compliance",
+  "/downloads", "/videos", "/photo-gallery", "/faq", "/video",
+] as const;
+
 const publicPaths = new Set<string>(Object.values(pagePaths));
+const retiredPaths = new Set<string>(retiredPagePaths);
+
+export function normalizePagePath(href: string): string {
+  return href.split(/[?#]/, 1)[0].replace(/\/+$/, "").toLowerCase() || "/";
+}
+
+export function isRetiredPage(href: string): boolean {
+  return retiredPaths.has(normalizePagePath(href));
+}
 
 /** Preserve queries and section anchors while translating known local links. */
 export function canonicalPageHref(href: string): string {

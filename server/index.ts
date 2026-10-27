@@ -1,4 +1,5 @@
-import { canonicalPageHref } from "@shared/pagePaths";
+import { removedPageHtml } from "./htmlSeo";
+import { canonicalPageHref, isRetiredPage } from "@shared/pagePaths";
 import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
@@ -38,15 +39,14 @@ app.use(
 
 app.use(express.urlencoded({ extended: false }));
 
-const legacyRedirectPaths = new Set(["/faq", "/video"]);
 const retiredInvestmentDocumentPaths = new Set(["/gf_combined_two_pager_final.pdf", "/gf-faq-july-2026.pdf", "/golden_forests_faq_final.pdf"]);
 
 app.use((req, res, next) => {
-  // Send legacy Wix URLs to the homepage on the current site.
+  // Retired pages are removed; renamed pages retain permanent redirects.
   const normalizedPath = (req.path.replace(/\/+$/, "") || "/").toLowerCase();
 
-  if (legacyRedirectPaths.has(normalizedPath)) {
-    return res.redirect(301, "/home");
+  if (isRetiredPage(normalizedPath)) {
+    return res.status(410).set("X-Robots-Tag", "noindex, nofollow").type("html").send(removedPageHtml(req.originalUrl));
   }
 
   const canonicalHref = canonicalPageHref(req.originalUrl);

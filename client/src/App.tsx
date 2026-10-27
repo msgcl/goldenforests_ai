@@ -99,7 +99,7 @@ function App() {
                         />
                         <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                         <div className="flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10">
-                            <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="Golden Forests logo" priority sizes="26px" className="h-6 w-6 object-contain sm:h-6.5 sm:w-6.5" />
+                            <OptimizedImage src="https://res.cloudinary.com/dezfh7wug/image/upload/v1774561174/golden-forests/sidebar-logo.png" alt="" priority sizes="26px" className="h-6 w-6 object-contain sm:h-6.5 sm:w-6.5" />
                           </div>
                           <div className="min-w-0 flex-1">
                             <p className="font-serif text-[0.72rem] leading-tight text-[#F7F3EA] sm:text-[1rem]">

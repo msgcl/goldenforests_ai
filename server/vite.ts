@@ -1,3 +1,5 @@
+import { applyHtmlSeo } from "./htmlSeo";
+import { getPageSeo } from "@shared/siteSeo";
 import { type Express } from "express";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
@@ -48,8 +50,12 @@ export async function setupVite(server: Server, app: Express) {
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`,
       );
-      const page = await vite.transformIndexHtml(url, template);
-      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+      const page = await vite.transformIndexHtml(url, applyHtmlSeo(template, url));
+      const requestPath = url.split("?")[0];
+      const admin = requestPath === "/admin" || requestPath.startsWith("/admin/");
+      const status = getPageSeo(requestPath).canonicalPath || admin ? 200 : 404;
+      if (status === 404) res.setHeader("X-Robots-Tag", "noindex, nofollow");
+      res.status(status).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
       next(e);

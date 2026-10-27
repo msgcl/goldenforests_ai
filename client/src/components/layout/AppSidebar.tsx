@@ -82,10 +82,10 @@ export function AppSidebar() {
     <Sidebar variant="inset" className="bg-transparent">
       <SidebarHeader className="border-b border-[#C8A070]/40 p-4">
         <div className="flex items-center justify-center rounded-[1.5rem] border border-[#C8A070] bg-[#17392E] px-3 py-5 shadow-inner shadow-black/10">
-          <Link href="/home" className="inline-flex flex-col items-center justify-center gap-3 text-center">
+          <Link href="/home" aria-label="Golden Forests home" className="inline-flex flex-col items-center justify-center gap-3 text-center">
             <OptimizedImage
               src={goldenForestsLogo}
-              alt="Golden Forests Holding"
+              alt=""
               priority
               sizes="104px"
               className="h-14 w-auto max-w-full object-contain drop-shadow-sm"
