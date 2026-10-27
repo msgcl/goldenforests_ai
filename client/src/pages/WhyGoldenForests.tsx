@@ -1,5 +1,6 @@
+import { chairmanQuote } from "@shared/chairmanQuote";
 import { Link } from "wouter";
-import { ArrowRight, BrainCircuit, Leaf, ShieldCheck, UsersRound } from "lucide-react";
+import { ArrowRight, BrainCircuit, Leaf, Quote, ShieldCheck, UsersRound } from "lucide-react";
 import { AnimatedPage } from "@/components/layout/AnimatedPage";
 import { Button } from "@/components/ui/button";
 
@@ -17,13 +18,31 @@ export default function WhyGoldenForests() {
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#806238]">Why Golden Forests</p>
         <h1 className="mt-4 max-w-4xl font-serif text-3xl leading-tight sm:text-5xl">Smarter Plantations. Lasting Value</h1>
         <p className="mt-6 max-w-3xl leading-8">Golden Forests connects professional capital with sustainable plantation and agroforestry opportunities across Asia. Our approach brings together local operating experience, scientific cultivation and disciplined oversight, with objectives for investors, the land and local communities.</p>
-        <Button asChild className="mt-7"><Link href="/investment#participation-options">Explore participation pathways <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+        <Button asChild className="mt-7"><Link href="/agroforestry-opportunities#participation-options">Explore participation pathways <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
       </section>
 
       <section id="why-agroforestry" className="light-surface mt-8 rounded-2xl border border-[#C8A070]/25 bg-[#F7F3EA] p-6 text-[#17392E] sm:p-8">
         <h2 className="font-serif text-3xl">Why Agroforestry?</h2>
         <p className="mt-4 leading-8">Forestry and agroforestry combine long-term biological growth with exposure to real operating assets. They may contribute to portfolio diversification and potential inflation resilience, alongside environmental and social objectives.</p>
-        <p className="mt-4 leading-8">Different crops bring different harvesting cycles. Mango can introduce recurring harvest activity once productive, while agarwood follows a longer cultivation and resin-development cycle. Commercial value depends on crop health, product quality, harvest timing and successful sales.</p>
+        <figure className="mt-7 overflow-hidden rounded-2xl border border-[#C8A070]/30 bg-[#FBF8F1] md:grid md:grid-cols-[minmax(220px,0.75fr)_2fr]">
+          <figcaption className="bg-[#17392E] px-6 py-7 text-[#F7F3EA] sm:px-7 sm:py-8">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#D9B887]">The chairman’s perspective</p>
+            <p className="mt-5 font-serif text-[1.9rem] leading-tight">{chairmanQuote.name}</p>
+            <p className="mt-3 text-sm font-medium leading-6 text-[#E2C99F]">{chairmanQuote.role}</p>
+            <div className="my-5 h-px w-12 bg-[#C8A070]/50" aria-hidden="true" />
+            <p className="max-w-xs text-sm leading-7 text-[#D0DBD2]">{chairmanQuote.background}</p>
+          </figcaption>
+          <div className="px-6 py-7 sm:px-8 sm:py-8 lg:px-10">
+            <Quote aria-hidden="true" className="mb-4 h-8 w-8 text-[#A77E48]" strokeWidth={1.25} />
+            <blockquote aria-label="Charles McKenzie on agroforestry and portfolio allocation" className="space-y-5 text-[#17392E]">
+              {chairmanQuote.paragraphs.map((paragraph, index) => (
+                <p key={paragraph} className={index === 0 ? "font-serif text-[1.25rem] leading-relaxed sm:text-[1.4rem]" : "text-[0.95rem] leading-8 text-[#17392E]/85"}>
+                  {index === 0 ? "“" : ""}{paragraph}{index === chairmanQuote.paragraphs.length - 1 ? "”" : ""}
+                </p>
+              ))}
+            </blockquote>
+          </div>
+        </figure>
       </section>
 
       <section id="our-approach" className="mt-10">
@@ -47,7 +66,7 @@ export default function WhyGoldenForests() {
         <h2 className="font-serif text-3xl">For the Land and Local Communities</h2>
         <p className="mt-4 leading-8">Our objectives include responsible soil and water management, productive land rehabilitation, native-tree planting and biodiversity. Local employment, training and respectful community engagement form part of the intended long-term value of plantation development.</p>
         <p className="mt-4 leading-8">The native-tree programme complements commercial cultivation. Community opportunities include potential participation by women, rural families and members of the Indigenous Aeta community.</p>
-        <p className="mt-6 border-t border-[#C8A070]/30 pt-4 text-[0.6875rem] leading-5">These are objectives and planned outcomes, not verified achievements. Environmental and social claims require baseline evidence, implementation records, monitoring and appropriate independent verification. No certification or assured carbon income is implied.</p>
+        <p className="mt-6 border-t border-[#C8A070]/30 pt-4 text-[0.6875rem] italic leading-5">These are objectives and planned outcomes, not verified achievements. Environmental and social claims require baseline evidence, implementation records, monitoring and appropriate independent verification. No certification or assured carbon income is implied.</p>
       </section>
 
 

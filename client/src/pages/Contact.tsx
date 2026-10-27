@@ -212,6 +212,7 @@ export default function Contact() {
                 <Smartphone className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div>
                   <p className={font("mobileLabel", "text-xs uppercase tracking-wider text-[#7A6240]")}>{copy.mobileLabel}</p>
+                  <p className="mt-2 text-base font-semibold text-[#2F2417]">Cord Kabus-Duprée</p>
                   {copy.phoneNumbers.map((phone, index) => (
                     <p key={`${phone}-${index}`} className={font("phoneNumbers", index === 0 ? "mt-2 text-base font-semibold leading-relaxed text-[#2F2417]" : "text-base font-semibold leading-relaxed text-[#2F2417]")}>
                       {phone}

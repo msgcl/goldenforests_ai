@@ -1,3 +1,4 @@
+import { canonicalPageHref } from "@shared/pagePaths";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
@@ -13,7 +14,7 @@ type SeoConfig = {
   noindex?: boolean;
 };
 
-const seoByPath: Record<string, SeoConfig> = {
+const originalSeoByPath: Record<string, SeoConfig> = {
   "/crop-specific-pathways": {
     title: "Crop Specific Operations | Golden Forests",
     description: "Explore agarwood, mango and their complementary harvest horizons and crop economics.",
@@ -45,7 +46,7 @@ const seoByPath: Record<string, SeoConfig> = {
     canonicalPath: "/",
   },
   "/investment": {
-    title: "Investment Opportunities & Participation | Golden Forests",
+    title: "Agroforestry Opportunities & Participation | Golden Forests",
     description:
       "Explore direct company investment, plantation assets, strategic partnerships and separate introductions to independent licensed fund managers.",
     canonicalPath: "/investment",
@@ -126,6 +127,12 @@ const seoByPath: Record<string, SeoConfig> = {
     canonicalPath: "/cookie-policy",
   },
 };
+
+const seoByPath: Record<string, SeoConfig> = Object.fromEntries(
+  Object.entries(originalSeoByPath).map(([path, config]) => [
+    canonicalPageHref(path), { ...config, canonicalPath: canonicalPageHref(config.canonicalPath) },
+  ]),
+);
 
 function upsertMeta(selector: string, attributes: Record<string, string>) {
   let element = document.head.querySelector<HTMLMetaElement>(selector);

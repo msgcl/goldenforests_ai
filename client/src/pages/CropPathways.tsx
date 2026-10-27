@@ -59,13 +59,13 @@ export default function CropPathways() {
   return <AnimatedPage>
     <h1 className="mb-6 font-serif text-3xl text-[#F7F3EA]">Crop Specific Operations</h1>
     <nav aria-label="Crop pathways" className="mb-8 flex flex-wrap gap-6 text-[#F7F3EA]">
-      <Link href="/investment/agarwood" className="underline underline-offset-4">Agarwood</Link>
-      <Link href="/investment/mango" className="underline underline-offset-4">Mango</Link>
-      <Link href="/crop-economics" className="underline underline-offset-4">Crop Economics</Link>
+      <Link href="/crop-specific-operations/agarwood" className="underline underline-offset-4">Agarwood</Link>
+      <Link href="/crop-specific-operations/mango" className="underline underline-offset-4">Mango</Link>
+      <Link href="/crop-specific-operations/crop-economics" className="underline underline-offset-4">Crop Economics</Link>
     </nav>
       <section className="mb-8 grid scroll-mt-24 gap-5 lg:grid-cols-2">
         <div id="agarwood" className="scroll-mt-24">
-          <Link href="/investment/agarwood" className="block h-full"><CropPathwayBanner
+          <Link href="/crop-specific-operations/agarwood" className="block h-full"><CropPathwayBanner
             title={copy.agarwoodTitle}
             description={agarwoodPathwayDescription}
             sideImageSrc={agarwoodChipsImage}
@@ -73,7 +73,7 @@ export default function CropPathways() {
           /></Link>
         </div>
         <div id="mango" className="scroll-mt-24">
-          <Link href="/investment/mango" className="block h-full"><CropPathwayBanner
+          <Link href="/crop-specific-operations/mango" className="block h-full"><CropPathwayBanner
             title={copy.mangoTitle}
             description={mangoPathwayDescription}
             sideImageSrc={mangoImage}

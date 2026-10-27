@@ -1,3 +1,4 @@
+import { canonicalizePageLinks } from "./pagePaths";
 import investmentOverviewContent from "./investmentOverviewContent.json";
 import { applyCompanyOverviewReview } from "./companyOverviewReview";
 import { applyOperatingCompanyReview } from "./operatingCompanyReview";
@@ -1830,7 +1831,7 @@ Email: office@goldenforests.ai`,
   },
 };
 
-export const defaultSiteCopy: SiteCopy = siteCopySchema.parse(applyCompanyOverviewReview(baseSiteCopy));
+export const defaultSiteCopy: SiteCopy = siteCopySchema.parse(canonicalizePageLinks(applyCompanyOverviewReview(baseSiteCopy)));
 
 export function normalizeSiteCopy(parsed: unknown): SiteCopy {
   const data = applyCompanyOverviewReview(applyOperatingCompanyReview(parsed ?? {})) as Partial<SiteCopy> & Record<string, any>;
@@ -2451,7 +2452,7 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     sections: normalizedSectionMeta,
   };
 
-  return siteCopySchema.parse({
+  return siteCopySchema.parse(canonicalizePageLinks({
     ...defaultSiteCopy,
     ...data,
     typography: {
@@ -2510,6 +2511,6 @@ export function normalizeSiteCopy(parsed: unknown): SiteCopy {
     videos: { ...defaultSiteCopy.videos, ...(data.videos ?? {}) },
     faq: normalizedFaq,
     _meta: normalizedMeta,
-  });
+  }));
 }
 

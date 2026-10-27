@@ -1,3 +1,4 @@
+import { canonicalPageHref } from "@shared/pagePaths";
 import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
@@ -39,24 +40,18 @@ app.use(express.urlencoded({ extended: false }));
 
 const legacyRedirectPaths = new Set(["/faq", "/video"]);
 const retiredInvestmentDocumentPaths = new Set(["/gf_combined_two_pager_final.pdf", "/gf-faq-july-2026.pdf", "/golden_forests_faq_final.pdf"]);
-const canonicalRedirects = new Map([
-  ["/home", "/"],
-  ["/company-profile", "/golden-forests-group"],
-  ["/precision-farming", "/plantation"],
-  ["/ai-management", "/plantation"],
-]);
 
 app.use((req, res, next) => {
   // Send legacy Wix URLs to the homepage on the current site.
   const normalizedPath = (req.path.replace(/\/+$/, "") || "/").toLowerCase();
 
   if (legacyRedirectPaths.has(normalizedPath)) {
-    return res.redirect(301, "/");
+    return res.redirect(301, "/home");
   }
 
-  const canonicalPath = canonicalRedirects.get(normalizedPath);
-  if (canonicalPath) {
-    return res.redirect(301, canonicalPath);
+  const canonicalHref = canonicalPageHref(req.originalUrl);
+  if (canonicalHref !== req.originalUrl) {
+    return res.redirect(301, canonicalHref);
   }
 
   if (retiredInvestmentDocumentPaths.has(normalizedPath)) {

@@ -1,4 +1,5 @@
-import { Switch, Route, useLocation } from "wouter";
+import { pagePaths, legacyPagePaths } from "@shared/pagePaths";
+import { Switch, Route, Redirect, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -30,31 +31,36 @@ import { ContentProtection } from "@/components/ContentProtection";
 import { Seo } from "@/components/Seo";
 import { CookieConsentManager } from "@/components/CookieConsent";
 
+function LegacyPageRedirect({ to }: { to: string }) {
+  const suffix = typeof window === "undefined" ? "" : window.location.search + window.location.hash;
+  return <Redirect to={to + suffix} replace />;
+}
+
 function Router() {
   return (
     <Switch>
       <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin" component={AdminDashboard} />
-      <Route path="/" component={Home} />
-      <Route path="/home" component={Home} />
-      <Route path="/why-golden-forests" component={WhyGoldenForests} />
-      <Route path="/crop-specific-pathways" component={CropPathways} />
-      <Route path="/visitation-programme" component={PlantationVisit} />
-      <Route path="/crop-economics" component={CropEconomics} />
-      <Route path="/investment" component={Investment} />
-      <Route path="/investment/agarwood" component={AgarwoodInvestment} />
-      <Route path="/investment/mango" component={MangoInvestment} />
-      <Route path="/golden-forests-group" component={About} />
-      <Route path="/company-profile" component={About} />
-      <Route path="/precision-farming" component={Plantation} />
-      <Route path="/ai-management" component={Plantation} />
-      <Route path="/plantation" component={Plantation} />
-      <Route path="/asset-management" component={PlantationVisit} />
-      <Route path="/services" component={ClientServices} />
-      <Route path="/disclaimer" component={Disclaimer} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/cookie-policy" component={CookiePolicy} />
-      <Route path="/contact" component={Contact} />
+      {Object.entries(legacyPagePaths).map(([oldPath, newPath]) => (
+        <Route key={oldPath} path={oldPath}>
+          <LegacyPageRedirect to={newPath} />
+        </Route>
+      ))}
+      <Route path={pagePaths.home} component={Home} />
+      <Route path={pagePaths.whyGoldenForests} component={WhyGoldenForests} />
+      <Route path={pagePaths.crops} component={CropPathways} />
+      <Route path={pagePaths.visitation} component={PlantationVisit} />
+      <Route path={pagePaths.cropEconomics} component={CropEconomics} />
+      <Route path={pagePaths.agroforestry} component={Investment} />
+      <Route path={pagePaths.agarwood} component={AgarwoodInvestment} />
+      <Route path={pagePaths.mango} component={MangoInvestment} />
+      <Route path={pagePaths.group} component={About} />
+      <Route path={pagePaths.precisionFarming} component={Plantation} />
+      <Route path={pagePaths.investorServices} component={ClientServices} />
+      <Route path={pagePaths.disclaimer} component={Disclaimer} />
+      <Route path={pagePaths.privacy} component={PrivacyPolicy} />
+      <Route path={pagePaths.cookies} component={CookiePolicy} />
+      <Route path={pagePaths.contact} component={Contact} />
       <Route component={NotFound} />
     </Switch>
   );

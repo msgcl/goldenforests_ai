@@ -63,7 +63,7 @@ export default function ClientServices() {
                   ))}
                 </ul>
                 <Link
-                  href={index === 0 ? "/investment#participation-options" : "/plantation#investor-transparency"}
+                  href={index === 0 ? "/agroforestry-opportunities#participation-options" : "/precision-farming#investor-transparency"}
                   className="mt-6 inline-block font-medium text-[#17392E] underline underline-offset-4"
                 >
                   {index === 0 ? "Explore participation pathways" : "Explore operational reporting"}

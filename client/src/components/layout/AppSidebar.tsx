@@ -36,24 +36,24 @@ const navigationItems: Array<{
   { title: "Home", url: "/home", icon: Home },
   { title: "Why Golden Forests", url: "/why-golden-forests", icon: TreePine },
   {
-    title: "Investment Opportunities",
-    url: "/investment",
+    title: "Agroforestry Opportunities",
+    url: "/agroforestry-opportunities",
     icon: Sprout,
   },
   {
     title: "Crop Specific Operations",
-    url: "/crop-specific-pathways",
+    url: "/crop-specific-operations",
     icon: Sprout,
-    matchUrls: ["/investment/agarwood", "/investment/mango", "/crop-economics"],
+    matchUrls: ["/crop-specific-operations/agarwood", "/crop-specific-operations/mango", "/crop-specific-operations/crop-economics"],
     subItems: [
-      { title: "Agarwood", url: "/investment/agarwood" },
-      { title: "Mango", url: "/investment/mango" },
-      { title: "Crop Economics", url: "/crop-economics" },
+      { title: "Agarwood", url: "/crop-specific-operations/agarwood" },
+      { title: "Mango", url: "/crop-specific-operations/mango" },
+      { title: "Crop Economics", url: "/crop-specific-operations/crop-economics" },
     ],
   },
-  { title: "Precision Farming", url: "/precision-farming", icon: TreePine, matchUrls: ["/precision-farming", "/ai-management", "/plantation"] },
-  { title: "Investor Services", url: "/services", icon: Handshake, matchUrls: ["/services", "/visitation-programme", "/asset-management"], subItems: [{ title: "Visitation Programme", url: "/visitation-programme" }] },
-  { title: "Golden Forests Group", url: "/golden-forests-group", icon: Building2, matchUrls: ["/golden-forests-group", "/company-profile"] },
+  { title: "Precision Farming", url: "/precision-farming", icon: TreePine, matchUrls: ["/precision-farming"] },
+  { title: "Investor Services", url: "/investor-services", icon: Handshake, matchUrls: ["/investor-services", "/investor-services/visitation-programme"], subItems: [{ title: "Visitation Programme", url: "/investor-services/visitation-programme" }] },
+  { title: "Golden Forests Group", url: "/golden-forests-group", icon: Building2, matchUrls: ["/golden-forests-group"] },
   { title: "Contact", url: "/contact", icon: PhoneCall },
 ];
 
@@ -71,10 +71,10 @@ export function AppSidebar() {
 
   const isItemActive = (url: string, external?: boolean, matchUrls?: string[]) => {
     if (external) return false;
-    const candidates = matchUrls?.length ? matchUrls : [url];
+    const candidates = [url, ...(matchUrls ?? [])];
 
     if (url === "/home") return location === "/" || location === "/home";
-    if (url === "/investment") return location === "/investment";
+    if (url === "/agroforestry-opportunities") return location === "/agroforestry-opportunities";
     return candidates.some((candidate) => location === candidate || location.startsWith(`${candidate}/`));
   };
 
@@ -114,9 +114,9 @@ export function AppSidebar() {
                   href={item.url}
                   className="flex items-start gap-2.5 rounded-xl px-3 py-2.5"
                   onClick={(event) => {
-                    if (item.url === "/investment" && location.includes("#")) {
+                    if (item.url === "/agroforestry-opportunities" && location.includes("#")) {
                         event.preventDefault();
-                        window.history.replaceState(window.history.state, "", "/investment");
+                        window.history.replaceState(window.history.state, "", "/agroforestry-opportunities");
                       }
                     scrollPageToTop();
 

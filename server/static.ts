@@ -1,27 +1,9 @@
+import { pagePaths } from "@shared/pagePaths";
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
 
-const frontendPaths = new Set([
-  "/",
-  "/why-golden-forests",
-  "/crop-economics",
-  "/crop-specific-pathways",
-  "/visitation-programme",
-  "/investment",
-  "/investment/agarwood",
-  "/investment/mango",
-  "/golden-forests-group",
-  "/plantation",
-  "/asset-management",
-  "/services",
-  "/disclaimer",
-  "/privacy-policy",
-  "/cookie-policy",
-  "/contact",
-  "/admin",
-  "/admin/login",
-]);
+const frontendPaths = new Set<string>([...Object.values(pagePaths), "/admin", "/admin/login"]);
 
 export function serveStatic(app: Express) {
   const distPath = path.resolve(__dirname, "public");
@@ -35,7 +17,7 @@ export function serveStatic(app: Express) {
 
   // fall through to index.html if the file doesn't exist
   app.use("/{*path}", (req, res) => {
-    const normalizedPath = req.path.replace(/\/+$/, "") || "/";
+    const normalizedPath = req.originalUrl.split("?")[0].replace(/\/+$/, "") || "/";
     const status = frontendPaths.has(normalizedPath) ? 200 : 404;
     res.status(status).sendFile(path.resolve(distPath, "index.html"));
   });

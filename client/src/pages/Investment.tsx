@@ -67,12 +67,31 @@ export default function Investment() {
       <section className="light-surface mb-8 rounded-2xl border border-[#C8A070]/25 bg-[#F7F3EA] p-6 text-[#17392E] sm:p-8">
         <h2 className="font-serif text-2xl">{copy.regionalTitle}</h2>
         <p className="mt-4 leading-8">{copy.regionalDescription}</p>
-        <h3 className="mt-5 text-lg font-semibold">Three Investment Entry Stages</h3>
-        <ul className="mt-4 list-disc space-y-3 pl-5 leading-7">
-          <li><strong>Mature / inoculated:</strong> Ages 20–30, resin development underway.</li>
-          <li><strong>Mature / pre-inoculation:</strong> Ages 15–25, inoculation still required.</li>
-          <li><strong>Classic:</strong> Seedling-to-harvest cultivation and commercialization.</li>
-        </ul>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-[#17392E]/20">
+          <table className="w-full min-w-[320px] border-collapse text-left text-sm sm:text-base">
+            <thead className="bg-[#17392E] text-[#F7F3EA]">
+              <tr>
+                <th scope="col" className="w-2/3 px-4 py-4 font-semibold sm:px-5">Three Investment Entry Stages</th>
+                <th scope="col" className="px-4 py-4 font-semibold sm:px-5">Investment Exit Horizon</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#17392E]/15">
+              {[
+                { stage: "Mature / inoculated", description: "Mature trees with inoculation completed.", horizon: "3–4 years" },
+                { stage: "Mature / pre-inoculated", description: "Mature trees awaiting inoculation.", horizon: "5–6 years" },
+                { stage: "Classic", description: "Seedling-to-harvest cultivation.", horizon: "9–10 years" },
+              ].map(({ stage, description, horizon }) => (
+                <tr key={stage} className="bg-white/40">
+                  <th scope="row" className="px-4 py-4 font-normal sm:px-5">
+                    <span className="block font-semibold">{stage}</span>
+                    <span className="mt-1 block text-sm leading-6">{description}</span>
+                  </th>
+                  <td className="px-4 py-4 font-semibold sm:px-5">{horizon}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
 

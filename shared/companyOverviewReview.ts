@@ -1,3 +1,4 @@
+import { applyOctober27Review } from "./october27Review";
 import changes from "./companyOverviewReview.json";
 import participationChanges from "./participationOverviewReview.json";
 import presentationChanges from "./presentationReview.json";
@@ -134,9 +135,15 @@ export function applyCompanyOverviewReview(input: unknown): unknown {
   }
   if (copy.investment) {
     copy.investment.mangoTitle = "Sweet Elena Mango";
+    if (["Investment Opportunities", "Investment Opportunities & Participation", "Agroforestry Opportunities", "Agroforestry & Participation"].includes(copy.investment.header.title)) {
+      copy.investment.header.title = "Agroforestry Opportunities & Participation";
+    }
+    if (["Investment Opportunities", "Agroforestry Opportunities"].includes(copy.investment.header.badge)) {
+      copy.investment.header.badge = "Agroforestry & Participation";
+    }
     copy.investment.header.description = copy.investment.header.description.replace(
       "professional and institutional investors", "professional, institutional investors",
     );
   }
-  return copy;
+  return applyOctober27Review(copy);
 }

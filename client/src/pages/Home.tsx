@@ -25,7 +25,7 @@ export default function Home() {
   const investmentOpportunities = copy.investmentOpportunityTitles.map((title, index) => ({
     title,
     description: copy.investmentOpportunityDescriptions[index] ?? "",
-    enquiryHref: copy.investmentOpportunityLearnMoreHrefs[index] ?? "/investment",
+    enquiryHref: copy.investmentOpportunityLearnMoreHrefs[index] ?? "/agroforestry-opportunities",
     icon: investmentOpportunityIcons[index] ?? Leaf,
   }));
 
@@ -63,7 +63,7 @@ export default function Home() {
                 size="lg"
                 className="w-full rounded-xl bg-[#17392E] px-6 text-[#FBFCF7] hover:bg-[#214C40] sm:w-auto sm:px-7"
               >
-                <Link href="/investment#participation-options" className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
+                <Link href="/agroforestry-opportunities#participation-options" className={font("primaryCtaLabel", "inline-flex items-center gap-2")}>
                   {copy.primaryCtaLabel}
                   <ArrowRight className="h-4 w-4" />
                 </Link>

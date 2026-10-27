@@ -30,7 +30,7 @@ function CropOperations({ crop }: { crop: "agarwood" | "mango" }) {
           <OptimizedImage src={image} alt={isAgarwood ? "Harvested agarwood chips" : "Mango fruit"} className="w-full rounded-2xl object-cover" sizes="240px" />
         </div>
       </section>
-      <p className="mt-6 text-sm leading-7 text-[#F7F3EA]"><Link href="/crop-economics" className="underline underline-offset-4">View crop-economics</Link></p>
+      <p className="mt-6 text-sm leading-7 text-[#F7F3EA]"><Link href="/crop-specific-operations/crop-economics" className="underline underline-offset-4">View crop-economics</Link></p>
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         <section className="light-surface rounded-2xl border border-[#C8A070]/25 bg-[#F7F3EA] p-6 text-[#17392E]">
           <h2 className="font-serif text-2xl">Cultivation and harvest planning</h2>

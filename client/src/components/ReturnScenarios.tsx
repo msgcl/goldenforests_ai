@@ -15,7 +15,7 @@ export function ReturnScenarios({ detailed = false, crop }: { detailed?: boolean
           <article id={["agarwood-scenario", "mango-scenario", "combined-scenario"][index]} key={index} className="scroll-mt-24 rounded-2xl border border-[#17392E]/15 bg-white/60 p-6">
             <h3 className="text-lg font-semibold">{copy.scenarioNames[index]}</h3>
             <p className="mt-3 font-serif text-4xl">{copy.scenarioIrrs[index]}</p>
-            <p className="mt-2 text-sm font-semibold">Illustrative crop-model IRR · {copy.scenarioHorizons[index]}</p>
+            <p className="mt-2 text-sm font-semibold">Projected crop-model IRR · {copy.scenarioHorizons[index]}</p>
             <p className="mt-4 text-sm leading-7">{copy.scenarioDescriptions[index]}</p>
             <dl className="mt-4 space-y-3 border-t border-[#17392E]/15 pt-4 text-sm">
               <div><dt>Modeled crop-linked net proceeds (including capital)</dt><dd className="mt-1 text-xl font-semibold">{copy.scenarioNetReceipts[index]}</dd></div>
@@ -26,7 +26,7 @@ export function ReturnScenarios({ detailed = false, crop }: { detailed?: boolean
         ))}
       </div>
       <p className="mt-5 leading-7 text-[0.9375rem] italic">{copy.scenarioCashNote}</p>
-      <p className="mt-5 font-semibold leading-7 text-[0.9375rem] italic">Illustrative only. Actual outcomes may differ materially. Returns and repayment of capital are not guaranteed.</p>
+      <p className="mt-5 font-semibold leading-7 text-[0.9375rem] italic">Projections only. Actual outcomes may differ materially. Returns and repayment of capital are not guaranteed.</p>
       {detailed ? (
         <div id="return-assumptions" className="mt-6 scroll-mt-24 border-t border-[#17392E]/20 pt-6">
           <h3 className="text-xl font-semibold">{copy.scenarioAssumptionsTitle}</h3>
@@ -35,7 +35,7 @@ export function ReturnScenarios({ detailed = false, crop }: { detailed?: boolean
           </ul>
         </div>
       ) : (
-        <Link href="/crop-economics#return-assumptions" className="mt-5 inline-block font-semibold underline underline-offset-4">Review scenario assumptions and due diligence</Link>
+        <Link href="/crop-specific-operations/crop-economics#return-assumptions" className="mt-5 inline-block font-semibold underline underline-offset-4">Review scenario assumptions and due diligence</Link>
       )}
     </section>
   );

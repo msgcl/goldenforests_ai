@@ -204,7 +204,7 @@ export default function Plantation() {
                   {before ? <span>{before} </span> : null}
                   {lead ? (
                     isPlantationVisitTransparencyLink(lead) ? (
-                      <Link href="/asset-management" className="font-semibold text-[#8A6744] underline decoration-[#C8A070] underline-offset-4 transition-colors hover:text-[#17392E]">
+                      <Link href="/investor-services/visitation-programme" className="font-semibold text-[#8A6744] underline decoration-[#C8A070] underline-offset-4 transition-colors hover:text-[#17392E]">
                         {lead}
                       </Link>
                     ) : (
